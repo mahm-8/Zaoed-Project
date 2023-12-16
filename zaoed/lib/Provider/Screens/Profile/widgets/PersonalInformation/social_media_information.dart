@@ -35,4 +35,3 @@ class SocialMediaInformation extends StatelessWidget {
     );
   }
 }
- 

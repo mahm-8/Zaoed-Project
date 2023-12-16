@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:zaoed/Provider/Screens/Profile/widgets/information_lable.dart';
 import 'package:zaoed/constants/colors.dart';
@@ -17,7 +16,7 @@ class PaymentInformation extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,
       ),
-      child: Column(children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         InformationLabel(
           imageIcon: 'lib/assets/icons/akar-icons_credit-card.png',
           title: 'البطاقات',

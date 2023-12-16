@@ -16,7 +16,7 @@ class ProviderInformation extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,
       ),
-      child: Column(children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
         InformationLabel(
           imageIcon: 'lib/assets/icons/person1.png',
           title: 'البيانات الشخصية',
