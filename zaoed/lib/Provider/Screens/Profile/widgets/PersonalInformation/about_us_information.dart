@@ -1,7 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/about_us_screen.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/legal_affairs_screen.dart';
 import 'package:zaoed/Provider/Screens/Profile/widgets/information_lable.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
 
 class AboutUsInformation extends StatelessWidget {
   const AboutUsInformation({
@@ -21,7 +23,9 @@ class AboutUsInformation extends StatelessWidget {
         InformationLabel(
           imageIcon: 'lib/assets/icons/About Us.png',
           title: 'من نحن؟',
-          onTap: () {},
+          onTap: () {
+            context.push(view: AboutUsScreen());
+          },
         ),
         const Divider(
           thickness: 1,
@@ -37,7 +41,9 @@ class AboutUsInformation extends StatelessWidget {
         InformationLabel(
           imageIcon: 'lib/assets/icons/Info.png',
           title: 'الشؤون القانونية',
-          onTap: () {},
+          onTap: () {
+            context.push(view: LegalAffairsScreen());
+          },
         ),
         const Divider(
           thickness: 1,
