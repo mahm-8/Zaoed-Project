@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:zaoed/Provider/Screens/Profile/widgets/information_lable.dart';
 import 'package:zaoed/constants/colors.dart';
@@ -17,14 +16,15 @@ class PublicSittings extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,
       ),
-      child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         InformationLabel(
           imageIcon: 'lib/assets/icons/Settings.png',
           title: 'الإعدادات',
           onTap: () {},
         ),
-        const Divider(
+        Divider(
           thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/sign.png',

@@ -24,8 +24,8 @@ class PaymentInformation extends StatelessWidget {
           title: 'البطاقات',
           onTap: () {},
         ),
-        const Divider(
-          thickness: 1,
+         Divider(
+        thickness: 1,color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Card.png',
@@ -34,8 +34,8 @@ class PaymentInformation extends StatelessWidget {
             context.push(view: BankInformationScreen());
           },
         ),
-        const Divider(
-          thickness: 1,
+         Divider(
+           thickness: 1,color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Bill.png',

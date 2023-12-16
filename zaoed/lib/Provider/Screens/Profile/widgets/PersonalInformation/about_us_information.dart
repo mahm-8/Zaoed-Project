@@ -27,16 +27,16 @@ class AboutUsInformation extends StatelessWidget {
             context.push(view: AboutUsScreen());
           },
         ),
-        const Divider(
-          thickness: 1,
+         Divider(
+      thickness: 1,color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Question.png',
           title: 'الأسئلة الشائعة',
           onTap: () {},
         ),
-        const Divider(
-          thickness: 1,
+         Divider(
+           thickness: 1,color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Info.png',
@@ -45,8 +45,8 @@ class AboutUsInformation extends StatelessWidget {
             context.push(view: LegalAffairsScreen());
           },
         ),
-        const Divider(
-          thickness: 1,
+         Divider(
+           thickness: 1,color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Support.png',
