@@ -27,23 +27,23 @@ class BankInformationScreen extends StatelessWidget {
             ),
             BankTextField(
               controller: idController,
-              hint: 'رقم الهوية',
-              label: "أدخل رقم الهوية",
+              hint: "أدخل رقم الهوية",
+              label: 'رقم الهوية',
             ),
             BankTextField(
               controller: cardNumberController,
-              hint: "رقم الآيبان",
-              label: "أدخل رقم الآيبان",
+              hint: "أدخل رقم الآيبان",
+              label: "رقم الآيبان",
             ),
             BankTextField(
               controller: bankNameController,
-              hint: "أسم البنك ",
-              label: "أدخل أسم البنك",
+              hint: "أدخل أسم البنك",
+              label: "أسم البنك ",
             ),
             BankTextField(
               controller: nationalAddressController,
-              hint: "العنوان الوطني",
-              label: "أدخل رقم العنوان الوطني",
+              hint: "أدخل رقم العنوان الوطني",
+              label: "العنوان الوطني",
             )
           ],
         ),
