@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zaoed/screens/auth/components/tab_bar_widget.dart';
+import 'package:zaoed/screens/auth/tabbar_login_screen.dart';
 
 class OnboardingRow extends StatelessWidget {
   const OnboardingRow({
@@ -20,7 +20,7 @@ class OnboardingRow extends StatelessWidget {
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => TabBarWidget()),
+                    MaterialPageRoute(builder: (context) => TabBarLogin()),
                     (route) => false);
               },
               child: const Text("تخطي",

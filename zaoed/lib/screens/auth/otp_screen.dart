@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:pinput/pinput.dart';
 
@@ -10,7 +11,7 @@ class OTPScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors().gray9,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.all(20),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,7 +27,7 @@ class OTPScreen extends StatelessWidget {
                     fontFamily: "SfArabic"),
               ),
               const SizedBox(
-                height: 30,
+                height: 8,
               ),
               Text(
                 "ادخل رمز التحقق المرسل للبريد الإلكتروني:",
@@ -35,6 +36,9 @@ class OTPScreen extends StatelessWidget {
                     fontSize: 17,
                     color: AppColors().white,
                     fontFamily: "SfArabic"),
+              ),
+              const SizedBox(
+                height: 8,
               ),
               Text(
                 email,
@@ -45,27 +49,40 @@ class OTPScreen extends StatelessWidget {
                     fontFamily: "SfArabic"),
               ),
               const SizedBox(
-                height: 50,
+                height: 16,
               ),
               Pinput(
                 autofocus: true,
                 length: 6,
+                showCursor: true,
+                pinContentAlignment: Alignment.center,
                 defaultPinTheme: PinTheme(
-                    width: 48,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        border: Border(
-                            left: BorderSide(
-                                color: AppColors().green, width: 0.4),
-                            top: BorderSide(
-                                color: AppColors().green, width: 0.4)),
-                        color: AppColors().gray1Trans,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(8)))),
+                  textStyle: TextStyle(
+                      fontSize: 24,
+                      fontFamily: "SfArabic",
+                      color: AppColors().mainWhite),
+                  width: 48,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(color: AppColors().green, width: 0.4),
+                      top: BorderSide(color: AppColors().green, width: 0.4),
+                    ),
+                    color: AppColors().gray1Trans,
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  ),
+                ),
                 onCompleted: (pin) {
                   ///
                 },
               ),
+              const Spacer(),
+              ButtonWidget(
+                textEntry: "التالي",
+                backColor: AppColors().gray4,
+                textColor: AppColors().gray8,
+                onPress: () {},
+              )
             ],
           ),
         ),

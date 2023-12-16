@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:zaoed/screens/auth/components/tab_bar_widget.dart';
+import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/screens/auth/tabbar_login_screen.dart';
 
 import '../../components/button_widget.dart';
 import 'components/map_background.dart';
@@ -34,11 +35,10 @@ class _OnboradingScreenState extends State<OnboradingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xff21232b),
+        backgroundColor: AppColors().gray9,
         body: Stack(children: [
           const MapBackground(),
           Positioned(
-            
             child: SizedBox(
               child: PageView(
                 controller: controller,
@@ -61,11 +61,11 @@ class _OnboradingScreenState extends State<OnboradingScreen> {
             child: SmoothPageIndicator(
               controller: controller,
               count: 2,
-              effect: const ExpandingDotsEffect(
-                  activeDotColor: Color(0xff3FEDB2),
+              effect: ExpandingDotsEffect(
+                  activeDotColor: AppColors().green,
                   dotHeight: 3,
                   strokeWidth: 0.5,
-                  dotColor: Color(0xffA9AEB1)),
+                  dotColor: AppColors().gray4),
             ),
           )
         ]),
@@ -77,16 +77,16 @@ class _OnboradingScreenState extends State<OnboradingScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
                 child: ButtonWidget(
-                  backColor: const Color(0xff3FEDB2),
+                  backColor: AppColors().green,
                   textEntry: 'ابدأ',
                   onPress: () {
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: ((context) => const TabBarWidget())),
+                            builder: ((context) => const TabBarLogin())),
                         (route) => false);
                   },
-                  textColor: const Color(0xff272A33),
+                  textColor: AppColors().gray8,
                 ),
               ));
   }

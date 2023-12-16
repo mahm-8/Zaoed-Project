@@ -4,6 +4,7 @@ import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/validtor.dart';
 import 'package:zaoed/screens/auth/components/textfield_widget.dart';
 import 'package:zaoed/screens/auth/otp_screen.dart';
+import 'package:zaoed/screens/auth/tabbar_signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -60,8 +61,10 @@ class LoginScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => SignUpScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TabbarSignup()));
               },
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",

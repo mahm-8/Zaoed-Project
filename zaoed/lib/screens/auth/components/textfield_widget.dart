@@ -40,12 +40,16 @@ class TextfieldWidget extends StatelessWidget {
                   top: BorderSide(color: AppColors().green, width: 0.4)),
             ),
             child: TextFormField(
+              maxLines: 1,
               cursorColor: AppColors().green,
               keyboardType: keyboardType,
               validator: validator,
               obscureText: !obscure ? false : !displayPass,
               controller: controller,
-              style: const TextStyle(fontSize: 17),
+              style: TextStyle(
+                  fontSize: 17,
+                  color: AppColors().white,
+                  fontFamily: "SfArabic"),
               decoration: InputDecoration(
                 fillColor: AppColors().gray1Trans,
                 filled: true,
@@ -60,8 +64,8 @@ class TextfieldWidget extends StatelessWidget {
                         ),
                       ),
                 hintText: hint,
-                hintStyle: const TextStyle(
-                    color: Color(0xffA9AEB1),
+                hintStyle: TextStyle(
+                    color: AppColors().gray4,
                     fontFamily: "SfArabic",
                     fontSize: 17),
                 floatingLabelBehavior: FloatingLabelBehavior.always,

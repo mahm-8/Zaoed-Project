@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:zaoed/Provider/Screens/NavigationBar/navigation_bar.dart';
+import 'package:zaoed/screens/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       supportedLocales: [
         Locale("ar"),
       ],
@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      home: NavigationBarScreen(),
+      home: OnboradingScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

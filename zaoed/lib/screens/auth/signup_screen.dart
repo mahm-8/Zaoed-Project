@@ -4,6 +4,7 @@ import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/validtor.dart';
 import 'package:zaoed/screens/auth/components/textfield_widget.dart';
 import 'package:zaoed/screens/auth/otp_screen.dart';
+import 'tabbar_login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -18,6 +19,7 @@ class SignUpScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
             height: 24,
@@ -72,8 +74,8 @@ class SignUpScreen extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => LoginScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const TabBarLogin()));
             },
             child: Text(
               "لديك حساب مسبقاً؟ تسجيل الدخول",
