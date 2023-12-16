@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/bank_information.dart';
 import 'package:zaoed/Provider/Screens/Profile/widgets/information_lable.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
 
 class PaymentInformation extends StatelessWidget {
   const PaymentInformation({
@@ -28,7 +30,9 @@ class PaymentInformation extends StatelessWidget {
         InformationLabel(
           imageIcon: 'lib/assets/icons/Card.png',
           title: 'البيانات البنكية',
-          onTap: () {},
+          onTap: () {
+            context.push(view: BankInformationScreen());
+          },
         ),
         const Divider(
           thickness: 1,
