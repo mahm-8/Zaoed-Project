@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:glass/glass.dart';
 import 'package:zaoed/Provider/Screens/Profile/profile_screen.dart';
 import 'package:zaoed/constants/colors.dart';
-
+import 'package:zaoed/finder/Profile/profile_screen.dart';
 class NavigationBarScreen extends StatefulWidget {
   @override
   _NavigationBarScreenState createState() => _NavigationBarScreenState();
@@ -11,7 +11,7 @@ class NavigationBarScreen extends StatefulWidget {
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   int currentIndex = 3;
   final List screens = [
-    Container(),
+    ProfileFinder(),
     Container(),
     Container(),
     ProfileScreen(),

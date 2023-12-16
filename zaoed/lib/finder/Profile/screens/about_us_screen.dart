@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zaoed/Provider/Screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/finder/Profile/screens/AppBar/profail_screens_app_bar.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});
@@ -9,7 +9,7 @@ class AboutUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfailScreenAppBar(context, title: 'من نحن'),
+      appBar: appBar(context, title: 'من نحن'),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(
