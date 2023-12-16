@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glass/glass.dart';
 import 'package:zaoed/Provider/Screens/Profile/profile_screen.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/add_charging_point.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/finder/Profile/profile_screen.dart';
 class NavigationBarScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   final List screens = [
     ProfileFinder(),
     Container(),
-    Container(),
+    AddChargingPoint(),
     ProfileScreen(),
   ];
 
@@ -23,8 +24,8 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors().gray1,
         selectedItemColor: AppColors().green,
+        backgroundColor: AppColors().gray1,
         unselectedItemColor: AppColors().white,
         currentIndex: currentIndex,
         onTap: (index) {
@@ -66,7 +67,9 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
             label: '',
           ),
         ],
+      ).asGlass(
+        tintColor: AppColors().gray1,
       ),
-    ).asGlass();
+    );
   }
 }
