@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/charging_point_data.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/statics_screen.dart';
 import 'package:zaoed/Provider/Screens/Profile/widgets/information_lable.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
 
 class ProviderInformation extends StatelessWidget {
   const ProviderInformation({
@@ -16,30 +19,37 @@ class ProviderInformation extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,
       ),
-      child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         InformationLabel(
           imageIcon: 'lib/assets/icons/person1.png',
           title: 'البيانات الشخصية',
           onTap: () {},
         ),
-        const Divider(
+        Divider(
           thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Vector 3.png',
           title: 'بيانات نقطة الشحن',
-          onTap: () {},
+          onTap: () {
+            context.push(view: ChargingPointDataScreen());
+          },
         ),
-        const Divider(
+        Divider(
           thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/statices1.png',
           title: 'الأحصائيات',
-          onTap: () {},
+          onTap: () {
+            context.push(view: StaticsScreen());
+          },
         ),
-        const Divider(
+        Divider(
           thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/bolt.car.png',
