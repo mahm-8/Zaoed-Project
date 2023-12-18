@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zaoed/screens/auth/tabbar_login_screen.dart';
+import 'package:zaoed/auth/tabbar_login_screen.dart';
 
 class OnboardingRow extends StatelessWidget {
   const OnboardingRow({

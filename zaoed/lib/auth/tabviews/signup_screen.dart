@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/validtor.dart';
-import 'package:zaoed/screens/auth/components/textfield_widget.dart';
-import 'package:zaoed/screens/auth/otp_screen.dart';
-import 'tabbar_login_screen.dart';
+import 'package:zaoed/auth/components/textfield_widget.dart';
+import 'package:zaoed/auth/otp_screen.dart';
+import '../tabbar_login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -75,7 +75,7 @@ class SignUpScreen extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TabBarLogin()));
+                  MaterialPageRoute(builder: (context) => TabBarLogin()));
             },
             child: Text(
               "لديك حساب مسبقاً؟ تسجيل الدخول",

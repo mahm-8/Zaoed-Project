@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/screens/auth/tabbar_login_screen.dart';
+import 'package:zaoed/auth/tabbar_login_screen.dart';
 
-import '../../components/button_widget.dart';
+import '../components/button_widget.dart';
 import 'components/map_background.dart';
 import 'components/onboarding_row.dart';
 import 'onboarding_pages/page1.dart';
@@ -83,7 +83,7 @@ class _OnboradingScreenState extends State<OnboradingScreen> {
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: ((context) => const TabBarLogin())),
+                            builder: ((context) => TabBarLogin())),
                         (route) => false);
                   },
                   textColor: AppColors().gray8,
