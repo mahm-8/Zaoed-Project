@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
-class InformationLabel extends StatelessWidget {
-  const InformationLabel(
+class InfoLabelWidget extends StatelessWidget {
+  const InfoLabelWidget(
       {super.key,
       required this.title,
       required this.imageIcon,
@@ -13,11 +13,10 @@ class InformationLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 14, right: 14, top: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
       child: InkWell(
         onTap: onTap,
         child: Row(
-          
           children: [
             Image.asset(
               imageIcon,
@@ -31,7 +30,12 @@ class InformationLabel extends StatelessWidget {
               style: TextStyle(color: AppColors().white),
             ),
             const Spacer(),
-            Image.asset('lib/assets/icons/small-left-solid.png'),
+            const Icon(
+              Icons.arrow_back_ios,
+              textDirection: TextDirection.ltr,
+              color: Colors.white,
+              size: 20,
+            )
           ],
         ),
       ),
