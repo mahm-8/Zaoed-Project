@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class AppColors {
   Color black = const Color(0xff1E2024);
   Color white = const Color(0xffF4F4F4);
+  Color mainWhite = const Color(0xFFFFFFFF);
   Color gray1 = const Color(0xff535868);
   Color gray2 = const Color(0xff535868);
+  Color gray1Trans = const Color(0xff535868).withOpacity(0.4);
   Color gray3 = const Color(0xffD9D9D9);
   Color gray4 = const Color(0xffA9AEB1);
   Color gray5 = const Color(0xff505364);
