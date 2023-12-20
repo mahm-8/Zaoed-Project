@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/screens/auth/components/language_widget.dart';
-import 'package:zaoed/screens/auth/components/tab_bar_widget.dart';
-import 'package:zaoed/screens/auth/signup_screen.dart';
+import 'package:zaoed/auth/components/language_widget.dart';
+import 'package:zaoed/auth/components/tab_bar_widget.dart';
+import 'package:zaoed/auth/tabviews/signup_screen.dart';
 
-class TabbarSignup extends StatelessWidget {
+class TabbarSignup extends StatefulWidget {
   const TabbarSignup({super.key});
+
+  @override
+  State<TabbarSignup> createState() => _TabbarSignupState();
+}
+
+class _TabbarSignupState extends State<TabbarSignup>
+    with SingleTickerProviderStateMixin {
+  late TabController signuptabController;
+  int selectedTabIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    signuptabController = TabController(length: 2, vsync: this);
+    signuptabController.addListener(() {
+      setState(() {
+        selectedTabIndex = signuptabController.index;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +46,11 @@ class TabbarSignup extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                const TabBarWidget(),
+                TabBarWidget(
+                  controller: signuptabController,
+                ),
                 Expanded(
-                  child: TabBarView(children: [
+                  child: TabBarView(controller: signuptabController, children: [
                     SignUpScreen(),
                     SignUpScreen(),
                   ]),
