@@ -14,7 +14,7 @@ class CardScreen extends StatelessWidget {
       appBar: appBar(context, title: 'البطاقات'),
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          context.push(view: AddCard());
+          context.push(view: const AddCard());
         },
         style: ElevatedButton.styleFrom(
             shape:
@@ -26,11 +26,30 @@ class CardScreen extends StatelessWidget {
       ),
       backgroundColor: AppColors().gray9,
       body: SafeArea(
-          child: Center(
+          child: Card(
+        color: AppColors().gray6,
+        child: ListTile(
+          leading: Image.asset("lib/assets/icons/mastercard.png"),
+          title: Text.rich(TextSpan(
+              style: TextStyle(color: AppColors().white),
+              children: [
+                const TextSpan(text: "البنك الاهلي "),
+                TextSpan(text: "111".padLeft(10, "*"))
+              ])),
+          trailing: TextButton(
+              onPressed: () {},
               child: Text(
-        "لاتوجد أي بطاقة مضافة حالياٍ",
-        style: TextStyle(color: AppColors().white),
-      ))),
+                "تعديل",
+                style: TextStyle(fontSize: 18, color: AppColors().blue),
+              )),
+        ),
+      )
+          //     Center(
+          //         child: Text(
+          //   "لاتوجد أي بطاقة مضافة حالياٍ",
+          //   style: TextStyle(color: AppColors().white),
+          // ))
+          ),
     );
   }
 }
