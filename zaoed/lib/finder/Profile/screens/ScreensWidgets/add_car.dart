@@ -7,22 +7,35 @@ import 'package:zaoed/finder/Profile/screens/car_screen.dart';
 import 'package:zaoed/finder/Profile/widgets/cars_widget/drop_menu.dart';
 import 'package:zaoed/finder/Profile/widgets/information_title.dart';
 
-class AddCar extends StatelessWidget {
+class AddCar extends StatefulWidget {
   AddCar({super.key});
+
+  @override
+  State<AddCar> createState() => _AddCarState();
+}
+
+class _AddCarState extends State<AddCar> {
   final List<String> listBrand = <String>[
     'تيسلا',
     'شيفروليه بولت',
     'نيسان ليف',
     'بي ام دبليو أي3'
   ];
+
+  String brand = "brand";
+  String model = "brand";
+  String type = "brand";
+  ExpansionTileController brandController = ExpansionTileController();
   final List<String> listModel = <String>['موديل 3', 'موديل اس', 'موديل اكس'];
+
   final List<String> listType = <String>['Chademo', 'CCS 1', 'CCS 2'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          context.push(view: CarScreen());
+          context.push(view: const CarScreen());
         },
         style: ElevatedButton.styleFrom(
             shape:
@@ -39,12 +52,21 @@ class AddCar extends StatelessWidget {
         child: ListView(
           children: [
             const TitleInfoWidget(title: 'ماركة السيارة'),
-            DropMenu(list: listBrand),
+            DropDownWidget(
+                brandController: brandController,
+                brand: brand,
+                list: listBrand),
             const TitleInfoWidget(title: 'موديل السيارة'),
-            DropMenu(list: listModel),
+            DropDownWidget(
+                brandController: ExpansionTileController(),
+                brand: model,
+                list: listModel),
             const TitleInfoWidget(title: 'منفذ الشاحن'),
-            DropMenu(list: listType),
-            SizedBox(height: 10),
+            DropDownWidget(
+                brandController: ExpansionTileController(),
+                brand: type,
+                list: listType),
+            const SizedBox(height: 10),
             const TitleInfoWidget(title: 'الموقع'),
             Container(
               width: context.getWidth(divide: 1.2),

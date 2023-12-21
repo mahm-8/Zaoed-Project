@@ -10,11 +10,12 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+
+    return MaterialApp(
       supportedLocales: const [
         Locale("ar"),
       ],
-      localizationsDelegates: const [
+      localizationsDelegates: [
         GlobalCupertinoLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/finder/Profile/screens/ScreensWidgets/card_screen.dart';
 import 'package:zaoed/finder/Profile/widgets/information_lable.dart';
 
 class PaymentFinder extends StatelessWidget {
@@ -19,7 +21,9 @@ class PaymentFinder extends StatelessWidget {
         InfoLabelWidget(
           imageIcon: 'lib/assets/icons/akar-icons_credit-card.png',
           title: 'البطاقات',
-          onTap: () {},
+          onTap: () {
+            context.push(view: CardScreen());
+          },
         ),
         Divider(
           thickness: 1,

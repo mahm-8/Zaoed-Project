@@ -1,60 +1,56 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
 
-class DropMenu extends StatelessWidget {
-  const DropMenu({
+class DropDownWidget extends StatefulWidget {
+  DropDownWidget({
     super.key,
+    this.brandController,
+    required this.brand,
     required this.list,
   });
 
+  final ExpansionTileController? brandController;
+  String brand;
   final List<String> list;
 
   @override
+  State<DropDownWidget> createState() => _DropDownWidgetState();
+}
+
+class _DropDownWidgetState extends State<DropDownWidget> {
+  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: DropdownMenu<String>(
-        trailingIcon: Icon(
-          Icons.keyboard_arrow_down_sharp,
-          color: AppColors().white,
-        ),
-        menuStyle: MenuStyle(
-          visualDensity: const VisualDensity(horizontal: -2),
-          elevation: const MaterialStatePropertyAll(0),
-          shape: MaterialStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-          backgroundColor: MaterialStatePropertyAll(AppColors().gray6),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-            contentPadding: EdgeInsets.only(right: 8),
-            isCollapsed: true,
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-                borderSide: BorderSide.none),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-                borderSide: BorderSide.none),
-            fillColor: AppColors().gray6,
-            filled: true,
-            outlineBorder: BorderSide.none),
-        width: context.getWidth(divide: 1.1),
-        textStyle: TextStyle(color: AppColors().white),
-        initialSelection: list.first,
-        onSelected: (String? value) {
-          // setState(() {
-          //   dropdownValue = value!;
-          // });
-        },
-        dropdownMenuEntries:
-            list.map<DropdownMenuEntry<String>>((String value) {
-          return DropdownMenuEntry<String>(
-              value: value,
-              label: value,
-              style:
-                  MenuItemButton.styleFrom(foregroundColor: AppColors().white));
-        }).toList(),
+    return ExpansionTile(
+      collapsedIconColor: AppColors().white,
+      controller: widget.brandController,
+      collapsedTextColor: AppColors().white,
+      collapsedBackgroundColor: AppColors().gray6,
+      backgroundColor: AppColors().gray6,
+      textColor: AppColors().white,
+      collapsedShape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      title: Text(
+        widget.brand,
       ),
+      children: [
+        ...widget.list.map((e) => ListTile(
+              title: Text(
+                e,
+                style: TextStyle(
+                  color: AppColors().white,
+                ),
+              ),
+              onTap: () {
+                setState(() {
+                  widget.brand = e;
+                  widget.brandController!.collapse();
+                });
+              },
+            ))
+      ],
     );
   }
 }

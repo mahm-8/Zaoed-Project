@@ -7,11 +7,11 @@ import 'package:zaoed/constants/colors.dart';
 // ignore: must_be_immutable
 class BankInformationScreen extends StatelessWidget {
   BankInformationScreen({super.key});
-  TextEditingController cardNameController = TextEditingController();
-  TextEditingController idController = TextEditingController();
-  TextEditingController cardNumberController = TextEditingController();
-  TextEditingController bankNameController = TextEditingController();
-  TextEditingController nationalAddressController = TextEditingController();
+  final cardNameController = TextEditingController();
+  final idController = TextEditingController();
+  final cardNumberController = TextEditingController();
+  final bankNameController = TextEditingController();
+  final nationalAddressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
