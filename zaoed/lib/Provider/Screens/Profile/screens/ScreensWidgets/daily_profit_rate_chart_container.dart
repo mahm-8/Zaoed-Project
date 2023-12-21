@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/daily_profit_rate_chart.dart';
 import 'package:zaoed/constants/colors.dart';
 
-class RateContainer extends StatelessWidget {
-  const RateContainer({
-    super.key, required this.title, required this.subTitle,
+class DailyProfitRateChartContainer extends StatelessWidget {
+  DailyProfitRateChartContainer({
+    super.key,
+    required this.title,
+    required this.subTitle,
   });
- final String title;
-final String subTitle;
+  final String title;
+  final String subTitle;
+  final List dataProfitRate = [
+    DataPoint(date: 'الأحد', profitRate: 20),
+    DataPoint(date: 'الأثنين', profitRate: 12),
+    DataPoint(date: 'الثلاثاء', profitRate: 6),
+    DataPoint(date: 'الأربعاء', profitRate: 7),
+    DataPoint(date: 'الخميس', profitRate: 2),
+    DataPoint(date: 'الجمعة', profitRate: 25),
+    DataPoint(date: 'السبت', profitRate: 3),
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,6 +41,7 @@ final String subTitle;
               color: Colors.grey,
               thickness: 1,
             ),
+            DailyProfitRateChart(dataProfitRate: dataProfitRate),
           ],
         ),
       ),

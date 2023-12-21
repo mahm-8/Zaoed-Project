@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
-class LegalAffairsLable extends StatelessWidget {
-  const LegalAffairsLable({
+class PersonalInformationLabel extends StatelessWidget {
+  const PersonalInformationLabel({
     super.key,
     required this.title,
     required this.onTap,
+    required this.subTitle,
   });
   final String title;
   final Function() onTap;
+  final String subTitle;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -24,7 +26,14 @@ class LegalAffairsLable extends StatelessWidget {
               style: TextStyle(color: AppColors().white, fontSize: 18),
             ),
             Spacer(),
-            Image.asset('lib/assets/icons/small-left-solid.png'),
+            Text(
+              subTitle,
+              style: TextStyle(color: Colors.grey),
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Image.asset('lib/assets/icons/edit_w.png'),
           ],
         ),
       ),

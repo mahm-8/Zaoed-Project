@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/bank_text_field.dart';
+import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 
+// ignore: must_be_immutable
 class BankInformationScreen extends StatelessWidget {
   BankInformationScreen({super.key});
   TextEditingController cardNameController = TextEditingController();
@@ -17,7 +19,7 @@ class BankInformationScreen extends StatelessWidget {
       backgroundColor: AppColors().gray9,
       appBar: ProfailScreenAppBar(context, title: 'البيانات البنكية'),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 27),
         child: Column(
           children: [
             BankTextField(
@@ -44,6 +46,13 @@ class BankInformationScreen extends StatelessWidget {
               controller: nationalAddressController,
               hint: "أدخل رقم العنوان الوطني",
               label: "العنوان الوطني",
+            ),
+            Spacer(),
+            ButtonWidget(
+              textEntry: "إضافة",
+              backColor: AppColors().green,
+              textColor: AppColors().white,
+              onPress: () {},
             )
           ],
         ),

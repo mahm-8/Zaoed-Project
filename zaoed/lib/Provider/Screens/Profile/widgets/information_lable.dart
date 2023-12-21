@@ -17,18 +17,21 @@ class InformationLabel extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Row(
-          
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
               imageIcon,
               color: AppColors().green,
+              width: 24,
+              height: 24,
             ),
             const SizedBox(
-              width: 4,
+              width: 8,
             ),
             Text(
               title,
-              style: TextStyle(color: AppColors().white),
+              style: TextStyle(color: AppColors().white, fontSize: 18),
             ),
             const Spacer(),
             Image.asset('lib/assets/icons/small-left-solid.png'),

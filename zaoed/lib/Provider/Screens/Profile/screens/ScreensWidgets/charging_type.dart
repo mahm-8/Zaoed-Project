@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
@@ -45,14 +44,24 @@ class ChargingType extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: AppColors().gray6)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 1),
             child: Row(
               children: [
-                Image.asset('lib/assets/icons/ph_minus.png'),
+                Image.asset(
+                  'lib/assets/icons/ph_minus.png',
+                  color: AppColors().gray6,
+                  width: 30,
+                  height: 30,
+                ),
                 Spacer(),
-                Text(count, style: TextStyle(color: AppColors().white)),
+                Text(count,
+                    style: TextStyle(color: AppColors().white, fontSize: 12)),
                 Spacer(),
-                Image.asset('lib/assets/icons/ph_plus.png'),
+                Image.asset(
+                  'lib/assets/icons/ph_plus.png',
+                  width: 27,
+                  height: 27,
+                ),
               ],
             ),
           ),

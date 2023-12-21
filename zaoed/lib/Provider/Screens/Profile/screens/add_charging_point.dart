@@ -6,6 +6,7 @@ import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/charging_p
 import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/charging_point_text_field.dart';
 import 'package:zaoed/constants/colors.dart';
 
+// ignore: must_be_immutable
 class AddChargingPoint extends StatelessWidget {
   AddChargingPoint({super.key});
   TextEditingController controller = TextEditingController();
