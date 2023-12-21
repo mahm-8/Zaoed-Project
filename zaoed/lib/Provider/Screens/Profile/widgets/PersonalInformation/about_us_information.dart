@@ -24,7 +24,7 @@ class AboutUsInformation extends StatelessWidget {
           imageIcon: 'lib/assets/icons/About Us.png',
           title: 'من نحن؟',
           onTap: () {
-            context.push(view: AboutUsScreen());
+            context.push(view: const AboutUsScreen());
           },
         ),
          Divider(
@@ -42,7 +42,7 @@ class AboutUsInformation extends StatelessWidget {
           imageIcon: 'lib/assets/icons/Info.png',
           title: 'الشؤون القانونية',
           onTap: () {
-            context.push(view: LegalAffairsScreen());
+            context.push(view: const LegalAffairsScreen());
           },
         ),
          Divider(

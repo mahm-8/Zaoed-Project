@@ -29,7 +29,7 @@ class FinderInfoWidget extends StatelessWidget {
           imageIcon: 'lib/assets/icons/bolt.car.png',
           title: ' بيانات السيارة',
           onTap: () {
-            context.push(view: CarScreen());
+            context.push(view: const CarScreen());
           },
         ),
       ]),

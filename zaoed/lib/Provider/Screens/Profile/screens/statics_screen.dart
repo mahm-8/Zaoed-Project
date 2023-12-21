@@ -4,7 +4,6 @@ import 'package:zaoed/Provider/Screens/Profile/screens/AppBar/profail_screens_ap
 import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/rate_container.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class StaticsScreen extends StatelessWidget {
   const StaticsScreen({super.key});

@@ -22,7 +22,7 @@ class AddCar extends StatelessWidget {
     return Scaffold(
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          context.push(view: CarScreen());
+          context.push(view: const CarScreen());
         },
         style: ElevatedButton.styleFrom(
             shape:
@@ -44,7 +44,7 @@ class AddCar extends StatelessWidget {
             DropMenu(list: listModel),
             const TitleInfoWidget(title: 'منفذ الشاحن'),
             DropMenu(list: listType),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             const TitleInfoWidget(title: 'الموقع'),
             Container(
               width: context.getWidth(divide: 1.2),

@@ -17,8 +17,8 @@ class ChargingTypeSection extends StatelessWidget {
           'نوع وعدد منافذ الشحن',
           style: TextStyle(color: AppColors().white, fontSize: 16),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 8),
           child: Row(
             children: [
               ChargingType(
@@ -37,7 +37,7 @@ class ChargingTypeSection extends StatelessWidget {
               SizedBox(
                 width: 15,
               ),
-              const ChargingType(
+              ChargingType(
                 imageUrl: 'lib/assets/icons/Tesla.png',
                 count: '2',
                 type: 'Tesla',

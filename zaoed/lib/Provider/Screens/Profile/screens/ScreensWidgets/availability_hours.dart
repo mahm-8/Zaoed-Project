@@ -43,7 +43,7 @@ class AvailabilityHours extends StatelessWidget {
                             Image.asset(
                               'lib/assets/icons/Clock_.png',
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Text('غير متوفر',
                                 style: TextStyle(
                                     color: AppColors().white, fontSize: 12))
@@ -53,7 +53,7 @@ class AvailabilityHours extends StatelessWidget {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(
+                    return const SizedBox(
                       width: 12,
                     );
                   },

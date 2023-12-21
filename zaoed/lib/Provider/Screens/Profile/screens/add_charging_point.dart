@@ -8,7 +8,7 @@ import 'package:zaoed/constants/colors.dart';
 
 class AddChargingPoint extends StatelessWidget {
   AddChargingPoint({super.key});
-  TextEditingController controller = TextEditingController();
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +21,8 @@ class AddChargingPoint extends StatelessWidget {
             children: [
               AddChargingPointTextField(controller: controller),
               const ChargingPointLocation(),
-              AvailabilityHours(),
-              ChargingTypeSection()
+              const AvailabilityHours(),
+              const ChargingTypeSection()
             ],
           ),
         ),

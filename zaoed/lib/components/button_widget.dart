@@ -28,7 +28,7 @@ class ButtonWidget extends StatelessWidget {
         child: Text(textEntry,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontFamily: "SfArabic",
+              
               fontSize: 18,
               color: textColor,
             )),

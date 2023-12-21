@@ -24,7 +24,7 @@ class OTPScreen extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 25,
                     color: AppColors().white,
-                    fontFamily: "SfArabic"),
+                    ),
               ),
               const SizedBox(
                 height: 8,
@@ -35,7 +35,7 @@ class OTPScreen extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 17,
                     color: AppColors().white,
-                    fontFamily: "SfArabic"),
+                    ),
               ),
               const SizedBox(
                 height: 8,
@@ -46,12 +46,13 @@ class OTPScreen extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 17,
                     color: AppColors().white,
-                    fontFamily: "SfArabic"),
+                    ),
               ),
               const SizedBox(
                 height: 16,
               ),
               Pinput(
+                
                 autofocus: true,
                 length: 6,
                 showCursor: true,
@@ -59,7 +60,7 @@ class OTPScreen extends StatelessWidget {
                 defaultPinTheme: PinTheme(
                   textStyle: TextStyle(
                       fontSize: 24,
-                      fontFamily: "SfArabic",
+                      
                       color: AppColors().mainWhite),
                   width: 48,
                   height: 50,

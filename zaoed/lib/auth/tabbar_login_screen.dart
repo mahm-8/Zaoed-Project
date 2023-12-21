@@ -6,7 +6,7 @@ import 'package:zaoed/auth/tabviews/login_screen.dart';
 import 'components/language_widget.dart';
 
 class TabBarLogin extends StatefulWidget {
-  TabBarLogin({
+  const TabBarLogin({
     super.key,
   });
 

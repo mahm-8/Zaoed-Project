@@ -4,7 +4,10 @@ import 'package:zaoed/Provider/Screens/Profile/profile_screen.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/add_charging_point.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/finder/Profile/profile_screen.dart';
+
 class NavigationBarScreen extends StatefulWidget {
+  const NavigationBarScreen({super.key});
+
   @override
   _NavigationBarScreenState createState() => _NavigationBarScreenState();
 }
@@ -12,10 +15,10 @@ class NavigationBarScreen extends StatefulWidget {
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   int currentIndex = 3;
   final List screens = [
-    ProfileFinder(),
+    const ProfileFinder(),
     Container(),
     AddChargingPoint(),
-    ProfileScreen(),
+    const ProfileScreen(),
   ];
 
   @override

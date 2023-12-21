@@ -75,14 +75,14 @@ class SignUpScreen extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TabBarLogin()));
+                  MaterialPageRoute(builder: (context) => const TabBarLogin()));
             },
             child: Text(
               "لديك حساب مسبقاً؟ تسجيل الدخول",
               style: TextStyle(
-                  fontSize: 14,
-                  color: AppColors().mainWhite,
-                  fontFamily: "SfArabic"),
+                fontSize: 14,
+                color: AppColors().mainWhite,
+              ),
             ),
           ),
           ButtonWidget(

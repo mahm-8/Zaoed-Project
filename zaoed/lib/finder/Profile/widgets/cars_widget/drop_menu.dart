@@ -27,7 +27,7 @@ class DropMenu extends StatelessWidget {
           backgroundColor: MaterialStatePropertyAll(AppColors().gray6),
         ),
         inputDecorationTheme: InputDecorationTheme(
-            contentPadding: EdgeInsets.only(right: 8),
+            contentPadding: const EdgeInsets.only(right: 8),
             isCollapsed: true,
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),

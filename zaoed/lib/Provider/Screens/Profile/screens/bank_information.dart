@@ -5,11 +5,11 @@ import 'package:zaoed/constants/colors.dart';
 
 class BankInformationScreen extends StatelessWidget {
   BankInformationScreen({super.key});
-  TextEditingController cardNameController = TextEditingController();
-  TextEditingController idController = TextEditingController();
-  TextEditingController cardNumberController = TextEditingController();
-  TextEditingController bankNameController = TextEditingController();
-  TextEditingController nationalAddressController = TextEditingController();
+  final cardNameController = TextEditingController(),
+      idController = TextEditingController(),
+      cardNumberController = TextEditingController(),
+      bankNameController = TextEditingController(),
+      nationalAddressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

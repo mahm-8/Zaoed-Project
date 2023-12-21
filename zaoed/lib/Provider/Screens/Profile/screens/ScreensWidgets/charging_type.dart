@@ -35,7 +35,7 @@ class ChargingType extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
         Container(
@@ -49,9 +49,9 @@ class ChargingType extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset('lib/assets/icons/ph_minus.png'),
-                Spacer(),
+                const Spacer(),
                 Text(count, style: TextStyle(color: AppColors().white)),
-                Spacer(),
+                const Spacer(),
                 Image.asset('lib/assets/icons/ph_plus.png'),
               ],
             ),
