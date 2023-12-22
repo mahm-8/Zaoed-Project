@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/components/appbar/appbar_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'components/bookmark_card_widget.dart';
 
@@ -10,20 +11,7 @@ class SavedBookmarksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          "المحفوظات",
-          style: TextStyle(
-            fontSize: 20,
-            color: AppColors().mainWhite,
-            fontWeight: FontWeight.bold,
-            // 
-          ),
-        ),
-      ),
+      appBar: customAppBar(context, title: "المحفوظات"),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -31,7 +31,6 @@ class DialogButton extends StatelessWidget {
         child: Text(textEntry,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              
               fontSize: 14,
               color: textColor,
             )),

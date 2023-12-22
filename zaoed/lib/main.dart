@@ -8,6 +8,13 @@ import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
 import 'package:zaoed/onboarding/onboarding_screen.dart';
 import 'package:zaoed/service/networking.dart';
+import 'package:zaoed/bookmark_screens/saved_bookmarks_screen.dart';
+import 'package:zaoed/customer_service_chat/chat_screen.dart';
+import 'package:zaoed/finder/screens/Booking/booking_screen.dart';
+import 'package:zaoed/finder/screens/Booking/scan_screen/scan_screen.dart';
+import 'package:zaoed/finder/screens/payment/payment_process_screen.dart';
+import 'package:zaoed/finder/screens/payment/purchase_screen.dart';
+import 'package:zaoed/home/map_home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
