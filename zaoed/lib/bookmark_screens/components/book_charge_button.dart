@@ -23,7 +23,7 @@ class BookChargeButton extends StatelessWidget {
         child: Text("حجز",
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              
+              fontFamily: "SfArabic",
               fontSize: 14,
               color: AppColors().gray8,
             )),

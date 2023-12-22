@@ -47,9 +47,9 @@ class TextfieldWidget extends StatelessWidget {
               obscureText: !obscure ? false : !displayPass,
               controller: controller,
               style: TextStyle(
-                  fontSize: 17,
-                  color: AppColors().white,
-                  ),
+                fontSize: 17,
+                color: AppColors().white,
+              ),
               decoration: InputDecoration(
                 fillColor: AppColors().gray1Trans,
                 filled: true,
@@ -64,10 +64,7 @@ class TextfieldWidget extends StatelessWidget {
                         ),
                       ),
                 hintText: hint,
-                hintStyle: TextStyle(
-                    color: AppColors().gray4,
-                    
-                    fontSize: 17),
+                hintStyle: TextStyle(color: AppColors().gray4, fontSize: 17),
                 floatingLabelBehavior: FloatingLabelBehavior.always,
                 focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
