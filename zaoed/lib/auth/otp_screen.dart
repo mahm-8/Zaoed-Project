@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:pinput/pinput.dart';
+import 'package:zaoed/extensions/navigator.dart';
 
 class OTPScreen extends StatelessWidget {
   const OTPScreen({super.key, required this.email});
@@ -82,7 +84,9 @@ class OTPScreen extends StatelessWidget {
                 textEntry: "التالي",
                 backColor: AppColors().gray4,
                 textColor: AppColors().gray8,
-                onPress: () {},
+                onPress: () {
+                  context.push(view: NavigationBarScreen());
+                },
               )
             ],
           ),

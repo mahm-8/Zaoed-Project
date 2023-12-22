@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
@@ -32,7 +31,7 @@ class LocationDetails extends StatelessWidget {
                 children: [
                   Text(
                     locationName,
-                    style: TextStyle(color: AppColors().white),
+                    style: TextStyle(color: AppColors().white, fontSize: 18),
                   ),
                   const Spacer(),
                   Text(

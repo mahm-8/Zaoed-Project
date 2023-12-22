@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/daily_hours_rate_chart.dart';
 import 'package:zaoed/constants/colors.dart';
 
-class RateContainer extends StatelessWidget {
-  const RateContainer({
-    super.key, required this.title, required this.subTitle,
+class DailyHoursRateChartContainer extends StatelessWidget {
+  DailyHoursRateChartContainer({
+    super.key,
+    required this.title,
+    required this.subTitle,
   });
- final String title;
-final String subTitle;
+  final String title;
+  final String subTitle;
+  final List data = [
+    DataPoint(date: 'الأحد', hoursRate: 11),
+    DataPoint(date: 'الأثنين', hoursRate: 12),
+    DataPoint(date: 'الثلاثاء', hoursRate: 6),
+    DataPoint(date: 'الأربعاء', hoursRate: 7),
+    DataPoint(date: 'الخميس', hoursRate: 2),
+    DataPoint(date: 'الجمعة', hoursRate: 10),
+    DataPoint(date: 'السبت', hoursRate: 3),
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,6 +41,7 @@ final String subTitle;
               color: Colors.grey,
               thickness: 1,
             ),
+            DailyHoursRateChart(data: data),
           ],
         ),
       ),

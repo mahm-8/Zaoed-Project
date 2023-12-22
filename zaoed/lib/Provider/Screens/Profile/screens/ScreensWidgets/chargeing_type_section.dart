@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/charging_type.dart';
 import 'package:zaoed/constants/colors.dart';
@@ -15,7 +14,7 @@ class ChargingTypeSection extends StatelessWidget {
       children: [
         Text(
           'نوع وعدد منافذ الشحن',
-          style: TextStyle(color: AppColors().white, fontSize: 16),
+          style: TextStyle(color: AppColors().white, fontSize: 20),
         ),
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),

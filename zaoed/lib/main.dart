@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:zaoed/bookmark_screens/saved_bookmarks_screen.dart';
-import 'package:zaoed/home/home_screen.dart';
+import 'package:zaoed/finder/screens/payment/payment_process_screen.dart';
+import 'package:zaoed/finder/screens/payment/purchase_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,7 +9,6 @@ void main() {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +16,7 @@ class MainApp extends StatelessWidget {
       supportedLocales: const [
         Locale("ar"),
       ],
-      localizationsDelegates: const [
+      localizationsDelegates: [
         GlobalCupertinoLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

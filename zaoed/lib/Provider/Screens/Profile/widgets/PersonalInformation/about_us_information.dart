@@ -13,7 +13,7 @@ class AboutUsInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 192,
+      height: 210,
       width: 350,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -27,16 +27,18 @@ class AboutUsInformation extends StatelessWidget {
             context.push(view: const AboutUsScreen());
           },
         ),
-         Divider(
-      thickness: 1,color: AppColors().gray9,
+        Divider(
+          thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Question.png',
           title: 'الأسئلة الشائعة',
           onTap: () {},
         ),
-         Divider(
-           thickness: 1,color: AppColors().gray9,
+        Divider(
+          thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Info.png',
@@ -45,8 +47,9 @@ class AboutUsInformation extends StatelessWidget {
             context.push(view: const LegalAffairsScreen());
           },
         ),
-         Divider(
-           thickness: 1,color: AppColors().gray9,
+        Divider(
+          thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Support.png',

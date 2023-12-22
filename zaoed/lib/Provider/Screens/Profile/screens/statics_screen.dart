@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:glass/glass.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/rate_container.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/daily_hours_rate_chart_container.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/daily_profit_rate_chart.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/daily_profit_rate_chart_container.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class StaticsScreen extends StatelessWidget {
   const StaticsScreen({super.key});
@@ -24,7 +27,7 @@ class StaticsScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             child: Column(
               children: [
-                const RateContainer(
+                DailyProfitRateChartContainer(
                   title: 'معدل الربح اليومي',
                   subTitle: '50 ريال',
                 ).asGlass(
@@ -33,7 +36,7 @@ class StaticsScreen extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const RateContainer(
+                DailyHoursRateChartContainer(
                   title: 'معدل الساعات اليومية',
                   subTitle: '10 ساعات 28 دقيقة',
                 ).asGlass(

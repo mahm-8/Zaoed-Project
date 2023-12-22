@@ -16,6 +16,7 @@ class AppColors {
   Color gray9 = const Color(0xff21232B);
   Color red = const Color(0xffFF453A);
   Color green = const Color(0xff3FEDB2);
+  Color blue = Colors.blue;
   Gradient greenRadiant1 = const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,

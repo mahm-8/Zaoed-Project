@@ -7,6 +7,8 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 
 dependencies:
+  dashed_stepper: ^0.0.4
+  easy_stepper: ^0.8.3
   fl_chart: ^0.65.0
   flutter:
     sdk: flutter
@@ -16,6 +18,7 @@ dependencies:
   glassmorphism_ui: ^0.3.0
   pinput: ^3.0.1
   smooth_page_indicator: ^1.1.0
+  syncfusion_flutter_charts: ^24.1.41
 
 dev_dependencies:
   flutter_test:

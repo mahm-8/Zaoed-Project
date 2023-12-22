@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/finder/Profile/screens/about_us_screen.dart';
-import 'package:zaoed/finder/Profile/screens/legal_affairs_screen.dart';
-import 'package:zaoed/finder/Profile/widgets/information_lable.dart';
+import 'package:zaoed/finder/screens/Profile/screens/about_us_screen.dart';
+import 'package:zaoed/finder/screens/Profile/screens/legal_affairs_screen.dart';
+import 'package:zaoed/finder/screens/Profile/widgets/information_lable.dart';
 
 class AboutUsInfoWidget extends StatelessWidget {
   const AboutUsInfoWidget({

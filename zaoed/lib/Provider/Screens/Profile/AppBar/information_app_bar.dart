@@ -10,6 +10,7 @@ AppBar ProfailAppBar(BuildContext context) {
       ),
       leadingWidth: 100,
       titleSpacing: -18,
+      toolbarHeight: 80,
       leading: IconButton(
           onPressed: () {},
           icon: ClipOval(

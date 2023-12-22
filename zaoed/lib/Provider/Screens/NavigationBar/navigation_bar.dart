@@ -3,7 +3,7 @@ import 'package:glass/glass.dart';
 import 'package:zaoed/Provider/Screens/Profile/profile_screen.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/add_charging_point.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/finder/Profile/profile_screen.dart';
+import 'package:zaoed/finder/screens/Profile/profile_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
   const NavigationBarScreen({super.key});
@@ -18,60 +18,60 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
     const ProfileFinder(),
     Container(),
     AddChargingPoint(),
+    const ProfileFinder(),
     const ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: screens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColors().green,
-        backgroundColor: AppColors().gray1,
-        unselectedItemColor: AppColors().white,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'lib/assets/icons/bookmark.png',
-              width: 24,
-              height: 24,
+      bottomNavigationBar: SizedBox(
+        height: 64,
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: AppColors().green,
+          unselectedItemColor: AppColors().white,
+          backgroundColor: Colors.transparent,
+          currentIndex: currentIndex,
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(
+                'lib/assets/icons/bookmark.png',
+              )),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'lib/assets/icons/car.png',
-              width: 24,
-              height: 24,
+            BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(
+                'lib/assets/icons/car.png',
+              )),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'lib/assets/icons/map.png',
-              width: 24,
-              height: 24,
+            BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(
+                'lib/assets/icons/map.png',
+              )),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'lib/assets/icons/person.png',
-              width: 24,
-              height: 24,
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage(
+                  'lib/assets/icons/person.png',
+                ),
+                size: 29,
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-        ],
-      ).asGlass(
-        tintColor: AppColors().gray1,
+          ],
+        ).asGlass(
+          tintColor: Colors.transparent,
+        ),
       ),
     );
   }
