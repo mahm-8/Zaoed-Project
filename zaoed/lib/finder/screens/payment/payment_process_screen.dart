@@ -19,16 +19,6 @@ class PaymentProcessScreen extends StatefulWidget {
 
 class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
   int activeStep = 0;
-  double progress = 0.2;
-
-  void increaseProgress() {
-    if (progress < 1) {
-      setState(() => progress += 0.2);
-    } else {
-      setState(() => progress = 0);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,6 +78,7 @@ class DetailsPaymentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleLabel(
           title: 'بيانات الحجز',
