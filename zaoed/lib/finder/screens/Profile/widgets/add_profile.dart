@@ -3,9 +3,9 @@ import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/loading_extension.dart';
 import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/finder/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/finder/Profile/widgets/card_widget/add_card.dart';
-import 'package:zaoed/finder/Profile/widgets/cars_widget/drop_menu.dart';
+import 'package:zaoed/finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
+import 'package:zaoed/finder/screens/Profile/widgets/card_widget/add_card.dart';
+import 'package:zaoed/finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
 
 class AddInformation extends StatelessWidget {
    AddInformation({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/finder/Profile/widgets/information_lable.dart';
+import 'package:zaoed/finder/screens/Profile/widgets/information_lable.dart';
 
 class SettingWidget extends StatelessWidget {
   const SettingWidget({

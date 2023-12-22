@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/finder/Profile/screens/ScreensWidgets/card_screen.dart';
-import 'package:zaoed/finder/Profile/widgets/information_lable.dart';
+import 'package:zaoed/finder/screens/Profile/screens/ScreensWidgets/card_screen.dart';
+import 'package:zaoed/finder/screens/Profile/widgets/information_lable.dart';
 
 class PaymentFinder extends StatelessWidget {
   const PaymentFinder({

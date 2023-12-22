@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/finder/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/finder/Profile/screens/ScreensWidgets/add_car.dart';
+import 'package:zaoed/finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
+import 'package:zaoed/finder/screens/Profile/screens/ScreensWidgets/add_car.dart';
 
 class CarScreen extends StatelessWidget {
   const CarScreen({super.key});

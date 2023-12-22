@@ -3,7 +3,7 @@ import 'package:zaoed/auth/tabbar_login_screen.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/finder/Profile/screens/ScreensWidgets/edit_profile.dart';
+import 'package:zaoed/finder/screens/Profile/screens/ScreensWidgets/edit_profile.dart';
 
 import '../AppBar/profail_screens_app_bar.dart';
 

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/personal_information_label.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/finder/Profile/screens/ScreensWidgets/legal_affairs_lable.dart';
+import 'package:zaoed/finder/screens/Profile/screens/ScreensWidgets/legal_affairs_lable.dart';
 
 class PersonalContainer extends StatelessWidget {
   const PersonalContainer({

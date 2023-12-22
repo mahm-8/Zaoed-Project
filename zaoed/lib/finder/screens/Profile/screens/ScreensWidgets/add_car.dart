@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/finder/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/finder/Profile/screens/car_screen.dart';
-import 'package:zaoed/finder/Profile/widgets/cars_widget/drop_menu.dart';
-import 'package:zaoed/finder/Profile/widgets/information_title.dart';
+import 'package:zaoed/finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
+import 'package:zaoed/finder/screens/Profile/screens/car_screen.dart';
+import 'package:zaoed/finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
+import 'package:zaoed/finder/screens/Profile/widgets/information_title.dart';
 
 class AddCar extends StatefulWidget {
   AddCar({super.key});

@@ -3,7 +3,7 @@ import 'package:glass/glass.dart';
 import 'package:zaoed/Provider/Screens/Profile/profile_screen.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/add_charging_point.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/finder/Profile/profile_screen.dart';
+import 'package:zaoed/finder/screens/Profile/profile_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
   @override
