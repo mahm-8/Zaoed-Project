@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
+import '../components/added_dialog.dart';
 import '../components/state_dialog.dart';
 
 class TestShowDialogAddBankDone extends StatelessWidget {
@@ -20,7 +21,7 @@ class TestShowDialogAddBankDone extends StatelessWidget {
                   barrierColor: Colors.transparent,
                   context: context,
                   builder: (context) {
-                    return AddedDialog(
+                    return const AddedDialog(
                       title: "تم إرسال طلب إضافة نقطة شحن جديدة بنجاح",
                     );
 
@@ -36,44 +37,6 @@ class TestShowDialogAddBankDone extends StatelessWidget {
               child: const Text("test"),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class AddedDialog extends StatelessWidget {
-  const AddedDialog({
-    super.key,
-    required this.title,
-  });
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      shape: OutlineInputBorder(borderSide: BorderSide.none),
-      alignment: Alignment.bottomCenter,
-      backgroundColor: AppColors().gray6,
-      insetAnimationDuration: const Duration(milliseconds: 100),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border(
-              top: BorderSide(width: 0.3, color: AppColors().green),
-              left: BorderSide(width: 0.3, color: AppColors().green)),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        height: 50,
-        width: MediaQuery.of(context).size.width,
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(
-                fontSize: 17,
-                fontFamily: "SfArabic",
-                color: AppColors().mainWhite),
-          ),
         ),
       ),
     );

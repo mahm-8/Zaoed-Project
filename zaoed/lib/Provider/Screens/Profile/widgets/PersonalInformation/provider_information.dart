@@ -39,7 +39,7 @@ class ProviderInformation extends StatelessWidget {
               imageIcon: 'lib/assets/icons/Vector 3.png',
               title: 'بيانات نقطة الشحن',
               onTap: () {
-                context.push(view: ChargingPointDataScreen());
+                context.push(view: const ChargingPointDataScreen());
               },
             ),
             Divider(
@@ -50,7 +50,7 @@ class ProviderInformation extends StatelessWidget {
               imageIcon: 'lib/assets/icons/prime_chart-bar.png',
               title: 'الأحصائيات',
               onTap: () {
-                context.push(view: StaticsScreen());
+                context.push(view: const StaticsScreen());
               },
             ),
             Divider(

@@ -17,7 +17,7 @@ class ChargingPointLocation extends StatelessWidget {
             'موقع نقطة الشحن',
             style: TextStyle(color: AppColors().white, fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Container(

@@ -34,7 +34,7 @@ class ChargingType extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
         Container(

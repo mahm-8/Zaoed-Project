@@ -25,7 +25,7 @@ class TestShowDialogDeleteDone extends StatelessWidget {
                     );
                   },
                 );
-                Future.delayed(const Duration(seconds: 5), () {
+                Future.delayed(const Duration(seconds: 3), () {
                   Navigator.of(context).pop();
                 });
               },

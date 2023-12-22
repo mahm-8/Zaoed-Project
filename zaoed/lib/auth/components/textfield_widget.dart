@@ -49,7 +49,7 @@ class TextfieldWidget extends StatelessWidget {
               style: TextStyle(
                   fontSize: 17,
                   color: AppColors().white,
-                  fontFamily: "SfArabic"),
+                  ),
               decoration: InputDecoration(
                 fillColor: AppColors().gray1Trans,
                 filled: true,
@@ -66,7 +66,7 @@ class TextfieldWidget extends StatelessWidget {
                 hintText: hint,
                 hintStyle: TextStyle(
                     color: AppColors().gray4,
-                    fontFamily: "SfArabic",
+                    
                     fontSize: 17),
                 floatingLabelBehavior: FloatingLabelBehavior.always,
                 focusedErrorBorder: OutlineInputBorder(

@@ -9,7 +9,7 @@ import 'package:zaoed/constants/colors.dart';
 // ignore: must_be_immutable
 class AddChargingPoint extends StatelessWidget {
   AddChargingPoint({super.key});
-  TextEditingController controller = TextEditingController();
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class AddChargingPoint extends StatelessWidget {
               AddChargingPointTextField(controller: controller),
               const ChargingPointLocation(),
               AvailabilityHours(),
-              ChargingTypeSection()
+              const ChargingTypeSection()
             ],
           ),
         ),

@@ -16,13 +16,13 @@ class SocialMediaInformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('lib/assets/icons/devicon_twitter.png'),
-            SizedBox(
+            const SizedBox(
               width: 14,
             ),
             Image.asset('lib/assets/icons/lucide_instagram.png'),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 9.5,
         ),
         Text(

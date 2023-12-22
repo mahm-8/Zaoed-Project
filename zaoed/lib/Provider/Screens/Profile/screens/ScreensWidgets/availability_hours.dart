@@ -55,7 +55,7 @@ class AvailabilityHours extends StatelessWidget {
                             Image.asset(
                               imageClock[index],
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Text(textClock[index],
                                 style: TextStyle(
                                     color: AppColors().white, fontSize: 12))
@@ -65,7 +65,7 @@ class AvailabilityHours extends StatelessWidget {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(
+                    return const SizedBox(
                       width: 12,
                     );
                   },

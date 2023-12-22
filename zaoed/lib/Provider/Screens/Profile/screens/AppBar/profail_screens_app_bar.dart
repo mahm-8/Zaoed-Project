@@ -13,7 +13,7 @@ AppBar ProfailScreenAppBar(BuildContext context, {title}) {
       backgroundColor: AppColors().gray9,
       leading: IconButton(
         icon: ImageIcon(
-          AssetImage('lib/assets/icons/Arrow-Right.png'),
+          const AssetImage('lib/assets/icons/Arrow-Right.png'),
           color: AppColors().white,
         ),
         onPressed: () {

@@ -11,7 +11,7 @@ class AboutUsScreen extends StatelessWidget {
       backgroundColor: AppColors().gray9,
       appBar: ProfailScreenAppBar(context, title: 'من نحن'),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(
             width: 350,
             height: 243,
@@ -28,7 +28,7 @@ class AboutUsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Image.asset('lib/assets/icons/Vector 3.png'),
-                      SizedBox(
+                      const SizedBox(
                         width: 12,
                       ),
                       Text(
@@ -40,7 +40,7 @@ class AboutUsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
