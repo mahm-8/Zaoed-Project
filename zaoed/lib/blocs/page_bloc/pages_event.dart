@@ -12,3 +12,8 @@ class PageOnboardingEvent extends PagesEvent {
 
   PageOnboardingEvent(this.selected);
 }
+class PageTabBarEvent extends PagesEvent {
+  final int selected;
+
+  PageTabBarEvent(this.selected);
+}
