@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/bookmark_screens/bookmark_dialogs/add_bookmark_dialog.dart';
+import 'package:zaoed/bookmark_screens/bookmark_dialogs/remove_bookmark_dialog.dart';
 import 'package:zaoed/bookmark_screens/components/book_charge_button.dart';
 import 'package:zaoed/bookmark_screens/components/chargers_row_widget.dart';
 import 'package:zaoed/bookmark_screens/components/share_button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/providor_show_dialogs/components/dialog_widget.dart';
 
 class BookmarkCardWidget extends StatelessWidget {
   const BookmarkCardWidget({
@@ -15,7 +16,7 @@ class BookmarkCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15, left: 20, right: 20),
+      padding: const EdgeInsets.only(bottom: 15, left: 10, right: 10),
       child: Container(
         height: 203,
         width: 350,
@@ -34,10 +35,10 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "منزل إيلاف محمد",
                     style: TextStyle(
-                      color: AppColors().mainWhite,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w400,
-                    ),
+                        color: AppColors().mainWhite,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "SfArabic"),
                   ),
                   const SizedBox(
                     width: 8,
@@ -49,10 +50,10 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "5.0",
                     style: TextStyle(
-                      color: AppColors().mainWhite,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+                        color: AppColors().mainWhite,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "SfArabic"),
                   ),
                   const SizedBox(
                     width: 4,
@@ -60,61 +61,27 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "(150)",
                     style: TextStyle(
-                      color: AppColors().gray4,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
+                        color: AppColors().gray4,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "SfArabic"),
                   ),
                   const Spacer(),
-                  InkWell(
-                    onTap: () {
-                      //remove from bookmark list
-                      showDialog(
-                        barrierColor: Colors.transparent,
-                        context: context,
-                        builder: (context) {
-                          return DialogWidget(
-                            title: "تنبيه!",
-                            bodyText:
-                                "سيتم إزالة نقطة الشحن من المحفوظات، هل أنت نوافق؟",
-                            button1: 'موافق',
-                            pressOne: () {
-                              // delete from bookmark list
-                            },
-                            button2: 'إلغاء',
-                            pressTwo: () {
-                              Navigator.pop(context);
-                            },
-                          );
-                        },
-                      );
-
-                      // add bookmark (not here)
-                      // showDialog(
-                      //   barrierColor: Colors.transparent,
-                      //   context: context,
-                      //   builder: (context) {
-                      //     return const DialogWidget(
-                      //       title: "تم الإضافة",
-                      //       bodyText:
-                      //           "تم إضافة نقطة الشحن إلى المحفوظات",
-                      //       button1: 'المحفوظات',
-                      //       button2: 'إغلاق',
-                      //     );
-                      //   },
-                      // );
-                    },
-                    child: Image.asset("lib/assets/icons/bookmark-2.png"),
-                  )
+                  if (isBookmarked == false)
+                    // do not show it on bookmark screen
+                    const AddToBookmarkDialog(),
+                  if (isBookmarked == true)
+                    //show dialog to remove from bookmaeks screen
+                    const RemoveBookMarkDialog(),
                 ],
               ),
               Text(
                 "حي النرجس، الرياض",
                 style: TextStyle(
-                  color: AppColors().gray4,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
+                    color: AppColors().gray4,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "SfArabic"),
               ),
               const SizedBox(
                 height: 30,
