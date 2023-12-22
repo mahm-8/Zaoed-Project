@@ -6,7 +6,7 @@ import 'package:zaoed/finder/screens/payment/widgets/payment_container.dart';
 import 'package:zaoed/finder/screens/payment/widgets/title_label.dart';
 
 class PurchaseScreen extends StatelessWidget {
-  PurchaseScreen({
+  const PurchaseScreen({
     super.key,
     required this.onTap,
   });

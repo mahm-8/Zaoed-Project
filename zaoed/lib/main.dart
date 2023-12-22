@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:zaoed/finder/screens/Booking/booking_screen.dart';
 import 'package:zaoed/finder/screens/payment/payment_process_screen.dart';
 import 'package:zaoed/finder/screens/payment/purchase_screen.dart';
 
@@ -20,7 +21,7 @@ class MainApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      home: PaymentProcessScreen(),
+      home: BookingScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
