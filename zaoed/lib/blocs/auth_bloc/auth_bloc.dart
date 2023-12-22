@@ -15,6 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     on<SignUpEvent>(signUp);
     on<VerificationEvent>(verificationMethod);
     on<DisplayPasswordEvent>(displayPass);
+    on<LogInAuthEvent>(login);
   }
   signUp(SignUpEvent event, emit) async {
     List<bool> isValidation = [];
@@ -55,7 +56,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       if (verification.session?.accessToken != null) {
         await Future.delayed(const Duration(seconds: 1));
         final test =
-            await SupabaseNetworking().getSupabase.schema("zaod").from("user").insert({
+            await SupabaseNetworking().getSupabase.from("user").insert({
           "name": user?.name,
           "email": user?.email,
           "id_auth": verification.user?.id,
@@ -85,6 +86,30 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     } else {
       event.display = true;
       emit(DisplayState(display: event.display));
+    }
+  }
+
+  FutureOr<void> login(LogInAuthEvent event, Emitter<AuthStates> emit) async {
+    List<bool> isValidation = [];
+    try {
+      isValidation.add(validation(keyForm: event.emailKey));
+      isValidation.add(validation(keyForm: event.passwordKey));
+      if (!isValidation.contains(false)) {
+        final auth = SupabaseNetworking().getSupabase.auth;
+        final login = await auth.signInWithPassword(
+            email: event.email, password: event.password);
+        if (login.user?.id != null) {
+          emit(SuccessLoginState());
+        } else if (login.user?.id == null) {
+          emit(ErrorLoginState("Wrong!!!!1"));
+        }
+      } else {
+        emit(ValidLoginState());
+      }
+    } on AuthException {
+      emit(ErrorLoginState("Password or email wrong"));
+    } catch (e) {
+      return;
     }
   }
 }

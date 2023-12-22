@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:zaoed/Provider/Screens/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/auth/tabbar_login_screen.dart';
 import 'package:zaoed/auth/tabviews/login_screen.dart';
 import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
+import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/finder/screens/Booking/booking_screen.dart';
+import 'package:zaoed/onboarding/onboarding_screen.dart';
 import 'package:zaoed/service/networking.dart';
 
 void main() async {
@@ -19,8 +22,15 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => PagesBloc(),
+        ),
+      ],
       child: MaterialApp(
         theme: ThemeData(fontFamily: "SfArabic"),
         supportedLocales: const [
@@ -31,7 +41,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: TabBarLogin(),
+        home: OnboradingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

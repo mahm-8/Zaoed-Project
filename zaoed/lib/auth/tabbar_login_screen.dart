@@ -16,20 +16,20 @@ class TabBarLogin extends StatefulWidget {
 
 class _TabBarLoginState extends State<TabBarLogin>
     with SingleTickerProviderStateMixin {
-  late TabController logintabController;
+  late TabController logintabController = TabController(length: 2, vsync: this);
   int selectedTabIndex = 0; //providor = 0, finder = 1
 
-  @override
-  void initState() {
-    super.initState();
-    logintabController = TabController(length: 2, vsync: this);
-    logintabController.addListener(() {
-      // add bloc + remove stateful
-      setState(() {
-        selectedTabIndex = logintabController.index;
-      });
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   logintabController = TabController(length: 2, vsync: this);
+  //   logintabController.addListener(() {
+  //     // add bloc + remove stateful
+  //     setState(() {
+  //       selectedTabIndex = logintabController.index;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/Provider/Screens/NavigationBar/navigation_bar.dart';
+import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/loading_extension.dart';
+import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/validtor.dart';
 import 'package:zaoed/auth/components/textfield_widget.dart';
-import 'package:zaoed/auth/otp_screen.dart';
 import 'package:zaoed/auth/tabbar_signup_screen.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
-
+  final _emailKey = GlobalKey<FormState>();
+  final _passwordKey = GlobalKey<FormState>();
   final emailController = TextEditingController(),
       passwordController = TextEditingController();
-
+  bool pass = false;
   //tab controller
   @override
   Widget build(BuildContext context) {
@@ -25,6 +31,7 @@ class LoginScreen extends StatelessWidget {
               height: 24,
             ),
             TextfieldWidget(
+              keyForm: _emailKey,
               keyboardType: TextInputType.emailAddress,
               hint: 'ادخل البريد الإلكتروني',
               controller: emailController,
@@ -40,20 +47,48 @@ class LoginScreen extends StatelessWidget {
                 return null;
               },
             ),
-            TextfieldWidget(
-              keyboardType: TextInputType.emailAddress,
-              hint: 'ادخل كلمة السر',
-              controller: passwordController,
-              obscure: true,
-              displayPass: true,
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "ادخل كلمة السر";
+            BlocBuilder<AuthBloc, AuthStates>(
+              builder: (context, state) {
+                if (state is DisplayState) {
+                  return TextfieldWidget(
+                      keyForm: _passwordKey,
+                      keyboardType: TextInputType.emailAddress,
+                      hint: 'ادخل كلمة السر',
+                      controller: passwordController,
+                      obscure: true,
+                      displayPass: state.display,
+                      onTap: () => context
+                          .read<AuthBloc>()
+                          .add(DisplayPasswordEvent(state.display)),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "ادخل كلمة السر";
+                        }
+                        if (!value.isValidPassword) {
+                          return "كلمة السر يجب ان تحتوي على رقم ورمز وحرف كبير و صغير";
+                        }
+                        return null;
+                      });
                 }
-                if (!value.isValidPassword) {
-                  return "كلمة السر غير صحيحة";
-                }
-                return null;
+                return TextfieldWidget(
+                  keyForm: _passwordKey,
+                  keyboardType: TextInputType.emailAddress,
+                  hint: 'ادخل كلمة السر',
+                  controller: passwordController,
+                  obscure: true,
+                  displayPass: pass,
+                  onTap: () =>
+                      context.read<AuthBloc>().add(DisplayPasswordEvent(pass)),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "ادخل كلمة السر";
+                    }
+                    if (!value.isValidPassword) {
+                      return "كلمة السر يجب ان تحتوي على رقم ورمز وحرف كبير و صغير";
+                    }
+                    return null;
+                  },
+                );
               },
             ),
             const SizedBox(
@@ -69,23 +104,32 @@ class LoginScreen extends StatelessWidget {
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",
                 style: TextStyle(
-                    fontSize: 14,
-                    color: AppColors().mainWhite,
-                    ),
+                  fontSize: 14,
+                  color: AppColors().mainWhite,
+                ),
               ),
             ),
-            ButtonWidget(
-              textEntry: "إرسال رمز التحقق",
-              backColor: AppColors().mainWhite,
-              textColor: AppColors().gray9,
-              onPress: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            OTPScreen(email: emailController.text)));
-              },
-            ),
+            BlocConsumer<AuthBloc, AuthStates>(listener: (context, state) {
+              if (state is SuccessLoginState) {
+                context.pushAndRemoveUntil(view: NavigationBarScreen());
+              }
+              if (state is ErrorLoginState) {
+                context.showErrorMessage(msg: state.message);
+              }
+            }, builder: (context, state) {
+              return ButtonWidget(
+                textEntry: "إرسال رمز التحقق",
+                backColor: AppColors().mainWhite,
+                textColor: AppColors().gray9,
+                onPress: () {
+                  context.read<AuthBloc>().add(LogInAuthEvent(
+                      email: emailController.text,
+                      password: passwordController.text,
+                      emailKey: _emailKey,
+                      passwordKey: _passwordKey));
+                },
+              );
+            }),
           ],
         ));
   }

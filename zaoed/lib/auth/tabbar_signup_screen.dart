@@ -13,23 +13,25 @@ class TabbarSignup extends StatefulWidget {
 
 class _TabbarSignupState extends State<TabbarSignup>
     with SingleTickerProviderStateMixin {
-  late TabController signuptabController;
+  late TabController signuptabController =
+      TabController(length: 2, vsync: this);
   int selectedTabIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    signuptabController = TabController(length: 2, vsync: this);
-    signuptabController.addListener(() {
-      setState(() {
-        selectedTabIndex = signuptabController.index;
-      });
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   signuptabController = TabController(length: 2, vsync: this);
+  //   signuptabController.addListener(() {
+  //     setState(() {
+  //       selectedTabIndex = signuptabController.index;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: selectedTabIndex,
       length: 2,
       child: Scaffold(
           resizeToAvoidBottomInset: false,
