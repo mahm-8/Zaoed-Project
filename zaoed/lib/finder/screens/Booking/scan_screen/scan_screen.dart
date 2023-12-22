@@ -11,12 +11,15 @@ class ScanBarcodeScreen extends StatelessWidget {
       backgroundColor: AppColors().gray9,
       body: const Padding(
         padding: EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ScaningBarcode(),
-          ],
-        ),
+        child: Stack(children: [
+          // camera background
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ScaningBarcode(),
+            ],
+          ),
+        ]),
       ),
     );
   }
