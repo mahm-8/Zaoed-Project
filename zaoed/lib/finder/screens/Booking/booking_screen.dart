@@ -10,7 +10,7 @@ import 'package:zaoed/finder/screens/payment/widgets/title_label.dart';
 
 class BookingScreen extends StatelessWidget {
   BookingScreen({super.key});
-  late List hours = [
+  final List hours = [
     'ساعة',
     "ساعتان",
     "3 ساعات",
@@ -33,24 +33,24 @@ class BookingScreen extends StatelessWidget {
             const TitleLabel(
               title: 'المنفذ',
             ),
-            ChargingTypeRow(),
+            const ChargingTypeRow(),
             const TitleLabel(
               title: 'مدة الشحن',
             ),
             ChargingTime(hours: hours),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Text(
               '*تنبيه، سيتم حجز الموصل لمدة 10 دقائق وفي حال لم يتم إتمام عملية الحجز خلال هذه المدة سيتم إلغاء الحجز',
               style: TextStyle(fontSize: 12, color: AppColors().white),
             ),
-            Spacer(),
+            const Spacer(),
             ButtonWidget(
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-                  context.push(view: BookingConfirmationScreen());
+                  context.push(view: const BookingConfirmationScreen());
                 },
                 textColor: AppColors().white)
           ],

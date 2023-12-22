@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'component/button_choice_widget.dart';
-import 'component/charge_points_card.dart';
+import 'package:zaoed/home/component/button_choice_widget.dart';
+import 'package:zaoed/home/component/charge_points_card.dart';
+
 import 'component/search_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,7 +10,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors().gray9,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
