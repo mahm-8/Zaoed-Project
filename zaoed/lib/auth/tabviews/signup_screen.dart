@@ -8,6 +8,9 @@ import '../tabbar_login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
+  final _userNameKey = GlobalKey<FormState>();
+  final _emailKey = GlobalKey<FormState>();
+  final _passwordKey = GlobalKey<FormState>();
   final nameController = TextEditingController(),
       emailController = TextEditingController(),
       passwordController = TextEditingController();
@@ -25,6 +28,7 @@ class SignUpScreen extends StatelessWidget {
             height: 24,
           ),
           TextfieldWidget(
+            keyForm: _userNameKey,
             keyboardType: TextInputType.name,
             hint: 'ادخل الاسم كامل',
             controller: nameController,
@@ -38,6 +42,7 @@ class SignUpScreen extends StatelessWidget {
             },
           ),
           TextfieldWidget(
+            keyForm: _emailKey,
             keyboardType: TextInputType.emailAddress,
             hint: 'ادخل البريد الإلكتروني',
             controller: emailController,
@@ -54,6 +59,7 @@ class SignUpScreen extends StatelessWidget {
             },
           ),
           TextfieldWidget(
+            keyForm: _passwordKey,
             keyboardType: TextInputType.emailAddress,
             hint: 'ادخل كلمة السر',
             controller: passwordController,
