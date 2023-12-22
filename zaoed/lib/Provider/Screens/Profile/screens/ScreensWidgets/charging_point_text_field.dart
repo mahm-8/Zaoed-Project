@@ -18,7 +18,7 @@ class AddChargingPointTextField extends StatelessWidget {
           'اسم نقطة الشحن',
           style: TextStyle(color: AppColors().white, fontSize: 20),
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
         SizedBox(
@@ -36,7 +36,7 @@ class AddChargingPointTextField extends StatelessWidget {
                 fillColor: AppColors().gray6,
                 filled: true,
                 hintText: 'المنزل,العمل...',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),

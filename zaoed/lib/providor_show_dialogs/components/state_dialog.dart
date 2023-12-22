@@ -11,9 +11,10 @@ class StateDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.center,
       backgroundColor: AppColors().gray6,
-      insetAnimationDuration: const Duration(milliseconds: 100),
+      insetAnimationCurve: Curves.easeInOutExpo,
+      insetAnimationDuration: const Duration(microseconds: 800),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         height: 145,
@@ -32,7 +33,6 @@ class StateDialog extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    fontFamily: "SfArabic",
                     color: AppColors().mainWhite),
               ),
             ],

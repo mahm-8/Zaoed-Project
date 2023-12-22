@@ -6,6 +6,8 @@ import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/finder/screens/Profile/profile_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
+  const NavigationBarScreen({super.key});
+
   @override
   _NavigationBarScreenState createState() => _NavigationBarScreenState();
 }
@@ -15,6 +17,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   final List screens = [
     const ProfileFinder(),
     Container(),
+    AddChargingPoint(),
     const ProfileFinder(),
     const ProfileScreen(),
   ];

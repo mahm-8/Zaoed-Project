@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:zaoed/auth/tabbar_login_screen.dart';
 import 'package:zaoed/auth/tabviews/login_screen.dart';
+import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/finder/screens/Booking/booking_screen.dart';
 import 'package:zaoed/service/networking.dart';
 
@@ -17,17 +19,21 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      supportedLocales: const [
-        Locale("ar"),
-      ],
-      localizationsDelegates: const [
-        GlobalCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      home: TabBarLogin(),
-      debugShowCheckedModeBanner: false,
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: "SfArabic"),
+        supportedLocales: const [
+          Locale("ar"),
+        ],
+        localizationsDelegates: const [
+          GlobalCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        home: TabBarLogin(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

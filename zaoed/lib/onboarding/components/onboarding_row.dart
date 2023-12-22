@@ -20,14 +20,15 @@ class OnboardingRow extends StatelessWidget {
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => TabBarLogin()),
+                    MaterialPageRoute(
+                        builder: (context) => const TabBarLogin()),
                     (route) => false);
               },
               child: const Text("تخطي",
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.5,
-                      fontFamily: "SfArabic"))),
+                    color: Colors.white,
+                    fontSize: 14.5,
+                  ))),
           TextButton(
               onPressed: () {
                 pageController.nextPage(
@@ -36,9 +37,9 @@ class OnboardingRow extends StatelessWidget {
               child: const Text(
                 "التالي",
                 style: TextStyle(
-                    color: Color(0xff3FEDB2),
-                    fontSize: 14.5,
-                    fontFamily: "SfArabic"),
+                  color: Color(0xff3FEDB2),
+                  fontSize: 14.5,
+                ),
               )),
         ],
       ),

@@ -34,10 +34,10 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "منزل إيلاف محمد",
                     style: TextStyle(
-                        color: AppColors().mainWhite,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "SfArabic"),
+                      color: AppColors().mainWhite,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   const SizedBox(
                     width: 8,
@@ -49,10 +49,10 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "5.0",
                     style: TextStyle(
-                        color: AppColors().mainWhite,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "SfArabic"),
+                      color: AppColors().mainWhite,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   const SizedBox(
                     width: 4,
@@ -60,10 +60,10 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "(150)",
                     style: TextStyle(
-                        color: AppColors().gray4,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "SfArabic"),
+                      color: AppColors().gray4,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   const Spacer(),
                   InkWell(
@@ -73,12 +73,18 @@ class BookmarkCardWidget extends StatelessWidget {
                         barrierColor: Colors.transparent,
                         context: context,
                         builder: (context) {
-                          return const DialogWidget(
+                          return DialogWidget(
                             title: "تنبيه!",
                             bodyText:
                                 "سيتم إزالة نقطة الشحن من المحفوظات، هل أنت نوافق؟",
                             button1: 'موافق',
+                            pressOne: () {
+                              // delete from bookmark list
+                            },
                             button2: 'إلغاء',
+                            pressTwo: () {
+                              Navigator.pop(context);
+                            },
                           );
                         },
                       );
@@ -105,10 +111,10 @@ class BookmarkCardWidget extends StatelessWidget {
               Text(
                 "حي النرجس، الرياض",
                 style: TextStyle(
-                    color: AppColors().gray4,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "SfArabic"),
+                  color: AppColors().gray4,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
               const SizedBox(
                 height: 30,

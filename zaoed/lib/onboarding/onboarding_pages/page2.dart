@@ -21,7 +21,7 @@ class Page2 extends StatelessWidget {
             style: TextStyle(
               color: AppColors().mainWhite,
               fontSize: 31,
-              fontFamily: "SfArabic",
+              
             ),
           ),
           const SizedBox(
@@ -32,7 +32,7 @@ class Page2 extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
                 color: AppColors().mainWhite,
-                fontFamily: 'SFArabic',
+                
                 fontSize: 14.5),
           ),
         ],

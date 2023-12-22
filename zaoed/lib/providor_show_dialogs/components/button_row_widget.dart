@@ -7,8 +7,11 @@ class ButtonRowWidget extends StatelessWidget {
     super.key,
     required this.buttontext1,
     required this.buttontext2,
+    this.onPress1,
+    this.onPress2,
   });
   final String buttontext1, buttontext2;
+  final Function()? onPress1, onPress2;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +22,13 @@ class ButtonRowWidget extends StatelessWidget {
           textEntry: buttontext1,
           backColor: AppColors().green,
           textColor: AppColors().gray6,
-          onPress: () {},
+          onPress: onPress1,
         ),
         DialogButton(
           textEntry: buttontext2,
           backColor: AppColors().gray6,
           textColor: AppColors().green,
-          onPress: () {},
+          onPress: onPress2,
         ),
       ],
     );

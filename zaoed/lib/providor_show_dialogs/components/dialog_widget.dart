@@ -10,15 +10,19 @@ class DialogWidget extends StatelessWidget {
     this.imageIcon,
     required this.button1,
     required this.button2,
+    this.pressOne,
+    this.pressTwo,
   });
   final String title, bodyText;
   final String button1, button2;
 
   final ImageIcon? imageIcon;
+  final Function()? pressOne, pressTwo;
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      key: key,
       alignment: Alignment.bottomCenter,
       backgroundColor: AppColors().gray6,
       insetAnimationDuration: const Duration(milliseconds: 100),
@@ -35,7 +39,7 @@ class DialogWidget extends StatelessWidget {
                 children: [
                   if (imageIcon != null) imageIcon!,
                   if (imageIcon != null)
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                   Text(
@@ -43,7 +47,6 @@ class DialogWidget extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        fontFamily: "SfArabic",
                         color: AppColors().mainWhite),
                   ),
                 ],
@@ -53,17 +56,16 @@ class DialogWidget extends StatelessWidget {
               ),
               Text(
                 bodyText,
-                style: TextStyle(
-                    fontSize: 17,
-                    fontFamily: "SfArabic",
-                    color: AppColors().mainWhite),
+                style: TextStyle(fontSize: 17, color: AppColors().mainWhite),
               ),
               const SizedBox(
                 height: 32,
               ),
               ButtonRowWidget(
                 buttontext1: button1,
+                onPress1: pressOne,
                 buttontext2: button2,
+                onPress2: pressTwo,
               ),
             ],
           ),

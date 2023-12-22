@@ -31,7 +31,7 @@ class TabBarWidget extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    fontFamily: "SfArabic"),
+                    ),
               ),
             ),
             Tab(
@@ -39,7 +39,7 @@ class TabBarWidget extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      fontFamily: "SfArabic")),
+                      )),
             ),
           ]),
     );

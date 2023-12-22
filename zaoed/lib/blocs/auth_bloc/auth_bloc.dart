@@ -1,15 +1,90 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:zaoed/model/user_model.dart';
+import 'package:zaoed/service/networking.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthStates> {
+  UserModel? user;
   AuthBloc() : super(AuthInitial()) {
-    on<AuthEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<SignUpEvent>(signUp);
+    on<VerificationEvent>(verificationMethod);
+    on<DisplayPasswordEvent>(displayPass);
+  }
+  signUp(SignUpEvent event, emit) async {
+    List<bool> isValidation = [];
+    try {
+      isValidation.add(validation(keyForm: event.keyEmail));
+      isValidation.add(validation(keyForm: event.keyPassword));
+      isValidation.add(validation(keyForm: event.keyUsername));
+      if (!isValidation.contains(false)) {
+        final auth = SupabaseNetworking().getSupabase.auth;
+        auth.signUp(email: event.email, password: event.password);
+
+        user = UserModel(
+          name: event.username,
+          email: event.email,
+        );
+        emit(SuccessSignupState());
+      } else {
+        emit(ErrorSignupValidState());
+      }
+    } catch (e) {
+      return;
+    }
+  }
+
+  validation({required GlobalKey<FormState> keyForm}) {
+    if (!keyForm.currentState!.validate()) {
+      return false;
+    }
+    return true;
+  }
+
+  FutureOr<void> verificationMethod(
+      VerificationEvent event, Emitter<AuthStates> emit) async {
+    try {
+      final auth = SupabaseNetworking().getSupabase.auth;
+      final verification = await auth.verifyOTP(
+          token: event.otp, type: OtpType.signup, email: event.email);
+      if (verification.session?.accessToken != null) {
+        await Future.delayed(const Duration(seconds: 1));
+        final test =
+            await SupabaseNetworking().getSupabase.schema("zaod").from("user").insert({
+          "name": user?.name,
+          "email": user?.email,
+          "id_auth": verification.user?.id,
+        }).select();
+        print(test);
+        emit(SuccessVerificationState());
+      } else {
+        emit(ErrorVerificationState("الرمز خاطئ"));
+      }
+    } on AuthException catch (e) {
+      print("$e  1");
+      emit(ErrorVerificationState(e.message));
+    } on PostgrestException catch (e) {
+      print("$e  2");
+      emit(ErrorVerificationState(e.message));
+    } catch (e) {
+      print("$e  3");
+      emit(ErrorVerificationState(e.toString()));
+    }
+  }
+
+  FutureOr<void> displayPass(
+      DisplayPasswordEvent event, Emitter<AuthStates> emit) {
+    if (event.display == true) {
+      event.display = false;
+      emit(DisplayState(display: event.display));
+    } else {
+      event.display = true;
+      emit(DisplayState(display: event.display));
+    }
   }
 }

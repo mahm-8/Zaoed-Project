@@ -5,7 +5,7 @@ import 'components/bookmark_card_widget.dart';
 class SavedBookmarksScreen extends StatelessWidget {
   SavedBookmarksScreen({super.key});
 
-  List bookmarks = ["", ""];
+  final List bookmarks = ["", ""];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +17,11 @@ class SavedBookmarksScreen extends StatelessWidget {
         title: Text(
           "المحفوظات",
           style: TextStyle(
-              fontSize: 20,
-              color: AppColors().mainWhite,
-              fontWeight: FontWeight.bold,
-              fontFamily: "SfArabic"),
+            fontSize: 20,
+            color: AppColors().mainWhite,
+            fontWeight: FontWeight.bold,
+            // 
+          ),
         ),
       ),
       body: SingleChildScrollView(

@@ -1,6 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/validtor.dart';
 import 'package:zaoed/auth/components/textfield_widget.dart';
 import 'package:zaoed/auth/otp_screen.dart';
@@ -8,6 +13,7 @@ import '../tabbar_login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
+  bool pass = false;
   final _userNameKey = GlobalKey<FormState>();
   final _emailKey = GlobalKey<FormState>();
   final _passwordKey = GlobalKey<FormState>();
@@ -32,8 +38,6 @@ class SignUpScreen extends StatelessWidget {
             keyboardType: TextInputType.name,
             hint: 'ادخل الاسم كامل',
             controller: nameController,
-            obscure: false,
-            displayPass: false,
             validator: (value) {
               if (value!.isEmpty) {
                 return "ادخل الاسم";
@@ -46,8 +50,6 @@ class SignUpScreen extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             hint: 'ادخل البريد الإلكتروني',
             controller: emailController,
-            obscure: false,
-            displayPass: false,
             validator: (value) {
               if (value!.isEmpty) {
                 return "ادخل البريد الإلكتروني";
@@ -58,21 +60,48 @@ class SignUpScreen extends StatelessWidget {
               return null;
             },
           ),
-          TextfieldWidget(
-            keyForm: _passwordKey,
-            keyboardType: TextInputType.emailAddress,
-            hint: 'ادخل كلمة السر',
-            controller: passwordController,
-            obscure: true,
-            displayPass: true,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return "ادخل كلمة السر";
+          BlocBuilder<AuthBloc, AuthStates>(
+            builder: (context, state) {
+              if (state is DisplayState) {
+                return TextfieldWidget(
+                    keyForm: _passwordKey,
+                    keyboardType: TextInputType.emailAddress,
+                    hint: 'ادخل كلمة السر',
+                    controller: passwordController,
+                    obscure: true,
+                    displayPass: state.display,
+                    onTap: () => context
+                        .read<AuthBloc>()
+                        .add(DisplayPasswordEvent(state.display)),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "ادخل كلمة السر";
+                      }
+                      if (!value.isValidPassword) {
+                        return "كلمة السر يجب ان تحتوي على رقم ورمز وحرف كبير و صغير";
+                      }
+                      return null;
+                    });
               }
-              if (!value.isValidPassword) {
-                return "كلمة السر يجب ان تحتوي على رقم ورمز وحرف كبير و صغير";
-              }
-              return null;
+              return TextfieldWidget(
+                keyForm: _passwordKey,
+                keyboardType: TextInputType.emailAddress,
+                hint: 'ادخل كلمة السر',
+                controller: passwordController,
+                obscure: true,
+                displayPass: pass,
+                onTap: () =>
+                    context.read<AuthBloc>().add(DisplayPasswordEvent(pass)),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "ادخل كلمة السر";
+                  }
+                  if (!value.isValidPassword) {
+                    return "كلمة السر يجب ان تحتوي على رقم ورمز وحرف كبير و صغير";
+                  }
+                  return null;
+                },
+              );
             },
           ),
           const SizedBox(
@@ -81,27 +110,36 @@ class SignUpScreen extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TabBarLogin()));
+                  MaterialPageRoute(builder: (context) => const TabBarLogin()));
             },
             child: Text(
               "لديك حساب مسبقاً؟ تسجيل الدخول",
               style: TextStyle(
-                  fontSize: 14,
-                  color: AppColors().mainWhite,
-                  fontFamily: "SfArabic"),
+                fontSize: 14,
+                color: AppColors().mainWhite,
+              ),
             ),
           ),
-          ButtonWidget(
-            textEntry: "إرسال رمز التحقق",
-            backColor: AppColors().mainWhite,
-            textColor: AppColors().gray8,
-            onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          OTPScreen(email: emailController.text)));
+          BlocListener<AuthBloc, AuthStates>(
+            listener: (context, state) {
+              if (state is SuccessSignupState) {
+                context.push(view: OTPScreen(email: emailController.text));
+              }
             },
+            child: ButtonWidget(
+              textEntry: "إرسال رمز التحقق",
+              backColor: AppColors().mainWhite,
+              textColor: AppColors().gray8,
+              onPress: () {
+                context.read<AuthBloc>().add(SignUpEvent(
+                    emailController.text,
+                    passwordController.text,
+                    nameController.text,
+                    _emailKey,
+                    _passwordKey,
+                    _userNameKey));
+              },
+            ),
           ),
         ],
       ),

@@ -5,16 +5,16 @@ import '../../constants/colors.dart';
 class TextfieldWidget extends StatelessWidget {
   const TextfieldWidget(
       {super.key,
-      required this.keyboardType,
       required this.hint,
-      required this.obscure,
-      this.controller,
+      this.obscure = false,
+      required this.controller,
       this.keyForm,
       this.validator,
-      required this.displayPass,
-      this.onTap});
+      this.displayPass = false,
+      this.onTap,
+      this.keyboardType});
 
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
   final String hint;
   final bool obscure;
   final TextEditingController? controller;
@@ -47,9 +47,9 @@ class TextfieldWidget extends StatelessWidget {
               obscureText: !obscure ? false : !displayPass,
               controller: controller,
               style: TextStyle(
-                  fontSize: 17,
-                  color: AppColors().white,
-                  fontFamily: "SfArabic"),
+                fontSize: 17,
+                color: AppColors().white,
+              ),
               decoration: InputDecoration(
                 fillColor: AppColors().gray1Trans,
                 filled: true,
@@ -64,10 +64,7 @@ class TextfieldWidget extends StatelessWidget {
                         ),
                       ),
                 hintText: hint,
-                hintStyle: TextStyle(
-                    color: AppColors().gray4,
-                    fontFamily: "SfArabic",
-                    fontSize: 17),
+                hintStyle: TextStyle(color: AppColors().gray4, fontSize: 17),
                 floatingLabelBehavior: FloatingLabelBehavior.always,
                 focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
