@@ -27,27 +27,27 @@ class _ChargingTypeRowState extends State<ChargingTypeRow> {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-
-        children: List.generate(
-          imageUrl.length,
-          (index) => GestureDetector(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: SizedBox(
+        height: 80,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: imageUrl.length,
+          itemBuilder: (context, index) => GestureDetector(
             onTap: () {
               setState(() {
                 selectedIndex = index;
               });
             },
             child: Padding(
-              padding: EdgeInsets.only(right: index == 0 ? 0 : 15),
+              padding: EdgeInsets.symmetric(horizontal: 6),
               child: ChargingTypeContainer(
                 imageUrl: imageUrl[index],
                 type: types[index],
                 isSelected: selectedIndex == index,
               ),
             ),
-
           ),
         ),
       ),
