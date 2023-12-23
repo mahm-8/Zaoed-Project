@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/home/component/button_choice_widget.dart';
 import 'package:zaoed/Screens/Finder/screens/home/component/charge_points_card.dart';
-import 'package:zaoed/components/receive_dialog/receive_dialog.dart';
+import 'package:zaoed/components/sheet_method/receive_dialog.dart';
 import 'component/search_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             ButtonChoiceWidget(
               imageUrl: "lib/assets/icons/main_info.png",
               onPress: () {
-                context.receiveDialog();
+                context.arrivedToCharging();
               },
             ),
             const Spacer(),
