@@ -6,8 +6,13 @@ extension LoadingExtension on BuildContext {
   showLoading() {
     showDialog(
         context: this,
-        builder: (context) =>
-            const Center(child: CircularProgressIndicator.adaptive()));
+        builder: (context) => Center(
+                child: CircularProgressIndicator(
+              color: AppColors().green,
+              strokeAlign: CircularProgressIndicator.strokeAlignCenter,
+              strokeWidth: 6,
+              strokeCap: StrokeCap.round,
+            )));
   }
 
   showErrorMessage({String? msg}) {

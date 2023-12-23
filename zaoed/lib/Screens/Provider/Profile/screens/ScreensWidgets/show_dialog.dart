@@ -13,7 +13,7 @@ class ShowDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       shape: const OutlineInputBorder(borderSide: BorderSide.none),
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       backgroundColor: AppColors().gray6,
       insetAnimationDuration: const Duration(milliseconds: 100),
       child: Container(

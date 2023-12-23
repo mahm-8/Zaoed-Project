@@ -4,6 +4,8 @@ import 'package:zaoed/Screens/Finder/screens/customer_service_chat/components/me
 import 'package:zaoed/components/appbar/appbar_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 
+import '../home/home_screen.dart';
+
 class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
 
@@ -12,8 +14,11 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context,
-          title: "الدعم", hasAction: true, showIcon: true),
+      appBar: customAppBar(context, title: "الدعم", backTitle: "الرئيسية",
+          onPress: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
+      }, hasAction: true, showIcon: true),
       backgroundColor: AppColors().gray9,
       body: Column(
         children: [

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 import 'package:zaoed/constants/colors.dart';
 
+import '../filter_screen.dart';
+
 class SearchFieldWidget extends StatelessWidget {
   SearchFieldWidget({super.key});
 
@@ -31,10 +33,18 @@ class SearchFieldWidget extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           fillColor: AppColors().gray1Trans,
           filled: true,
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(left: 10.0),
-            child: Image.asset(
-              'lib/assets/icons/filter.png',
+          suffixIcon: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const FilterScreen())));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Image.asset(
+                'lib/assets/icons/filter.png',
+              ),
             ),
           ),
           hintText: "بحث",
