@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'components/dialog_widget.dart';
+import '../components/dialog_widgets/dialog_widget.dart';
 
 class TestShowDialogLogout extends StatelessWidget {
   const TestShowDialogLogout({super.key});

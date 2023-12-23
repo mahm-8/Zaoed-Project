@@ -6,7 +6,7 @@ import 'package:zaoed/bookmark_screens/components/book_charge_button.dart';
 import 'package:zaoed/bookmark_screens/components/chargers_row_widget.dart';
 import 'package:zaoed/bookmark_screens/components/share_button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/providor_show_dialogs/components/dialog_widget.dart';
+import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
 
 import '../../providor_show_dialogs/components/state_dialog.dart';
 
