@@ -44,7 +44,10 @@ class ScaningBarcode extends StatelessWidget {
               )
             ],
           )
-          // if scan completed show ScanCompleteDialog()
+          // if scan to start charging completed show ScanCompleteDialog()
+          // if scan to end charging and to pay show PayDialog()
+          // if barcode is invalid show InvalidBarcodeDialog()
+          // if barcode is not found show NotFoundBarcodeDialog()
         ],
       ),
     );
