@@ -18,7 +18,7 @@ class CarInformation extends StatelessWidget {
         Container(
           width: 80,
           height: 23,
-          padding: EdgeInsets.symmetric(horizontal: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
             color: AppColors().green,
             borderRadius: BorderRadius.circular(8),
@@ -26,7 +26,7 @@ class CarInformation extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(
+              const Center(
                 child: Text(
                   'جاري الشحن',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),

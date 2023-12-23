@@ -31,13 +31,13 @@ class DailyProfitRateChartContainer extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(color: Colors.grey, fontSize: 16),
+              style: const TextStyle(color: Colors.grey, fontSize: 16),
             ),
             Text(
               subTitle,
               style: TextStyle(color: AppColors().white, fontSize: 16),
             ),
-            Divider(
+            const Divider(
               color: Colors.grey,
               thickness: 1,
             ),

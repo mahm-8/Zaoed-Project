@@ -52,7 +52,7 @@ class _ChargingTimeState extends State<ChargingTime> {
           );
         },
         separatorBuilder: (BuildContext context, int index) {
-          return SizedBox(
+          return const SizedBox(
             width: 8,
           );
         },

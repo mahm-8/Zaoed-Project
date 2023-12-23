@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
 import '../components/added_dialog.dart';
-import '../components/state_dialog.dart';
 
 class TestShowDialogAddBankDone extends StatelessWidget {
   const TestShowDialogAddBankDone({super.key});

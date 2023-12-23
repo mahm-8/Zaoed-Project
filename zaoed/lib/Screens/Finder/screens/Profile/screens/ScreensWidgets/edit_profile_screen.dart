@@ -15,7 +15,7 @@ class EditProfileScreen extends StatelessWidget {
     return Scaffold(
         floatingActionButton: ElevatedButton(
             onPressed: () {
-              context.push(view: TabBarLogin());
+              context.push(view: const TabBarLogin());
             },
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -111,7 +111,7 @@ class EditProfileScreen extends StatelessWidget {
                           title: 'حذف الحساب',
                           icon: Icons.keyboard_arrow_left,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         )
                       ],
@@ -122,6 +122,5 @@ class EditProfileScreen extends StatelessWidget {
             ]),
           ),
         ));
-    ;
   }
 }

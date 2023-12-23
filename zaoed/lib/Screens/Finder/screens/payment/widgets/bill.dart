@@ -6,6 +6,8 @@ import 'package:zaoed/Screens/Finder/screens/payment/widgets/bill_token.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class Bill extends StatelessWidget {
+  const Bill({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

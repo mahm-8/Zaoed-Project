@@ -37,7 +37,7 @@ class DailyHoursRateChart extends StatelessWidget {
             dataSource: data,
             color: AppColors().green,
             width: 0.3,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10), topRight: Radius.circular(10)),
             xValueMapper: (point, _) => point.date,
             yValueMapper: (point, _) => point.hoursRate,

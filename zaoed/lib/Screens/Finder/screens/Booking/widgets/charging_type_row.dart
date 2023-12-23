@@ -8,29 +8,29 @@ class ChargingTypeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
           ChargingTypeContainer(
             imageUrl: 'lib/assets/icons/GB.png',
             type: 'GB/T AC',
           ),
-          const SizedBox(
+          SizedBox(
             width: 15,
           ),
           ChargingTypeContainer(
             imageUrl: 'lib/assets/icons/Type 2.png',
             type: 'Type2',
           ),
-          const SizedBox(
+          SizedBox(
             width: 15,
           ),
           ChargingTypeContainer(
             imageUrl: 'lib/assets/icons/Tesla.png',
             type: 'Tesla',
           ),
-          const SizedBox(
+          SizedBox(
             width: 15,
           ),
           ChargingTypeContainer(

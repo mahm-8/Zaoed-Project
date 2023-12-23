@@ -10,7 +10,7 @@ import 'package:zaoed/constants/colors.dart';
 class DetailsPaymentScreen extends StatelessWidget {
   final Function() onTap;
 
-  DetailsPaymentScreen({
+  DetailsPaymentScreen({super.key, 
     required this.onTap,
   });
 

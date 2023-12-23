@@ -21,10 +21,10 @@ class SettingsLabel extends StatelessWidget {
             title,
             style: TextStyle(color: AppColors().white, fontSize: 16),
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             subTitle,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
           ),
           Image.asset('lib/assets/icons/small-left-solid.png'),
          

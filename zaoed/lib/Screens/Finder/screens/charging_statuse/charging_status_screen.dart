@@ -15,7 +15,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ChargingCar(),
+            const ChargingCar(),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 151),
@@ -27,7 +27,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
                     'انتهت عملية الشحن',
                     style: TextStyle(color: AppColors().white, fontSize: 18),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Text(
@@ -36,7 +36,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
                       color: AppColors().gray,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   ButtonWidget(

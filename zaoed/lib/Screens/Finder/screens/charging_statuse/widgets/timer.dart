@@ -32,7 +32,7 @@ class TimerWidget extends StatelessWidget {
                           ? AppColors().green
                           : AppColors().gray,
                   enableTooltip: false,
-                  dataLabelSettings: DataLabelSettings(
+                  dataLabelSettings: const DataLabelSettings(
                     isVisible: false,
                   ),
                   xValueMapper: (data, _) => data.label,
@@ -57,7 +57,7 @@ class TimerWidget extends StatelessWidget {
                       data.label == 'Completed'
                           ? AppColors().green
                           : AppColors().gray,
-                  dataLabelSettings: DataLabelSettings(
+                  dataLabelSettings: const DataLabelSettings(
                     isVisible: false,
                   ),
                   xValueMapper: (ChartData data, _) =>

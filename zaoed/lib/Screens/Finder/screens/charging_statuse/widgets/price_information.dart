@@ -42,7 +42,7 @@ class PriceInformation extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 14, color: AppColors().gray),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 '14.00 ريال',
                 style: TextStyle(

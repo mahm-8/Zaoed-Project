@@ -40,7 +40,7 @@ class BookingDataContainer extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 12,
           ),
           Column(
@@ -51,7 +51,7 @@ class BookingDataContainer extends StatelessWidget {
                 style: TextStyle(color: AppColors().white, fontSize: 16),
               ),
               Text(
-                'مدة الحجز: ${hours} ساعات',
+                'مدة الحجز: $hours ساعات',
                 style: TextStyle(color: AppColors().white, fontSize: 16),
               )
             ],

@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
               onPress: () {},
             ),
             const Spacer(),
-            ChargePointsCard(),
+            const ChargePointsCard(),
           ],
         ),
       ),

@@ -18,12 +18,12 @@ class BillLabel extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 12),
+            style: const TextStyle(fontSize: 12),
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             subTitle,
-            style: TextStyle(fontSize: 12),
+            style: const TextStyle(fontSize: 12),
           )
         ],
       ),

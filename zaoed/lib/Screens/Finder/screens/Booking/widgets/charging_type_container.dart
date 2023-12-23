@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingTypeContainer extends StatefulWidget {
-  ChargingTypeContainer({
+  const ChargingTypeContainer({
     super.key,
     required this.imageUrl,
     required this.type,

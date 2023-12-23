@@ -8,7 +8,7 @@ import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
 
 class AddCar extends StatefulWidget {
-  AddCar({super.key});
+  const AddCar({super.key});
 
   @override
   State<AddCar> createState() => _AddCarState();

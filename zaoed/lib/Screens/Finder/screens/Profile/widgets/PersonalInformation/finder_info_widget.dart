@@ -22,7 +22,7 @@ class FinderInfoWidget extends StatelessWidget {
           imageIcon: 'lib/assets/icons/person1.png',
           title: 'البيانات الشخصية',
           onTap: () {
-            context.push(view: InformationScreen());
+            context.push(view: const InformationScreen());
           },
         ),
         Divider(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/providor_show_dialogs/delete_dialogs/delete_done.dart';
 
 import '../components/state_dialog.dart';
 

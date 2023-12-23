@@ -18,9 +18,9 @@ class PersonalInformationScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 27),
         child: Column(
           children: [
-            PersonalImageContainer(),
-            PersonalContainer(),
-            Spacer(),
+            const PersonalImageContainer(),
+            const PersonalContainer(),
+            const Spacer(),
             ButtonWidget(
               textEntry: 'تسجيل الخروج',
               backColor: AppColors().green,

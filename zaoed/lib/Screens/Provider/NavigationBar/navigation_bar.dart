@@ -11,7 +11,7 @@ class NavigationBarScreen extends StatelessWidget {
 
   final List screens = [
     const ProfileFinder(),
-    ProfileScreen(),
+    const ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
   ];

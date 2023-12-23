@@ -14,7 +14,7 @@ class LocationDetails extends StatelessWidget {
       child: Row(
         children: [
           Image.asset('lib/assets/icons/Location.png'),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
           Column(
@@ -35,7 +35,7 @@ class LocationDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 22,
               ),
               Container(
