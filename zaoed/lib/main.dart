@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:zaoed/Provider/Screens/NavigationBar/navigation_bar.dart';
+import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/user_bloc/user_bloc.dart';

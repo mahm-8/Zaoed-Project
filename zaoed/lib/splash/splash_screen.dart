@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/onboarding/onboarding_screen.dart';
+import 'package:zaoed/Screens/onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
