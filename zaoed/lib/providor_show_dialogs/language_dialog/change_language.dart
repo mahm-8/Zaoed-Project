@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/providor_show_dialogs/components/dialog_widget.dart';
+import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
 
 class TestShowDialogChangeLanguage extends StatelessWidget {
   const TestShowDialogChangeLanguage({super.key});

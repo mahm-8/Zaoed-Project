@@ -16,6 +16,8 @@ class ScanBarcodeScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // show scan barcode then scaning barcode screen
+              //ScanBarcode()
               ScaningBarcode(),
             ],
           ),
