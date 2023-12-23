@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_charging_point.dart';
+import 'package:zaoed/Screens/Provider/Profile/screens/edit_charging_point_screen.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
 
 class LocationDetails extends StatelessWidget {
   const LocationDetails({
@@ -47,7 +49,9 @@ class LocationDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        context.push(view: EditChargingPointScreen());
+                      },
                       child: Image.asset('lib/assets/icons/edit.png')),
                   const Spacer(),
                   InkWell(

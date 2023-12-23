@@ -3,15 +3,24 @@ import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_chargi
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 
-AppBar AddChargingScreenAppBar(BuildContext context, {title}) {
+AppBar AddChargingScreenAppBar(BuildContext context,
+    {title, isEditing = false}) {
   return AppBar(
     centerTitle: true,
-    automaticallyImplyLeading: false,
     title: Text(
       title,
       style: TextStyle(color: AppColors().white, fontWeight: FontWeight.w700),
     ),
     backgroundColor: AppColors().gray9,
+    leading: Visibility(
+        visible: isEditing,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 18),
+          child: Text(
+            'تعديل',
+            style: TextStyle(color: AppColors().white),
+          ),
+        )),
     actions: [
       TextButton(
           onPressed: () {

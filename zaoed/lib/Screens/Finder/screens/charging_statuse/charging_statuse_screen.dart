@@ -24,11 +24,7 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
     super.initState();
     timerToCompleted();
   }
-  @override
-  void dispose() {
-    timer?.cancel();
-    super.dispose();
-  }
+
   timerToCompleted() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {

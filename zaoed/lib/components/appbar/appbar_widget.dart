@@ -8,6 +8,8 @@ AppBar customAppBar(
   bool hasAction = false,
   bool showIcon = false,
   String? title,
+  backTitle,
+  Function()? onPress,
 }) {
   return AppBar(
     backgroundColor: Colors.transparent,
@@ -38,14 +40,9 @@ AppBar customAppBar(
         child: Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomeScreen()));
-              },
+              onPressed: onPress,
               child: Text(
-                "الرئيسية",
+                backTitle,
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,

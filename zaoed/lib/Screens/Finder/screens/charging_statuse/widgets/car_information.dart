@@ -36,6 +36,9 @@ class CarInformation extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(
+          width: 6,
+        ),
       ],
     );
   }

@@ -4,6 +4,7 @@ import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/custom_swi
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/settings_label.dart';
 import 'package:zaoed/constants/colors.dart';
 
+// ignore: must_be_immutable
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({
     super.key,

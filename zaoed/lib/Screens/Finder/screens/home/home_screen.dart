@@ -24,7 +24,10 @@ class HomeScreen extends StatelessWidget {
             ),
             ButtonChoiceWidget(
               imageUrl: "lib/assets/icons/map_layer.png",
-              onPress: () {},
+              onPress: () {
+                // change map type
+                // show trafic 
+              },
             ),
             const SizedBox(
               height: 10,
@@ -32,7 +35,9 @@ class HomeScreen extends StatelessWidget {
             ButtonChoiceWidget(
               imageUrl: "lib/assets/icons/main_info.png",
               onPress: () {
+
                 context.arrivedToCharging();
+
               },
             ),
             const Spacer(),

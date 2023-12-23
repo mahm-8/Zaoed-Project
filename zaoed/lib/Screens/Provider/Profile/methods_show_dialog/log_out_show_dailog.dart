@@ -22,7 +22,7 @@ Future<dynamic> LogOutShowDailog(BuildContext context) {
             context: context,
             builder: (context) {
               return const StateDialog(
-                title: 'تم تسجيل خروجك  بنجاح',
+                title: 'تم تسجيل خروجك  بنجاح',isScreen: true,
               );
             },
           );

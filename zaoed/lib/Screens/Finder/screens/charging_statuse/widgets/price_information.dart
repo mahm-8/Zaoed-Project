@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
@@ -13,8 +12,7 @@ class PriceInformation extends StatelessWidget {
       height: 70,
       width: 349,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: AppColors().gray6),
+          borderRadius: BorderRadius.circular(8), color: AppColors().gray6),
       padding: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,24 +27,24 @@ class PriceInformation extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 'السعر',
-                style: TextStyle(
-                    fontSize: 16, color: AppColors().white),
+                style: TextStyle(fontSize: 16, color: AppColors().white),
               ),
             ],
           ),
           const SizedBox(height: 8),
           Row(
             children: [
+              SizedBox(
+                width: 16,
+              ),
               Text(
                 'رسوم الشحن',
-                style: TextStyle(
-                    fontSize: 14, color: AppColors().gray),
+                style: TextStyle(fontSize: 14, color: AppColors().gray),
               ),
               const Spacer(),
               Text(
                 '14.00 ريال',
-                style: TextStyle(
-                    fontSize: 14, color: AppColors().white),
+                style: TextStyle(fontSize: 14, color: AppColors().white),
               ),
             ],
           ),
@@ -55,4 +53,3 @@ class PriceInformation extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class TimerWidget extends StatelessWidget {
@@ -9,10 +8,8 @@ class TimerWidget extends StatelessWidget {
     required this.remainingTime,
     required this.completedPercentage,
   });
-
   final double remainingTime;
   final double completedPercentage;
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,23 +17,45 @@ class TimerWidget extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
-            child: SfCircularChart(
-              series: <CircularSeries>[
-                DoughnutSeries(
-                  dataSource: <ChartData>[
-                    ChartData('Remaining', remainingTime),
-                    ChartData('Total', 10),
-                  ],
-                  pointColorMapper: (data, _) =>
-                      data.label == 'Remaining'
-                          ? AppColors().green
-                          : AppColors().gray,
-                  enableTooltip: false,
-                  dataLabelSettings: const DataLabelSettings(
-                    isVisible: false,
+
+            child: SfRadialGauge(
+              axes: <RadialAxis>[
+                RadialAxis(
+                  minimum: 0,
+                  maximum: 10,
+                  showLabels: false,
+                  showTicks: false,
+                  startAngle: 270,
+                  endAngle: 270,
+                  radiusFactor: 0.7,
+                  axisLineStyle: AxisLineStyle(
+                    thickness: 9,
+                    cornerStyle: CornerStyle.bothCurve,
+                    color: AppColors().gray,
+
                   ),
-                  xValueMapper: (data, _) => data.label,
-                  yValueMapper: (data, _) => data.value,
+                  pointers: <GaugePointer>[
+                    RangePointer(
+                      value: remainingTime,
+                      width: 9,
+                      color: AppColors().green,
+                      cornerStyle: CornerStyle.bothCurve,
+                    ),
+                  ],
+                  annotations: <GaugeAnnotation>[
+                    GaugeAnnotation(
+                      widget: Text(
+                        '${remainingTime.toStringAsFixed(0)}',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors().white,
+                        ),
+                      ),
+                      angle: 90,
+                      positionFactor: 0.1,
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -45,26 +64,46 @@ class TimerWidget extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
-            child: SfCircularChart(
-              series: <CircularSeries>[
-                DoughnutSeries<ChartData, String>(
-                  dataSource: <ChartData>[
-                    ChartData('Completed', completedPercentage),
-                    ChartData(
-                        'Remaining', 100 - completedPercentage),
-                  ],
-                  pointColorMapper: (data, _) =>
-                      data.label == 'Completed'
-                          ? AppColors().green
-                          : AppColors().gray,
-                  dataLabelSettings: const DataLabelSettings(
-                    isVisible: false,
+
+            child: SfRadialGauge(
+              axes: <RadialAxis>[
+                RadialAxis(
+                  minimum: 0,
+                  maximum: 100,
+                  showLabels: false,
+                  showTicks: false,
+                  startAngle: 270,
+                  endAngle: 270,
+                  radiusFactor: 0.7,
+                  axisLineStyle: AxisLineStyle(
+                    thickness: 9,
+                    cornerStyle: CornerStyle.bothCurve,
+                    color: AppColors().gray,
+
                   ),
-                  xValueMapper: (ChartData data, _) =>
-                      data.label,
-                  yValueMapper: (ChartData data, _) =>
-                      data.value,
-                )
+                  pointers: <GaugePointer>[
+                    RangePointer(
+                      value: completedPercentage,
+                      width: 9,
+                      color: AppColors().green,
+                      cornerStyle: CornerStyle.bothCurve,
+                    ),
+                  ],
+                  annotations: <GaugeAnnotation>[
+                    GaugeAnnotation(
+                      widget: Text(
+                        '${completedPercentage.toStringAsFixed(0)}%',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors().white,
+                        ),
+                      ),
+                      angle: 90,
+                      positionFactor: 0.1,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -72,11 +111,4 @@ class TimerWidget extends StatelessWidget {
       ],
     );
   }
-}
-
-class ChartData {
-  ChartData(this.label, this.value);
-
-  final String label;
-  final double value;
 }

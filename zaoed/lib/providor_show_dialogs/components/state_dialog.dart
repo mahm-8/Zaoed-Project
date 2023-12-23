@@ -5,14 +5,16 @@ class StateDialog extends StatelessWidget {
   const StateDialog({
     super.key,
     required this.title,
+    this.isScreen = false,
   });
   final String title;
-
+  final bool isScreen;
   @override
   Widget build(BuildContext context) {
     return Dialog(
       alignment: Alignment.center,
-      backgroundColor: AppColors().gray6,
+      elevation: isScreen ? 0 : 10,
+      backgroundColor: isScreen ? Colors.transparent : AppColors().gray6,
       insetAnimationCurve: Curves.easeInOutExpo,
       insetAnimationDuration: const Duration(microseconds: 800),
       child: Container(

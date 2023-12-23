@@ -8,6 +8,8 @@ import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
 import 'package:zaoed/service/networking.dart';
 
+import 'Screens/Finder/screens/home/filter_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
@@ -41,7 +43,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: NavigationBarScreen(),
+        home: FilterScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

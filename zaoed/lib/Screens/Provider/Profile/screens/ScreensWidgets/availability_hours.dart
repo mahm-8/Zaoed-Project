@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
-class AvailabilityHours extends StatelessWidget {
-  AvailabilityHours({
-    super.key,
-  });
+class AvailabilityHours extends StatefulWidget {
+  const AvailabilityHours({super.key});
+
+  @override
+  State<AvailabilityHours> createState() => _AvailabilityHoursState();
+}
+
+class _AvailabilityHoursState extends State<AvailabilityHours> {
+  late int selectedIndex = -1;
+
   List textClock = [
     'غير متوفر',
     '00:00-6:00',
@@ -12,12 +18,14 @@ class AvailabilityHours extends StatelessWidget {
     '12:00-18:00',
     '18:00-00:00'
   ];
+
   List imageClock = [
     'lib/assets/icons/Clock_.png',
     'lib/assets/icons/ClockFri12-6.png',
     'lib/assets/icons/ClockFri6-12.png',
     'lib/assets/icons/ClockFri6-12.png'
   ];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,24 +50,40 @@ class AvailabilityHours extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 90,
-                      width: 90,
-                      decoration: BoxDecoration(
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: Container(
+                        height: 90,
+                        width: 90,
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(9),
-                          border: Border.all(color: AppColors().gray6)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              imageClock[index],
-                            ),
-                            const Spacer(),
-                            Text(textClock[index],
+                          border: Border.all(
+                            color: selectedIndex == index
+                                ? AppColors().green
+                                : AppColors().gray6,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: Column(
+                            children: [
+                              Image.asset(imageClock[index]),
+                              const Spacer(),
+                              Text(
+                                textClock[index],
                                 style: TextStyle(
-                                    color: AppColors().white, fontSize: 12))
-                          ],
+                                  color: selectedIndex == index
+                                      ? AppColors().green
+                                      : AppColors().white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -72,9 +96,7 @@ class AvailabilityHours extends StatelessWidget {
                   itemCount: imageClock.length,
                 ),
               ),
-              Image.asset(
-                'lib/assets/icons/small-left-solid.png'
-              )
+              Image.asset('lib/assets/icons/small-left-solid.png')
             ],
           ),
           Divider(

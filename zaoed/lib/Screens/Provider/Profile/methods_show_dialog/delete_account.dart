@@ -22,7 +22,8 @@ Future<dynamic> DeleteAccount(BuildContext context) {
             context: context,
             builder: (context) {
               return const StateDialog(
-                title: "تمت عملية الحذف بنجاح",
+                title: 'تم حذف حسابك بنجاح',
+                isScreen: true,
               );
             },
           );
