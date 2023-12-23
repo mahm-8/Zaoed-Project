@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glass/glass.dart';
 import 'package:zaoed/Provider/Screens/Profile/profile_screen.dart';
-import 'package:zaoed/Provider/Screens/Profile/screens/add_charging_point.dart';
 import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/finder/screens/Profile/profile_screen.dart';
@@ -12,7 +11,7 @@ class NavigationBarScreen extends StatelessWidget {
 
   final List screens = [
     const ProfileFinder(),
-    AddChargingPoint(),
+    ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
   ];

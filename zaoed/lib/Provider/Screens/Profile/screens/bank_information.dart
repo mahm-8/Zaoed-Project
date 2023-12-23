@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/methods_show_dialog/add_bank_show_dialog.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/bank_text_field.dart';
+import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/show_dialog.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/providor_show_dialogs/add_dialogs/add_bank_done.dart';
+import 'package:zaoed/providor_show_dialogs/components/added_dialog.dart';
 
 // ignore: must_be_immutable
 class BankInformationScreen extends StatelessWidget {
@@ -17,7 +22,7 @@ class BankInformationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfailScreenAppBar(context, title: 'البيانات البنكية'),
+      appBar: ProfileScreenAppBar(context, title: 'البيانات البنكية'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 27),
         child: Column(
@@ -52,7 +57,12 @@ class BankInformationScreen extends StatelessWidget {
               textEntry: "إضافة",
               backColor: AppColors().green,
               textColor: AppColors().white,
-              onPress: () {},
+              onPress: () {
+                AddBankShowDialog(context);
+                Future.delayed(const Duration(seconds: 2), () {
+                  Navigator.of(context).pop();
+                });
+              },
             )
           ],
         ),

@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/methods_show_dialog/delete_account.dart';
 import 'package:zaoed/Provider/Screens/Profile/screens/ScreensWidgets/personal_information_label.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/finder/screens/Profile/screens/ScreensWidgets/legal_affairs_lable.dart';
@@ -14,7 +14,7 @@ class PersonalContainer extends StatelessWidget {
     return Column(
       children: [
         Container(
-            height: 336,
+            height: 300,
             width: 350,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
@@ -79,7 +79,9 @@ class PersonalContainer extends StatelessWidget {
                 ),
                 LegalAffairsLable(
                   title: 'حذف الحساب',
-                  onTap: () {},
+                  onTap: () {
+                    DeleteAccount(context);
+                  },
                 )
               ],
             )),

@@ -15,7 +15,7 @@ class StaticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfailScreenAppBar(context, title: 'الاحصائيات'),
+      appBar: ProfileScreenAppBar(context, title: 'الاحصائيات'),
       body: Stack(
         children: [
           Image.asset(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/Provider/Screens/Profile/methods_show_dialog/delete_charging_point.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/providor_show_dialogs/components/dialog_widget.dart';
+import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
 class LocationDetails extends StatelessWidget {
   const LocationDetails({
@@ -50,7 +54,9 @@ class LocationDetails extends StatelessWidget {
                       child: Image.asset('lib/assets/icons/edit.png')),
                   const Spacer(),
                   InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        DeleteChargingPoint(context);
+                      },
                       child: Image.asset('lib/assets/icons/delete.png'))
                 ],
               ),

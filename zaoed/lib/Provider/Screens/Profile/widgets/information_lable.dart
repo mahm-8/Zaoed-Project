@@ -31,7 +31,7 @@ class InformationLabel extends StatelessWidget {
             ),
             Text(
               title,
-              style: TextStyle(color: AppColors().white, fontSize: 18),
+              style: TextStyle(color: AppColors().white, fontSize: 17),
             ),
             const Spacer(),
             Image.asset('lib/assets/icons/small-left-solid.png'),

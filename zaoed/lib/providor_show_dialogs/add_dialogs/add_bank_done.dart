@@ -13,7 +13,7 @@ class TestShowDialogAddBankDone extends StatelessWidget {
       backgroundColor: AppColors().gray9,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             TextButton(
               onPressed: () {
@@ -21,13 +21,14 @@ class TestShowDialogAddBankDone extends StatelessWidget {
                   barrierColor: Colors.transparent,
                   context: context,
                   builder: (context) {
-                    return const AddedDialog(
-                      title: "تم إرسال طلب إضافة نقطة شحن جديدة بنجاح",
-                    );
+                    return
+                        // const AddedDialog(
+                        //   title: "تم إرسال طلب إضافة نقطة شحن جديدة بنجاح",
+                        // );
 
-                    // const AddedDialog(
-                    //   title: "تم إضافة البيانات البنكية بنجاح",
-                    // );
+                        const AddedDialog(
+                      title: "تم إضافة البيانات البنكية بنجاح",
+                    );
                   },
                 );
                 Future.delayed(const Duration(seconds: 5), () {
