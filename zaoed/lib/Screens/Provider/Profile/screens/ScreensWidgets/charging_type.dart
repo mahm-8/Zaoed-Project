@@ -21,6 +21,7 @@ class _ChargingTypeState extends State<ChargingType> {
 
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
       onTap: () {
         setState(() {
@@ -50,6 +51,7 @@ class _ChargingTypeState extends State<ChargingType> {
                       style: TextStyle(color: AppColors().white, fontSize: 10),
                     )
                   ],
+
                 ),
               ),
             ),

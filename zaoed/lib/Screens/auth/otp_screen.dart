@@ -97,7 +97,6 @@ class OTPScreen extends StatelessWidget {
                   backColor: AppColors().gray4,
                   textColor: AppColors().gray8,
                   onPress: () {
-                    print(pinCode);
                     context
                         .read<AuthBloc>()
                         .add(VerificationEvent(otp: pinCode, email: email));

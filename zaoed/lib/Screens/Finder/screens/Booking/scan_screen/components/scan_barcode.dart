@@ -19,7 +19,7 @@ class ScanBarcode extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.w700),
           ),
-          SizedBox(
+          const SizedBox(
             height: 72,
           ),
           Image.asset("lib/assets/icons/QR_Code_Square.png")

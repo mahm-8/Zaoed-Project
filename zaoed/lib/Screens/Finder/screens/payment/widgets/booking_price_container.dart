@@ -30,7 +30,7 @@ class BookingPriceContainer extends StatelessWidget {
             subTitle: '3 ساعات',
           ),
           BookingPriceLabel(
-            title: 'الخصم (${discount})',
+            title: 'الخصم ($discount)',
             subTitle: 'غير متوفر حاليا',
             isDiscount: true,
           ),

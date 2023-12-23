@@ -15,7 +15,7 @@ class BillScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Bill(),
+              const Bill(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: ButtonWidget(

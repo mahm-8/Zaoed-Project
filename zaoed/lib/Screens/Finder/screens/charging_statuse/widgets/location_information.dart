@@ -20,25 +20,26 @@ class LocationInformation extends StatelessWidget {
           Row(
             children: [
               Image.asset('lib/assets/icons/pin_logo.png'),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Text(
                 'منزل ايلاف محمد',
                 style: TextStyle(fontSize: 16, color: AppColors().white),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Image.asset('lib/assets/icons/Star.png'),
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               Text(
                 '5.0',
                 style: TextStyle(fontSize: 14, color: AppColors().white),
               ),
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               Text(
                 '(50)',
                 style: TextStyle(fontSize: 12, color: AppColors().gray),
               ),
             ],
           ),
+
           SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -46,6 +47,7 @@ class LocationInformation extends StatelessWidget {
               'حي النرجس',
               style: TextStyle(fontSize: 14, color: AppColors().gray),
             ),
+
           ),
         ],
       ),

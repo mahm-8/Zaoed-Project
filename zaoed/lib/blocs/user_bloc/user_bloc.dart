@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:zaoed/blocs/user_bloc/user_event.dart';
 import 'package:zaoed/blocs/user_bloc/user_state.dart';
 import 'package:zaoed/service/networking.dart';
@@ -17,7 +16,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           "phone": event.user?.phone,
         }).eq('id_auth', id!);
       } catch (e) {
-        print(e);
         return;
       }
     });

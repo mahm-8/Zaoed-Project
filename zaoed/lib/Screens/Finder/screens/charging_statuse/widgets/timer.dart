@@ -17,6 +17,7 @@ class TimerWidget extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
+
             child: SfRadialGauge(
               axes: <RadialAxis>[
                 RadialAxis(
@@ -31,6 +32,7 @@ class TimerWidget extends StatelessWidget {
                     thickness: 9,
                     cornerStyle: CornerStyle.bothCurve,
                     color: AppColors().gray,
+
                   ),
                   pointers: <GaugePointer>[
                     RangePointer(
@@ -62,6 +64,7 @@ class TimerWidget extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
+
             child: SfRadialGauge(
               axes: <RadialAxis>[
                 RadialAxis(
@@ -76,6 +79,7 @@ class TimerWidget extends StatelessWidget {
                     thickness: 9,
                     cornerStyle: CornerStyle.bothCurve,
                     color: AppColors().gray,
+
                   ),
                   pointers: <GaugePointer>[
                     RangePointer(

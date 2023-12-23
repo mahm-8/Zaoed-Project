@@ -22,7 +22,7 @@ class PurchaseScreen extends StatelessWidget {
           const TitleLabel(
             title: 'الدفع',
           ),
-          PaymentContainer(),
+          const PaymentContainer(),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),

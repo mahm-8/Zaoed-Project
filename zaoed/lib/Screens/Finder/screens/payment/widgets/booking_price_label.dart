@@ -21,7 +21,7 @@ class BookingPriceLabel extends StatelessWidget {
             title,
             style: TextStyle(color: AppColors().white, fontSize: 18),
           ),
-          Spacer(),
+          const Spacer(),
           Text(subTitle,
               style: TextStyle(
                   color: isDiscount ? AppColors().red : AppColors().white,

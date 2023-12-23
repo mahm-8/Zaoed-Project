@@ -9,7 +9,7 @@ import 'package:zaoed/constants/colors.dart';
 
 
 class ChargePointsCard extends StatefulWidget {
-  ChargePointsCard({
+  const ChargePointsCard({
     super.key,
   });
 

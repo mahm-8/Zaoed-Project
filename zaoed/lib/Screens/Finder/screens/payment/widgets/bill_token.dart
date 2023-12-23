@@ -15,7 +15,7 @@ class BillToken extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
               style: BorderStyle.solid, color: Colors.black)),
-      child: Center(child: Text('0237-7746-8981-9028-5626')),
+      child: const Center(child: Text('0237-7746-8981-9028-5626')),
     );
   }
 }

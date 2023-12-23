@@ -25,12 +25,12 @@ class PersonalInformationLabel extends StatelessWidget {
               title,
               style: TextStyle(color: AppColors().white, fontSize: 18),
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               subTitle,
-              style: TextStyle(color: Colors.grey),
+              style: const TextStyle(color: Colors.grey),
             ),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
             Image.asset('lib/assets/icons/edit_w.png'),

@@ -55,25 +55,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
           token: event.otp, type: OtpType.signup, email: event.email);
       if (verification.session?.accessToken != null) {
         await Future.delayed(const Duration(seconds: 1));
-        final test =
+        
             await SupabaseNetworking().getSupabase.from("user").insert({
           "name": user?.name,
           "email": user?.email,
           "id_auth": verification.user?.id,
-        }).select();
-        print(test);
+        });
         emit(SuccessVerificationState());
       } else {
         emit(ErrorVerificationState("الرمز خاطئ"));
       }
     } on AuthException catch (e) {
-      print("$e  1");
       emit(ErrorVerificationState(e.message));
     } on PostgrestException catch (e) {
-      print("$e  2");
       emit(ErrorVerificationState(e.message));
     } catch (e) {
-      print("$e  3");
       emit(ErrorVerificationState(e.toString()));
     }
   }

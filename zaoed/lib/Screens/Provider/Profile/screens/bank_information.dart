@@ -48,7 +48,7 @@ class BankInformationScreen extends StatelessWidget {
               hint: "أدخل رقم العنوان الوطني",
               label: "العنوان الوطني",
             ),
-            Spacer(),
+            const Spacer(),
             ButtonWidget(
               textEntry: "إضافة",
               backColor: AppColors().green,

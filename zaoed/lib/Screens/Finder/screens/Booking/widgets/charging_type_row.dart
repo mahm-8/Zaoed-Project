@@ -27,9 +27,10 @@ class _ChargingTypeRowState extends State<ChargingTypeRow> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 8),
       child: Row(
+
         children: List.generate(
           imageUrl.length,
           (index) => GestureDetector(
@@ -46,6 +47,7 @@ class _ChargingTypeRowState extends State<ChargingTypeRow> {
                 isSelected: selectedIndex == index,
               ),
             ),
+
           ),
         ),
       ),

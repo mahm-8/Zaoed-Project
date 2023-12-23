@@ -14,7 +14,7 @@ class CarScreen extends StatelessWidget {
       appBar: appBar(context, title: 'بيانات المركبات'),
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          context.push(view: AddCar());
+          context.push(view: const AddCar());
         },
         style: ElevatedButton.styleFrom(
             shape:

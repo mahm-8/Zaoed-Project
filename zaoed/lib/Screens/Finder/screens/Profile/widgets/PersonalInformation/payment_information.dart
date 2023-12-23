@@ -22,7 +22,7 @@ class PaymentFinder extends StatelessWidget {
           imageIcon: 'lib/assets/icons/akar-icons_credit-card.png',
           title: 'البطاقات',
           onTap: () {
-            context.push(view: CardScreen());
+            context.push(view: const CardScreen());
           },
         ),
         Divider(

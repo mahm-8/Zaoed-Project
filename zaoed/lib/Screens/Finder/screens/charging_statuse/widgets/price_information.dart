@@ -41,7 +41,7 @@ class PriceInformation extends StatelessWidget {
                 'رسوم الشحن',
                 style: TextStyle(fontSize: 14, color: AppColors().gray),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 '14.00 ريال',
                 style: TextStyle(fontSize: 14, color: AppColors().white),

@@ -9,6 +9,8 @@ import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/timer.dart
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {
+  const ChargingStatuesScreen({super.key});
+
   @override
   _ChargingStatuesScreenState createState() => _ChargingStatuesScreenState();
 }
