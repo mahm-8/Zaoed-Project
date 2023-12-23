@@ -31,7 +31,7 @@ migrate_working_dir/
 .pub/
 /build/
 *.env
-zaoed/.env
+zaoed/*.env
 
 
 # Symbolication related
