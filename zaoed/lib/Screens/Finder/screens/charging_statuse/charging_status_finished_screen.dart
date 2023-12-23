@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_app_bar.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car.dart';
+import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car_finished.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 
@@ -15,7 +15,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const ChargingCar(),
+            const ChargingCarFinished(),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 151),
