@@ -22,13 +22,9 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
     super.initState();
     timerToCompleted();
   }
-  @override
-  void dispose() {
-    timer?.cancel();
-    super.dispose();
-  }
+
   timerToCompleted() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (remainingTime > 0) {
           remainingTime--;
@@ -47,22 +43,22 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ChargingCar(),
+            const ChargingCar(),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CarInformation(),
-                  SizedBox(
+                  const CarInformation(),
+                  const SizedBox(
                     height: 8,
                   ),
-                  LocationInformation(),
-                  SizedBox(
+                  const LocationInformation(),
+                  const SizedBox(
                     height: 16,
                   ),
-                  PriceInformation(),
-                  SizedBox(
+                  const PriceInformation(),
+                  const SizedBox(
                     height: 16,
                   ),
                   Container(

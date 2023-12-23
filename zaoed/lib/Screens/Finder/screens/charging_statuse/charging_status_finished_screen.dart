@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_app_bar.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car_finished.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingStatusFinishedScreen extends StatelessWidget {
   const ChargingStatusFinishedScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ChargingAppBar(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -31,7 +28,8 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    'يمكنك استلام مركبتك الآن! نأمل منك إتمام عملية الاستلام خلال ٢٠ دقيقة',
+                    '''يمكنك استلام مركبتك الآن! نأمل منك إتمام عملية
+                       الاستلام خلال 20 دقيقة''',
                     style: TextStyle(
                       color: AppColors().gray,
                     ),
@@ -43,7 +41,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
                       textEntry: 'استلام المركبة',
                       backColor: AppColors().green,
                       onPress: () {},
-                      textColor: AppColors().white)
+                      textColor: AppColors().black)
                 ],
               ),
             )

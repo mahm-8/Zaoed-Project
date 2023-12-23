@@ -4,9 +4,6 @@ import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_ap
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/bank_text_field.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/providor_show_dialogs/add_dialogs/add_bank_done.dart';
-import 'package:zaoed/providor_show_dialogs/components/added_dialog.dart';
 
 // ignore: must_be_immutable
 class BankInformationScreen extends StatelessWidget {

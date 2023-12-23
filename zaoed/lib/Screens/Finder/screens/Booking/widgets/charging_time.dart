@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingTime extends StatefulWidget {
-  const ChargingTime({
-    super.key,
-    required this.hours,
-  });
+  const ChargingTime({super.key, required this.hours});
 
   final List hours;
 
@@ -14,8 +11,7 @@ class ChargingTime extends StatefulWidget {
 }
 
 class _ChargingTimeState extends State<ChargingTime> {
-  late bool isClicked = false;
- 
+  late int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,23 +25,30 @@ class _ChargingTimeState extends State<ChargingTime> {
           return InkWell(
             onTap: () {
               setState(() {
-                isClicked = true;
+                selectedIndex = index;
               });
             },
             child: Container(
               width: 88,
               height: 42,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                      width: 2,
-                      color:
-                          isClicked ? AppColors().green : AppColors().gray6)),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  width: 2,
+                  color: index == selectedIndex
+                      ? AppColors().green
+                      : AppColors().gray6,
+                ),
+              ),
               child: Center(
                 child: Text(
                   widget.hours[index],
                   style: TextStyle(
-                      color: AppColors().white, fontWeight: FontWeight.w700),
+                    color: index == selectedIndex
+                        ? AppColors().green
+                        : AppColors().white,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),

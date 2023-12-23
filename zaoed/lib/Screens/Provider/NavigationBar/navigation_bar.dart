@@ -8,23 +8,20 @@ import 'package:zaoed/Screens/Finder/screens/home/map_home_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/profile_screen.dart';
 import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
-
 class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});
-
   final List screens = [
     const ProfileFinder(),
     ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
   ];
-
   final List providerScreens = [
     SavedBookmarksScreen(),
     ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
-  ];
+  ]; 
   final List finderScreens = [
     SavedBookmarksScreen(),
     ChargingStatuesScreen(),

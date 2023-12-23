@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
-class ChargingCarFinished extends StatelessWidget {
-  const ChargingCarFinished({
-    super.key,
-  });
+class EmptyChargingCar extends StatelessWidget {
+  const EmptyChargingCar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +14,6 @@ class ChargingCarFinished extends StatelessWidget {
               'lib/assets/images/circles background.png',
               color: AppColors().gray,
             )),
-        Align(
-            alignment: Alignment.center,
-            child: Image.asset('lib/assets/images/2021-tesla-model-x.png')),
         Positioned(top: 60, child: Image.asset('lib/assets/images/charger.png'))
       ],
     );
