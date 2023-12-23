@@ -24,14 +24,19 @@ class HomeScreen extends StatelessWidget {
             ),
             ButtonChoiceWidget(
               imageUrl: "lib/assets/icons/map_layer.png",
-              onPress: () {},
+              onPress: () {
+                // change map type
+                // show trafic 
+              },
             ),
             const SizedBox(
               height: 10,
             ),
             ButtonChoiceWidget(
               imageUrl: "lib/assets/icons/main_info.png",
-              onPress: () {},
+              onPress: () {
+                // show info dialog
+              },
             ),
             const Spacer(),
             ChargePointsCard(),
