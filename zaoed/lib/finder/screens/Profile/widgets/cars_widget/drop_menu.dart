@@ -44,10 +44,9 @@ class _DropDownWidgetState extends State<DropDownWidget> {
                 ),
               ),
               onTap: () {
-                setState(() {
-                  widget.brand = e;
-                  widget.brandController!.collapse();
-                });
+                widget.brand = e;
+                widget.brandController!.collapse();
+                setState(() {});
               },
             ))
       ],

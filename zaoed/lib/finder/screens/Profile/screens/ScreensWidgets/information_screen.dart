@@ -8,8 +8,7 @@ class InformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //second screen
-    return
-        //const EditProfileScreen();
+    return //const EditProfileScreen();
 //first screen
         AddInformation();
   }
