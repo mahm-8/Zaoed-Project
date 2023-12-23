@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_charging_point.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/providor_show_dialogs/components/dialog_widget.dart';
 import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
 class LocationDetails extends StatelessWidget {

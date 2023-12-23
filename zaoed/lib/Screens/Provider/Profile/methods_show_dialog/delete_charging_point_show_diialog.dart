@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/cancel_show_dialog.dart';
+import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/providor_show_dialogs/components/dialog_widget.dart';
 
 Future<dynamic> DeleteChargingPointShowDialog(BuildContext context) {
   return showDialog(
