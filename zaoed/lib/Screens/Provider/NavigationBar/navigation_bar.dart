@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glass/glass.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/profile_screen.dart';
+import 'package:zaoed/Screens/Finder/screens/home/home_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/profile_screen.dart';
 import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
@@ -12,7 +13,7 @@ class NavigationBarScreen extends StatelessWidget {
   final List screens = [
     const ProfileFinder(),
     const ProfileScreen(),
-    const ProfileFinder(),
+    const HomeScreen(),
     const ProfileScreen(),
   ];
   @override

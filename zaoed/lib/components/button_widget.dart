@@ -7,12 +7,14 @@ class ButtonWidget extends StatelessWidget {
     required this.textEntry,
     required this.backColor,
     required this.textColor,
+    this.borderColor,
   });
 
   final Function()? onPress;
   final String textEntry;
   final Color backColor;
   final Color textColor;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +24,13 @@ class ButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: backColor,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(color: borderColor ?? Colors.transparent))),
         onPressed: onPress,
         child: Text(textEntry,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              
               fontSize: 18,
               color: textColor,
             )),

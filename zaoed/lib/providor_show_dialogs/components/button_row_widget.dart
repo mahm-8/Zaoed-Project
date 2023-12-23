@@ -9,9 +9,11 @@ class ButtonRowWidget extends StatelessWidget {
     required this.buttontext2,
     this.onPress1,
     this.onPress2,
+    this.backColor,
   });
   final String buttontext1, buttontext2;
   final Function()? onPress1, onPress2;
+  final Color? backColor;
 
   @override
   Widget build(BuildContext context) {
