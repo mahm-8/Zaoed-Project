@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_app_bar.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car.dart';
+import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car_finished.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 
@@ -15,7 +15,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ChargingCar(),
+            const ChargingCarFinished(),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 151),
@@ -27,7 +27,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
                     'انتهت عملية الشحن',
                     style: TextStyle(color: AppColors().white, fontSize: 18),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Text(
@@ -36,7 +36,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
                       color: AppColors().gray,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   ButtonWidget(

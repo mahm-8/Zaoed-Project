@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glass/glass.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/profile_screen.dart';
+import 'package:zaoed/Screens/Finder/screens/bookmark_screens/saved_bookmarks_screen.dart';
+import 'package:zaoed/Screens/Finder/screens/charging_statuse/charging_statuse_screen.dart';
+import 'package:zaoed/Screens/Finder/screens/home/map_home_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/profile_screen.dart';
 import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
@@ -14,6 +17,19 @@ class NavigationBarScreen extends StatelessWidget {
     ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
+  ];
+
+  final List providerScreens = [
+    SavedBookmarksScreen(),
+    ProfileScreen(),
+    const ProfileFinder(),
+    const ProfileScreen(),
+  ];
+  final List finderScreens = [
+    SavedBookmarksScreen(),
+    ChargingStatuesScreen(),
+    MapHomeScreen(),
+    const ProfileFinder(),
   ];
   @override
   Widget build(BuildContext context) {
