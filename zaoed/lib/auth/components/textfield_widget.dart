@@ -5,16 +5,16 @@ import '../../constants/colors.dart';
 class TextfieldWidget extends StatelessWidget {
   const TextfieldWidget(
       {super.key,
-      required this.keyboardType,
       required this.hint,
-      required this.obscure,
-      this.controller,
+      this.obscure = false,
+      required this.controller,
       this.keyForm,
       this.validator,
-      required this.displayPass,
-      this.onTap});
+      this.displayPass = false,
+      this.onTap,
+      this.keyboardType});
 
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
   final String hint;
   final bool obscure;
   final TextEditingController? controller;

@@ -9,7 +9,7 @@ class AboutUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfailScreenAppBar(context, title: 'من نحن'),
+      appBar: ProfileScreenAppBar(context, title: 'من نحن'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(
