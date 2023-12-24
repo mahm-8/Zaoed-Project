@@ -6,6 +6,7 @@ import 'package:zaoed/Screens/Finder/screens/payment/widgets/title_label.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
 
 import 'package:zaoed/components/button_widget.dart';
+import 'package:zaoed/components/sheet_method/rating_boottom_sheet.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 
@@ -51,7 +52,8 @@ class BookingScreen extends StatelessWidget {
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-                  context.push(view: const BookingConfirmationScreen());
+                  RaitingBottomSheet(context);
+                  // context.push(view: const BookingConfirmationScreen());
                 },
                 textColor: AppColors().white)
           ],
