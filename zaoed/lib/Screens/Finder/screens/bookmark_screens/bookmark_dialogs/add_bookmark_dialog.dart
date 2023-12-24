@@ -1,23 +1,31 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
+import '../../../../../constants/imports.dart';
 
 class AddToBookmarkDialog extends StatefulWidget {
-  const AddToBookmarkDialog({super.key});
+  const AddToBookmarkDialog({
+    super.key,
+    required this.name,
+    required this.location,
+    required this.idAuth,
+    required this.rate,
+    required this.chargingTimes,
+  });
+  final String? name, location, idAuth;
+  final double? rate;
+  final int? chargingTimes;
 
   @override
   State<AddToBookmarkDialog> createState() => _AddToBookmarkDialogState();
 }
-
-bool isBookmarked = false;
 
 class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        // bookmarks.add();
         // add to bookmark list
         //show dialog added
+
         showDialog(
           barrierColor: Colors.transparent,
           context: context,
@@ -27,6 +35,13 @@ class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
               bodyText: "سيتم إضافة نقطة الشحن إلى المحفوظات هل أنت موافق؟",
               button1: 'موافق',
               pressOne: () {
+                // add bloc
+                context.read<UserBloc>().add(AddBookmarkEvent(
+                    bookmarkname: widget.name,
+                    location: widget.location,
+                    rate: widget.rate,
+                    chargeTimes: widget.chargingTimes,
+                    idAuth: widget.idAuth));
                 Navigator.of(context).pop();
                 showDialog(
                   barrierColor: Colors.transparent,
@@ -38,15 +53,16 @@ class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
                   },
                 );
                 Future.delayed(const Duration(seconds: 3), () {
-                  Navigator.of(context).pop();
+                  context.pop();
+                  ;
                 });
-                setState(() {
-                  isBookmarked = true;
-                });
+                // setState(() {
+                //   isBookmarked = true;
+                // });
               },
               button2: 'إلغاء',
               pressTwo: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
             );
           },

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 AppBar profailAppBar(BuildContext context) {
   return AppBar(

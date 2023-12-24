@@ -41,7 +41,7 @@ class _ChargingTypeRowState extends State<ChargingTypeRow> {
               });
             },
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 6),
               child: ChargingTypeContainer(
                 imageUrl: imageUrl[index],
                 type: types[index],

@@ -1,12 +1,5 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/car_information.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_app_bar.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/location_information.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/price_information.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/timer.dart';
-import 'package:zaoed/constants/colors.dart';
+
+import 'package:zaoed/constants/imports.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {
   const ChargingStatuesScreen({super.key});

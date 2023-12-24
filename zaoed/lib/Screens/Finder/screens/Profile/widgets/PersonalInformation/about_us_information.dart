@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/about_us_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/information_lable.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/legal_affairs_screen.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class AboutUsInfoWidget extends StatelessWidget {
   const AboutUsInfoWidget({

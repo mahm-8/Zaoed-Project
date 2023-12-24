@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});

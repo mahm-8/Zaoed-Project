@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
   showModalBottomSheet(
@@ -8,7 +6,7 @@ RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
     context: context,
     builder: (BuildContext context) {
       return Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -19,7 +17,7 @@ RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
                   borderRadius: BorderRadius.circular(16),
                   color: AppColors().gray),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -29,64 +27,64 @@ RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
                   fontSize: 24,
                   color: AppColors().white),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               '''قيم تجربتك لمساعدتنا في تطوير وتحسين خدماتنا 
                     وتقديم تجربة مميزة لكم 🤩.''',
               style: TextStyle(fontSize: 16, color: AppColors().white),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
                   onPressed: () {},
                   icon: ImageIcon(
-                    AssetImage('lib/assets/icons/Star 5.png'),
+                    const AssetImage('lib/assets/icons/Star 5.png'),
                     color: AppColors().green,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: ImageIcon(
-                    AssetImage('lib/assets/icons/Star 5.png'),
+                    const AssetImage('lib/assets/icons/Star 5.png'),
                     color: AppColors().green,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: ImageIcon(
-                    AssetImage('lib/assets/icons/Star 5.png'),
+                    const AssetImage('lib/assets/icons/Star 5.png'),
                     color: AppColors().green,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: ImageIcon(
-                    AssetImage('lib/assets/icons/Star 5.png'),
+                    const AssetImage('lib/assets/icons/Star 5.png'),
                     color: AppColors().green,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: ImageIcon(
-                    AssetImage('lib/assets/icons/Star 5.png'),
+                    const AssetImage('lib/assets/icons/Star 5.png'),
                     color: AppColors().green,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             TextField(
               maxLines: 4,
               decoration: InputDecoration(
                 hintText: 'قيم تجربتك هنا...',
-                hintStyle: TextStyle(color: AppColors().gray),
+                hintStyle: TextStyle(color: AppColors().gray, fontSize: 17),
                 border: OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors().green)),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ButtonWidget(
                 textEntry: 'إرسال',
                 backColor: AppColors().green,

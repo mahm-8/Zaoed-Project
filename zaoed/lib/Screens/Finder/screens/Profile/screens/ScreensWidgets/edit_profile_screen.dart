@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit_profile.dart';
-import 'package:zaoed/Screens/auth/tabbar_login_screen.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-
-import '../AppBar/profail_screens_app_bar.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ChargingType extends StatefulWidget {
   ChargingType({
@@ -21,7 +20,6 @@ class _ChargingTypeState extends State<ChargingType> {
 
   @override
   Widget build(BuildContext context) {
-
     return InkWell(
       onTap: () {
         setState(() {
@@ -51,7 +49,6 @@ class _ChargingTypeState extends State<ChargingType> {
                       style: TextStyle(color: AppColors().white, fontSize: 10),
                     )
                   ],
-
                 ),
               ),
             ),

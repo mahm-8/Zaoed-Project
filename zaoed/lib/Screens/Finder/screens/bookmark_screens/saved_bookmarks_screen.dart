@@ -1,12 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/appbar/appbar_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'components/bookmark_card_widget.dart';
+import 'package:zaoed/constants/imports.dart';
 
-class SavedBookmarksScreen extends StatelessWidget {
-  SavedBookmarksScreen({super.key});
+class SavedBookmarksScreen extends StatefulWidget {
+  const SavedBookmarksScreen({super.key});
 
-  final List bookmarks = ["", ""];
+  @override
+  State<SavedBookmarksScreen> createState() => _SavedBookmarksScreenState();
+}
+
+class _SavedBookmarksScreenState extends State<SavedBookmarksScreen> {
+  @override
+  void initState() {
+    context.read<UserBloc>().add(GetBookmarkEvent());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,20 +30,39 @@ class SavedBookmarksScreen extends StatelessWidget {
             const SizedBox(
               height: 17,
             ),
-            if (bookmarks.isEmpty)
-              Center(
-                child: Text(
-                  "لا توجد أي نقاط شحن محفوظة حاليّا",
-                  style: TextStyle(color: AppColors().gray4, fontSize: 19),
-                ),
-              ),
-            ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: bookmarks.length,
-                itemBuilder: (context, index) {
-                  return const BookmarkCardWidget();
-                }),
+            BlocBuilder<UserBloc, UserState>(
+              builder: (context, state) {
+                if (state is GetBookmarkState) {
+                  if (state.bookmarks!.isNotEmpty) {
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: state.bookmarks?.length,
+                        itemBuilder: (context, index) {
+                          final bookmarks = state.bookmarks?[index];
+                          return BookmarkCardWidget(
+                            name: bookmarks?.bookmarkName,
+                            rate: bookmarks?.rating,
+                            location: bookmarks?.location,
+                            chargingTimes: bookmarks?.chrgingTimes,
+                            idAuth: bookmarks?.idAuth,
+                          );
+                        });
+                  } else {
+                    return Center(
+                      child: Text(
+                        "لا توجد أي نقاط شحن محفوظة حاليّا",
+                        style:
+                            TextStyle(color: AppColors().gray4, fontSize: 19),
+                      ),
+                    );
+                  }
+                } else if (state is ErrorState) {
+                  LoadingExtension(context).showLoading();
+                }
+                return const Center();
+              },
+            ),
           ],
         ),
       ),

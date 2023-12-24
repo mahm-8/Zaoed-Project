@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/Screens/auth/components/tab_bar_widget.dart';
-import 'package:zaoed/Screens/auth/tabviews/login_screen.dart';
-
-import 'components/language_widget.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class TabBarLogin extends StatefulWidget {
   const TabBarLogin({

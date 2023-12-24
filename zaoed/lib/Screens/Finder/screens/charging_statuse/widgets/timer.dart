@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class TimerWidget extends StatelessWidget {
   const TimerWidget({
@@ -17,7 +15,6 @@ class TimerWidget extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
-
             child: SfRadialGauge(
               axes: <RadialAxis>[
                 RadialAxis(
@@ -32,7 +29,6 @@ class TimerWidget extends StatelessWidget {
                     thickness: 9,
                     cornerStyle: CornerStyle.bothCurve,
                     color: AppColors().gray,
-
                   ),
                   pointers: <GaugePointer>[
                     RangePointer(
@@ -64,7 +60,6 @@ class TimerWidget extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
-
             child: SfRadialGauge(
               axes: <RadialAxis>[
                 RadialAxis(
@@ -79,7 +74,6 @@ class TimerWidget extends StatelessWidget {
                     thickness: 9,
                     cornerStyle: CornerStyle.bothCurve,
                     color: AppColors().gray,
-
                   ),
                   pointers: <GaugePointer>[
                     RangePointer(

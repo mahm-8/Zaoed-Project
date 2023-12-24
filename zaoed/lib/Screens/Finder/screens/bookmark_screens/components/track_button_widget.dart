@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
 
-class ShareButtonWidget extends StatelessWidget {
-  const ShareButtonWidget({
+import 'package:zaoed/constants/imports.dart';
+
+class TrackonGoogleButtonWidget extends StatelessWidget {
+  const TrackonGoogleButtonWidget({
     super.key,
     this.onPress,
   });

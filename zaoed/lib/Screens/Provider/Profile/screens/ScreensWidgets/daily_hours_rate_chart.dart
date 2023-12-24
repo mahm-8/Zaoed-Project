@@ -1,7 +1,5 @@
-
-import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DailyHoursRateChart extends StatelessWidget {
   const DailyHoursRateChart({super.key, required this.data});

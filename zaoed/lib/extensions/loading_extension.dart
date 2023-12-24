@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
-//logo
 extension LoadingExtension on BuildContext {
   showLoading() {
     showDialog(

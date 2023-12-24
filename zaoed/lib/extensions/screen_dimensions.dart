@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:zaoed/constants/imports.dart';
 
 extension ScreenExtension on BuildContext {
   double getWidth({double divide = 1}) {

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/providor_show_dialogs/components/button_row_widget.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DialogWidget extends StatelessWidget {
   const DialogWidget({

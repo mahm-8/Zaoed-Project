@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class AppColors {
   Color black = const Color(0xff1E2024);

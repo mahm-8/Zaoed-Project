@@ -1,6 +1,4 @@
-
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class BookingPriceLabel extends StatelessWidget {
   BookingPriceLabel(

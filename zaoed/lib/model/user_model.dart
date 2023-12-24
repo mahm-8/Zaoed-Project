@@ -19,19 +19,19 @@ class UserModel {
       this.idAuth});
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    email = json['email'];
-    phone = json['phone'];
-    birthday = json['birthday'];
-    gender = json['gender'];
-    location = json['location'];
-    idAuth = json['id_auth'];
+    id = json['id'] ?? "";
+    name = json['name'] ?? "";
+    email = json['email'] ?? "";
+    phone = json['phone'] ?? "";
+    birthday = json['birthday'] ?? "";
+    gender = json['gender'] ?? "";
+    location = json['location'] ?? "";
+    idAuth = json['id_auth'] ?? "";
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    
+
     data['name'] = name;
     data['email'] = email;
     data['id_auth'] = idAuth;

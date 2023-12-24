@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class MapBackground extends StatelessWidget {
   const MapBackground({

@@ -1,15 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
-import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
-import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
-import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
-import 'package:zaoed/service/networking.dart';
-
-import 'Screens/Finder/screens/home/filter_screen.dart';
+import 'package:zaoed/constants/imports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +22,9 @@ class MainApp extends StatelessWidget {
         BlocProvider(
           create: (context) => PagesBloc(),
         ),
+        BlocProvider(
+          create: (context) => ChatBloc(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(fontFamily: "SfArabic"),
@@ -44,7 +36,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: BookingScreen(),
+        home: OnboradingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

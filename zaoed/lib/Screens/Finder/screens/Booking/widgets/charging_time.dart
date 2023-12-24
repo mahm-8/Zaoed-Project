@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+
+import 'package:zaoed/constants/imports.dart';
 
 class ChargingTime extends StatefulWidget {
   const ChargingTime({super.key, required this.hours});

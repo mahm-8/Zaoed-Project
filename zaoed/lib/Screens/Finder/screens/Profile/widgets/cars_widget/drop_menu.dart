@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DropDownWidget extends StatefulWidget {
   DropDownWidget({

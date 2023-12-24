@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/home/filter_screen.dart';
-import 'package:zaoed/constants/colors.dart';
 
-import 'rating_level_widget.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class RatingRow extends StatelessWidget {
   const RatingRow({

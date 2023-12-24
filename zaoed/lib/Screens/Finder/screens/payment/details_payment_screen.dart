@@ -1,16 +1,10 @@
-
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/booking_data_container.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/booking_price_container.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/location_details.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/title_label.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DetailsPaymentScreen extends StatelessWidget {
   final Function() onTap;
 
-  DetailsPaymentScreen({super.key, 
+  DetailsPaymentScreen({
+    super.key,
     required this.onTap,
   });
 

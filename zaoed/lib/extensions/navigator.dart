@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:zaoed/constants/imports.dart';
 
 extension NavExtension on BuildContext {
   void pushAndRemoveUntil({required Widget view}) {
@@ -16,5 +16,10 @@ extension NavExtension on BuildContext {
 
   void pop() {
     Navigator.of(this).pop();
+  }
+
+  void pushReplacement({required Widget view}) {
+    Navigator.of(this)
+        .pushReplacement(MaterialPageRoute(builder: (context) => view));
   }
 }

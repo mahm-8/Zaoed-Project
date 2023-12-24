@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
-
-import 'add_bookmark_dialog.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class RemoveBookMarkDialog extends StatefulWidget {
-  const RemoveBookMarkDialog({super.key});
-
+  const RemoveBookMarkDialog({super.key, this.bookmark});
+  final BookmarkModel? bookmark;
   @override
   State<RemoveBookMarkDialog> createState() => _RemoveBookMarkDialogState();
 }
@@ -16,8 +12,6 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // remove from the bookmark list
-        // show dialog removed
         showDialog(
           barrierColor: Colors.transparent,
           context: context,
@@ -29,6 +23,10 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
               pressOne: () {
                 Navigator.of(context).pop();
 
+                context
+                    .read<UserBloc>()
+                    .add(DeleteBookmarkEvent(id: widget.bookmark?.id));
+
                 showDialog(
                   barrierColor: Colors.transparent,
                   context: context,
@@ -39,7 +37,7 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
                   },
                 );
                 Future.delayed(const Duration(seconds: 3), () {
-                  Navigator.of(context).pop(); // Dismiss the dialog
+                  context.pop(); // Dismiss the dialog
                 });
 
                 setState(() {
@@ -48,7 +46,7 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
               },
               button2: 'إلغاء',
               pressTwo: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
             );
           },

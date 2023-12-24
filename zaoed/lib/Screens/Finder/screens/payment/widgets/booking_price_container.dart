@@ -1,7 +1,4 @@
-
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/booking_price_label.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class BookingPriceContainer extends StatelessWidget {
   const BookingPriceContainer({
@@ -17,8 +14,7 @@ class BookingPriceContainer extends StatelessWidget {
       height: 192,
       width: 350,
       decoration: BoxDecoration(
-          color: AppColors().gray6,
-          borderRadius: BorderRadius.circular(8)),
+          color: AppColors().gray6, borderRadius: BorderRadius.circular(8)),
       child: Column(
         children: [
           BookingPriceLabel(

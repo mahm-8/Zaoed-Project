@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/home/home_screen.dart';
-
-import '../../constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 AppBar customAppBar(
   BuildContext context, {

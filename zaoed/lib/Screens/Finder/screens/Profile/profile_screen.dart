@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/AppBar/information_app_bar.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/about_us_information.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/finder_info_widget.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/payment_information.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/setting_widget.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/information_title.dart';
-import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/social_media_information.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ProfileFinder extends StatelessWidget {
   const ProfileFinder({super.key});

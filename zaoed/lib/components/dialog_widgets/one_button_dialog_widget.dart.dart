@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/providor_show_dialogs/components/dialog_button.dart';
-
-import '../../constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DialogWidgetOneButton extends StatelessWidget {
   const DialogWidgetOneButton({

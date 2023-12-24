@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/booking_confirmation_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/widgets/charging_time.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/widgets/charging_type_row.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/title_label.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
-
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/components/sheet_method/rating_boottom_sheet.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class BookingScreen extends StatelessWidget {
   BookingScreen({super.key});
