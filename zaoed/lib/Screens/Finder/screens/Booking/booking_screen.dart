@@ -50,8 +50,7 @@ class BookingScreen extends StatelessWidget {
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-                  RaitingBottomSheet(context);
-                  // context.push(view: const BookingConfirmationScreen());
+                  context.push(view: const BookingConfirmationScreen());
                 },
                 textColor: AppColors().white)
           ],
