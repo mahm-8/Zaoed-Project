@@ -13,29 +13,32 @@ class FinderInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 96,
+      width: 350,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,
       ),
-      child: Column(children: [
-        InfoLabelWidget(
-          imageIcon: 'lib/assets/icons/person1.png',
-          title: 'البيانات الشخصية',
-          onTap: () {
-            context.push(view: const InformationScreen());
-          },
-        ),
-        Divider(
-          color: AppColors().black,
-        ),
-        InfoLabelWidget(
-          imageIcon: 'lib/assets/icons/bolt.car.png',
-          title: ' بيانات السيارة',
-          onTap: () {
-            context.push(view: const CarScreen());
-          },
-        ),
-      ]),
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InfoLabelWidget(
+              imageIcon: 'lib/assets/icons/person1.png',
+              title: 'البيانات الشخصية',
+              onTap: () {
+                context.push(view: const InformationScreen());
+              },
+            ),
+            Divider(color: AppColors().black),
+            InfoLabelWidget(
+              imageIcon: 'lib/assets/icons/bolt.car.png',
+              title: ' بيانات السيارة',
+              onTap: () {
+                context.push(view: const CarScreen());
+              },
+            ),
+          ]),
     );
   }
 }

@@ -14,7 +14,7 @@ class CarScreen extends StatelessWidget {
       appBar: appBar(context, title: 'بيانات المركبات'),
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          context.push(view: const AddCar());
+          context.push(view:  AddCar());
         },
         style: ElevatedButton.styleFrom(
             shape:
@@ -46,19 +46,25 @@ class CarScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "تيسلا",
-                        style:
-                            TextStyle(color: AppColors().white, fontSize: 16),
+                      Row(
+                        children: [
+                          Text(
+                            "تيسلا",
+                            style:
+                                TextStyle(color: AppColors().white, fontSize: 16),
+                          ),
+                        ],
                       ),
                       TextButton(
                           style: TextButton.styleFrom(
                               enableFeedback: true,
                               foregroundColor: AppColors().green),
                           onPressed: () {},
-                          child: const Text(
+                          child: Text(
                             "بيانات السيارة",
-                            
+                            style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                decorationColor: AppColors().green),
                           ))
                     ],
                   ),

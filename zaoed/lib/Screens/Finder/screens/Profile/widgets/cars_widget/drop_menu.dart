@@ -1,6 +1,10 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/user_bloc/user_event.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class DropDownWidget extends StatefulWidget {
@@ -44,9 +48,9 @@ class _DropDownWidgetState extends State<DropDownWidget> {
                 ),
               ),
               onTap: () {
-                widget.brand = e;
+                context.read<UserBloc>().add(GenderEvent(gender: e));
+                context.read<CarsBloc>().add(SelectCarDeteilsEvent(select: e));
                 widget.brandController!.collapse();
-                setState(() {});
               },
             ))
       ],

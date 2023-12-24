@@ -13,7 +13,7 @@ class PersonalInformationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfileScreenAppBar(context, title: 'البيانات الشخصية'),
+      appBar: profileScreenAppBar(context, title: 'البيانات الشخصية'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 27),
         child: Column(

@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/screens/car_screen.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/information_title.dart';
+import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
 
-class AddCar extends StatefulWidget {
-  const AddCar({super.key});
+// ignore: must_be_immutable
+class AddCar extends StatelessWidget {
+   AddCar({super.key});
 
-  @override
-  State<AddCar> createState() => _AddCarState();
-}
-
-class _AddCarState extends State<AddCar> {
   final List<String> listBrand = <String>[
     'تيسلا',
     'شيفروليه بولت',
@@ -23,9 +21,17 @@ class _AddCarState extends State<AddCar> {
   ];
 
   String brand = "brand";
-  String model = "brand";
-  String type = "brand";
+
+  String model = "model";
+
+  String type = "type";
+
   ExpansionTileController brandController = ExpansionTileController();
+
+  ExpansionTileController branController = ExpansionTileController();
+
+  ExpansionTileController braController = ExpansionTileController();
+
   final List<String> listModel = <String>['موديل 3', 'موديل اس', 'موديل اكس'];
 
   final List<String> listType = <String>['Chademo', 'CCS 1', 'CCS 2'];
@@ -35,6 +41,9 @@ class _AddCarState extends State<AddCar> {
     return Scaffold(
       floatingActionButton: ElevatedButton(
         onPressed: () {
+          context
+              .read<CarsBloc>()
+              .add(AddcarEvent(brand: brand, model: model, type: type));
           context.push(view: const CarScreen());
         },
         style: ElevatedButton.styleFrom(
@@ -52,20 +61,68 @@ class _AddCarState extends State<AddCar> {
         child: ListView(
           children: [
             const TitleInfoWidget(title: 'ماركة السيارة'),
-            DropDownWidget(
-                brandController: brandController,
-                brand: brand,
-                list: listBrand),
+            BlocBuilder<CarsBloc, CarsState>(
+              buildWhen: (previous, current) {
+                if (current is CarBrandState) {
+                  return true;
+                }
+                return false;
+              },
+              builder: (context, state) {
+                if (state is CarBrandState) {
+                  return DropDownWidget(
+                      brandController: brandController,
+                      brand: state.brand,
+                      list: listBrand);
+                }
+                return DropDownWidget(
+                    brandController: brandController,
+                    brand: brand,
+                    list: listBrand);
+              },
+            ),
             const TitleInfoWidget(title: 'موديل السيارة'),
-            DropDownWidget(
-                brandController: ExpansionTileController(),
-                brand: model,
-                list: listModel),
+            BlocBuilder<CarsBloc, CarsState>(
+              buildWhen: (previous, current) {
+                if (current is CarModelState) {
+                  return true;
+                }
+                return false;
+              },
+              builder: (context, state) {
+                if (state is CarModelState) {
+                  return DropDownWidget(
+                      brandController: braController,
+                      brand: state.mdel,
+                      list: listModel);
+                }
+                return DropDownWidget(
+                    brandController: braController,
+                    brand: model,
+                    list: listModel);
+              },
+            ),
             const TitleInfoWidget(title: 'منفذ الشاحن'),
-            DropDownWidget(
-                brandController: ExpansionTileController(),
-                brand: type,
-                list: listType),
+            BlocBuilder<CarsBloc, CarsState>(
+              buildWhen: (previous, current) {
+                if (current is CarTypeState) {
+                  return true;
+                }
+                return false;
+              },
+              builder: (context, state) {
+                if (state is CarTypeState) {
+                  return DropDownWidget(
+                      brandController: branController,
+                      brand: state.type,
+                      list: listType);
+                }
+                return DropDownWidget(
+                    brandController: branController,
+                    brand: type,
+                    list: listType);
+              },
+            ),
             const SizedBox(height: 10),
             const TitleInfoWidget(title: 'الموقع'),
             Container(

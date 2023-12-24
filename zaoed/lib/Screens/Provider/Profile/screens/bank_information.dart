@@ -18,7 +18,7 @@ class BankInformationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfileScreenAppBar(context, title: 'البيانات البنكية'),
+      appBar: profileScreenAppBar(context, title: 'البيانات البنكية'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 27),
         child: Column(

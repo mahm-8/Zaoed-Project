@@ -20,7 +20,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfileScreenAppBar(context, title: 'الدفع'),
+      appBar: profileScreenAppBar(context, title: 'الدفع'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
