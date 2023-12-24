@@ -3,7 +3,9 @@ import 'package:zaoed/constants/imports.dart';
 class ChargePointsCard extends StatefulWidget {
   const ChargePointsCard({
     super.key,
+    this.bookmarks,
   });
+  final BookmarkModel? bookmarks;
 
   @override
   State<ChargePointsCard> createState() => _ChargePointsCardState();
@@ -33,7 +35,7 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
               Row(
                 children: [
                   Text(
-                    "منزل إيلاف محمد",
+                    "${widget.bookmarks?.bookmarkName}",
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 17,
@@ -48,7 +50,7 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
                     width: 4,
                   ),
                   Text(
-                    "5.0",
+                    "${widget.bookmarks?.rating}",
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 14,
@@ -59,7 +61,7 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
                     width: 4,
                   ),
                   Text(
-                    "(150)",
+                    "${widget.bookmarks?.chrgingTimes}",
                     style: TextStyle(
                       color: AppColors().gray4,
                       fontSize: 12,
@@ -67,12 +69,23 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
                     ),
                   ),
                   const Spacer(),
-                  // if (isBookmarked == false) const AddToBookmarkDialog(),
-                  if (isBookmarked == true) const RemoveBookMarkDialog(),
+                  if (isBookmarked == false)
+                    AddToBookmarkDialog(
+                      name: widget.bookmarks?.bookmarkName,
+                      location: widget.bookmarks?.location,
+                      idAuth: widget.bookmarks?.idAuth,
+                      rate: widget.bookmarks?.rating,
+                      chargingTimes: widget.bookmarks?.chrgingTimes,
+                      id: widget.bookmarks?.id,
+                    ),
+                  if (isBookmarked == true)
+                    RemoveBookMarkDialog(
+                      bookmarkId: widget.bookmarks?.id,
+                    ),
                 ],
               ),
               Text(
-                "حي النرجس، الرياض",
+                "${widget.bookmarks?.location}",
                 style: TextStyle(
                   color: AppColors().gray4,
                   fontSize: 14,

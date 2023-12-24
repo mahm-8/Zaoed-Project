@@ -8,11 +8,12 @@ class BookmarkCardWidget extends StatelessWidget {
     required this.location,
     required this.chargingTimes,
     required this.idAuth,
+    required this.id,
   });
 
   final String? name, location, idAuth;
   final double? rate;
-  final int? chargingTimes;
+  final int? id, chargingTimes;
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +72,18 @@ class BookmarkCardWidget extends StatelessWidget {
                   if (isBookmarked == false)
                     // do not show it on bookmark screen
                     AddToBookmarkDialog(
-                        name: name,
-                        location: location,
-                        rate: rate,
-                        chargingTimes: chargingTimes,
-                        idAuth: idAuth),
+                      name: name,
+                      location: location,
+                      rate: rate,
+                      chargingTimes: chargingTimes,
+                      idAuth: idAuth,
+                      id: id,
+                    ),
                   if (isBookmarked == true)
                     //show dialog to remove from bookmaeks screen
-                    const RemoveBookMarkDialog(),
+                    RemoveBookMarkDialog(
+                      bookmarkId: id,
+                    ),
                 ],
               ),
               Text(

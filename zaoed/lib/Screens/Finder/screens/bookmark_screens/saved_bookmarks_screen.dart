@@ -46,6 +46,7 @@ class _SavedBookmarksScreenState extends State<SavedBookmarksScreen> {
                             location: bookmarks?.location,
                             chargingTimes: bookmarks?.chrgingTimes,
                             idAuth: bookmarks?.idAuth,
+                            id: bookmarks?.id,
                           );
                         });
                   } else {

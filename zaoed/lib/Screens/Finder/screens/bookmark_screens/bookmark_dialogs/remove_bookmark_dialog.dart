@@ -1,8 +1,8 @@
 import 'package:zaoed/constants/imports.dart';
 
 class RemoveBookMarkDialog extends StatefulWidget {
-  const RemoveBookMarkDialog({super.key, this.bookmark});
-  final BookmarkModel? bookmark;
+  const RemoveBookMarkDialog({super.key, required this.bookmarkId});
+  final int? bookmarkId;
   @override
   State<RemoveBookMarkDialog> createState() => _RemoveBookMarkDialogState();
 }
@@ -25,7 +25,7 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
 
                 context
                     .read<UserBloc>()
-                    .add(DeleteBookmarkEvent(id: widget.bookmark?.id));
+                    .add(DeleteBookmarkEvent(id: widget.bookmarkId));
 
                 showDialog(
                   barrierColor: Colors.transparent,
@@ -38,10 +38,6 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
                 );
                 Future.delayed(const Duration(seconds: 3), () {
                   context.pop(); // Dismiss the dialog
-                });
-
-                setState(() {
-                  isBookmarked = false;
                 });
               },
               button2: 'إلغاء',

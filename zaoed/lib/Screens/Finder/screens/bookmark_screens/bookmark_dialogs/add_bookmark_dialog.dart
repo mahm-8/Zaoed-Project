@@ -8,10 +8,11 @@ class AddToBookmarkDialog extends StatefulWidget {
     required this.idAuth,
     required this.rate,
     required this.chargingTimes,
+    required this.id,
   });
   final String? name, location, idAuth;
   final double? rate;
-  final int? chargingTimes;
+  final int? id, chargingTimes;
 
   @override
   State<AddToBookmarkDialog> createState() => _AddToBookmarkDialogState();
@@ -41,7 +42,8 @@ class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
                     location: widget.location,
                     rate: widget.rate,
                     chargeTimes: widget.chargingTimes,
-                    idAuth: widget.idAuth));
+                    idAuth: widget.idAuth,
+                    id: widget.id));
                 Navigator.of(context).pop();
                 showDialog(
                   barrierColor: Colors.transparent,
@@ -54,11 +56,7 @@ class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
                 );
                 Future.delayed(const Duration(seconds: 3), () {
                   context.pop();
-                  ;
                 });
-                // setState(() {
-                //   isBookmarked = true;
-                // });
               },
               button2: 'إلغاء',
               pressTwo: () {

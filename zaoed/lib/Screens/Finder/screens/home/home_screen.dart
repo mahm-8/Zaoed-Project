@@ -36,6 +36,8 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             const Spacer(),
+
+            // bookmark???
             const ChargePointsCard(),
           ],
         ),
