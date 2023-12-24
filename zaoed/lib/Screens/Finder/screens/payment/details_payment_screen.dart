@@ -1,4 +1,6 @@
 
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/booking_data_container.dart';
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/booking_price_container.dart';
@@ -8,12 +10,12 @@ import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class DetailsPaymentScreen extends StatelessWidget {
-  final Function() onTap;
+ 
 
   DetailsPaymentScreen({super.key, 
     required this.onTap,
   });
-
+ final Function() onTap;
   late int discount = 3;
 
   @override

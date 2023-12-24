@@ -17,7 +17,8 @@ class FinderInfoWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,
       ),
-      child: Column(children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
         InfoLabelWidget(
           imageIcon: 'lib/assets/icons/person1.png',
           title: 'البيانات الشخصية',
