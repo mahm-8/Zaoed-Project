@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
+// ignore: must_be_immutable
 class BookingPriceLabel extends StatelessWidget {
   BookingPriceLabel(
       {super.key,

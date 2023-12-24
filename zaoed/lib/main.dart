@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
+import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
 import 'package:zaoed/service/networking.dart';
@@ -29,6 +30,8 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => PagesBloc(),
+        ),BlocProvider(
+          create: (context) => CarsBloc(),
         ),
       ],
       child: MaterialApp(
