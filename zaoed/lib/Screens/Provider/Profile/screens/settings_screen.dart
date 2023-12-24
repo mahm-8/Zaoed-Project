@@ -18,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfileScreenAppBar(context, title: 'الإعدادات'),
+      appBar: profileScreenAppBar(context, title: 'الإعدادات'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(

@@ -3,7 +3,7 @@
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 
-AppBar ProfileScreenAppBar(BuildContext context, {title}) {
+AppBar profileScreenAppBar(BuildContext context, {title}) {
     return AppBar(
       centerTitle: true,
       title: Text(

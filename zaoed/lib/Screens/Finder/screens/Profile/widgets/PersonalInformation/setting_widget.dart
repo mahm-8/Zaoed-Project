@@ -10,6 +10,8 @@ class SettingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 96,
+      width: 350,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,

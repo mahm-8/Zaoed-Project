@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingType extends StatefulWidget {
-  ChargingType({
+  const ChargingType({
     super.key,
     required this.imageUrl,
     required this.count,
@@ -74,11 +74,11 @@ class _ChargingTypeState extends State<ChargingType> {
                       width: 30,
                       height: 30,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(widget.count,
                         style:
                             TextStyle(color: AppColors().white, fontSize: 12)),
-                    Spacer(),
+                    const Spacer(),
                     Image.asset(
                       'lib/assets/icons/ph_plus.png',
                       width: 27,
