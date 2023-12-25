@@ -66,10 +66,26 @@ class AddInformation extends StatelessWidget {
             "الجنس",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
-          DropDownWidget(
-              brand: selectGender,
-              list: gender,
-              brandController: genderController),
+          BlocBuilder<UserBloc, UserState>(
+            buildWhen: (previous, current) {
+              if (current is GenderState) {
+                return true;
+              }
+              return false;
+            },
+            builder: (context, state) {
+              if (state is GenderState) {
+                return DropDownWidget(
+                    brand: state.gender,
+                    list: gender,
+                    brandController: genderController);
+              }
+              return DropDownWidget(
+                  brand: selectGender,
+                  list: gender,
+                  brandController: genderController);
+            },
+          ),
           FieldTextWidget(
             title: 'رقم الجوال',
             hint: "ادخل رقم الجوال",

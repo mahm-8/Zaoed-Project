@@ -1,4 +1,8 @@
-import 'package:zaoed/constants/imports.dart';
+import 'package:flutter/material.dart';
+import 'package:zaoed/Screens/Finder/screens/home/component/button_choice_widget.dart';
+import 'package:zaoed/Screens/Finder/screens/home/component/charge_points_card.dart';
+import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
+import 'component/search_field.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -32,7 +36,9 @@ class HomeScreen extends StatelessWidget {
             ButtonChoiceWidget(
               imageUrl: "lib/assets/icons/main_info.png",
               onPress: () {
+
                 context.arrivedToCharging();
+
               },
             ),
             const Spacer(),

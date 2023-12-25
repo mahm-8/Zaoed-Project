@@ -13,7 +13,7 @@ class ChargingPointDataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfileScreenAppBar(context, title: 'بيانات نقطة الشحن'),
+      appBar: profileScreenAppBar(context, title: 'بيانات نقطة الشحن'),
       body: Padding(
         padding:
             const EdgeInsets.only(top: 16, left: 22.5, right: 18.5, bottom: 27),

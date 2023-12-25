@@ -10,7 +10,7 @@ class LegalAffairsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfileScreenAppBar(context, title: 'الشؤون القانونية'),
+      appBar: profileScreenAppBar(context, title: 'الشؤون القانونية'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(

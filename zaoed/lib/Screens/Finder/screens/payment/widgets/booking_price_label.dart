@@ -1,5 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
+// ignore: must_be_immutable
 class BookingPriceLabel extends StatelessWidget {
   BookingPriceLabel(
       {super.key,

@@ -20,3 +20,13 @@ class PageTapBarState extends PagesState {
 
   PageTapBarState(this.selected);
 }
+class ChargingTimeState extends PagesState {
+  final int selected;
+
+  ChargingTimeState(this.selected);
+}
+class ChargingTypeState extends PagesState {
+  final int selected;
+
+  ChargingTypeState(this.selected);
+}

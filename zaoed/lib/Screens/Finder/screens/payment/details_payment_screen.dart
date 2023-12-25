@@ -1,13 +1,15 @@
 import 'package:zaoed/constants/imports.dart';
 
+// ignore_for_file: must_be_immutable
+
 class DetailsPaymentScreen extends StatelessWidget {
-  final Function() onTap;
+ 
 
   DetailsPaymentScreen({
     super.key,
     required this.onTap,
   });
-
+ final Function() onTap;
   late int discount = 3;
 
   @override

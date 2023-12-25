@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
 
 class DropDownWidget extends StatefulWidget {
   DropDownWidget({
@@ -43,9 +44,9 @@ class _DropDownWidgetState extends State<DropDownWidget> {
                 ),
               ),
               onTap: () {
-                widget.brand = e;
+                context.read<UserBloc>().add(GenderEvent(gender: e));
+                context.read<CarsBloc>().add(SelectCarDeteilsEvent(select: e));
                 widget.brandController!.collapse();
-                setState(() {});
               },
             ))
       ],

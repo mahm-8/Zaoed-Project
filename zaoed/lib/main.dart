@@ -1,3 +1,5 @@
+import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 void main() async {
@@ -20,7 +22,13 @@ class MainApp extends StatelessWidget {
           create: (context) => UserBloc(),
         ),
         BlocProvider(
+          create: (context) => ProviderBloc(),
+        ),
+        BlocProvider(
           create: (context) => PagesBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CarsBloc(),
         ),
         BlocProvider(
           create: (context) => ChatBloc(),
@@ -36,7 +44,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: OnboradingScreen(),
+        home: NavigationBarScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

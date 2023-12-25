@@ -33,7 +33,7 @@ class PriceInformation extends StatelessWidget {
           const SizedBox(height: 8),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 16,
               ),
               Text(

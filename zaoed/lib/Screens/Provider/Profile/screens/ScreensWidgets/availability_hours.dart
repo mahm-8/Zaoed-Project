@@ -1,24 +1,24 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class AvailabilityHours extends StatefulWidget {
-  const AvailabilityHours({super.key});
+  const AvailabilityHours({super.key}) ;
 
   @override
   State<AvailabilityHours> createState() => _AvailabilityHoursState();
 }
 
 class _AvailabilityHoursState extends State<AvailabilityHours> {
-  late int selectedIndex = -1;
-
-  List textClock = [
+  
+  List<String> textClock = [
     'غير متوفر',
     '00:00-6:00',
     '6:00-12:00',
     '12:00-18:00',
     '18:00-00:00'
   ];
-
-  List imageClock = [
+  List<String> imageClock = [
     'lib/assets/icons/Clock_.png',
     'lib/assets/icons/ClockFri12-6.png',
     'lib/assets/icons/ClockFri6-12.png',
@@ -51,7 +51,6 @@ class _AvailabilityHoursState extends State<AvailabilityHours> {
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
-                        // bloc
                         setState(() {
                           selectedIndex = index;
                         });

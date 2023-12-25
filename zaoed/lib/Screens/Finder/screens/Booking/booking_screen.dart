@@ -1,4 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
+import 'package:zaoed/components/sheet_method/rating_boottom_sheet.dart';
 
 class BookingScreen extends StatelessWidget {
   BookingScreen({super.key});
@@ -15,7 +17,7 @@ class BookingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ProfileScreenAppBar(context, title: 'الحجز'),
+      appBar: profileScreenAppBar(context, title: 'الحجز'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
@@ -25,7 +27,7 @@ class BookingScreen extends StatelessWidget {
             const TitleLabel(
               title: 'المنفذ',
             ),
-            const ChargingTypeRow(),
+            ChargingTypeRow(),
             const TitleLabel(
               title: 'مدة الشحن',
             ),
@@ -42,8 +44,7 @@ class BookingScreen extends StatelessWidget {
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-                  RaitingBottomSheet(context);
-                  // context.push(view: const BookingConfirmationScreen());
+                  context.push(view: const BookingConfirmationScreen());
                 },
                 textColor: AppColors().white)
           ],

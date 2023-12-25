@@ -1,14 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/Screens/Finder/screens/Booking/widgets/charging_type_container.dart';
+import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 
-class ChargingTypeRow extends StatefulWidget {
-  const ChargingTypeRow({super.key});
+class ChargingTypeRow extends StatelessWidget {
+  ChargingTypeRow({super.key});
 
-  @override
-  State<ChargingTypeRow> createState() => _ChargingTypeRowState();
-}
-
-class _ChargingTypeRowState extends State<ChargingTypeRow> {
   int selectedIndex = -1;
 
   List<String> imageUrl = [
@@ -31,24 +30,51 @@ class _ChargingTypeRowState extends State<ChargingTypeRow> {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: SizedBox(
         height: 80,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: imageUrl.length,
-          itemBuilder: (context, index) => GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
-              child: ChargingTypeContainer(
-                imageUrl: imageUrl[index],
-                type: types[index],
-                isSelected: selectedIndex == index,
+        child: BlocBuilder<PagesBloc, PagesState>(
+          buildWhen: (previous, current) {
+            if (current is ChargingTypeState) {
+              return true;
+            }
+            return false;
+          },
+          builder: (context, state) {
+            if (state is ChargingTypeState) {
+              return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: imageUrl.length,
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    context.read<PagesBloc>().add(ChargingTypeEvent(index));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: ChargingTypeContainer(
+                      imageUrl: imageUrl[index],
+                      type: types[index],
+                      isSelected: state.selected == index,
+                    ),
+                  ),
+                ),
+              );
+            }
+            return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: imageUrl.length,
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () {
+                  context.read<PagesBloc>().add(ChargingTypeEvent(index));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  child: ChargingTypeContainer(
+                    imageUrl: imageUrl[index],
+                    type: types[index],
+                    isSelected: selectedIndex == index,
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );

@@ -8,6 +8,8 @@ class PaymentFinder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 96,
+      width: 350,
       padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),

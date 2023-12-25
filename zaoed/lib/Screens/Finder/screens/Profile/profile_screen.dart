@@ -1,4 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/Screens/Provider/Profile/AppBar/information_app_bar.dart';
+import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/about_us_information.dart';
 
 class ProfileFinder extends StatelessWidget {
   const ProfileFinder({super.key});
@@ -7,7 +9,7 @@ class ProfileFinder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: profailAppBar(context),
+      appBar: ProfailAppBar(context),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -28,7 +30,7 @@ class ProfileFinder extends StatelessWidget {
               TitleInfoWidget(
                 title: 'عن تطبيق زوّد',
               ),
-              AboutUsInfoWidget(),
+              AboutUsInformation(),
               SizedBox(
                 height: 32,
               ),

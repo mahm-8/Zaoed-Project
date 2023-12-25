@@ -14,7 +14,7 @@ class ChargingTypeSection extends StatelessWidget {
           'نوع وعدد منافذ الشحن',
           style: TextStyle(color: AppColors().white, fontSize: 20),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Wrap(
             alignment: WrapAlignment.center,
