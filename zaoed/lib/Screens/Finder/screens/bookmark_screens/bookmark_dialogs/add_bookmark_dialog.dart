@@ -1,3 +1,5 @@
+import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
+
 import '../../../../../constants/imports.dart';
 
 class AddToBookmarkDialog extends StatefulWidget {
@@ -37,7 +39,7 @@ class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
               button1: 'موافق',
               pressOne: () {
                 // add bloc
-                context.read<UserBloc>().add(AddBookmarkEvent(
+                context.read<FinderBloc>().add(AddBookmarkEvent(
                     bookmarkname: widget.name,
                     location: widget.location,
                     rate: widget.rate,

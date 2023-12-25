@@ -30,6 +30,7 @@ class _TabBarLoginState extends State<TabBarLogin>
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 2,
+        
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: AppColors().gray9,

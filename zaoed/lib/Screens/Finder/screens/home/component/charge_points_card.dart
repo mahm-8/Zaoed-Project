@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargePointsCard extends StatefulWidget {

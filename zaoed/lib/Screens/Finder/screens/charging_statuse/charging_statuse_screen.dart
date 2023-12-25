@@ -1,4 +1,3 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {

@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class RemoveBookMarkDialog extends StatefulWidget {
@@ -24,7 +25,7 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
                 Navigator.of(context).pop();
 
                 context
-                    .read<UserBloc>()
+                    .read<FinderBloc>()
                     .add(DeleteBookmarkEvent(id: widget.bookmarkId));
 
                 showDialog(

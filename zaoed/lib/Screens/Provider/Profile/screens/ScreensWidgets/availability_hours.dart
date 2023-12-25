@@ -51,6 +51,7 @@ class _AvailabilityHoursState extends State<AvailabilityHours> {
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
+                        // bloc
                         setState(() {
                           selectedIndex = index;
                         });

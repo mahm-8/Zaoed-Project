@@ -1,5 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
 
 import '../model/bookmark_model.dart';
 

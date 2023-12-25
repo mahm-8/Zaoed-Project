@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class SavedBookmarksScreen extends StatefulWidget {
@@ -10,7 +11,7 @@ class SavedBookmarksScreen extends StatefulWidget {
 class _SavedBookmarksScreenState extends State<SavedBookmarksScreen> {
   @override
   void initState() {
-    context.read<UserBloc>().add(GetBookmarkEvent());
+    context.read<FinderBloc>().add(GetBookmarkEvent());
     super.initState();
   }
 
@@ -30,7 +31,7 @@ class _SavedBookmarksScreenState extends State<SavedBookmarksScreen> {
             const SizedBox(
               height: 17,
             ),
-            BlocBuilder<UserBloc, UserState>(
+            BlocBuilder<FinderBloc, FinderState>(
               builder: (context, state) {
                 if (state is GetBookmarkState) {
                   if (state.bookmarks!.isNotEmpty) {
