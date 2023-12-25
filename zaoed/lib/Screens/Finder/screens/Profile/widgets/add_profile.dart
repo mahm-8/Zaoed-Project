@@ -4,10 +4,9 @@ import 'package:zaoed/Screens/Finder/screens/Profile/method/date_time_widget.dar
 import 'package:zaoed/Screens/Finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/card_widget/add_card.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
-import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
-import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/user_bloc/user_event.dart';
-import 'package:zaoed/blocs/user_bloc/user_state.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/loading_extension.dart';
 import 'package:zaoed/extensions/navigator.dart';

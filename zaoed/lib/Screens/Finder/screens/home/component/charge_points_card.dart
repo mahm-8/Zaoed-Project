@@ -8,16 +8,11 @@ import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/share_b
 import 'package:zaoed/constants/colors.dart';
 
 
-class ChargePointsCard extends StatefulWidget {
+class ChargePointsCard extends StatelessWidget {
   const ChargePointsCard({
     super.key,
   });
 
-  @override
-  State<ChargePointsCard> createState() => _ChargePointsCardState();
-}
-
-class _ChargePointsCardState extends State<ChargePointsCard> {
   @override
   Widget build(BuildContext context) {
     return GlassContainer(

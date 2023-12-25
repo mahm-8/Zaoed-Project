@@ -12,12 +12,13 @@ import 'package:zaoed/Screens/auth/tabbar_signup_screen.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+  LoginScreen({super.key, required this.type});
   final _emailKey = GlobalKey<FormState>();
   final _passwordKey = GlobalKey<FormState>();
   final emailController = TextEditingController(),
       passwordController = TextEditingController();
   bool pass = false;
+  final String type;
   //tab controller
   @override
   Widget build(BuildContext context) {
@@ -99,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const TabbarSignup()));
+                        builder: (context) =>  TabbarSignup()));
               },
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",
