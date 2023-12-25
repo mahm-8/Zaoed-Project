@@ -1,6 +1,5 @@
+import 'package:zaoed/Screens/Finder/screens/Booking/booking_confirmation_screen.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/components/sheet_method/rating_boottom_sheet.dart';
 
 class BookingScreen extends StatelessWidget {
   BookingScreen({super.key});

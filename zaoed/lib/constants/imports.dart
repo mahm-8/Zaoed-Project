@@ -97,7 +97,6 @@ export 'package:zaoed/Screens/Finder/screens/payment/purchase_screen.dart';
 export 'package:zaoed/Screens/Finder/screens/payment/widgets/progress_bar.dart';
 export 'package:zaoed/Screens/Finder/screens/payment/widgets/payment_container.dart';
 export 'package:zaoed/Screens/Finder/screens/Profile/AppBar/information_app_bar.dart';
-export 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/about_us_information.dart';
 export 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/finder_info_widget.dart';
 export 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/payment_information.dart';
 export 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/setting_widget.dart';

@@ -1,7 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:flutter/material.dart';
-
-import 'chargers_widget.dart';
 
 class ChargerFiltiringRow extends StatelessWidget {
   const ChargerFiltiringRow({

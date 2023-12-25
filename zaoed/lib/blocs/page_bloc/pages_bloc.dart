@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 part 'pages_event.dart';
 part 'pages_state.dart';

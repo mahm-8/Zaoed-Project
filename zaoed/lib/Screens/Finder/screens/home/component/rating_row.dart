@@ -1,4 +1,3 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class RatingRow extends StatelessWidget {
