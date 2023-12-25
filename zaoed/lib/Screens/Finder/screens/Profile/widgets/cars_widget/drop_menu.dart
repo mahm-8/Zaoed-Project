@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
-import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/user_bloc/user_event.dart';
+import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class DropDownWidget extends StatefulWidget {

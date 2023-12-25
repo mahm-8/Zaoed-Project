@@ -14,10 +14,14 @@ class PageOnboardingEvent extends PagesEvent {
   PageOnboardingEvent(this.selected);
 }
 
-class PageTabBarEvent extends PagesEvent {
+class PageTabBarLoginEvent extends PagesEvent {
   final int selected;
 
-  PageTabBarEvent(this.selected);
+  PageTabBarLoginEvent(this.selected);
+}class PageTabBarSignupEvent extends PagesEvent {
+  final int selected;
+
+  PageTabBarSignupEvent(this.selected);
 }
 
 class ChargingTimeEvent extends PagesEvent {

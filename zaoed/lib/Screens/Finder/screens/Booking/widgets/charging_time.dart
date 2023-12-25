@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingTime extends StatelessWidget {
