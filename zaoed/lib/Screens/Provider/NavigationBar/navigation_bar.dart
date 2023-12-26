@@ -4,22 +4,22 @@ class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});
   final List screens = [
     // const ProfileFinder(),
-    SavedBookmarksScreen(),
+    const SavedBookmarksScreen(),
 
     const ProfileScreen(),
     const HomeScreen(),
     const ProfileScreen(),
   ];
   final List providerScreens = [
-    SavedBookmarksScreen(),
-    ProfileScreen(),
+    const SavedBookmarksScreen(),
+    const ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
   ];
   final List finderScreens = [
-    SavedBookmarksScreen(),
-    ChargingStatuesScreen(),
-    MapHomeScreen(),
+    const SavedBookmarksScreen(),
+    const ChargingStatuesScreen(),
+    const MapHomeScreen(),
     const ProfileFinder(),
   ];
   @override

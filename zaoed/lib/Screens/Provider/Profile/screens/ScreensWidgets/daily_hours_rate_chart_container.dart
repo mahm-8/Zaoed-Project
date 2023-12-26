@@ -19,7 +19,7 @@ class DailyHoursRateChartContainer extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 304,
       width: 350,
       child: Padding(

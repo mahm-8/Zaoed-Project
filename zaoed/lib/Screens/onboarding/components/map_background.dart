@@ -8,7 +8,7 @@ class MapBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       child: Image.asset(
         "lib/assets/images/MAP.png",
         height: 500,

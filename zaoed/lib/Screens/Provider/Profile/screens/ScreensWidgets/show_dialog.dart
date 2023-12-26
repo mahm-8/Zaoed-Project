@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ShowDialog extends StatelessWidget {
   const ShowDialog({
@@ -24,7 +23,7 @@ class ShowDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         height: 50,
-        width: MediaQuery.of(context).size.width,
+        width: context.getWidth(),
         child: Center(
           child: Text(
             title,

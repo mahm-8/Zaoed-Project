@@ -12,7 +12,7 @@ class Page2 extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.65,
+            height: context.getHeight() * 0.65,
           ),
           Text(
             "اشحن وادفع بأمان",

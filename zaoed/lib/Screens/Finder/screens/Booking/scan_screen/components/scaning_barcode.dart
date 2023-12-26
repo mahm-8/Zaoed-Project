@@ -9,7 +9,7 @@ class ScaningBarcode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 435,
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       color: AppColors().gray1Trans,
       child: Column(
         children: [

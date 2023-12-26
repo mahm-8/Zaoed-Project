@@ -28,7 +28,7 @@ class TextfieldWidget extends StatelessWidget {
       child: Stack(children: [
         Container(
           height: 50,
-          width: MediaQuery.of(context).size.width,
+          width: context.getWidth(),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             border: Border(

@@ -1,11 +1,15 @@
+import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
 import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+import 'package:zaoed/blocs/providor_bloc/static_bloc/bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
   SupabaseNetworking().getSupabaseInitialize;
+  SupabaseMethods().getProfit();
   runApp(const MainApp());
 }
 
@@ -25,6 +29,9 @@ class MainApp extends StatelessWidget {
           create: (context) => ProviderBloc(),
         ),
         BlocProvider(
+          create: (context) => StaticBloc(),
+        ),
+        BlocProvider(
           create: (context) => PagesBloc(),
         ),
         BlocProvider(
@@ -32,6 +39,9 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ChatBloc(),
+        ),
+        BlocProvider(
+          create: (context) => FinderBloc(),
         ),
       ],
       child: MaterialApp(
@@ -44,7 +54,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: NavigationBarScreen(),
+        home: StaticsScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

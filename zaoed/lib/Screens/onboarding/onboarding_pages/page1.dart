@@ -13,7 +13,7 @@ class Page1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.65,
+            height: context.getHeight() * 0.65,
           ),
           Text(
             "ابحث عن نقطة شحن",

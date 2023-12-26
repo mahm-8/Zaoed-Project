@@ -23,7 +23,7 @@ class MessageWidget extends StatelessWidget {
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width,
+                    maxWidth: context.getWidth(),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(12),

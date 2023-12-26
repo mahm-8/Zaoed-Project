@@ -18,7 +18,7 @@ class TabBarWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(color: const Color(0xff3FEDB2), width: 2)),
       height: 50,
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       child: TabBar(
           controller: controller,
           onTap: (select) {

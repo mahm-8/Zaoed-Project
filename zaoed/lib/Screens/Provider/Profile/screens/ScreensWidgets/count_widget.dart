@@ -30,13 +30,13 @@ class CountWidget extends StatelessWidget {
               height: 30,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             count.toString(),
             style:
                 TextStyle(color: AppColors().white, fontSize: 12),
           ),
-          Spacer(),
+          const Spacer(),
           InkWell(
             onTap: () {
               bloc.add(ChargingTypeIncrementCountEvent());

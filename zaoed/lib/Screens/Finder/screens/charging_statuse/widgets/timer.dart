@@ -13,7 +13,7 @@ class TimerWidget extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Container(
+          child: SizedBox(
             height: 200,
             child: SfRadialGauge(
               axes: <RadialAxis>[
@@ -58,7 +58,7 @@ class TimerWidget extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Container(
+          child: SizedBox(
             height: 200,
             child: SfRadialGauge(
               axes: <RadialAxis>[

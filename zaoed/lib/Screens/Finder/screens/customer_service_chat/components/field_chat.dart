@@ -16,7 +16,7 @@ class ChatField extends StatelessWidget {
       alignment: Alignment.center,
       height: 75,
       padding: const EdgeInsets.only(left: 10, right: 10),
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       decoration: BoxDecoration(color: AppColors().gray6),
       child: TextField(
         cursorColor: AppColors().gray,

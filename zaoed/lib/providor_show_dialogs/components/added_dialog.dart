@@ -23,7 +23,7 @@ class AddedDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         height: 50,
-        width: MediaQuery.of(context).size.width,
+        width: context.getWidth(),
         child: Center(
           child: Text(
             title,

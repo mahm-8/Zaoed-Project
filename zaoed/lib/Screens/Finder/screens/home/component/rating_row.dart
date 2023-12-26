@@ -8,7 +8,7 @@ class RatingRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       height: 86,
       decoration: BoxDecoration(
           color: AppColors().gray1Trans,

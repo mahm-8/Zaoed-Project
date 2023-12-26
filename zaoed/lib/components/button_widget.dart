@@ -1,4 +1,3 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class ButtonWidget extends StatelessWidget {
@@ -21,7 +20,7 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: backColor,

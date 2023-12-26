@@ -29,7 +29,7 @@ extension ChargingCarSheet on BuildContext {
                     Text("يتم شحن مركبتك",
                         style:
                             TextStyle(color: AppColors().white, fontSize: 24)),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     SizedBox(
                       height: 15,
                       width: 15,

@@ -8,7 +8,7 @@ Future<dynamic> DeleteChargingPointShowDialog(BuildContext context) {
       return DialogWidget(
         title: "حذف نقطة الشحن",
         imageIcon: ImageIcon(
-          AssetImage('lib/assets/icons/mingcute_sad-fill.png'),
+          const AssetImage('lib/assets/icons/mingcute_sad-fill.png'),
           color: AppColors().green,
         ),
         bodyText: 'سيتم حذف جميع البيانات التي تم ادخالها، هل أنت متأكد؟',

@@ -27,7 +27,7 @@ class DialogWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         height: 220,
-        width: MediaQuery.of(context).size.width,
+        width: context.getWidth(),
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(

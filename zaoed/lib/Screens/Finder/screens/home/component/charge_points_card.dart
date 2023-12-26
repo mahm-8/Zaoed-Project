@@ -19,7 +19,7 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
       padding: const EdgeInsets.only(bottom: 62.0),
       child: Container(
         height: 206,
-        width: MediaQuery.of(context).size.width,
+        width: context.getWidth(),
         decoration: BoxDecoration(
           color: AppColors().gray1Trans,
           borderRadius: BorderRadius.circular(16),

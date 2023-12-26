@@ -9,7 +9,7 @@ class ChargeSpeedContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 240,
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       decoration: BoxDecoration(
           color: AppColors().gray1Trans,
           borderRadius: BorderRadius.circular(8)),
