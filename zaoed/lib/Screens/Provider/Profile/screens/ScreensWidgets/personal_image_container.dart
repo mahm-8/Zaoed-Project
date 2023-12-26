@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zaoed/components/sheet_method/upload_image_sheet.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class PersonalImageContainer extends StatelessWidget {
@@ -25,7 +26,9 @@ class PersonalImageContainer extends StatelessWidget {
             top: 71,
             left: 0,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                 UploadImageSheet(context);
+              },
               child: ClipOval(
                 child: Container(
                     width: 20,

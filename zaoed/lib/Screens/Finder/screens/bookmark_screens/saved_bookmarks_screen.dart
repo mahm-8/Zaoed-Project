@@ -1,20 +1,12 @@
-import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
-import 'package:zaoed/constants/imports.dart';
+import 'package:flutter/material.dart';
+import 'package:zaoed/components/appbar/appbar_widget.dart';
+import 'package:zaoed/constants/colors.dart';
+import 'components/bookmark_card_widget.dart';
 
-class SavedBookmarksScreen extends StatefulWidget {
-  const SavedBookmarksScreen({super.key});
+class SavedBookmarksScreen extends StatelessWidget {
+  SavedBookmarksScreen({super.key});
 
-  @override
-  State<SavedBookmarksScreen> createState() => _SavedBookmarksScreenState();
-}
-
-class _SavedBookmarksScreenState extends State<SavedBookmarksScreen> {
-  @override
-  void initState() {
-    context.read<FinderBloc>().add(GetBookmarkEvent());
-    super.initState();
-  }
-
+  final List bookmarks = ["", ""];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,40 +23,20 @@ class _SavedBookmarksScreenState extends State<SavedBookmarksScreen> {
             const SizedBox(
               height: 17,
             ),
-            BlocBuilder<FinderBloc, FinderState>(
-              builder: (context, state) {
-                if (state is GetBookmarkState) {
-                  if (state.bookmarks!.isNotEmpty) {
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: state.bookmarks?.length,
-                        itemBuilder: (context, index) {
-                          final bookmarks = state.bookmarks?[index];
-                          return BookmarkCardWidget(
-                            name: bookmarks?.bookmarkName,
-                            rate: bookmarks?.rating,
-                            location: bookmarks?.location,
-                            chargingTimes: bookmarks?.chrgingTimes,
-                            idAuth: bookmarks?.idAuth,
-                            id: bookmarks?.id,
-                          );
-                        });
-                  } else {
-                    return Center(
-                      child: Text(
-                        "لا توجد أي نقاط شحن محفوظة حاليّا",
-                        style:
-                            TextStyle(color: AppColors().gray4, fontSize: 19),
-                      ),
-                    );
-                  }
-                } else if (state is ErrorState) {
-                  LoadingExtension(context).showLoading();
-                }
-                return const Center();
-              },
-            ),
+            if (bookmarks.isEmpty)
+              Center(
+                child: Text(
+                  "لا توجد أي نقاط شحن محفوظة حاليّا",
+                  style: TextStyle(color: AppColors().gray4, fontSize: 19),
+                ),
+              ),
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: bookmarks.length,
+                itemBuilder: (context, index) {
+                  return const BookmarkCardWidget();
+                }),
           ],
         ),
       ),

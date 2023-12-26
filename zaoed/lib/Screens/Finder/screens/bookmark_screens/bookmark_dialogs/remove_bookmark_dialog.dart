@@ -1,9 +1,12 @@
-import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
-import 'package:zaoed/constants/imports.dart';
+import 'package:flutter/material.dart';
+import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
+import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
+
+import 'add_bookmark_dialog.dart';
 
 class RemoveBookMarkDialog extends StatefulWidget {
-  const RemoveBookMarkDialog({super.key, required this.bookmarkId});
-  final int? bookmarkId;
+  const RemoveBookMarkDialog({super.key});
+
   @override
   State<RemoveBookMarkDialog> createState() => _RemoveBookMarkDialogState();
 }
@@ -13,6 +16,8 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        // remove from the bookmark list
+        // show dialog removed
         showDialog(
           barrierColor: Colors.transparent,
           context: context,
@@ -24,10 +29,6 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
               pressOne: () {
                 Navigator.of(context).pop();
 
-                context
-                    .read<FinderBloc>()
-                    .add(DeleteBookmarkEvent(id: widget.bookmarkId));
-
                 showDialog(
                   barrierColor: Colors.transparent,
                   context: context,
@@ -38,12 +39,16 @@ class _RemoveBookMarkDialogState extends State<RemoveBookMarkDialog> {
                   },
                 );
                 Future.delayed(const Duration(seconds: 3), () {
-                  context.pop(); // Dismiss the dialog
+                  Navigator.of(context).pop(); // Dismiss the dialog
+                });
+
+                setState(() {
+                  isBookmarked = false;
                 });
               },
               button2: 'إلغاء',
               pressTwo: () {
-                context.pop();
+                Navigator.of(context).pop();
               },
             );
           },

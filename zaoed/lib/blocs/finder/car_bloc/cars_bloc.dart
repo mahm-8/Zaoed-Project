@@ -1,8 +1,6 @@
 import 'dart:async';
-
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/service/networking.dart';
-
 part 'cars_event.dart';
 part 'cars_state.dart';
 
@@ -43,12 +41,12 @@ class CarsBloc extends Bloc<CarsEvent, CarsState> {
     final supabase = SupabaseNetworking().getSupabase;
     try {
       final id = supabase.auth.currentUser?.id;
-      if(brand.isNotEmpty&&model.isNotEmpty&&type.isNotEmpty) {
+      if (brand.isNotEmpty && model.isNotEmpty && type.isNotEmpty) {
         await supabase.from("cars").insert(
-          {"brand": brand, "model": model, "type": type, "id_user": id});
+            {"brand": brand, "model": model, "type": type, "id_user": id});
       }
     } catch (e) {
-      print(e);
+      return;
     }
   }
 }

@@ -64,7 +64,6 @@ class _ChargingTypeState extends State<ChargingType> {
                 width: 72,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-
                   border: Border.all(color: AppColors().gray6),
                 ),
                 child: CountWidget(bloc: bloc, count: count),

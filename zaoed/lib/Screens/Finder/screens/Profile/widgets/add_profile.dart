@@ -1,4 +1,7 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
 
 class AddInformation extends StatelessWidget {
   AddInformation({super.key});

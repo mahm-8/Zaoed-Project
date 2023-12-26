@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
   showModalBottomSheet(
@@ -24,7 +25,7 @@ RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
               'شكراً $name لاستخدامك نقطة الشحن',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: 22,
                   color: AppColors().white),
             ),
             const SizedBox(height: 8),
@@ -34,45 +35,20 @@ RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
               style: TextStyle(fontSize: 16, color: AppColors().white),
             ),
             const SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: ImageIcon(
-                    const AssetImage('lib/assets/icons/Star 5.png'),
-                    color: AppColors().green,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: ImageIcon(
-                    const AssetImage('lib/assets/icons/Star 5.png'),
-                    color: AppColors().green,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: ImageIcon(
-                    const AssetImage('lib/assets/icons/Star 5.png'),
-                    color: AppColors().green,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: ImageIcon(
-                    const AssetImage('lib/assets/icons/Star 5.png'),
-                    color: AppColors().green,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: ImageIcon(
-                    const AssetImage('lib/assets/icons/Star 5.png'),
-                    color: AppColors().green,
-                  ),
-                ),
-              ],
+            RatingBar.builder(
+              initialRating: 0,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => ImageIcon(
+                AssetImage('lib/assets/icons/Star 5.png'),
+                color: AppColors().green,
+              ),
+              onRatingUpdate: (rating) {
+                print(rating);
+              },
             ),
             const SizedBox(height: 12),
             TextField(

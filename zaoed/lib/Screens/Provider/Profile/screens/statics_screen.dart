@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:glass/glass.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_hours_rate_chart_container.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_profit_rate_chart_container.dart';
-import 'package:zaoed/blocs/providor_bloc/static_bloc/bloc/static_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
+
+import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
 
 class StaticsScreen extends StatelessWidget {
   const StaticsScreen({super.key});
@@ -15,6 +11,8 @@ class StaticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<StaticBloc>().add(CalculateDailyProfit());
     final staticbloc = context.read<StaticBloc>();
+    context.read<StaticBloc>().add(HourStaticEvent());
+    final dailyhour = context.read<StaticBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'الاحصائيات'),
@@ -39,9 +37,20 @@ class StaticsScreen extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                DailyHoursRateChartContainer(
-                  title: 'معدل الساعات اليومية',
-                  subTitle: '10 ساعات 28 دقيقة',
+                BlocBuilder<StaticBloc, StaticState>(
+                  builder: (context, state) {
+                    print(dailyhour.dailyHour);
+                    if (state is StaticHourState) {
+                      return DailyHoursRateChartContainer(
+                        title: 'معدل الساعات اليومية',
+                        subTitle: 'ساعات ${state.totalToday}',
+                      );
+                    }
+                    return DailyHoursRateChartContainer(
+                      title: 'معدل الساعات اليومية',
+                      subTitle: '10 ساعات 28 دقيقة',
+                    );
+                  },
                 ).asGlass(
                     tintColor: AppColors().gray1,
                     clipBorderRadius: BorderRadius.circular(8))

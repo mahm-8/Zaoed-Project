@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {
   const ChargingStatuesScreen({super.key});
@@ -8,26 +9,6 @@ class ChargingStatuesScreen extends StatefulWidget {
 }
 
 class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
-  double remainingTime = 100;
-  double completedPercentage = 50;
-  Timer? timer;
-  @override
-  void initState() {
-    super.initState();
-    timerToCompleted();
-  }
-
-  timerToCompleted() {
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        if (remainingTime > 0) {
-          remainingTime--;
-          completedPercentage += 1;
-        }
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,9 +43,11 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
                     ),
                     width: 350,
                     height: 150,
-                    child: TimerWidget(
-                        remainingTime: remainingTime,
-                        completedPercentage: completedPercentage),
+                    child: BlocBuilder<FinderBloc, FinderState>(
+                      builder: (context, state) {
+                        return TimerWidget();
+                      },
+                    ),
                   ),
                 ],
               ),

@@ -1,20 +1,17 @@
-import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
-import 'package:zaoed/constants/imports.dart';
+import 'package:flutter/material.dart';
+import 'package:zaoed/Screens/Finder/screens/bookmark_screens/bookmark_dialogs/add_bookmark_dialog.dart';
+import 'package:zaoed/Screens/Finder/screens/bookmark_screens/bookmark_dialogs/remove_bookmark_dialog.dart';
+import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/book_charge_button.dart';
+import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/chargers_row_widget.dart';
+import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/share_button_widget.dart';
+import 'package:zaoed/constants/colors.dart';
 
 class BookmarkCardWidget extends StatelessWidget {
   const BookmarkCardWidget({
     super.key,
-    required this.name,
-    required this.rate,
-    required this.location,
-    required this.chargingTimes,
-    required this.idAuth,
-    required this.id,
   });
 
-  final String? name, location, idAuth;
-  final double? rate;
-  final int? id, chargingTimes;
+  // final String name, location, rate,
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +33,7 @@ class BookmarkCardWidget extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "$name",
+                    "منزل إيلاف محمد",
                     style: TextStyle(
                         color: AppColors().mainWhite,
                         fontSize: 17,
@@ -51,7 +48,7 @@ class BookmarkCardWidget extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    "$rate",
+                    "5.0",
                     style: TextStyle(
                         color: AppColors().mainWhite,
                         fontSize: 14,
@@ -62,7 +59,7 @@ class BookmarkCardWidget extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    "$chargingTimes",
+                    "(150)",
                     style: TextStyle(
                         color: AppColors().gray4,
                         fontSize: 12,
@@ -72,23 +69,14 @@ class BookmarkCardWidget extends StatelessWidget {
                   const Spacer(),
                   if (isBookmarked == false)
                     // do not show it on bookmark screen
-                    AddToBookmarkDialog(
-                      name: name,
-                      location: location,
-                      rate: rate,
-                      chargingTimes: chargingTimes,
-                      idAuth: idAuth,
-                      id: id,
-                    ),
+                    const AddToBookmarkDialog(),
                   if (isBookmarked == true)
                     //show dialog to remove from bookmaeks screen
-                    RemoveBookMarkDialog(
-                      bookmarkId: id,
-                    ),
+                    const RemoveBookMarkDialog(),
                 ],
               ),
               Text(
-                "$location",
+                "حي النرجس، الرياض",
                 style: TextStyle(
                     color: AppColors().gray4,
                     fontSize: 14,
@@ -105,7 +93,7 @@ class BookmarkCardWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TrackonGoogleButtonWidget(
+                  ShareButtonWidget(
                     onPress: () {},
                   ),
                   const SizedBox(

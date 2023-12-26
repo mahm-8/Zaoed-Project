@@ -1,5 +1,13 @@
-import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/Screens/Finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
+import 'package:zaoed/Screens/Finder/screens/Profile/screens/car_screen.dart';
+import 'package:zaoed/Screens/Finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
+import 'package:zaoed/Screens/Finder/screens/Profile/widgets/information_title.dart';
+import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
+import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/extensions/screen_dimensions.dart';
 
 // ignore: must_be_immutable
 class AddCar extends StatelessWidget {

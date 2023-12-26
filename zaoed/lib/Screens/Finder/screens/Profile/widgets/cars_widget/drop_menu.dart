@@ -1,7 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 
 class DropDownWidget extends StatefulWidget {
   DropDownWidget({

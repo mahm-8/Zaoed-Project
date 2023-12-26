@@ -7,9 +7,10 @@ class PagesBloc extends Bloc<PagesEvent, PagesState> {
   PagesBloc() : super(PagesInitial()) {
     on<PageNavigationEvent>(navigationSelect);
     on<PageOnboardingEvent>(onboardinSelect);
-    on<PageTabBarEvent>(tabBarSelect);
+    on<PageTabBarLoginEvent>(tabBarSelect);
     on<ChargingTimeEvent>(chargingTime);
     on<ChargingTypeEvent>(chargingType);
+    on<PageTabBarSignupEvent>(selectTabSignup);
   }
 
   FutureOr<void> navigationSelect(
@@ -22,7 +23,8 @@ class PagesBloc extends Bloc<PagesEvent, PagesState> {
     emit(PageOnboardingState(event.selected));
   }
 
-  FutureOr<void> tabBarSelect(PageTabBarEvent event, Emitter<PagesState> emit) {
+  FutureOr<void> tabBarSelect(
+      PageTabBarLoginEvent event, Emitter<PagesState> emit) {
     emit(PageTapBarState(event.selected));
   }
 
@@ -34,5 +36,10 @@ class PagesBloc extends Bloc<PagesEvent, PagesState> {
   FutureOr<void> chargingType(
       ChargingTypeEvent event, Emitter<PagesState> emit) {
     emit(ChargingTypeState(event.selected));
+  }
+
+  FutureOr<void> selectTabSignup(
+      PageTabBarSignupEvent event, Emitter<PagesState> emit) {
+    emit(SelectTapSignState(event.selected));
   }
 }

@@ -3,6 +3,7 @@
 
 
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 
 class TabBarWidget extends StatelessWidget {
   TabBarWidget({
@@ -22,7 +23,10 @@ class TabBarWidget extends StatelessWidget {
       child: TabBar(
           controller: controller,
           onTap: (select) {
+            context.read<PagesBloc>().add(PageTabBarLoginEvent(select));
+            context.read<PagesBloc>().add(PageTabBarSignupEvent(select));
             select == 1 ? type = "finder" : type = "povider";
+            print(type);
           },
           dividerColor: Colors.transparent,
           labelColor: const Color(0xff21232b),

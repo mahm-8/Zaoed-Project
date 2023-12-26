@@ -1,18 +1,12 @@
-import 'package:zaoed/blocs/finder_bloc/bloc/finder_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
-class ChargePointsCard extends StatefulWidget {
+class ChargePointsCard extends StatelessWidget {
   const ChargePointsCard({
     super.key,
     this.bookmarks,
   });
   final BookmarkModel? bookmarks;
 
-  @override
-  State<ChargePointsCard> createState() => _ChargePointsCardState();
-}
-
-class _ChargePointsCardState extends State<ChargePointsCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,7 +30,7 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
               Row(
                 children: [
                   Text(
-                    "${widget.bookmarks?.bookmarkName}",
+                    "widget.bookmarks?.bookmarkName",
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 17,
@@ -51,7 +45,7 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
                     width: 4,
                   ),
                   Text(
-                    "${widget.bookmarks?.rating}",
+                    "widget.bookmarks?.rating",
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 14,
@@ -62,7 +56,7 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
                     width: 4,
                   ),
                   Text(
-                    "${widget.bookmarks?.chrgingTimes}",
+                    "widget.bookmarks?.chrgingTimes",
                     style: TextStyle(
                       color: AppColors().gray4,
                       fontSize: 12,
@@ -70,23 +64,12 @@ class _ChargePointsCardState extends State<ChargePointsCard> {
                     ),
                   ),
                   const Spacer(),
-                  if (isBookmarked == false)
-                    AddToBookmarkDialog(
-                      name: widget.bookmarks?.bookmarkName,
-                      location: widget.bookmarks?.location,
-                      idAuth: widget.bookmarks?.idAuth,
-                      rate: widget.bookmarks?.rating,
-                      chargingTimes: widget.bookmarks?.chrgingTimes,
-                      id: widget.bookmarks?.id,
-                    ),
-                  if (isBookmarked == true)
-                    RemoveBookMarkDialog(
-                      bookmarkId: widget.bookmarks?.id,
-                    ),
+                  if (isBookmarked == false) AddToBookmarkDialog(),
+                  if (isBookmarked == true) RemoveBookMarkDialog(),
                 ],
               ),
               Text(
-                "${widget.bookmarks?.location}",
+                "widget.bookmarks?.location",
                 style: TextStyle(
                   color: AppColors().gray4,
                   fontSize: 14,

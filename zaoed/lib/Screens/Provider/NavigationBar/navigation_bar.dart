@@ -1,23 +1,25 @@
 import 'package:zaoed/constants/imports.dart';
 
+import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+
 class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});
   final List screens = [
     // const ProfileFinder(),
-    const SavedBookmarksScreen(),
+    SavedBookmarksScreen(),
 
     const ProfileScreen(),
     const HomeScreen(),
     const ProfileScreen(),
   ];
   final List providerScreens = [
-    const SavedBookmarksScreen(),
+    SavedBookmarksScreen(),
     const ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
   ];
   final List finderScreens = [
-    const SavedBookmarksScreen(),
+    SavedBookmarksScreen(),
     const ChargingStatuesScreen(),
     const MapHomeScreen(),
     const ProfileFinder(),
