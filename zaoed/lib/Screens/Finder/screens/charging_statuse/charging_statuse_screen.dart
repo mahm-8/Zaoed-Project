@@ -1,11 +1,12 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/car_information.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_app_bar.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/location_information.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/price_information.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/timer.dart';
+import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {
@@ -16,26 +17,6 @@ class ChargingStatuesScreen extends StatefulWidget {
 }
 
 class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
-  double remainingTime = 100;
-  double completedPercentage = 50;
-  Timer? timer;
-  @override
-  void initState() {
-    super.initState();
-    timerToCompleted();
-  }
-
-  timerToCompleted() {
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        if (remainingTime > 0) {
-          remainingTime--;
-          completedPercentage += 1;
-        }
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,9 +51,11 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
                     ),
                     width: 350,
                     height: 150,
-                    child: TimerWidget(
-                        remainingTime: remainingTime,
-                        completedPercentage: completedPercentage),
+                    child: BlocBuilder<FinderBloc, FinderState>(
+                      builder: (context, state) {
+                        return TimerWidget();
+                      },
+                    ),
                   ),
                 ],
               ),

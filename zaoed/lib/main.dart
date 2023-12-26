@@ -7,6 +7,7 @@ import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/service/networking.dart';
@@ -30,13 +31,18 @@ class MainApp extends StatelessWidget {
           create: (context) => StaticBloc(),
         ),
         BlocProvider(
+          create: (context) => FinderBloc()..add(LoadDataTimerEvent()),
+        ),
+        BlocProvider(
           create: (context) => UserBloc(),
-        ), BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => ProviderBloc(),
         ),
         BlocProvider(
           create: (context) => PagesBloc(),
-        ),BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => CarsBloc(),
         ),
       ],

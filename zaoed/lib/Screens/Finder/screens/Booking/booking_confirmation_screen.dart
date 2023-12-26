@@ -7,10 +7,8 @@ import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_ap
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
-
 class BookingConfirmationScreen extends StatelessWidget {
   const BookingConfirmationScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

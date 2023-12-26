@@ -32,7 +32,6 @@ class DailyProfitRateChart extends StatelessWidget {
           labelStyle: TextStyle(
             fontSize: 12,
           ),
-          
         ),
         series: [
           ColumnSeries(

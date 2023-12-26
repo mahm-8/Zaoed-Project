@@ -33,7 +33,7 @@ class BookingScreen extends StatelessWidget {
             const TitleLabel(
               title: 'المنفذ',
             ),
-             ChargingTypeRow(),
+            ChargingTypeRow(),
             const TitleLabel(
               title: 'مدة الشحن',
             ),
