@@ -1,17 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/method/date_time_widget.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/card_widget/add_card.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/loading_extension.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/model/user_model.dart';
 
 class AddInformation extends StatelessWidget {
   AddInformation({super.key});
@@ -87,10 +77,12 @@ class AddInformation extends StatelessWidget {
               return false;
             },
             builder: (context, state) {
-              if(state is GenderState){ return DropDownWidget(
-                  brand: state.gender,
-                  list: gender,
-                  brandController: genderController);}
+              if (state is GenderState) {
+                return DropDownWidget(
+                    brand: state.gender,
+                    list: gender,
+                    brandController: genderController);
+              }
               return DropDownWidget(
                   brand: selectGender,
                   list: gender,

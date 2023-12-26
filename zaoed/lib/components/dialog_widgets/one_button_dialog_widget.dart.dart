@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/providor_show_dialogs/components/dialog_button.dart';
-
-import '../../constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DialogWidgetOneButton extends StatelessWidget {
   const DialogWidgetOneButton({
@@ -26,7 +23,7 @@ class DialogWidgetOneButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         height: 220,
-        width: MediaQuery.of(context).size.width,
+        width: context.getWidth(),
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(

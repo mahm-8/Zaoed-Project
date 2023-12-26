@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
-
-import 'package:zaoed/Screens/onboarding/onboarding_screen.dart';
+import 'package:zaoed/constants/imports.dart';
 
 Future<dynamic> DeleteAccount(BuildContext context) {
   return showDialog(

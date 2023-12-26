@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/appbar/appbar_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
-import 'component/charge_speed_container.dart';
-import 'component/charger_filtiring_row.dart';
-import 'component/rating_row.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});

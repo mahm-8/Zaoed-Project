@@ -1,8 +1,6 @@
-
-import 'dart:ui';
+import 'package:zaoed/constants/imports.dart';
 
 extension TextStyleExt on TextStyle {
   TextStyle get bold24 =>
-       TextStyle(fontSize: 26, fontWeight: FontWeight.bold);
- 
+      const TextStyle(fontSize: 26, fontWeight: FontWeight.bold);
 }

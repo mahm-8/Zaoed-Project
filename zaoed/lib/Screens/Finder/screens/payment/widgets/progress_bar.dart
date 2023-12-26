@@ -1,9 +1,7 @@
-import 'package:easy_stepper/easy_stepper.dart';
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ProgressBar extends StatefulWidget {
-   ProgressBar({
+  ProgressBar({
     super.key,
     required this.activeStep,
     required this.progress,
@@ -46,8 +44,9 @@ class _ProgressBarState extends State<ProgressBar> {
                 widget.activeStep >= 0 ? AppColors().green : AppColors().white,
             child: CircleAvatar(
               radius: 7,
-              backgroundColor:
-                  widget.activeStep >= 0 ? AppColors().green : AppColors().white,
+              backgroundColor: widget.activeStep >= 0
+                  ? AppColors().green
+                  : AppColors().white,
               child: widget.activeStep >= 0
                   ? Icon(
                       Icons.check,
@@ -70,8 +69,9 @@ class _ProgressBarState extends State<ProgressBar> {
                 widget.activeStep >= 1 ? AppColors().green : AppColors().white,
             child: CircleAvatar(
               radius: 7,
-              backgroundColor:
-                  widget.activeStep >= 1 ? AppColors().green : AppColors().gray1,
+              backgroundColor: widget.activeStep >= 1
+                  ? AppColors().green
+                  : AppColors().gray1,
               child: widget.activeStep >= 1
                   ? Icon(
                       Icons.check,
@@ -94,8 +94,9 @@ class _ProgressBarState extends State<ProgressBar> {
                 widget.activeStep >= 2 ? AppColors().green : AppColors().white,
             child: CircleAvatar(
               radius: 7,
-              backgroundColor:
-                  widget.activeStep >= 2 ? AppColors().green : AppColors().gray1,
+              backgroundColor: widget.activeStep >= 2
+                  ? AppColors().green
+                  : AppColors().gray1,
               child: widget.activeStep >= 2
                   ? Icon(
                       Icons.check,

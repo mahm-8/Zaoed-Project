@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/cancel_show_dialog.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 Future<dynamic> DeleteChargingPointShowDialog(BuildContext context) {
   return showDialog(
@@ -12,7 +8,7 @@ Future<dynamic> DeleteChargingPointShowDialog(BuildContext context) {
       return DialogWidget(
         title: "حذف نقطة الشحن",
         imageIcon: ImageIcon(
-          AssetImage('lib/assets/icons/mingcute_sad-fill.png'),
+          const AssetImage('lib/assets/icons/mingcute_sad-fill.png'),
           color: AppColors().green,
         ),
         bodyText: 'سيتم حذف جميع البيانات التي تم ادخالها، هل أنت متأكد؟',

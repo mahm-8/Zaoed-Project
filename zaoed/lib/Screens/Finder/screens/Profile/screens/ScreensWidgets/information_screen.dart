@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/add_profile.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class InformationScreen extends StatelessWidget {
   const InformationScreen({super.key});

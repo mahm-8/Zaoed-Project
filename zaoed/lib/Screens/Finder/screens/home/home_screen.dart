@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/home/component/button_choice_widget.dart';
 import 'package:zaoed/Screens/Finder/screens/home/component/charge_points_card.dart';
-import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
+import 'package:zaoed/components/sheet_method/arrived_dialog.dart';
+import 'package:zaoed/constants/colors.dart';
 import 'component/search_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors().gray9,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -35,10 +37,12 @@ class HomeScreen extends StatelessWidget {
             ButtonChoiceWidget(
               imageUrl: "lib/assets/icons/main_info.png",
               onPress: () {
-                context.charginfCarSheet();
+                context.arrivedToCharging();
               },
             ),
             const Spacer(),
+
+            // bookmark???
             const ChargePointsCard(),
           ],
         ),

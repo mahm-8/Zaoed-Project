@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ChargingCar extends StatelessWidget {
   const ChargingCar({
@@ -12,19 +11,15 @@ class ChargingCar extends StatelessWidget {
       children: [
         Align(
             alignment: Alignment.center,
-            child: Image.asset(
-                'lib/assets/images/circles background.png')),
+            child: Image.asset('lib/assets/images/circles background.png')),
         Align(
             alignment: Alignment.center,
-            child: Image.asset(
-                'lib/assets/images/2021-tesla-model-x.png')),
+            child: Image.asset('lib/assets/images/2021-tesla-model-x.png')),
         Positioned(
             right: -83,
             top: 15,
-            child: Lottie.asset(
-                'lib/assets/lottie/charging_animation.json'))
+            child: Lottie.asset('lib/assets/lottie/charging_animation.json'))
       ],
     );
   }
 }
-

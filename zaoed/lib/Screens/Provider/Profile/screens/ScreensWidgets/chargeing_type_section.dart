@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_type.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ChargingTypeSection extends StatelessWidget {
   const ChargingTypeSection({

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ChatField extends StatelessWidget {
   const ChatField({
@@ -17,7 +16,7 @@ class ChatField extends StatelessWidget {
       alignment: Alignment.center,
       height: 75,
       padding: const EdgeInsets.only(left: 10, right: 10),
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       decoration: BoxDecoration(color: AppColors().gray6),
       child: TextField(
         cursorColor: AppColors().gray,
@@ -47,6 +46,8 @@ class ChatField extends StatelessWidget {
                   alignment: Alignment.center,
                   onPressed: () {
                     // send messsage
+                    context.read<ChatBloc>().add(MessageEvent(
+                        message: controller.text.trim(), idUserTo: toUserId));
                     controller.clear();
                   },
                   icon: const Icon(

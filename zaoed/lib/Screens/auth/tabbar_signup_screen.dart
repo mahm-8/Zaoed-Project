@@ -1,10 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/Screens/auth/components/language_widget.dart';
-import 'package:zaoed/Screens/auth/components/tab_bar_widget.dart';
-import 'package:zaoed/Screens/auth/tabviews/signup_screen.dart';
 
 class TabbarSignup extends StatefulWidget {
   const TabbarSignup({super.key});
