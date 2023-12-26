@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:zaoed/Screens/Finder/screens/charging_statuse/charging_status_finished_screen.dart';
+import 'package:zaoed/Screens/Finder/screens/charging_statuse/charging_statuse_screen.dart';
 import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/add_charging_point.dart';
+import 'package:zaoed/Screens/Provider/Profile/screens/personal_information.dart';
 import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/blocs/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/blocs/user_bloc/user_bloc.dart';
@@ -28,13 +32,18 @@ class MainApp extends StatelessWidget {
           create: (context) => AuthBloc(),
         ),
         BlocProvider(
+          create: (context) => FinderBloc()..add(LoadDataTimerEvent()),
+        ),
+        BlocProvider(
           create: (context) => UserBloc(),
-        ), BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => ProviderBloc(),
         ),
         BlocProvider(
           create: (context) => PagesBloc(),
-        ),BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => CarsBloc(),
         ),
       ],
@@ -48,9 +57,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-
-        home: NavigationBarScreen(),
-
+        home: PersonalInformationScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
