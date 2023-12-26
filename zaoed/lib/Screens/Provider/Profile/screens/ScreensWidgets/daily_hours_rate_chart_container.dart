@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_hours_rate_chart.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DailyHoursRateChartContainer extends StatelessWidget {
   const DailyHoursRateChartContainer({

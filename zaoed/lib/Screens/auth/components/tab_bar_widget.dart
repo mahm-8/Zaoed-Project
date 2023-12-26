@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 
 class TabBarWidget extends StatelessWidget {
@@ -18,7 +19,7 @@ class TabBarWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(color: const Color(0xff3FEDB2), width: 2)),
       height: 50,
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       child: TabBar(
           controller: controller,
           onTap: (select) {

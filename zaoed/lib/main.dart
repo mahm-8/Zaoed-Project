@@ -1,16 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
-import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
+import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
-import 'package:zaoed/service/networking.dart';
+import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
+import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +23,8 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthBloc(),
-        ),BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => StaticBloc(),
         ),
         BlocProvider(
@@ -40,10 +37,19 @@ class MainApp extends StatelessWidget {
           create: (context) => ProviderBloc(),
         ),
         BlocProvider(
+          create: (context) => StaticBloc(),
+        ),
+        BlocProvider(
           create: (context) => PagesBloc(),
         ),
         BlocProvider(
           create: (context) => CarsBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ChatBloc(),
+        ),
+        BlocProvider(
+          create: (context) => FinderBloc(),
         ),
       ],
       child: MaterialApp(
@@ -56,9 +62,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-
-        home:  NavigationBarScreen(),
-
+        home: StaticsScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

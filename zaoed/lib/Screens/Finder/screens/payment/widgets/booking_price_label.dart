@@ -1,6 +1,4 @@
-
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 // ignore: must_be_immutable
 class BookingPriceLabel extends StatelessWidget {

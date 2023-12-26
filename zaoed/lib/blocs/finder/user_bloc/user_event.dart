@@ -1,4 +1,4 @@
-import 'package:zaoed/model/user_model.dart';
+import 'package:zaoed/constants/imports.dart';
 
 abstract class UserEvent {}
 
@@ -7,6 +7,7 @@ class UpdateUserEvent extends UserEvent {
 
   UpdateUserEvent(this.user);
 }
+
 final class GenderEvent extends UserEvent {
   final String gender;
 

@@ -1,5 +1,4 @@
-
-import 'package:flutter/material.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class BillTimeDetails extends StatelessWidget {
   const BillTimeDetails({

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-
-import '../components/state_dialog.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class TestShowDialogDeleteCancel extends StatelessWidget {
   const TestShowDialogDeleteCancel({super.key});

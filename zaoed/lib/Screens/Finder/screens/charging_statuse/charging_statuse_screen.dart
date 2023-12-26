@@ -1,13 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/car_information.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_app_bar.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_car.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/location_information.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/price_information.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/timer.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {
   const ChargingStatuesScreen({super.key});

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class MessageWidget extends StatelessWidget {
   const MessageWidget({
@@ -24,7 +23,7 @@ class MessageWidget extends StatelessWidget {
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width,
+                    maxWidth: context.getWidth(),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(12),

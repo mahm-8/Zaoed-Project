@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({
@@ -13,7 +12,7 @@ class Page2 extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.65,
+            height: context.getHeight() * 0.65,
           ),
           Text(
             "اشحن وادفع بأمان",
@@ -21,7 +20,6 @@ class Page2 extends StatelessWidget {
             style: TextStyle(
               color: AppColors().mainWhite,
               fontSize: 31,
-              
             ),
           ),
           const SizedBox(
@@ -30,10 +28,7 @@ class Page2 extends StatelessWidget {
           Text(
             "يمكنك شحن سيارتك بكل سهولة أينما كُنت، بالإضافة لتوفر الطرق الآمنة للدفع",
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: AppColors().mainWhite,
-                
-                fontSize: 14.5),
+            style: TextStyle(color: AppColors().mainWhite, fontSize: 14.5),
           ),
         ],
       ),

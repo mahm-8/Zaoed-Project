@@ -1,8 +1,7 @@
 part of 'static_bloc.dart';
 
-abstract class StaticEvent {
+abstract class StaticEvent {}
 
-}
-class HourStaticEvent extends StaticEvent {
-  
-}
+class HourStaticEvent extends StaticEvent {}
+
+class CalculateDailyProfit extends StaticEvent {}

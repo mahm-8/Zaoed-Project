@@ -72,4 +72,86 @@ class StaticDaily {
       totalToday
     ];
   }
+
+  getAnalytics({required List profit, required List? amountTotal}) {
+    double amountSat = 0.0;
+    double amountSun = 0.0;
+    double amountMon = 0.0;
+    double amountTue = 0.0;
+    double amountWed = 0.0;
+    double amountThu = 0.0;
+    double amountFri = 0.0;
+    double amountToday = 0.0;
+
+    for (var element in profit) {
+      if (DateFormat()
+          .add_MEd()
+          .format(DateTime.parse(element["date"]))
+          .contains("Sun")) {
+        amountSun += (element["amount"]);
+
+        print(element);
+      }
+      if (DateFormat()
+          .add_MEd()
+          .format(DateTime.parse(element["date"]))
+          .contains("Mon")) {
+        amountMon += (element["amount"]);
+
+        print(element);
+      }
+      if (DateFormat()
+          .add_MEd()
+          .format(DateTime.parse(element["date"]))
+          .contains("Tue")) {
+        amountTue += (element["amount"]);
+        print(amountTue);
+      }
+      if (DateFormat()
+          .add_MEd()
+          .format(DateTime.parse(element["date"]))
+          .contains("Wed")) {
+        amountWed += (element["amount"]);
+
+        print(element);
+      }
+      if (DateFormat()
+          .add_MEd()
+          .format(DateTime.parse(element["date"]))
+          .contains("Thu")) {
+        amountThu += (element["amount"]);
+
+        print(element);
+      }
+      if (DateFormat()
+          .add_MEd()
+          .format(DateTime.parse(element["date"]))
+          .contains("Fri")) {
+        amountFri += (element["amount"]);
+        print(element);
+      }
+      if (DateFormat()
+          .add_MEd()
+          .format(DateTime.parse(element["date"]))
+          .contains("Sat")) {
+        amountSat += (element["amount"]);
+        print(element);
+      }
+      if (element["date"] == DateTime.now().toString().split(" ")[0]) {
+        amountToday += (element["amount"]);
+        print(element);
+      }
+    }
+
+    return amountTotal = [
+      amountSat,
+      amountSun,
+      amountMon,
+      amountTue,
+      amountWed,
+      amountThu,
+      amountFri,
+      amountToday
+    ];
+  }
 }

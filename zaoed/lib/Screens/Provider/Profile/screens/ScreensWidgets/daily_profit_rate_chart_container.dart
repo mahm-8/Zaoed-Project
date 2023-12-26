@@ -7,21 +7,15 @@ class DailyProfitRateChartContainer extends StatelessWidget {
     super.key,
     required this.title,
     required this.subTitle,
+    required this.dataProfitRate,
   });
+
   final String title;
   final String subTitle;
-  final List dataProfitRate = [
-    DataPoint(date: 'الأحد', profitRate: 20),
-    DataPoint(date: 'الأثنين', profitRate: 12),
-    DataPoint(date: 'الثلاثاء', profitRate: 6),
-    DataPoint(date: 'الأربعاء', profitRate: 7),
-    DataPoint(date: 'الخميس', profitRate: 2),
-    DataPoint(date: 'الجمعة', profitRate: 25),
-    DataPoint(date: 'السبت', profitRate: 3),
-  ];
+  final List<dynamic>? dataProfitRate;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 304,
       width: 350,
       child: Padding(
@@ -41,7 +35,17 @@ class DailyProfitRateChartContainer extends StatelessWidget {
               color: Colors.grey,
               thickness: 1,
             ),
-            DailyProfitRateChart(dataProfitRate: dataProfitRate),
+            DailyProfitRateChart(dataProfitRate: [
+              DataPoint(date: 'الأحد', profitRate: dataProfitRate?[1] ?? 0.0),
+              DataPoint(date: 'الأثنين', profitRate: dataProfitRate?[2] ?? 0.0),
+              DataPoint(
+                  date: 'الثلاثاء', profitRate: dataProfitRate?[3] ?? 0.0),
+              DataPoint(
+                  date: 'الأربعاء', profitRate: dataProfitRate?[4] ?? 0.0),
+              DataPoint(date: 'الخميس', profitRate: dataProfitRate?[5] ?? 0.0),
+              DataPoint(date: 'الجمعة', profitRate: dataProfitRate?[6] ?? 0.0),
+              DataPoint(date: 'السبت', profitRate: dataProfitRate?[0] ?? 0.0),
+            ]),
           ],
         ),
       ),

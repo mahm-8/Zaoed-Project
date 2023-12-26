@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
 
 class TimerWidget extends StatefulWidget {
   const TimerWidget({

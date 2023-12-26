@@ -1,17 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
 
 class AvailabilityHours extends StatefulWidget {
-  const AvailabilityHours({super.key}) ;
+  const AvailabilityHours({super.key});
 
   @override
   State<AvailabilityHours> createState() => _AvailabilityHoursState();
 }
 
 class _AvailabilityHoursState extends State<AvailabilityHours> {
-  
   List<String> textClock = [
     'غير متوفر',
     '00:00-6:00',
@@ -28,8 +25,7 @@ class _AvailabilityHoursState extends State<AvailabilityHours> {
 
   @override
   Widget build(BuildContext context) {
-    final bloc =
-        context.read<ProviderBloc>();
+    final bloc = context.read<ProviderBloc>();
     return BlocBuilder<ProviderBloc, ProviderState>(
       builder: (context, state) {
         final selectedIndex =
