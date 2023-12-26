@@ -30,8 +30,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-*.env
-zaoed/*.env
+ *.env
+zaoed/.env
 
 
 # Symbolication related
