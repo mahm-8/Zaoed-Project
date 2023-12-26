@@ -25,7 +25,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       isValidation.add(validation(keyForm: event.keyUsername));
       if (!isValidation.contains(false)) {
         final auth = SupabaseNetworking().getSupabase.auth;
-        auth.signUp(email: event.email, password: event.password);
+       await auth.signUp(email: event.email, password: event.password);
 
         user = UserModel(
           name: event.username,
@@ -55,8 +55,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
           token: event.otp, type: OtpType.signup, email: event.email);
       if (verification.session?.accessToken != null) {
         await Future.delayed(const Duration(seconds: 1));
-        
-            await SupabaseNetworking().getSupabase.from("user").insert({
+
+        await SupabaseNetworking().getSupabase.from("user").insert({
           "name": user?.name,
           "email": user?.email,
           "id_auth": verification.user?.id,
@@ -92,7 +92,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       isValidation.add(validation(keyForm: event.passwordKey));
       if (!isValidation.contains(false)) {
         final auth = SupabaseNetworking().getSupabase.auth;
-        
+
         final login = await auth.signInWithPassword(
             email: event.email, password: event.password);
         if (login.user?.id != null) {
@@ -106,6 +106,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     } on AuthException {
       emit(ErrorLoginState("Password or email wrong"));
     } catch (e) {
+      print(e);
       return;
     }
   }
