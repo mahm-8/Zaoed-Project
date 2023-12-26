@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/Screens/Finder/screens/Booking/widgets/charging_type_container.dart';
-import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+
 class ChargingTypeRow extends StatelessWidget {
   ChargingTypeRow({super.key});
   int selectedIndex = -1;

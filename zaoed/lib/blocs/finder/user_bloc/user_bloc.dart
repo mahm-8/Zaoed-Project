@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/blocs/user_bloc/user_event.dart';
-import 'package:zaoed/blocs/user_bloc/user_state.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
 import 'package:zaoed/service/networking.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {

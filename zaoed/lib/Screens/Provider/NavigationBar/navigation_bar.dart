@@ -7,7 +7,7 @@ import 'package:zaoed/Screens/Finder/screens/charging_statuse/charging_statuse_s
 import 'package:zaoed/Screens/Finder/screens/home/home_screen.dart';
 import 'package:zaoed/Screens/Finder/screens/home/map_home_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/profile_screen.dart';
-import 'package:zaoed/blocs/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});

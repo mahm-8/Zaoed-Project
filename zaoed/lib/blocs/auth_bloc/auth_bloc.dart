@@ -92,6 +92,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       isValidation.add(validation(keyForm: event.passwordKey));
       if (!isValidation.contains(false)) {
         final auth = SupabaseNetworking().getSupabase.auth;
+        
         final login = await auth.signInWithPassword(
             email: event.email, password: event.password);
         if (login.user?.id != null) {

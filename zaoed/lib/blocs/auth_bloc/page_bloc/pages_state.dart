@@ -30,3 +30,8 @@ class ChargingTypeState extends PagesState {
 
   ChargingTypeState(this.selected);
 }
+class SelectTapSignState extends PagesState {
+  final int selected;
+
+  SelectTapSignState(this.selected);
+}
