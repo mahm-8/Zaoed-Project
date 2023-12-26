@@ -7,6 +7,10 @@ class UserModel {
   String? gender;
   String? location;
   String? idAuth;
+  String? type;
+  String? langitude;
+  String? longitude;
+  String? imageProfile;
 
   UserModel(
       {this.id,
@@ -16,17 +20,25 @@ class UserModel {
       this.birthday,
       this.gender,
       this.location,
-      this.idAuth});
+      this.idAuth,
+      this.type,
+      this.imageProfile,
+      this.langitude,
+      this.longitude});
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'] ?? "";
-    name = json['name'] ?? "";
-    email = json['email'] ?? "";
-    phone = json['phone'] ?? "";
-    birthday = json['birthday'] ?? "";
-    gender = json['gender'] ?? "";
-    location = json['location'] ?? "";
-    idAuth = json['id_auth'] ?? "";
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    phone = json['phone'];
+    birthday = json['birthday'];
+    gender = json['gender'];
+    location = json['location'];
+    idAuth = json['id_auth'];
+    imageProfile = json['image_profile'];
+    type = json['type'];
+    langitude = json['langitude'];
+    longitude = json['longitude'];
   }
 
   Map<String, dynamic> toJson() {

@@ -16,6 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     on<VerificationEvent>(verificationMethod);
     on<DisplayPasswordEvent>(displayPass);
     on<LogInAuthEvent>(login);
+    on<LogoutEvent>(logoutMethod);
   }
   signUp(SignUpEvent event, emit) async {
     List<bool> isValidation = [];
@@ -108,6 +109,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     } catch (e) {
       print(e);
       return;
+    }
+  }
+  FutureOr<void> logoutMethod(
+      LogoutEvent event, Emitter<AuthStates> emit) async {
+    try {
+      final supabase = SupabaseNetworking().getSupabase;
+      await supabase.auth.signOut();
+      emit(LogoutSuccessState());
+    } catch (error) {
+      emit(ErrorLogoutState(error.toString()));
     }
   }
 }

@@ -32,7 +32,13 @@ final class ErrorLoginState extends AuthStates {
 
   ErrorLoginState(this.message);
 }
+final class LogoutSuccessState extends AuthStates {}
 
+final class ErrorLogoutState extends AuthStates {
+  final String msg;
+
+  ErrorLogoutState(this.msg);
+}
 final class SuccessLoginState extends AuthStates {}
 
 final class SuccessVerificationState extends AuthStates {}

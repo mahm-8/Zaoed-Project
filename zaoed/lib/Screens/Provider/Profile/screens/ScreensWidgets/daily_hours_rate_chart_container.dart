@@ -2,26 +2,17 @@ import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class DailyHoursRateChartContainer extends StatelessWidget {
-  DailyHoursRateChartContainer({
+  const DailyHoursRateChartContainer({
     super.key,
     required this.title,
     required this.subTitle,
   });
   final String title;
   final String subTitle;
-  // final List data = [
-  //   DataPoint(date: 'الأحد', hoursRate: 11),
-  //   DataPoint(date: 'الأثنين', hoursRate: 12),
-  //   DataPoint(date: 'الثلاثاء', hoursRate: 6),
-  //   DataPoint(date: 'الأربعاء', hoursRate: 7),
-  //   DataPoint(date: 'الخميس', hoursRate: 2),
-  //   DataPoint(date: 'الجمعة', hoursRate: 10),
-  //   DataPoint(date: 'السبت', hoursRate: 3),
-  // ];
   @override
   Widget build(BuildContext context) {
     final dailyhour = context.read<StaticBloc>();
-    return Container(
+    return SizedBox(
       height: 304,
       width: 350,
       child: Padding(
