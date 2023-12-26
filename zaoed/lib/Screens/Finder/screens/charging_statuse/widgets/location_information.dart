@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class LocationInformation extends StatelessWidget {
   const LocationInformation({
@@ -39,15 +38,13 @@ class LocationInformation extends StatelessWidget {
               ),
             ],
           ),
-
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               'حي النرجس',
               style: TextStyle(fontSize: 14, color: AppColors().gray),
             ),
-
           ),
         ],
       ),

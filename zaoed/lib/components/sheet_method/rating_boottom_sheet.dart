@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
 
 RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
   showModalBottomSheet(
@@ -57,7 +55,7 @@ RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
               maxLines: 4,
               decoration: InputDecoration(
                 hintText: 'قيم تجربتك هنا...',
-                hintStyle: TextStyle(color: AppColors().gray),
+                hintStyle: TextStyle(color: AppColors().gray, fontSize: 17),
                 border: OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors().green)),
               ),

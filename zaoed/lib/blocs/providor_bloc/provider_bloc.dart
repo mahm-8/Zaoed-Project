@@ -1,5 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:zaoed/constants/imports.dart';
 
 part 'provider_event.dart';
 part 'provider_state.dart';

@@ -1,9 +1,4 @@
-
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/bill_label.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/bill_time_details.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/bill_token.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class Bill extends StatelessWidget {
   const Bill({super.key});

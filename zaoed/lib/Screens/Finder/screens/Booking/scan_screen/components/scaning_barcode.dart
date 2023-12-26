@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glassmorphism_ui/glassmorphism_ui.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ScaningBarcode extends StatelessWidget {
   const ScaningBarcode({
@@ -9,9 +7,9 @@ class ScaningBarcode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlassContainer(
+    return Container(
       height: 435,
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       color: AppColors().gray1Trans,
       child: Column(
         children: [
@@ -50,6 +48,6 @@ class ScaningBarcode extends StatelessWidget {
           // if barcode is not found show NotFoundBarcodeDialog()
         ],
       ),
-    );
+    ).asGlass();
   }
 }

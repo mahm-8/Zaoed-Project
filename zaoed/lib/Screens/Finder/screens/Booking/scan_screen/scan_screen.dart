@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'components/scaning_barcode.dart';
+
+import 'package:zaoed/constants/imports.dart';
 
 class ScanBarcodeScreen extends StatelessWidget {
   const ScanBarcodeScreen({super.key});

@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/count_widget.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
 
 class ChargingType extends StatefulWidget {
   const ChargingType({

@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_charging_information.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_charging_time_information.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_location_information.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/payment_process_screen.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+
+
+import 'package:zaoed/constants/imports.dart';
+
 class BookingConfirmationScreen extends StatelessWidget {
   const BookingConfirmationScreen({super.key});
   @override

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_charging_point_show_diialog.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 AppBar AddChargingScreenAppBar(BuildContext context,
     {title, isEditing = false}) {

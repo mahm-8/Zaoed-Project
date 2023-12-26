@@ -5,14 +5,11 @@ import 'package:zaoed/Screens/Finder/screens/Profile/screens/AppBar/profail_scre
 import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit_profile_screen.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/card_widget/add_card.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/loading_extension.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/model/user_model.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class AddInformation extends StatelessWidget {
   AddInformation(

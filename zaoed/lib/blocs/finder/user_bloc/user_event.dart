@@ -9,6 +9,7 @@ class UpdateUserEvent extends UserEvent {
 
   UpdateUserEvent(this.user);
 }
+
 final class GenderEvent extends UserEvent {
   final String gender;
 

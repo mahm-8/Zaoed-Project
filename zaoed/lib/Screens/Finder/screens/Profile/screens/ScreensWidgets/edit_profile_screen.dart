@@ -10,6 +10,7 @@ import 'package:zaoed/extensions/screen_dimensions.dart';
 import 'package:zaoed/model/user_model.dart';
 
 import '../AppBar/profail_screens_app_bar.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key, required this.user});

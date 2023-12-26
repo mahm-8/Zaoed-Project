@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({
@@ -14,15 +13,12 @@ class Page1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.65,
+            height: context.getHeight() * 0.65,
           ),
           Text(
             "ابحث عن نقطة شحن",
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: AppColors().mainWhite,
-                
-                fontSize: 31),
+            style: TextStyle(color: AppColors().mainWhite, fontSize: 31),
           ),
           const SizedBox(
             height: 16,
@@ -30,10 +26,7 @@ class Page1 extends StatelessWidget {
           Text(
             "سهولة البحث للمستخدم من خلال استخدام الخريطة لعرض نقاط الشحن الأقرب لموقعه والمناسبة لاحتياجه",
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: AppColors().mainWhite,
-                
-                fontSize: 14.5),
+            style: TextStyle(color: AppColors().mainWhite, fontSize: 14.5),
           ),
         ],
       ),

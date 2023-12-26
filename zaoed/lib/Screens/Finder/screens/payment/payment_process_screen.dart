@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/bill_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/details_payment_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/purchase_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/progress_bar.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
-
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
   const PaymentProcessScreen({super.key});

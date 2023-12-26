@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class EmptyCarScreen extends StatelessWidget {
   const EmptyCarScreen({super.key});

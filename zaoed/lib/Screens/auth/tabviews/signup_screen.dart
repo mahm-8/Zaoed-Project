@@ -1,15 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/validtor.dart';
-import 'package:zaoed/Screens/auth/components/textfield_widget.dart';
-import 'package:zaoed/Screens/auth/otp_screen.dart';
-import '../tabbar_login_screen.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -109,8 +100,7 @@ class SignUpScreen extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TabBarLogin()));
+              context.push(view: const TabBarLogin());
             },
             child: Text(
               "لديك حساب مسبقاً؟ تسجيل الدخول",

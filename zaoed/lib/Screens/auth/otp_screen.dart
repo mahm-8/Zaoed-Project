@@ -1,14 +1,5 @@
 // ignore_for_file: must_be_immutable
-
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
-import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:pinput/pinput.dart';
-import 'package:zaoed/extensions/loading_extension.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class OTPScreen extends StatelessWidget {
   OTPScreen({super.key, required this.email});
@@ -86,7 +77,7 @@ class OTPScreen extends StatelessWidget {
               BlocListener<AuthBloc, AuthStates>(
                 listener: (context, state) {
                   if (state is SuccessVerificationState) {
-                    context.push(view:  NavigationBarScreen());
+                    context.push(view: NavigationBarScreen());
                   }
                   if (state is ErrorVerificationState) {
                     context.showErrorMessage(msg: state.message);

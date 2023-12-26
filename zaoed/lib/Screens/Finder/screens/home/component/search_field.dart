@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glassmorphism_ui/glassmorphism_ui.dart';
-import 'package:zaoed/constants/colors.dart';
-
-import '../filter_screen.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class SearchFieldWidget extends StatelessWidget {
   SearchFieldWidget({super.key});
@@ -11,14 +7,15 @@ class SearchFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlassContainer(
-      blur: 4,
+    return Container(
       height: 48,
-      color: AppColors().gray1Trans,
-      borderRadius: BorderRadius.circular(30),
-      border: Border(
-          left: BorderSide(color: AppColors().green, width: 0.4),
-          top: BorderSide(color: AppColors().green, width: 0.4)),
+      decoration: BoxDecoration(
+        color: AppColors().gray1Trans,
+        borderRadius: BorderRadius.circular(30),
+        border: Border(
+            left: BorderSide(color: AppColors().green, width: 0.4),
+            top: BorderSide(color: AppColors().green, width: 0.4)),
+      ),
       child: TextField(
         maxLines: 1,
         cursorColor: AppColors().green,
@@ -35,10 +32,7 @@ class SearchFieldWidget extends StatelessWidget {
           filled: true,
           suffixIcon: InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: ((context) => const FilterScreen())));
+              context.push(view: const FilterScreen());
             },
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0),
@@ -58,6 +52,6 @@ class SearchFieldWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(30)),
         ),
       ),
-    );
+    ).asGlass(clipBorderRadius: BorderRadius.circular(30));
   }
 }
