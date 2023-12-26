@@ -15,7 +15,7 @@ import 'package:zaoed/service/networking.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
-  SupabaseNetworking().getSupabaseInitialize;
+ await SupabaseNetworking().getSupabaseInitialize;
   runApp(const MainApp());
 }
 
@@ -27,7 +27,8 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthBloc(),
-        ),BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => StaticBloc(),
         ),
         BlocProvider(
@@ -56,9 +57,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-
-        home:  NavigationBarScreen(),
-
+        home: NavigationBarScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

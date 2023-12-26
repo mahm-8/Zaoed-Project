@@ -8,6 +8,8 @@ import 'package:zaoed/Screens/Finder/screens/home/home_screen.dart';
 import 'package:zaoed/Screens/Finder/screens/home/map_home_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/profile_screen.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/constants/colors.dart';
 class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});
@@ -31,6 +33,7 @@ class NavigationBarScreen extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+     context.read<UserBloc>().add(GetUserDataEvent());
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {
         if (state is PagesNavigationState) {
