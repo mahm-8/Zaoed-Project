@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
+import 'package:zaoed/constants/imports.dart';
 
 Future<dynamic> CancelShowDialog(BuildContext context) {
   return showDialog(
@@ -9,7 +8,6 @@ Future<dynamic> CancelShowDialog(BuildContext context) {
       return const StateDialog(
         title: "تم الإلغاء",
       );
-      
     },
   );
 }

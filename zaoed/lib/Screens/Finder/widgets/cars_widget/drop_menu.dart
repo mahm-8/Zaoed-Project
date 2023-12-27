@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DropMenu extends StatelessWidget {
   const DropMenu({

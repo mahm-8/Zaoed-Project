@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/dialog_widgets/one_button_dialog_widget.dart.dart';
+
+import 'package:zaoed/constants/imports.dart';
 
 class PayDialog extends StatelessWidget {
   const PayDialog({super.key});

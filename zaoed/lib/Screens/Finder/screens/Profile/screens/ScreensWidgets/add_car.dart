@@ -11,7 +11,7 @@ import 'package:zaoed/extensions/screen_dimensions.dart';
 
 // ignore: must_be_immutable
 class AddCar extends StatelessWidget {
-   AddCar({super.key});
+  AddCar({super.key});
 
   final List<String> listBrand = <String>[
     'تيسلا',

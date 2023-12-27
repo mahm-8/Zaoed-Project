@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:zaoed/constants/imports.dart';
 
 showDatePickerWidget(
     {required BuildContext context,
@@ -33,7 +32,6 @@ showDatePickerWidget(
                 mode: CupertinoDatePickerMode.date,
                 onDateTimeChanged: (value) {
                   if (onDateTimeChanged != null) {
-                    
                     onDateTimeChanged(
                         "${value.year}/${value.day}/${value.month}");
                   }

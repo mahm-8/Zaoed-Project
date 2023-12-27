@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-
-import 'rating_level_widget.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class RatingRow extends StatelessWidget {
   const RatingRow({
@@ -11,7 +8,7 @@ class RatingRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: context.getWidth(),
       height: 86,
       decoration: BoxDecoration(
           color: AppColors().gray1Trans,

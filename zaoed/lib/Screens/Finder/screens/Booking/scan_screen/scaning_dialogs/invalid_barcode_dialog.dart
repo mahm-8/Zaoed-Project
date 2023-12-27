@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/customer_service_chat/chat_screen.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
+
+import 'package:zaoed/constants/imports.dart';
 
 class InvalidBarcodeDialog extends StatelessWidget {
   const InvalidBarcodeDialog({super.key});
@@ -16,8 +15,7 @@ class InvalidBarcodeDialog extends StatelessWidget {
       },
       button2: "الدعم",
       pressTwo: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: ((context) => ChatScreen())));
+        context.push(view: ChatScreen());
       },
     );
   }

@@ -1,36 +1,35 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:glass/glass.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/profile_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/bookmark_screens/saved_bookmarks_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/charging_statuse_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/home/home_screen.dart';
-import 'package:zaoed/Screens/Finder/screens/home/map_home_screen.dart';
-import 'package:zaoed/Screens/Provider/Profile/profile_screen.dart';
+import 'package:zaoed/constants/imports.dart';
+
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/constants/colors.dart';
+
 class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});
   final List screens = [
-    const ProfileFinder(),
+    // const ProfileFinder(),
+    SavedBookmarksScreen(),
+
     const ProfileScreen(),
     const HomeScreen(),
     const ProfileScreen(),
   ];
   final List providerScreens = [
     SavedBookmarksScreen(),
-    ProfileScreen(),
+    const ProfileScreen(),
     const ProfileFinder(),
     const ProfileScreen(),
-  ]; 
+  ];
   final List finderScreens = [
     SavedBookmarksScreen(),
-    ChargingStatuesScreen(),
-    MapHomeScreen(),
+    const ChargingStatuesScreen(),
+    const MapHomeScreen(),
     const ProfileFinder(),
   ];
   @override
   Widget build(BuildContext context) {
+     context.read<UserBloc>().add(GetUserDataEvent());
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {
         if (state is PagesNavigationState) {
@@ -51,7 +50,7 @@ class NavigationBarScreen extends StatelessWidget {
                 items: const [
                   BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage(
-                      'lib/assets/icons/bookmarked.png',
+                      'lib/assets/icons/not_bookmarked.png',
                     )),
                     label: '',
                   ),
@@ -100,7 +99,7 @@ class NavigationBarScreen extends StatelessWidget {
               items: const [
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage(
-                    'lib/assets/icons/bookmarked.png',
+                    'lib/assets/icons/not_bookmarked.png',
                   )),
                   label: '',
                 ),

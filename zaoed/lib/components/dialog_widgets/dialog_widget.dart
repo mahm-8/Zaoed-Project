@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/providor_show_dialogs/components/button_row_widget.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class DialogWidget extends StatelessWidget {
   const DialogWidget({
@@ -29,7 +27,7 @@ class DialogWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         height: 220,
-        width: MediaQuery.of(context).size.width,
+        width: context.getWidth(),
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(

@@ -1,18 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:glass/glass.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_hours_rate_chart_container.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_profit_rate_chart_container.dart';
+
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class StaticsScreen extends StatelessWidget {
   const StaticsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    context.read<StaticBloc>().add(CalculateDailyProfit());
+    final staticbloc = context.read<StaticBloc>();
     context.read<StaticBloc>().add(HourStaticEvent());
     final dailyhour = context.read<StaticBloc>();
     return Scaffold(
@@ -31,7 +29,8 @@ class StaticsScreen extends StatelessWidget {
               children: [
                 DailyProfitRateChartContainer(
                   title: 'معدل الربح اليومي',
-                  subTitle: '50 ريال',
+                  subTitle: '${staticbloc.amountTotal?[7] ?? 0.0} ريال',
+                  dataProfitRate: staticbloc.amountTotal,
                 ).asGlass(
                     tintColor: AppColors().gray1,
                     clipBorderRadius: BorderRadius.circular(8)),
