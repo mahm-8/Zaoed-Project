@@ -1,4 +1,3 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class LocationDetails extends StatelessWidget {
@@ -20,17 +19,16 @@ class LocationDetails extends StatelessWidget {
             children: [
               Container(
                 height: 48,
-                width: 326,
+                width: 320,
                 decoration: BoxDecoration(
                     color: AppColors().gray6,
                     borderRadius: BorderRadius.circular(8)),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   child: Text(
                     'أكاديمية طويق',
-                    style: TextStyle(
-                        color: AppColors().white, fontSize: 18),
+                    style: TextStyle(color: AppColors().white, fontSize: 18),
                   ),
                 ),
               ),
@@ -39,17 +37,16 @@ class LocationDetails extends StatelessWidget {
               ),
               Container(
                 height: 48,
-                width: 326,
+                width: 320,
                 decoration: BoxDecoration(
                     color: AppColors().gray6,
                     borderRadius: BorderRadius.circular(8)),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   child: Text(
                     'حي النرجس',
-                    style: TextStyle(
-                        color: AppColors().white, fontSize: 18),
+                    style: TextStyle(color: AppColors().white, fontSize: 18),
                   ),
                 ),
               )

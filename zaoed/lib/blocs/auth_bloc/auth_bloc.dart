@@ -16,6 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     on<VerificationEvent>(verificationMethod);
     on<DisplayPasswordEvent>(displayPass);
     on<LogInAuthEvent>(login);
+    on<CheckLoginEvent>(_check);
     on<LogoutEvent>(logoutMethod);
   }
   signUp(SignUpEvent event, emit) async {
@@ -26,7 +27,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       isValidation.add(validation(keyForm: event.keyUsername));
       if (!isValidation.contains(false)) {
         final auth = SupabaseNetworking().getSupabase.auth;
-       await auth.signUp(email: event.email, password: event.password);
+        await auth.signUp(email: event.email, password: event.password);
 
         user = UserModel(
           name: event.username,
@@ -111,6 +112,29 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       return;
     }
   }
+
+  FutureOr<void> _check(CheckLoginEvent event, Emitter<AuthStates> emit) async {
+    final supabaseClint = SupabaseNetworking().getSupabase;
+    await Future.delayed(const Duration(seconds: 1));
+    if (supabaseClint.auth.currentUser?.emailConfirmedAt != null) {
+      final token = supabaseClint.auth.currentSession?.accessToken;
+      final isExp = supabaseClint.auth.currentSession!.isExpired;
+      if (token != null) {
+        if (isExp) {
+          await supabaseClint.auth
+              .setSession(supabaseClint.auth.currentSession!.refreshToken!);
+          emit(CheckLoginState());
+        } else {
+          emit(CheckLoginState());
+        }
+      } else {
+        emit(ErrorCheckState());
+      }
+    } else {
+      emit(ErrorCheckState());
+    }
+  }
+
   FutureOr<void> logoutMethod(
       LogoutEvent event, Emitter<AuthStates> emit) async {
     try {
