@@ -1,4 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_confirmation_screen.dart';
+import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -12,8 +15,21 @@ class BookingScreen extends StatelessWidget {
     "6 ساعات",
     "8 ساعات"
   ];
+  List<String> types = [
+    'GB/T AC',
+    'Type2',
+    'Tesla',
+    'Type1',
+  ];
+   List<String> imageUrl = [
+    'lib/assets/icons/GB.png',
+    'lib/assets/icons/Type 2.png',
+    'lib/assets/icons/Tesla.png',
+    'lib/assets/icons/Type 1.png',
+  ];
   @override
   Widget build(BuildContext context) {
+    final indexer = context.read<PagesBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'الحجز'),
@@ -26,7 +42,7 @@ class BookingScreen extends StatelessWidget {
             const TitleLabel(
               title: 'المنفذ',
             ),
-            ChargingTypeRow(),
+            ChargingTypeRow(types: types, imageUrl: imageUrl),
             const TitleLabel(
               title: 'مدة الشحن',
             ),
@@ -43,9 +59,9 @@ class BookingScreen extends StatelessWidget {
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-                  context.push(view: const BookingConfirmationScreen());
+                  context.push(view:  BookingConfirmationScreen(type: types[indexer.typePort], hour: hours[indexer.hourCharg], image: imageUrl[indexer.typePort],));
                 },
-                textColor: AppColors().white)
+                textColor: AppColors().gray8)
           ],
         ),
       ),

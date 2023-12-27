@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:zaoed/Screens/Finder/screens/home/map_home_screen.dart';
 import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/add_charging_point.dart';
 import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
-import 'package:zaoed/blocs/chat_bloc/chat_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/service/networking.dart';
+import 'package:zaoed/constants/imports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +28,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AuthBloc(),
+          create: (context) => AuthBloc()..add(CheckLoginEvent()),
         ),
         BlocProvider(
           create: (context) => GoogleMapBloc(),
@@ -74,7 +71,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: MapHomeScreen(),
+        home: AddChargingPoint(),
         debugShowCheckedModeBanner: false,
       ),
     );

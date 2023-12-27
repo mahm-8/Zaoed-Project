@@ -48,6 +48,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     //     await createPolylines(sourceLocation, sourceLocation1, destination);
   }
 
+//24.82434094026811, 46.715431292126944
   getCurrentLocation() {
     location?.getLocation().then((location) {
       currentLocation = location;

@@ -1,11 +1,10 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class BookingChargingTimeInformation extends StatelessWidget {
   const BookingChargingTimeInformation({
-    super.key,
+    super.key, this.hour,
   });
-
+  final String? hour;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,7 +15,7 @@ class BookingChargingTimeInformation extends StatelessWidget {
           style: TextStyle(fontSize: 19, color: AppColors().white),
         ),
         Text(
-          "3 ساعات",
+          hour??"",
           style: TextStyle(
               fontSize: 16,
               color: AppColors().white,

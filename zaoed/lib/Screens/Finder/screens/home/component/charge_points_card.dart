@@ -1,3 +1,4 @@
+import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargePointsCard extends StatelessWidget {
@@ -30,7 +31,7 @@ class ChargePointsCard extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "widget.bookmarks?.bookmarkName",
+                    bookmarks?.bookmarkName ?? "",
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 17,
@@ -45,7 +46,7 @@ class ChargePointsCard extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    "widget.bookmarks?.rating",
+                    bookmarks?.rating.toString() ?? "",
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 14,
@@ -56,7 +57,7 @@ class ChargePointsCard extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    "widget.bookmarks?.chrgingTimes",
+                    bookmarks?.chrgingTimes.toString() ?? "",
                     style: TextStyle(
                       color: AppColors().gray4,
                       fontSize: 12,
@@ -69,7 +70,7 @@ class ChargePointsCard extends StatelessWidget {
                 ],
               ),
               Text(
-                "widget.bookmarks?.location",
+                bookmarks?.location ?? "",
                 style: TextStyle(
                   color: AppColors().gray4,
                   fontSize: 14,
@@ -93,7 +94,9 @@ class ChargePointsCard extends StatelessWidget {
                     width: 8,
                   ),
                   BookChargeButton(
-                    onPress: () {},
+                    onPress: () {
+                      context.push(view: BookingScreen());
+                    },
                   ),
                 ],
               ),
