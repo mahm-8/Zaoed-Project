@@ -1,4 +1,12 @@
+
+import 'package:zaoed/Screens/Provider/Profile/screens/settings_screen.dart';
+import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
+
 import 'package:zaoed/Screens/loading/loading_screen.dart';
+
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
@@ -50,6 +58,9 @@ class MainApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FinderBloc(),
         ),
+        BlocProvider(
+          create: (context) => ActionsBloc()..add(GetBookmarkEvent()),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(fontFamily: "SfArabic"),
@@ -61,7 +72,9 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
+
         home: const LoadingScreen(),
+
         debugShowCheckedModeBanner: false,
       ),
     );

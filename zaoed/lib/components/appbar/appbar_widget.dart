@@ -5,7 +5,7 @@ AppBar customAppBar(
   bool hasAction = false,
   bool showIcon = false,
   String? title,
-  backTitle,
+  String? backTitle,
   Function()? onPress,
 }) {
   return AppBar(
@@ -39,7 +39,7 @@ AppBar customAppBar(
             child: TextButton(
               onPressed: onPress,
               child: Text(
-                backTitle,
+                backTitle ?? "",
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
