@@ -5,20 +5,10 @@ import 'package:zaoed/Screens/Finder/screens/Booking/widgets/charging_type_conta
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 
 class ChargingTypeRow extends StatelessWidget {
-  ChargingTypeRow({super.key});
+  ChargingTypeRow({super.key, required this.types, required this.imageUrl});
   int selectedIndex = -1;
-  List<String> imageUrl = [
-    'lib/assets/icons/GB.png',
-    'lib/assets/icons/Type 2.png',
-    'lib/assets/icons/Tesla.png',
-    'lib/assets/icons/Type 1.png',
-  ];
-  List<String> types = [
-    'GB/T AC',
-    'Type2',
-    'Tesla',
-    'Type1',
-  ];
+  final List<String> imageUrl;
+  final List<String> types;
   @override
   Widget build(BuildContext context) {
     return Padding(

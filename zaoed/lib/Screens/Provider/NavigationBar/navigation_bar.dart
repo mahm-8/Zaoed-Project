@@ -12,7 +12,7 @@ class NavigationBarScreen extends StatelessWidget {
     SavedBookmarksScreen(),
 
     const ProfileFinder(),
-    const HomeScreen(),
+    const MapHomeScreen(),
     const ProfileScreen(),
   ];
   final List providerScreens = [

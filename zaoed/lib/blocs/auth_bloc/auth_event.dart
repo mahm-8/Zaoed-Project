@@ -41,8 +41,7 @@ class LogInAuthEvent extends AuthEvent {
       required this.emailKey,
       required this.passwordKey});
 }
-
-class LogoutEvent extends AuthEvent {}
+class CheckLoginEvent extends AuthEvent {}
 
 class UpdatePassword extends AuthEvent {
  final String pass;
@@ -51,3 +50,4 @@ final String email;
   UpdatePassword(this.pass, this.email);
   
 }
+class LogoutEvent extends AuthEvent {}

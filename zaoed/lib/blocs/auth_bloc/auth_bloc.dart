@@ -16,6 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     on<VerificationEvent>(verificationMethod);
     on<DisplayPasswordEvent>(displayPass);
     on<LogInAuthEvent>(login);
+    on<CheckLoginEvent>(_check);
     on<LogoutEvent>(logoutMethod);
     // on<UpdatePassword>(updatePassword);
   }
@@ -110,6 +111,28 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     } catch (e) {
       print(e);
       return;
+    }
+  }
+
+  FutureOr<void> _check(CheckLoginEvent event, Emitter<AuthStates> emit) async {
+    final supabaseClint = SupabaseNetworking().getSupabase;
+    await Future.delayed(const Duration(seconds: 1));
+    if (supabaseClint.auth.currentUser?.emailConfirmedAt != null) {
+      final token = supabaseClint.auth.currentSession?.accessToken;
+      final isExp = supabaseClint.auth.currentSession!.isExpired;
+      if (token != null) {
+        if (isExp) {
+          await supabaseClint.auth
+              .setSession(supabaseClint.auth.currentSession!.refreshToken!);
+          emit(CheckLoginState());
+        } else {
+          emit(CheckLoginState());
+        }
+      } else {
+        emit(ErrorCheckState());
+      }
+    } else {
+      emit(ErrorCheckState());
     }
   }
 

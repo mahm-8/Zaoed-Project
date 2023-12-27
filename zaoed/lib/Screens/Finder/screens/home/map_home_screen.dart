@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:zaoed/Screens/Finder/screens/home/google_map.dart';
+import 'package:zaoed/Screens/Finder/screens/home/home_screen.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class MapHomeScreen extends StatelessWidget {
@@ -5,10 +8,10 @@ class MapHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors().gray9,
-      body: const Stack(children: [
-        //add  google map
+    return const Scaffold(
+      extendBody: true,
+      body: Stack(children: [
+        Positioned.fill(child: GoogleMapScreen()),
         HomeScreen(),
       ]),
     );

@@ -43,12 +43,12 @@ class StaticsScreen extends StatelessWidget {
                     if (state is StaticHourState) {
                       return DailyHoursRateChartContainer(
                         title: 'معدل الساعات اليومية',
-                        subTitle: 'ساعات ${state.totalToday}',
+                        subTitle: '${state.totalToday} ساعات',
                       );
                     }
                     return DailyHoursRateChartContainer(
                       title: 'معدل الساعات اليومية',
-                      subTitle: '10 ساعات 28 دقيقة',
+                      subTitle: '0 ساعات 0 دقيقة',
                     );
                   },
                 ).asGlass(
