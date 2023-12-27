@@ -1,11 +1,13 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class BookingChargingInformation extends StatelessWidget {
   const BookingChargingInformation({
     super.key,
+    this.type,
+    this.image,
   });
-
+  final String? type;
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,16 +21,18 @@ class BookingChargingInformation extends StatelessWidget {
           ),
           Row(
             children: [
-              Image.asset(
-                'lib/assets/icons/Type 2.png',
-                width: 21,
-                height: 20,
-              ),
+              image != null
+                  ? Image.asset(
+                      image!,
+                      width: 21,
+                      height: 20,
+                    )
+                  : SizedBox(),
               const SizedBox(
                 width: 8,
               ),
               Text(
-                'Type 2',
+                type ?? "",
                 style: TextStyle(
                     color: AppColors().white, fontWeight: FontWeight.w300),
               )

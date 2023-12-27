@@ -4,6 +4,8 @@ part 'pages_event.dart';
 part 'pages_state.dart';
 
 class PagesBloc extends Bloc<PagesEvent, PagesState> {
+  int typePort = 0;
+  int hourCharg = 0;
   PagesBloc() : super(PagesInitial()) {
     on<PageNavigationEvent>(navigationSelect);
     on<PageOnboardingEvent>(onboardinSelect);
@@ -30,11 +32,13 @@ class PagesBloc extends Bloc<PagesEvent, PagesState> {
 
   FutureOr<void> chargingTime(
       ChargingTimeEvent event, Emitter<PagesState> emit) {
+    hourCharg = event.selected;
     emit(ChargingTimeState(event.selected));
   }
 
   FutureOr<void> chargingType(
       ChargingTypeEvent event, Emitter<PagesState> emit) {
+    typePort = event.selected;
     emit(ChargingTypeState(event.selected));
   }
 

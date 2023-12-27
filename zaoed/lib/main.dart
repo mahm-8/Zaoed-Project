@@ -1,19 +1,24 @@
+
 import 'package:zaoed/Screens/Provider/Profile/screens/settings_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+
+import 'package:zaoed/Screens/loading/loading_screen.dart';
+
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
- await SupabaseNetworking().getSupabaseInitialize;
+  await SupabaseNetworking().getSupabaseInitialize;
   runApp(const MainApp());
 }
 
@@ -24,7 +29,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AuthBloc(),
+          create: (context) => AuthBloc()..add(CheckLoginEvent()),
         ),
         BlocProvider(
           create: (context) => StaticBloc(),
@@ -67,11 +72,9 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-<<<<<<< HEAD
-        home: SavedBookmarksScreen(),
-=======
-        home: NavigationBarScreen(),
->>>>>>> 13a95405c462692789d1167f204f774eb3e945d3
+
+        home: const LoadingScreen(),
+
         debugShowCheckedModeBanner: false,
       ),
     );
