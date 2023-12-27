@@ -16,15 +16,11 @@ class ActionSupabaseMethods {
       final bookmarkData = await supabase
           .from("bookmark")
           .select(
-              "*, charging_point(point_name,point_location, charging_port, port_count, rating, charging_times)")
-          .eq("id_auth", "9d4faf03-ec42-4f57-81e4-ce745039ba6a");
-      print(bookmarkData);
-
+              "*, charging_point(point_name,point_location, charging_port, port_count, rating, charging_times, longitude, latitude)")
+          .eq("id_auth", id!);
       for (var element in bookmarkData) {
         bookmarkList.add(BookmarkModel.fromJson(element));
-        print("element :${element}");
       }
-
       return bookmarkList;
     } catch (e) {
       print(e.toString());

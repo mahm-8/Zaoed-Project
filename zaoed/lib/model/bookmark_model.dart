@@ -42,6 +42,8 @@ class ChargingPoint {
   late final String? chargingPort;
   late final int? chargingTimes;
   late final String? pointLocation;
+  late final double? longitude;
+  late final double? latitude;
 
   ChargingPoint.fromJson(Map<String, dynamic> json) {
     rating = json['rating'] ?? 0.0;
@@ -50,6 +52,8 @@ class ChargingPoint {
     chargingPort = json['charging_port'];
     chargingTimes = json['charging_times'];
     pointLocation = json['point_location'];
+    longitude = json['longitude'];
+    latitude = json['latitude'];
   }
 
   Map<String, dynamic> toJson() {
@@ -60,6 +64,8 @@ class ChargingPoint {
     _data['charging_port'] = chargingPort;
     _data['charging_times'] = chargingTimes;
     _data['point_location'] = pointLocation;
+    _data['longitude'] = longitude;
+    _data['latitude'] = latitude;
     return _data;
   }
 }

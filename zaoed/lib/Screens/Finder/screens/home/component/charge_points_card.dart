@@ -1,4 +1,3 @@
-
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
@@ -37,7 +36,6 @@ class ChargePointsCard extends StatelessWidget {
                   Text(
                     "${bookmarks?.chargingPoint.pointName}",
                     overflow: TextOverflow.clip,
-
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 17,
@@ -52,9 +50,7 @@ class ChargePointsCard extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-
                     "${bookmarks?.chargingPoint.rating}",
-
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 14,
@@ -65,9 +61,7 @@ class ChargePointsCard extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-
                     "(${bookmarks?.chargingPoint.chargingTimes})",
-
                     style: TextStyle(
                       color: AppColors().gray4,
                       fontSize: 12,
@@ -92,7 +86,9 @@ class ChargePointsCard extends StatelessWidget {
                 ],
               ),
               Text(
-                "${bookmarks?.chargingPoint.pointLocation}",
+                // get location name from lati, long
+                //bookmarks?.chargingPoint.pointLocation
+                "${bookmarks?.chargingPoint.longitude}, ${bookmarks?.chargingPoint.latitude}",
                 overflow: TextOverflow.clip,
 
                 style: TextStyle(

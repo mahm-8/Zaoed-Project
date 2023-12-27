@@ -38,6 +38,7 @@ class HomeScreen extends StatelessWidget {
             },
           ),
           const Spacer(),
+          //show this card when marker is pressed
           const ChargePointsCard(),
         ],
       ),

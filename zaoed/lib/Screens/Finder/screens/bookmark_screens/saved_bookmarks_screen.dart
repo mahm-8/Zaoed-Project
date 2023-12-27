@@ -24,15 +24,13 @@ class SavedBookmarksScreen extends StatelessWidget {
             ),
             BlocBuilder<ActionsBloc, ActionsState>(builder: (context, state) {
               if (state is GetBookmarkState) {
-                print('ggggggggg');
-                print("point location ${state.bookmarks}");
                 if (state.bookmarks.isNotEmpty) {
                   return ListView.builder(
                       shrinkWrap: true,
                       itemCount: state.bookmarks.length,
                       itemBuilder: (context, index) {
                         final bookmarks = state.bookmarks[index];
-                        print('222222222222222');
+                        // get location name from lati, long
                         return BookmarkCardWidget(
                           pointName: bookmarks.chargingPoint.pointName,
                           pointLocation: bookmarks.chargingPoint.pointLocation,
