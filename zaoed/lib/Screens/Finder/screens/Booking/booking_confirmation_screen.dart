@@ -1,11 +1,15 @@
-
-
 import 'package:zaoed/constants/imports.dart';
 
 class BookingConfirmationScreen extends StatelessWidget {
-  const BookingConfirmationScreen({super.key});
+  const BookingConfirmationScreen(
+      {super.key, required this.type, required this.hour, required this.image});
+  final String type;
+  final String hour;
+  final String image;
   @override
   Widget build(BuildContext context) {
+    print(type);
+    print(hour);
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'تأكيد الحجز'),
@@ -19,15 +23,19 @@ class BookingConfirmationScreen extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: AppColors().gray6),
-              child: const Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BookingLocationInformation(),
-                      BookingChargingInformation(),
-                      BookingChargingTimeInformation(),
+                      BookingChargingInformation(
+                        type: type,
+                        image: image,
+                      ),
+                      BookingChargingTimeInformation(
+                        hour: hour,
+                      ),
                     ]),
               ),
             ),
@@ -38,7 +46,7 @@ class BookingConfirmationScreen extends StatelessWidget {
                 onPress: () {
                   context.push(view: const PaymentProcessScreen());
                 },
-                textColor: AppColors().white)
+                textColor: AppColors().gray8)
           ],
         ),
       ),

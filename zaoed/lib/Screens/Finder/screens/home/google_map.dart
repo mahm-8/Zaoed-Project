@@ -20,7 +20,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   Location? location;
   LocationData? currentLocation;
   bool isDark = false;
-  late Set<Marker> markers = {};
+  late Set<Marker> markers = {}; //
   late Set<Polyline> polylines = {};
   Completer<GoogleMapController> googleMapController = Completer();
   var markerIcon = BitmapDescriptor.defaultMarker;
@@ -58,13 +58,15 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
       zoom: 15,
     );
     getCurrentLocation();
-    final LatLng sourceLocation = LatLng(37.4219983, -122.084);
-    final LatLng sourceLocation1 = LatLng(37.33500303, -122.03272188);
-    final LatLng destination = LatLng(37.33429383, -122.0660055);
+    final LatLng sourceLocation = LatLng(24.82434094026811, 46.715431292126944);
+    final LatLng sourceLocation1 =
+        LatLng(24.82434094026811, 46.715431292126944);
+    final LatLng destination = LatLng(24.82434094026811, 46.715431292126944);
     polylines =
         await createPolylines(sourceLocation, sourceLocation1, destination);
   }
 
+//24.82434094026811, 46.715431292126944
   getCurrentLocation() {
     location?.getLocation().then((location) {
       currentLocation = location;
