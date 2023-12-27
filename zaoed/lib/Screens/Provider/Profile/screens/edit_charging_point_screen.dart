@@ -22,7 +22,7 @@ class EditChargingPointScreen extends StatelessWidget {
           child: Column(
             children: [
               AddChargingPointTextField(controller: controller),
-              const ChargingPointLocation(),
+               ChargingPointLocation(),
               const AvailabilityHours(),
               const ChargingTypeSection(),
               const SizedBox(

@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:zaoed/constants/colors.dart';
 
-class ChargingPointLocation extends StatelessWidget {
-  const ChargingPointLocation({
+class ChargingPointLocation extends StatefulWidget {
+  ChargingPointLocation({
     super.key,
   });
+
+  @override
+  State<ChargingPointLocation> createState() => _ChargingPointLocationState();
+}
+
+class _ChargingPointLocationState extends State<ChargingPointLocation> {
+  Set<Marker> markerSet = {};
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +32,54 @@ class ChargingPointLocation extends StatelessWidget {
             height: 283,
             width: 350,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: AppColors().gray6)),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: AppColors().gray6),
+            ),
+            child: FutureBuilder(
+              future: DefaultAssetBundle.of(context).loadString(
+                  'lib/assets/google_map_style/dark_map_style.json'),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return GoogleMap(
+                    initialCameraPosition: const CameraPosition(
+                      target: LatLng(
+                        0,
+                        0,
+                      ),
+                      zoom: 5,
+                    ),
+                    mapType: MapType.normal,
+                    markers: markerSet,
+                    zoomControlsEnabled: false,
+                    onTap: (position) {
+                      setState(() {
+                        markerSet = {
+                          Marker(
+                            markerId: const MarkerId('marker'),
+                            position: position,
+                          )
+                        };
+                      });
+                    },
+                    onMapCreated: (GoogleMapController controller) {
+                      
+                      setMapStyle(controller, snapshot.data.toString());
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
           ),
         ],
       ),
     );
   }
+}
+
+void setMapStyle(GoogleMapController controller, String mapStyle) async {
+  controller.setMapStyle(mapStyle);
 }

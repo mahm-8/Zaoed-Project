@@ -25,6 +25,7 @@ class ChargingTypeSection extends StatelessWidget {
                 imageUrl: 'lib/assets/icons/GB.png',
                 count: '2',
                 type: 'GB/T AC',
+                
               ),
               ChargingType(
                 imageUrl: 'lib/assets/icons/Type 2.png',

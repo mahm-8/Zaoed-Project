@@ -4,7 +4,11 @@ part of 'provider_bloc.dart';
 sealed class ProviderState {}
 
 final class ProviderInitial extends ProviderState {}
-
+final class LoadingState extends ProviderState {}
+class ErrorState extends ProviderState {
+  final String message;
+  ErrorState({required this.message});
+}
 class HoursIndexSelectedState extends ProviderState {
   final int selectedIndex;
   HoursIndexSelectedState(this.selectedIndex);
@@ -20,3 +24,4 @@ class ChargingTypeCountUpdated extends ProviderState {
 
   ChargingTypeCountUpdated(this.count);
 }
+class AddChargingPointState extends ProviderState{}

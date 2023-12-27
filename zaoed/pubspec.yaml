@@ -30,6 +30,10 @@ dependencies:
   supabase_flutter: ^2.0.2
   syncfusion_flutter_charts: ^24.1.41
   syncfusion_flutter_gauges: ^24.1.41
+  flutter_polyline_points: ^2.0.0
+  location: ^5.0.3
+  google_maps_flutter: ^2.5.0
+  image: ^4.1.3
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +47,7 @@ flutter:
     - lib/assets/icons/
     - lib/assets/images/
     - lib/assets//lottie/
+    - lib/assets/google_map_style/
   fonts:
     - family: SfArabic
       fonts:
