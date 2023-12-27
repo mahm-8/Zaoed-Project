@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
 import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
-class AddToBookmarkDialog extends StatefulWidget {
-  const AddToBookmarkDialog({super.key});
+class AddToBookmarkDialog extends StatelessWidget {
+  const AddToBookmarkDialog(
+      {super.key,
+      required this.pointName,
+      required this.pointLocation,
+      required this.chargingPort,
+      required this.rating,
+      required this.idBookmark,
+      required this.chargingTimes,
+      required this.portCount});
+  final String? pointName, pointLocation, chargingPort;
+  final double? rating;
+  final int? idBookmark, chargingTimes, portCount;
 
-  @override
-  State<AddToBookmarkDialog> createState() => _AddToBookmarkDialogState();
-}
-
-bool isBookmarked = false;
-
-class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -27,6 +33,15 @@ class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
               bodyText: "سيتم إضافة نقطة الشحن إلى المحفوظات هل أنت موافق؟",
               button1: 'موافق',
               pressOne: () {
+                context.read<ActionsBloc>().add(AddBookmarkEvent(
+                      bookmarkID: idBookmark,
+                      pointName: pointName,
+                      pointLocation: pointLocation,
+                      rating: rating,
+                      chargingPort: chargingPort,
+                      chrgingTimes: chargingTimes,
+                      portCount: portCount,
+                    ));
                 Navigator.of(context).pop();
                 showDialog(
                   barrierColor: Colors.transparent,
@@ -39,9 +54,6 @@ class _AddToBookmarkDialogState extends State<AddToBookmarkDialog> {
                 );
                 Future.delayed(const Duration(seconds: 3), () {
                   Navigator.of(context).pop();
-                });
-                setState(() {
-                  isBookmarked = true;
                 });
               },
               button2: 'إلغاء',

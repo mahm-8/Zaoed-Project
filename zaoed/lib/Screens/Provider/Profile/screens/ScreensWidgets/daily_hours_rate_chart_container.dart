@@ -21,7 +21,7 @@ class DailyHoursRateChartContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dailyhour = context.read<StaticBloc>();
-    return Container(
+    return SizedBox(
       height: 304,
       width: 350,
       child: Padding(

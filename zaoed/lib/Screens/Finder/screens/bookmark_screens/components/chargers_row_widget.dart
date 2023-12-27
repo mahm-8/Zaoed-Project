@@ -3,8 +3,13 @@ import 'package:zaoed/constants/imports.dart';
 class ChargersRowWidget extends StatelessWidget {
   const ChargersRowWidget({
     super.key,
+    required this.portCount,
+    required this.chargingPort,
   });
+  final int? portCount;
+  final String? chargingPort;
 
+// edit on this to add port lists
   @override
   Widget build(BuildContext context) {
     return Row(
