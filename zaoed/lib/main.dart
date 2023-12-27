@@ -13,7 +13,7 @@ import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
-  SupabaseNetworking().getSupabaseInitialize;
+ await SupabaseNetworking().getSupabaseInitialize;
   runApp(const MainApp());
 }
 
@@ -67,7 +67,11 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
+<<<<<<< HEAD
         home: SavedBookmarksScreen(),
+=======
+        home: NavigationBarScreen(),
+>>>>>>> 13a95405c462692789d1167f204f774eb3e945d3
         debugShowCheckedModeBanner: false,
       ),
     );

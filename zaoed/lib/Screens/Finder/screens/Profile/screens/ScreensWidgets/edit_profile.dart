@@ -5,10 +5,11 @@ class EditProfile extends StatelessWidget {
       {super.key,
       required this.title,
       this.value,
-      this.icon = Icons.edit_outlined});
+      this.icon = Icons.edit_outlined, this.onPressed });
   final String title;
   final String? value;
   final IconData? icon;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +27,12 @@ class EditProfile extends StatelessWidget {
           value ?? "",
           style: TextStyle(color: AppColors().white),
         ),
-        trailing: Icon(
+        trailing: IconButton(icon: Icon(
           icon,
           color: AppColors().white,
           size: 20,
         ),
+        onPressed:onPressed ),
       ),
     );
   }

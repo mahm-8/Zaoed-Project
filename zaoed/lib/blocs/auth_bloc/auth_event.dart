@@ -40,3 +40,4 @@ class LogInAuthEvent extends AuthEvent {
       required this.emailKey,
       required this.passwordKey});
 }
+class LogoutEvent extends AuthEvent {}
