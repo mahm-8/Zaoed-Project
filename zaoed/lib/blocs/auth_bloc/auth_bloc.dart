@@ -17,6 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     on<DisplayPasswordEvent>(displayPass);
     on<LogInAuthEvent>(login);
     on<LogoutEvent>(logoutMethod);
+    // on<UpdatePassword>(updatePassword);
   }
   signUp(SignUpEvent event, emit) async {
     List<bool> isValidation = [];
@@ -26,7 +27,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       isValidation.add(validation(keyForm: event.keyUsername));
       if (!isValidation.contains(false)) {
         final auth = SupabaseNetworking().getSupabase.auth;
-       await auth.signUp(email: event.email, password: event.password);
+        await auth.signUp(email: event.email, password: event.password);
 
         user = UserModel(
           name: event.username,
@@ -111,6 +112,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       return;
     }
   }
+
   FutureOr<void> logoutMethod(
       LogoutEvent event, Emitter<AuthStates> emit) async {
     try {
@@ -121,4 +123,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       emit(ErrorLogoutState(error.toString()));
     }
   }
+
+  // FutureOr<void> updatePassword(
+  //     UpdatePassword event, Emitter<AuthStates> emit) async {
+  //   final supabase = SupabaseNetworking().getSupabase;
+  //   try {
+  //     final id = supabase.auth.currentUser!.id;
+
+  //     await supabase.auth.resetPasswordForEmail(
+  //       "xbox-w@live.com",
+  //     );
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 }

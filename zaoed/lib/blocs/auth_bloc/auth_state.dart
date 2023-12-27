@@ -40,5 +40,8 @@ final class ErrorLogoutState extends AuthStates {
   ErrorLogoutState(this.msg);
 }
 final class SuccessLoginState extends AuthStates {}
+class SuccessChangePass extends AuthStates{
+  
+}
 
 final class SuccessVerificationState extends AuthStates {}

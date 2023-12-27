@@ -1,17 +1,15 @@
-import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
- await SupabaseNetworking().getSupabaseInitialize;
+  await SupabaseNetworking().getSupabaseInitialize;
   runApp(const MainApp());
 }
 

@@ -11,7 +11,7 @@ class NavigationBarScreen extends StatelessWidget {
     // const ProfileFinder(),
     SavedBookmarksScreen(),
 
-    const ProfileScreen(),
+    const ProfileFinder(),
     const HomeScreen(),
     const ProfileScreen(),
   ];
@@ -29,7 +29,7 @@ class NavigationBarScreen extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-     context.read<UserBloc>().add(GetUserDataEvent());
+    context.read<UserBloc>().add(GetUserDataEvent());
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {
         if (state is PagesNavigationState) {
