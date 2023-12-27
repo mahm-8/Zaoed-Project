@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/home/component/button_choice_widget.dart';
 import 'package:zaoed/Screens/Finder/screens/home/component/charge_points_card.dart';
-import 'package:zaoed/components/sheet_method/arrived_dialog.dart';
 import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
-import 'package:zaoed/constants/colors.dart';
 import 'component/search_field.dart';
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Padding(

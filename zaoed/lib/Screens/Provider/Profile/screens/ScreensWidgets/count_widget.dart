@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
@@ -6,13 +5,12 @@ import 'package:zaoed/constants/colors.dart';
 class CountWidget extends StatelessWidget {
   const CountWidget({
     super.key,
-    required this.bloc,
-    required this.count,
+    required this.count, this.increment, this.decrement,
   });
 
-  final ProviderBloc bloc;
   final int count;
-
+  final Function()? increment;
+  final Function()? decrement;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,9 +18,7 @@ class CountWidget extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-            onTap: () {
-              bloc.add(ChargingTypeDecrementCountEvent());
-            },
+            onTap: increment,
             child: Image.asset(
               'lib/assets/icons/ph_minus.png',
               color: AppColors().gray6,
@@ -33,14 +29,11 @@ class CountWidget extends StatelessWidget {
           const Spacer(),
           Text(
             count.toString(),
-            style:
-                TextStyle(color: AppColors().white, fontSize: 12),
+            style: TextStyle(color: AppColors().white, fontSize: 12),
           ),
           const Spacer(),
           InkWell(
-            onTap: () {
-              bloc.add(ChargingTypeIncrementCountEvent());
-            },
+            onTap: decrement,
             child: Image.asset(
               'lib/assets/icons/ph_plus.png',
               width: 27,
