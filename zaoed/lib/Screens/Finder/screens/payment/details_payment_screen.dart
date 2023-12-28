@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore_for_file: must_be_immutable
@@ -6,19 +7,29 @@ class DetailsPaymentScreen extends StatelessWidget {
   DetailsPaymentScreen({
     super.key,
     required this.onTap,
+    required this.type,
+    required this.hour,
+    required this.image,
   });
   final Function() onTap;
-  late int discount = 3;
-
+  int discount = 3;
+  final String type;
+  final String hour;
+  final String image;
   @override
   Widget build(BuildContext context) {
+    context.read<CardBloc>().add(GetCardDateEvent());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleLabel(
           title: 'بيانات الحجز',
         ),
-        BookingDataContainer(),
+        BookingDataContainer(
+          type: type,
+          hour: hour,
+          image: image,
+        ),
         const TitleLabel(
           title: 'موقع الحجز',
         ),

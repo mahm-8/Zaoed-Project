@@ -9,7 +9,7 @@ class CardScreen extends StatelessWidget {
       appBar: appBar(context, title: 'البطاقات'),
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          context.push(view: const AddCard());
+          context.push(view:  AddCard());
         },
         style: ElevatedButton.styleFrom(
             shape:

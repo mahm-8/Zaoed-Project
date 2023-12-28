@@ -1,22 +1,40 @@
+import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class AddCard extends StatelessWidget {
-  const AddCard({super.key});
+  AddCard({super.key});
+  TextEditingController nameController = TextEditingController();
+  TextEditingController cardNumberController = TextEditingController();
+
+  TextEditingController cvvController = TextEditingController();
+
+  TextEditingController expDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: ElevatedButton(
-        onPressed: () {
-          context.pop();
+      floatingActionButton: BlocListener<CardBloc, CardState>(
+        listener: (context, state) {
+          if (state is AddCardState) {
+            context.pushAndRemoveUntil(view: CardScreen());
+          }
         },
-        style: ElevatedButton.styleFrom(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            foregroundColor: AppColors().gray8,
-            minimumSize: Size(context.getWidth(divide: 1.1), 40),
-            backgroundColor: AppColors().green),
-        child: const Text("إضافة"),
+        child: ElevatedButton(
+          onPressed: () {
+            context.read<CardBloc>().add(AddCardEvent(
+                name: nameController.text,
+                cardNumber: cardNumberController.text,
+                endDate: expDateController.text,
+                cvv: cvvController.text));
+          },
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8)),
+              foregroundColor: AppColors().gray8,
+              minimumSize: Size(context.getWidth(divide: 1.1), 40),
+              backgroundColor: AppColors().green),
+          child: const Text("إضافة"),
+        ),
       ),
       backgroundColor: AppColors().gray9,
       appBar: appBar(context, title: 'إضافة بطاقة'),
@@ -29,29 +47,33 @@ class AddCard extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const FieldTextWidget(
+            FieldTextWidget(
               title: 'الاسم كامل',
               hint: 'الاسم على البطاقة',
+              controller: nameController,
             ),
-            const FieldTextWidget(
-              title: 'الاسم كامل',
-              hint: 'الاسم على البطاقة',
+            FieldTextWidget(
+              title: 'رقم البطاقة',
+              hint: 'الرقم على البطاقة',
+              controller: cardNumberController,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
                   width: context.getWidth(divide: 3),
-                  child: const FieldTextWidget(
+                  child: FieldTextWidget(
                     title: 'التاريخ',
                     hint: 'الشهر/السنة',
+                    controller: expDateController,
                   ),
                 ),
                 SizedBox(
                   width: context.getWidth(divide: 3),
-                  child: const FieldTextWidget(
+                  child: FieldTextWidget(
                     title: 'رمز التحقق',
                     hint: 'CVV',
+                    controller: cvvController,
                   ),
                 ),
               ],

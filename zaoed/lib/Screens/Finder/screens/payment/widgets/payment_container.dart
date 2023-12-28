@@ -1,49 +1,74 @@
+import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PaymentContainer extends StatelessWidget {
-  const PaymentContainer({
+  PaymentContainer({
     super.key,
   });
+  bool isClicked = false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 110,
         width: 350,
         decoration: BoxDecoration(
             color: AppColors().gray6, borderRadius: BorderRadius.circular(8)),
         child: Column(children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
-            child: Row(
-              children: [
-                Image.asset('lib/assets/icons/logos_mastercard.png'),
-                const SizedBox(
-                  width: 8,
-                ),
-                Text('Alinma Bank',
-                    style: TextStyle(fontSize: 12, color: AppColors().white)),
-                const SizedBox(
-                  width: 4,
-                ),
-                Text('**** **** **** 11069',
-                    style: TextStyle(fontSize: 12, color: AppColors().white)),
-                const Spacer(),
-                CircleAvatar(
-                  maxRadius: 10,
-                  minRadius: 10,
-                  backgroundColor: AppColors().green,
-                  child: const Icon(
-                    Icons.check,
-                    size: 20,
+            child: BlocBuilder<CardBloc, CardState>(
+              builder: (context, state) {
+                final bloc = context.read<CardBloc>();
+                return SizedBox(
+                  height: 150,
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Row(
+                        children: [
+                          Image.asset(
+                              'lib/assets/icons/logos_mastercard.png'),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          Text(bloc.CardList?[index]['number_card'] ?? '',
+                              style: TextStyle(
+                                  fontSize: 12, color: AppColors().white)),
+                          const Spacer(),
+                          InkWell(
+                              onTap: () {
+                                isClicked = true;
+                              },
+                              child: CircleAvatar(
+                                maxRadius: 10,
+                                minRadius: 10,
+                                backgroundColor: isClicked
+                                    ? AppColors().green
+                                    : Colors.transparent,
+                                child: isClicked
+                                    ? const Icon(
+                                        Icons.check,
+                                        size: 20,
+                                      )
+                                    : Container(),
+                              ))
+                        ],
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return Divider(
+                        thickness: 1,
+                        color: AppColors().gray9,
+                      );
+                    },
+                    itemCount: bloc.CardList?.length ?? 0,
                   ),
-                )
-              ],
+                );
+              },
             ),
-          ),
-          Divider(
-            thickness: 1,
-            color: AppColors().gray9,
           ),
           InkWell(
             onTap: () {},

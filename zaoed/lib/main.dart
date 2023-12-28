@@ -1,11 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/add_charging_point.dart';
-import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
@@ -32,6 +26,9 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => GoogleMapBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CardBloc(),
         ),
         BlocProvider(
           create: (context) => StaticBloc(),
@@ -71,7 +68,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: AddChargingPoint(),
+        home: NavigationBarScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
