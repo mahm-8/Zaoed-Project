@@ -7,24 +7,24 @@ class BillTimeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           'Wed ,',
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12, color: AppColors().black),
         ),
         Text(
           'Dec 01 ,',
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12, color: AppColors().black),
         ),
         Text(
           '2023 .',
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12, color: AppColors().black),
         ),
         Text(
           '01:00:00',
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12, color: AppColors().black),
         ),
       ],
     );

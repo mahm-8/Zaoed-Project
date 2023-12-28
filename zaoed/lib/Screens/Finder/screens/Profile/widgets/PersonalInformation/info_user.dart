@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit_profile.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/image_widget.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/add_profile.dart';
+import 'package:zaoed/Screens/Finder/screens/Profile/widgets/change_pass.dart.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
@@ -79,17 +80,15 @@ class InfoUser extends StatelessWidget {
                           phoneController: phoneController,
                           selectGender: user?.gender ?? "Select gender"))),
               Divider(color: AppColors().black),
-              EditProfile(title: 'البريد', value: user?.email ?? ""),
+              EditProfile(
+                  title: 'البريد',
+                  value: user?.email ?? "",
+                  onPressed: () => context.push(view: ChangePassword())),
+              Divider(color: AppColors().black),
+              const EditProfile(title: 'كلمة المرور', value: '********'),
               Divider(color: AppColors().black),
               const EditProfile(
-                title: 'كلمة المرور',
-                value: '********',
-              ),
-              Divider(color: AppColors().black),
-              const EditProfile(
-                title: 'حذف الحساب',
-                icon: Icons.keyboard_arrow_left,
-              ),
+                  title: 'حذف الحساب', icon: Icons.keyboard_arrow_left),
               const SizedBox(
                 height: 10,
               )

@@ -43,5 +43,8 @@ class CheckLoginState extends AuthStates {}
 
 class ErrorCheckState extends AuthStates {}
 final class SuccessLoginState extends AuthStates {}
+class SuccessChangePass extends AuthStates{
+  
+}
 
 final class SuccessVerificationState extends AuthStates {}

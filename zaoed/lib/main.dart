@@ -63,7 +63,10 @@ class MainApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: ThemeData(fontFamily: "SfArabic"),
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: "SfArabic",
+        ),
         supportedLocales: const [
           Locale("ar"),
         ],
