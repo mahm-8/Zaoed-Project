@@ -13,19 +13,23 @@ class ChargingTypeIndexSelectedEvent extends ProviderEvent {
   ChargingTypeIndexSelectedEvent(this.selectedIndex);
 }
 
-class ChargingTypeIncrementCountEvent extends ProviderEvent {}
+class ChargingTypeIncrementCountEvent extends ProviderEvent {
+  final String name;
+  ChargingTypeIncrementCountEvent({required this.name});
+}
 
-class ChargingTypeDecrementCountEvent extends ProviderEvent {}
+class ChargingTypeDecrementCountEvent extends ProviderEvent {
+  final String name;
+  ChargingTypeDecrementCountEvent({required this.name});
+}
 
 class AddChargingPointEvent extends ProviderEvent {
   final String chargingPointName;
   final String chargingTimes;
   final num longitude;
   final num latitude;
-
   final int portCount;
   final String chargingPortName;
-
   AddChargingPointEvent(this.chargingPointName, this.chargingTimes,
       this.longitude, this.latitude, this.portCount, this.chargingPortName);
 }

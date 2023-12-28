@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:zaoed/constants/colors.dart';
+
 class ChargingPointLocation extends StatefulWidget {
   ChargingPointLocation({
     super.key,
@@ -12,7 +13,8 @@ class ChargingPointLocation extends StatefulWidget {
 
 class _ChargingPointLocationState extends State<ChargingPointLocation> {
   Set<Marker> markerSet = {};
-
+  double? pinLatitude;
+  double? pinLongitude;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,8 +44,8 @@ class _ChargingPointLocationState extends State<ChargingPointLocation> {
                   return GoogleMap(
                     initialCameraPosition: const CameraPosition(
                       target: LatLng(
-                        0,
-                        0,
+                        24.600006977521694,
+                        46.77827529205053,
                       ),
                       zoom: 5,
                     ),
@@ -58,10 +60,11 @@ class _ChargingPointLocationState extends State<ChargingPointLocation> {
                             position: position,
                           )
                         };
+                        pinLatitude = position.latitude;
+                        pinLongitude = position.longitude;
                       });
                     },
                     onMapCreated: (GoogleMapController controller) {
-                      
                       setMapStyle(controller, snapshot.data.toString());
                     },
                   );
