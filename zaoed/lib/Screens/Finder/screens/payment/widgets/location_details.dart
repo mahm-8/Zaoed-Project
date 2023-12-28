@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class LocationDetails extends StatelessWidget {
@@ -7,53 +8,23 @@ class LocationDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 118,
-      child: Row(
-        children: [
-          Image.asset('lib/assets/icons/Location.png'),
-          const SizedBox(
-            width: 8,
+    final bloc = context.read<ActionsBloc>();
+    return Column(
+      children: [
+        Container(
+          height: 40,
+          width: 350,
+          decoration: BoxDecoration(
+              color: AppColors().gray6, borderRadius: BorderRadius.circular(8)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            child: Text(
+              '${bloc.bookmarkData?[0].chargingPoint.pointName}',
+              style: TextStyle(color: AppColors().white, fontSize: 16),
+            ),
           ),
-          Column(
-            children: [
-              Container(
-                height: 48,
-                width: 320,
-                decoration: BoxDecoration(
-                    color: AppColors().gray6,
-                    borderRadius: BorderRadius.circular(8)),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                  child: Text(
-                    'أكاديمية طويق',
-                    style: TextStyle(color: AppColors().white, fontSize: 18),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 22,
-              ),
-              Container(
-                height: 48,
-                width: 320,
-                decoration: BoxDecoration(
-                    color: AppColors().gray6,
-                    borderRadius: BorderRadius.circular(8)),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                  child: Text(
-                    'حي النرجس',
-                    style: TextStyle(color: AppColors().white, fontSize: 18),
-                  ),
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

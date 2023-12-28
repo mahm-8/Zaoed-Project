@@ -1,15 +1,26 @@
+
 import 'dart:developer';
 
 import 'package:moyasar/moyasar.dart';
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
+
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/test_pay.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
-  const PaymentProcessScreen({super.key, required this.type, required this.hour, required this.image});
- final String type;
+  const PaymentProcessScreen({
+    super.key,
+    required this.type,
+    required this.hour,
+    required this.image,
+    double? price,
+  });
+  final String type;
   final String hour;
   final String image;
+
   @override
   State<PaymentProcessScreen> createState() => _PaymentProcessScreenState();
 }
@@ -20,6 +31,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ActionsBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'الدفع'),
@@ -32,15 +44,19 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               ProgressBar(progress: 0.2, activeStep: activeStep),
               if (activeStep == 0) ...[
                 DetailsPaymentScreen(
-                  onTap: () {
-                    setState(() {
-                      activeStep = 1;
-                    });
-                  }, type: widget.type, hour: widget.hour, image: widget.image,
-                ),
+                    onTap: () {
+                      setState(() {
+                        activeStep = 1;
+                      });
+                    },
+                    type: widget.type,
+                    hour: widget.hour,
+                    image: widget.image,
+                    totalPrice: bloc.price!),
               ],
               if (activeStep == 1) ...[
                 PurchaseScreen(
+
                   onTap: () async {
                     String state = '';
                     final source = CardPaymentRequestSource(
@@ -104,6 +120,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                                 })),
                       );
                     }
+
                   },
                 ),
               ],
