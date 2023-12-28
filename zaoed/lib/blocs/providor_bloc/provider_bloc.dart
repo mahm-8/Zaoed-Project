@@ -1,18 +1,9 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:zaoed/service/networking.dart';
+import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 part 'provider_event.dart';
 part 'provider_state.dart';
 
 class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
-<<<<<<< HEAD
-  ProviderBloc() : super(ProviderInitial()) {
-    final supabase = SupabaseNetworking().getSupabase;
-    final id = supabase.auth.currentUser?.id;
-
-    int count = 0;
-=======
   int count1 = 0;
   int count2 = 0;
   int count3 = 0;
@@ -20,7 +11,6 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
   int count5 = 0;
   int count6 = 0;
   int count7 = 0;
->>>>>>> ebea0ee3f4d86bb031aa7dc7e811458ea4f7234a
 
   ProviderBloc() : super(ProviderInitial()) {
     on<HoursSelectIndexEvent>((event, emit) {
@@ -80,10 +70,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
     });
     on<AddChargingPointEvent>((event, emit) async {
       try {
-<<<<<<< HEAD
-=======
         final id = supabase.auth.currentUser?.id;
->>>>>>> ebea0ee3f4d86bb031aa7dc7e811458ea4f7234a
         await supabase.from("charging_point").insert({
           "point_name": event.chargingPointName,
           "longitude": event.longitude,

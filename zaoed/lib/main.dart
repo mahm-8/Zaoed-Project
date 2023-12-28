@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_location.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/settings_screen.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
-=======
->>>>>>> ebea0ee3f4d86bb031aa7dc7e811458ea4f7234a
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
@@ -78,11 +73,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-<<<<<<< HEAD
         home: ChargingPointLocation(),
-=======
-        home: NavigationBarScreen(),
->>>>>>> ebea0ee3f4d86bb031aa7dc7e811458ea4f7234a
         debugShowCheckedModeBanner: false,
       ),
     );
