@@ -1,4 +1,7 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
+
 import 'package:zaoed/constants/imports.dart';
 
 class ChargePointsCard extends StatelessWidget {
@@ -31,7 +34,8 @@ class ChargePointsCard extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    bookmarks?.bookmarkName ?? "",
+                    "${bookmarks?.chargingPoint.pointName}",
+                    overflow: TextOverflow.clip,
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 17,
@@ -46,7 +50,7 @@ class ChargePointsCard extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    bookmarks?.rating.toString() ?? "",
+                    "${bookmarks?.chargingPoint.rating}",
                     style: TextStyle(
                       color: AppColors().mainWhite,
                       fontSize: 14,
@@ -57,7 +61,7 @@ class ChargePointsCard extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    bookmarks?.chrgingTimes.toString() ?? "",
+                    "(${bookmarks?.chargingPoint.chargingTimes})",
                     style: TextStyle(
                       color: AppColors().gray4,
                       fontSize: 12,
@@ -65,12 +69,28 @@ class ChargePointsCard extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  if (isBookmarked == false) AddToBookmarkDialog(),
-                  if (isBookmarked == true) RemoveBookMarkDialog(),
+                  if (isBookmarked == false)
+                    AddToBookmarkDialog(
+                      pointName: bookmarks?.chargingPoint.pointName,
+                      pointLocation: bookmarks?.chargingPoint.pointLocation,
+                      chargingPort: bookmarks?.chargingPoint.chargingPort,
+                      rating: bookmarks?.chargingPoint.rating,
+                      idBookmark: bookmarks?.bookmarkId,
+                      chargingTimes: bookmarks?.chargingPoint.chargingTimes,
+                      portCount: bookmarks?.chargingPoint.portCount,
+                    ),
+                  if (isBookmarked == true)
+                    RemoveBookMarkDialog(
+                      bookmarkID: bookmarks?.bookmarkId,
+                    ),
                 ],
               ),
               Text(
-                bookmarks?.location ?? "",
+                // get location name from lati, long
+                //bookmarks?.chargingPoint.pointLocation
+                "${bookmarks?.chargingPoint.longitude}, ${bookmarks?.chargingPoint.latitude}",
+                overflow: TextOverflow.clip,
+
                 style: TextStyle(
                   color: AppColors().gray4,
                   fontSize: 14,
@@ -80,7 +100,10 @@ class ChargePointsCard extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const ChargersRowWidget(),
+              ChargersRowWidget(
+                portCount: bookmarks?.chargingPoint.portCount,
+                chargingPort: bookmarks?.chargingPoint.chargingPort,
+              ),
               const SizedBox(
                 height: 30,
               ),

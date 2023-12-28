@@ -44,11 +44,13 @@ class StaticBloc extends Bloc<StaticEvent, StaticState> {
       final year = DateTime.now().year;
       final month = DateTime.now().month;
       final day = DateTime.now().day - 6;
+      final id = supabase.auth.currentUser!.id;
       final profit = await supabase
           .from("invoice")
           .select("*, user!inner(type)")
-          .match({"id_user": 2, "user.type": "provider"}).gte(
+          .match({"id_auth": id, "user.type": "provider"}).gte(
               "date", DateTime(year, month, day));
+
       amountTotal = await StaticDaily()
           .getAnalytics(profit: profit, amountTotal: amountTotal);
     } catch (e) {
