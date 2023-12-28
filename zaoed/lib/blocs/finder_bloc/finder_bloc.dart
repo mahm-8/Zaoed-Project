@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'dart:async';
-import 'package:zaoed/service/networking.dart';
+// ignore_for_file: invalid_use_of_visible_for_testing_member
+
+import 'package:zaoed/constants/imports.dart';
 import 'package:intl/intl.dart';
 part 'finder_event.dart';
 part 'finder_state.dart';
@@ -20,35 +19,37 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     on<LoadDataTimerEvent>((event, emit) async {
       final supabase = SupabaseNetworking().getSupabase;
       final id = supabase.auth.currentUser?.id;
-      final response = await supabase
-              .from('cars_booking')
-              .select('hours') // .eq('id_auth', id!)
-          ;
-      final data = response.first;
-      staticRemainingTimeHour = int.parse(data['hours']) * 60;
-      remainingTimeHour = staticRemainingTimeHour;
-      print("here i am");
-      add(TimerEvent());
-      emit(LoadDataTimerState());
-      myController.sink.add("event");
+      try {
+        final response = await supabase
+                .from('cars_booking')
+                .select('hours')
+                .eq('id_povider', id!) // .eq('id_auth', id!)
+            ;
+        final data = response.first;
+        staticRemainingTimeHour = int.parse(data['hours']) * 60;
+        remainingTimeHour = staticRemainingTimeHour;
+        add(TimerEvent());
+        emit(LoadDataTimerState());
+        myController.sink.add("event");
+      } catch (e) {
+        return;
+      }
     });
     on<TimerEvent>((event, emit) async {
       try {
         formattedTime = timeFormat(remainingTimeHour);
       } catch (e) {
-        print(e.toString());
+        return;
       }
     });
     myStream = myController.stream;
     myStream?.listen((event) {
-      print("Dddddd");
       emit(TimerDataState(
           formattedTime, timeFormat(remainingTimeHour), completedPercentage));
     });
     timer = Timer.periodic(const Duration(minutes: 1), (timer) {
       timeFormat(remainingTimeHour.toInt());
       if (remainingTimeHour > 0 && completedPercentage < 100) {
-        print(remainingTimeHour);
         remainingTimeHour -= 1;
         // completedPercentage += 0.1;
         completedPercentage = ((staticRemainingTimeHour - remainingTimeHour) /

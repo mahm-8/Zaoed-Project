@@ -3,8 +3,9 @@
 import 'package:zaoed/constants/imports.dart';
 
 class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
+  SignUpScreen({super.key, required this.type});
   bool pass = false;
+  final String type;
   final _userNameKey = GlobalKey<FormState>();
   final _emailKey = GlobalKey<FormState>();
   final _passwordKey = GlobalKey<FormState>();
@@ -15,6 +16,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(type);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
@@ -126,6 +128,7 @@ class SignUpScreen extends StatelessWidget {
                     passwordController.text,
                     nameController.text,
                     _emailKey,
+                    type,
                     _passwordKey,
                     _userNameKey));
               },

@@ -80,7 +80,7 @@ class PersonalContainer extends StatelessWidget {
                 LegalAffairsLable(
                   title: 'حذف الحساب',
                   onTap: () {
-                    DeleteAccount(context);
+                    deleteAccount(context);
                   },
                 )
               ],

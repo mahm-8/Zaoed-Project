@@ -1,6 +1,5 @@
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/capon_widget.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore_for_file: must_be_immutable
@@ -23,8 +22,8 @@ class DetailsPaymentScreen extends StatelessWidget {
   TextEditingController caponController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    
     final bloc = context.read<ActionsBloc>();
-    context.read<CardBloc>().add(GetCardDateEvent());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

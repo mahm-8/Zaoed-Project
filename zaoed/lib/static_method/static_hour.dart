@@ -90,7 +90,6 @@ class StaticDaily {
           .contains("Sun")) {
         amountSun += (element["amount"]);
 
-        print(element);
       }
       if (DateFormat()
           .add_MEd()
@@ -98,14 +97,12 @@ class StaticDaily {
           .contains("Mon")) {
         amountMon += (element["amount"]);
 
-        print(element);
       }
       if (DateFormat()
           .add_MEd()
           .format(DateTime.parse(element["date"]))
           .contains("Tue")) {
         amountTue += (element["amount"]);
-        print(amountTue);
       }
       if (DateFormat()
           .add_MEd()
@@ -113,7 +110,6 @@ class StaticDaily {
           .contains("Wed")) {
         amountWed += (element["amount"]);
 
-        print(element);
       }
       if (DateFormat()
           .add_MEd()
@@ -121,25 +117,21 @@ class StaticDaily {
           .contains("Thu")) {
         amountThu += (element["amount"]);
 
-        print(element);
       }
       if (DateFormat()
           .add_MEd()
           .format(DateTime.parse(element["date"]))
           .contains("Fri")) {
         amountFri += (element["amount"]);
-        print(element);
       }
       if (DateFormat()
           .add_MEd()
           .format(DateTime.parse(element["date"]))
           .contains("Sat")) {
         amountSat += (element["amount"]);
-        print(element);
       }
       if (element["date"] == DateTime.now().toString().split(" ")[0]) {
         amountToday += (element["amount"]);
-        print(element);
       }
     }
 

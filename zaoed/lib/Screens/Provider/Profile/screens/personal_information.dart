@@ -26,7 +26,7 @@ class PersonalInformationScreen extends StatelessWidget {
               backColor: AppColors().green,
               textColor: AppColors().white,
               onPress: () {
-                LogOutShowDailog(context);
+                logOutShowDailog(context);
               },
             )
           ],

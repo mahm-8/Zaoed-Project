@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> DeleteChargingPoint(BuildContext context) {
+Future<dynamic> deleteChargingPoint(BuildContext context) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,

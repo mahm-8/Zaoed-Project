@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-AppBar ProfailAppBar(BuildContext context) {
+AppBar profailAppBar(BuildContext context) {
   return AppBar(
       backgroundColor: AppColors().gray9,
       title: Text(

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
@@ -29,7 +31,7 @@ class BookingPriceContainer extends StatelessWidget {
           ),
           BookingPriceLabel(
             title: 'عدد ساعات الشحن',
-            subTitle: '${hour}',
+            subTitle: '$hour',
           ),
           BookingPriceLabel(
             title: 'الخصم ($discount)',

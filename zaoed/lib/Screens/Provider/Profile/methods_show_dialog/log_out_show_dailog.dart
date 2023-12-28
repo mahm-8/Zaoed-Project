@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> LogOutShowDailog(BuildContext context) {
+Future<dynamic> logOutShowDailog(BuildContext context) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,

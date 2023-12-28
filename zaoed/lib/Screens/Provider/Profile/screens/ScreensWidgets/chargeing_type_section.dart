@@ -17,7 +17,7 @@ class ChargingTypeSection extends StatelessWidget {
           style: TextStyle(color: AppColors().white, fontSize: 20),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 8),
           child: BlocBuilder<ProviderBloc, ProviderState>(
             builder: (context, state) {
               return Wrap(

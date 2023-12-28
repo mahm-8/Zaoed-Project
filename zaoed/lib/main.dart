@@ -1,3 +1,4 @@
+import 'package:zaoed/Screens/loading/loading_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
@@ -75,7 +76,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: NavigationBarScreen(),
+        home: const LoadingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

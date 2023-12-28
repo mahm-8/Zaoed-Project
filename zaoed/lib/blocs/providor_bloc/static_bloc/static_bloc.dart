@@ -1,7 +1,4 @@
-import 'dart:async';
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:zaoed/service/networking.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/static_method/static_hour.dart';
 
 part 'static_event.dart';
@@ -34,7 +31,7 @@ class StaticBloc extends Bloc<StaticEvent, StaticState> {
           .totalHour(staticData: staticdata, dailyHour: dailyHour);
       emit(StaticHourState(totalToday: dailyHour?[7] ?? 0));
     } catch (e) {
-      print(e);
+      return;
     }
   }
 
@@ -54,7 +51,7 @@ class StaticBloc extends Bloc<StaticEvent, StaticState> {
       amountTotal = await StaticDaily()
           .getAnalytics(profit: profit, amountTotal: amountTotal);
     } catch (e) {
-      print(e.toString());
+      return;
     }
   }
 }

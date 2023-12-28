@@ -22,7 +22,7 @@ class _TimerWidgetState extends State<TimerWidget> {
           return Row(
             children: [
               Expanded(
-                child: Container(
+                child: SizedBox(
                   height: 200,
                   child: SfRadialGauge(
                     axes: <RadialAxis>[
@@ -50,7 +50,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                         annotations: <GaugeAnnotation>[
                           GaugeAnnotation(
                             widget: Text(
-                              '${state.remainingTime}',
+                              state.remainingTime,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                 ),
               ),
               Expanded(
-                child: Container(
+                child: SizedBox(
                   height: 200,
                   child: SfRadialGauge(
                     axes: <RadialAxis>[
@@ -114,7 +114,7 @@ class _TimerWidgetState extends State<TimerWidget> {
             ],
           );
         }
-        return Text('');
+        return const Text('');
       },
     );
   }

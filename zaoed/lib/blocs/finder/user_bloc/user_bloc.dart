@@ -1,8 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
-import 'package:zaoed/model/user_model.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   String? gender;
@@ -26,8 +24,10 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       GetUserDataEvent event, Emitter<UserState> emit) async {
     try {
       user = await getUser();
+      print(user);
     } catch (e) {
       print(e);
+      return;
     }
   }
 
@@ -35,7 +35,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     final supabase = SupabaseNetworking().getSupabase;
     final id = supabase.auth.currentUser?.id;
     try {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       final data = await supabase.from("user").select().eq("id_auth", id!);
 
       UserModel user = UserModel.fromJson(data[0]);
@@ -60,7 +60,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       user = await getUser();
       emit(SuccessUpdateState(msg: 'تم إضافة البيانات بنجاح'));
     } catch (e) {
-      print(e);
       return;
     }
   }
@@ -73,7 +72,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       final idAuth = supabase.auth.currentUser!.id;
 
       // get image by id
-      print("1");
       var list = await supabase.storage.from("profile_image").list();
       String? id;
       // search for name image

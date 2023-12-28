@@ -25,7 +25,7 @@ class BookingConfirmationScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   color: AppColors().gray6),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

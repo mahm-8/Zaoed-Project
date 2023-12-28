@@ -1,7 +1,7 @@
 import 'package:zaoed/constants/imports.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
+raitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
   showModalBottomSheet(
     backgroundColor: AppColors().gray6,
     context: context,
@@ -41,13 +41,12 @@ RaitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
               itemBuilder: (context, _) => ImageIcon(
-                AssetImage('lib/assets/icons/Star 5.png'),
+                const AssetImage('lib/assets/icons/Star 5.png'),
                 color: AppColors().green,
               ),
               onRatingUpdate: (rating) {
-                print(rating);
               },
             ),
             const SizedBox(height: 12),

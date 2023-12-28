@@ -6,6 +6,7 @@ class EditProfileScreen extends StatelessWidget {
   final UserModel? user;
   @override
   Widget build(BuildContext context) {
+    print("1");
     return Scaffold(
         floatingActionButton: BlocListener<AuthBloc, AuthStates>(
           listener: (context, state) {

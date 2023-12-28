@@ -26,7 +26,6 @@ class TabBarWidget extends StatelessWidget {
             context.read<PagesBloc>().add(PageTabBarLoginEvent(select));
             context.read<PagesBloc>().add(PageTabBarSignupEvent(select));
             select == 1 ? type = "finder" : type = "povider";
-            print(type);
           },
           dividerColor: Colors.transparent,
           labelColor: const Color(0xff21232b),

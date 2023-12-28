@@ -31,6 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
         await auth.signUp(email: event.email, password: event.password);
 
         user = UserModel(
+          type: event.type,
           name: event.username,
           email: event.email,
         );
@@ -63,6 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
           "name": user?.name,
           "email": user?.email,
           "id_auth": verification.user?.id,
+          "type": user?.type
         });
         emit(SuccessVerificationState());
       } else {
@@ -109,7 +111,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     } on AuthException {
       emit(ErrorLoginState("Password or email wrong"));
     } catch (e) {
-      print(e);
       return;
     }
   }
@@ -120,13 +121,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     if (supabaseClint.auth.currentUser?.emailConfirmedAt != null) {
       final token = supabaseClint.auth.currentSession?.accessToken;
       final isExp = supabaseClint.auth.currentSession!.isExpired;
+
       if (token != null) {
+        final id = supabaseClint.auth.currentUser?.id;
+        final type =
+            await supabaseClint.from('user').select('type').eq('id_auth', id!);
         if (isExp) {
           await supabaseClint.auth
               .setSession(supabaseClint.auth.currentSession!.refreshToken!);
-          emit(CheckLoginState());
+          emit(CheckLoginState(type[0]['type']));
         } else {
-          emit(CheckLoginState());
+          emit(CheckLoginState(type[0]['type']));
         }
       } else {
         emit(ErrorCheckState());

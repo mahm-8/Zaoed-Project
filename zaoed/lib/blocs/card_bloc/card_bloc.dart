@@ -1,13 +1,11 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/service/networking.dart';
+import 'package:zaoed/model/card_model.dart';
 
 part 'card_event.dart';
 part 'card_state.dart';
 
 class CardBloc extends Bloc<CardEvent, CardState> {
-  List? CardList;
+  List<CardModel>? cardList;
   CardBloc() : super(CardInitial()) {
     on<AddCardEvent>((event, emit) async {
       final supabase = SupabaseNetworking().getSupabase;
@@ -21,17 +19,20 @@ class CardBloc extends Bloc<CardEvent, CardState> {
 
         emit(AddCardState());
       } catch (e) {
-        print(e.toString());
+        return;
       }
     });
 
     on<GetCardDateEvent>((event, emit) async {
       try {
         final supabase = SupabaseNetworking().getSupabase;
-        CardList = await supabase.from('card').select();
-        print(CardList);
+        final id = supabase.auth.currentUser?.id;
+        final data = await supabase.from('card').select().eq('id_user', id!);
+        for (var element in data) {
+          cardList?.add(CardModel.fromJson(element));
+        }
       } catch (e) {
-        print(e.toString());
+        return;
       }
     });
   }
