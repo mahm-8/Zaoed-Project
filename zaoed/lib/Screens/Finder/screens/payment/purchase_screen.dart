@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/test_pay.dart';
 
 class PurchaseScreen extends StatelessWidget {
   const PurchaseScreen({
@@ -18,6 +19,7 @@ class PurchaseScreen extends StatelessWidget {
             title: 'الدفع',
           ),
           const PaymentContainer(),
+          // PaymentMethods(),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),

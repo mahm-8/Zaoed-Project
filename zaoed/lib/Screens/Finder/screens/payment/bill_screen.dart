@@ -18,7 +18,7 @@ class BillScreen extends StatelessWidget {
                     textEntry: 'الرئيسية',
                     backColor: AppColors().green,
                     onPress: onTap,
-                    textColor: AppColors().white),
+                    textColor: AppColors().gray9),
               ),
             ],
           ),
