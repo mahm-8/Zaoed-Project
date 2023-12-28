@@ -25,3 +25,10 @@ class DeleteBookmarkEvent extends ActionsEvent {
 
   DeleteBookmarkEvent({required this.bookmarkID});
 }
+
+class CaponEvent extends ActionsEvent{
+  final double price;
+ final String capon;
+
+  CaponEvent({required this.capon, required this.price});
+}

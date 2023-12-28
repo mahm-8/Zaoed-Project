@@ -9,7 +9,6 @@ class PurchaseScreen extends StatelessWidget {
   final Function() onTap;
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       width: context.getWidth(),
       height: context.getHeight() / 1.3,
@@ -19,10 +18,7 @@ class PurchaseScreen extends StatelessWidget {
           const TitleLabel(
             title: 'الدفع',
           ),
-          
-             
-              PaymentContainer( 
-          ),
+          PaymentContainer(),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -30,7 +26,7 @@ class PurchaseScreen extends StatelessWidget {
                 textEntry: 'الحجز',
                 backColor: AppColors().green,
                 onPress: onTap,
-                textColor: AppColors().white),
+                textColor: AppColors().gray9),
           ),
         ],
       ),
