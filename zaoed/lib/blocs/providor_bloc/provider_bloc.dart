@@ -8,6 +8,9 @@ part 'provider_state.dart';
 
 class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
   ProviderBloc() : super(ProviderInitial()) {
+    final supabase = SupabaseNetworking().getSupabase;
+    final id = supabase.auth.currentUser?.id;
+
     int count = 0;
 
     on<HoursSelectIndexEvent>((event, emit) {
@@ -28,10 +31,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
       emit(ChargingTypeCountUpdated(count));
     });
     on<AddChargingPointEvent>((event, emit) async {
-      final supabase = SupabaseNetworking().getSupabase;
       try {
-        final id = supabase.auth.currentUser?.id;
-
         await supabase.from("charging_point").insert({
           "point_name": event.chargingPointName,
           "longitude": event.longitude,
@@ -44,5 +44,40 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         return;
       }
     });
+
+    // on<GetPointLangLatEvent>((event, emit) async {
+    //   try {
+    //     List locations;
+    //     locations = await getLocationMethod();
+    //     print("location List$locations");
+
+    //     final longitude = locations[0]["longitude"];
+    //     final latitude = locations[0]["latitude"];
+    //     await Future.delayed(const Duration(seconds: 1));
+    //     emit(GetChargingPointLocationState(lang: longitude, lat: latitude));
+    //   } catch (e) {
+    //     print(e.toString());
+    //   }
+    // });
+  }
+
+  getLocationMethod() async {
+    try {
+      final id = SupabaseNetworking().getSupabase.auth.currentUser?.id;
+
+      List locationList = [];
+      final locationData = await SupabaseNetworking()
+          .getSupabase
+          .from("charging_point")
+          .select('longitude,latitude')
+          .eq('id_auth', id!);
+      // print("locatiiiion$locationData");
+      for (var element in locationData) {
+        locationList.add(element);
+      }
+      return locationList;
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

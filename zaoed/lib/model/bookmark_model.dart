@@ -42,8 +42,8 @@ class ChargingPoint {
   late final String? chargingPort;
   late final int? chargingTimes;
   late final String? pointLocation;
-  late final double? longitude;
-  late final double? latitude;
+  late final double longitude;
+  late final double latitude;
 
   ChargingPoint.fromJson(Map<String, dynamic> json) {
     rating = json['rating'] ?? 0.0;

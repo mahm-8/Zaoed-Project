@@ -22,7 +22,7 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       GetBookmarkEvent event, Emitter<ActionsState> emit) async {
     try {
       emit(LoadingState());
-     
+
       bookmarkData = await ActionSupabaseMethods().getBookmarks();
       await Future.delayed(const Duration(seconds: 1));
       emit(GetBookmarkState(bookmarks: bookmarkData!));

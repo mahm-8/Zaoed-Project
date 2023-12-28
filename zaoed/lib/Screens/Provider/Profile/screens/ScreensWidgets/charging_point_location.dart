@@ -61,7 +61,6 @@ class _ChargingPointLocationState extends State<ChargingPointLocation> {
                       });
                     },
                     onMapCreated: (GoogleMapController controller) {
-                      
                       setMapStyle(controller, snapshot.data.toString());
                     },
                   );
