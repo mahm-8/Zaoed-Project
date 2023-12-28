@@ -3,9 +3,14 @@ import 'package:zaoed/constants/imports.dart';
 class BookingDataContainer extends StatelessWidget {
   BookingDataContainer({
     super.key,
+    required this.type,
+    required this.hour,
+    required this.image,
   });
 
-  late int hours = 3;
+  final String type;
+  final String hour;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,12 +33,12 @@ class BookingDataContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'lib/assets/icons/Type 1.png',
+                  image,
                   width: 29,
                   height: 29,
                 ),
                 Text(
-                  'CCS 2',
+                  type,
                   style: TextStyle(color: AppColors().white, fontSize: 10),
                 ),
               ],
@@ -50,7 +55,7 @@ class BookingDataContainer extends StatelessWidget {
                 style: TextStyle(color: AppColors().white, fontSize: 16),
               ),
               Text(
-                'مدة الحجز: $hours ساعات',
+                'مدة الحجز: $hour ',
                 style: TextStyle(color: AppColors().white, fontSize: 16),
               )
             ],

@@ -1,14 +1,17 @@
 import 'package:zaoed/constants/imports.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
-  const PaymentProcessScreen({super.key});
-
+  const PaymentProcessScreen({super.key, required this.type, required this.hour, required this.image});
+ final String type;
+  final String hour;
+  final String image;
   @override
   State<PaymentProcessScreen> createState() => _PaymentProcessScreenState();
 }
 
 class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
   int activeStep = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +30,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                     setState(() {
                       activeStep = 1;
                     });
-                  },
+                  }, type: widget.type, hour: widget.hour, image: widget.image,
                 ),
               ],
               if (activeStep == 1) ...[
@@ -35,7 +38,9 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                   onTap: () {
                     setState(() {
                       activeStep = 2;
+                    
                     });
+                    
                   },
                 ),
               ],

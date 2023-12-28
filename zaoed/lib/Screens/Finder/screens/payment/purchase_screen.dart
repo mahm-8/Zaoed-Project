@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PurchaseScreen extends StatelessWidget {
@@ -8,6 +9,7 @@ class PurchaseScreen extends StatelessWidget {
   final Function() onTap;
   @override
   Widget build(BuildContext context) {
+    
     return SizedBox(
       width: context.getWidth(),
       height: context.getHeight() / 1.3,
@@ -17,7 +19,10 @@ class PurchaseScreen extends StatelessWidget {
           const TitleLabel(
             title: 'الدفع',
           ),
-          const PaymentContainer(),
+          
+             
+              PaymentContainer( 
+          ),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),

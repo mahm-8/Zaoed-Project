@@ -44,7 +44,12 @@ class BookingConfirmationScreen extends StatelessWidget {
                 textEntry: 'تأكيد',
                 backColor: AppColors().green,
                 onPress: () {
-                  context.push(view: const PaymentProcessScreen());
+                  context.push(
+                      view: PaymentProcessScreen(
+                    type: type,
+                    hour: hour,
+                    image: image,
+                  ));
                 },
                 textColor: AppColors().gray8)
           ],

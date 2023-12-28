@@ -1,19 +1,19 @@
+<<<<<<< HEAD
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_location.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/settings_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
+=======
+>>>>>>> ebea0ee3f4d86bb031aa7dc7e811458ea4f7234a
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-
-import 'package:zaoed/Screens/loading/loading_screen.dart';
-
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/constants/imports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +30,12 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthBloc()..add(CheckLoginEvent()),
+        ),
+        BlocProvider(
+          create: (context) => GoogleMapBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CardBloc(),
         ),
         BlocProvider(
           create: (context) => StaticBloc(),
@@ -72,7 +78,11 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
+<<<<<<< HEAD
         home: ChargingPointLocation(),
+=======
+        home: NavigationBarScreen(),
+>>>>>>> ebea0ee3f4d86bb031aa7dc7e811458ea4f7234a
         debugShowCheckedModeBanner: false,
       ),
     );
