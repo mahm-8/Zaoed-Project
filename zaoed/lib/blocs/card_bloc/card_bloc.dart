@@ -29,7 +29,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
         final id = supabase.auth.currentUser?.id;
         final data = await supabase.from('card').select().eq('id_user', id!);
         for (var element in data) {
-          cardList?.add(CardModel.fromJson(element));
+          cardList!.add(CardModel.fromJson(element));
         }
       } catch (e) {
         return;

@@ -1,3 +1,5 @@
+import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit_profile_screen.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class FinderInfoWidget extends StatelessWidget {
@@ -7,6 +9,7 @@ class FinderInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<UserBloc>();
     return Container(
       height: 96,
       width: 350,
@@ -22,7 +25,7 @@ class FinderInfoWidget extends StatelessWidget {
               imageIcon: 'lib/assets/icons/person1.png',
               title: 'البيانات الشخصية',
               onTap: () {
-                context.push(view: InformationScreen());
+                context.push(view: EditProfileScreen(user: bloc.user));
               },
             ),
             Divider(color: AppColors().black),
