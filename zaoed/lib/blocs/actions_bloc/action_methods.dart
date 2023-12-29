@@ -23,9 +23,8 @@ class ActionSupabaseMethods {
     }
   }
 
-  addBookmark(Map body) async {
-    // take bookmark id
-    await supabase.from("bookmark").insert(body).select();
+  addBookmark({required int? pointID}) async {
+    await supabase.from("bookmark").insert({"point_id": pointID}).select();
   }
 
   deleteBookmark({required int? id}) async {

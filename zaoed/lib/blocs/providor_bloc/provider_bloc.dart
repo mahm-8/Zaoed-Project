@@ -122,7 +122,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
               "point_name": event.chargingPointName,
               "longitude": pinLongitude,
               "latitude": pinLatitude,
-              "arrivel_hour": event.chargingTimes,
+              "arrivel_hour": event.arrivelHours,
               'id_auth': id,
             })
             .select()
@@ -152,7 +152,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
             .from("charging_point")
             .update({
               "point_name": event.chargingPointName,
-              "arrivel_hour": event.chargingTimes,
+              //hours?
               'id_auth': id,
             })
             .select()
@@ -168,6 +168,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
           updateElements
               .addAll({"id_charging_point": chargingPoint["point_id"]});
           theList.add(updateElements);
+          // event.chargingCount how to get
         }
         print(theList);
         await supabase.from('port_counter').insert(theList);

@@ -19,6 +19,7 @@ class LocationDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dataBloc = context.read<ProviderBloc>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Container(
@@ -56,7 +57,10 @@ class LocationDetails extends StatelessWidget {
                 children: [
                   InkWell(
                       onTap: () {
-                        context.push(view: EditChargingPointScreen());
+                        context.push(
+                            view: EditChargingPointScreen(
+                          bloc: dataBloc,
+                        ));
                       },
                       child: Image.asset('lib/assets/icons/edit.png')),
                   const Spacer(),
