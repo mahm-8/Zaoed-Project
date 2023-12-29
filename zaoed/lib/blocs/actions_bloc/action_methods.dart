@@ -5,12 +5,8 @@ class ActionSupabaseMethods {
   final supabase = SupabaseNetworking().getSupabase;
 
   List<BookmarkModel> bookmarkList = [];
-
-  //method to get
-
+  List<ChargingPoint> chargingPointList = [];
   getBookmarks() async {
-    //*, charging_point(point_name,point_location, charging_port, port_count, rating, charging_times)
-
     try {
       final id = supabase.auth.currentUser?.id;
       final bookmarkData = await supabase
@@ -33,7 +29,23 @@ class ActionSupabaseMethods {
   }
 
   deleteBookmark({required int? id}) async {
-    // take bookmark id
     await supabase.from("bookmark").delete().eq("bookmark_id", id!);
+  }
+
+  getChargingPoint() async {
+    final id = supabase.auth.currentUser?.id;
+    final chargingPointData = await supabase
+        .from("charging_point")
+        .select("* , port_counter(port_name, number_of_port)")
+        .eq("auth_id", id!);
+    for (var element in chargingPointData) {
+      chargingPointList.add(ChargingPoint.fromJson(element));
+    }
+    return chargingPointList;
+  }
+
+  deleteChargingPoint({required int? id}) async {
+    // get id??
+    await supabase.from("charging_point").delete().eq("point_id", id!);
   }
 }

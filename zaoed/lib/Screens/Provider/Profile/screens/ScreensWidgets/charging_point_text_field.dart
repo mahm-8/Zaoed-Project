@@ -3,10 +3,10 @@ import 'package:zaoed/constants/imports.dart';
 class AddChargingPointTextField extends StatelessWidget {
   const AddChargingPointTextField({
     super.key,
-    required this.controller,
+    required this.textController,
   });
 
-  final TextEditingController controller;
+  final TextEditingController textController;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class AddChargingPointTextField extends StatelessWidget {
                   left: BorderSide(color: AppColors().green, width: 0.3)),
             ),
             child: TextField(
-              controller: controller,
+              controller: textController,
               decoration: InputDecoration(
                 fillColor: AppColors().gray6,
                 filled: true,

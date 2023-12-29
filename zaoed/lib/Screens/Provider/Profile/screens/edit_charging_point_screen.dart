@@ -20,10 +20,11 @@ class EditChargingPointScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: Column(
+            // edit bloc here 
             children: [
-              AddChargingPointTextField(controller: controller),
-              const ChargingPointLocation(),
-              const AvailabilityHours(),
+              AddChargingPointTextField(textController: controller),
+              ChargingPointLocation(),
+              AvailabilityHours(),
               const ChargingTypeSection(),
               const SizedBox(
                 height: 8,
