@@ -10,11 +10,11 @@ bool isBookmarked = false;
 
 class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
   List<BookmarkModel>? bookmarkData;
-
   ActionsBloc() : super(ActionsInitial()) {
     on<GetBookmarkEvent>(getBookmarkMethod);
     on<AddBookmarkEvent>(addBookmarkMethod);
     on<DeleteBookmarkEvent>(deleteBookmarkMethod);
+    // on<Delte>
     // add(GetBookmarkEvent());
   }
 
@@ -22,10 +22,10 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       GetBookmarkEvent event, Emitter<ActionsState> emit) async {
     try {
       emit(LoadingState());
-
       bookmarkData = await ActionSupabaseMethods().getBookmarks();
       await Future.delayed(const Duration(seconds: 1));
       emit(GetBookmarkState(bookmarks: bookmarkData!));
+      add(GetBookmarkEvent());
     } catch (e) {
       emit(ErrorState());
     }

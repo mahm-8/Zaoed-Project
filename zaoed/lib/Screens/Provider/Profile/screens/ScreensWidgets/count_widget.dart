@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class CountWidget extends StatelessWidget {
   const CountWidget({
     super.key,
-    required this.count, this.increment, this.decrement,
+    required this.count,
+    this.increment,
+    this.decrement,
   });
 
   final int count;
