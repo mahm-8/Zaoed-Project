@@ -1,3 +1,4 @@
+import 'package:zaoed/Screens/Provider/Profile/screens/charging_point_data.dart';
 import 'package:zaoed/Screens/loading/loading_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
@@ -66,7 +67,7 @@ class MainApp extends StatelessWidget {
           create: (context) => FinderBloc(),
         ),
         BlocProvider(
-          create: (context) => ActionsBloc()..add(GetBookmarkEvent()),
+          create: (context) => ActionsBloc()..add(GetChargingPointsEvent()),
         ),
       ],
       child: MaterialApp(
@@ -82,7 +83,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: const LoadingScreen(),
+        home: NavigationBarScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

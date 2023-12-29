@@ -2,8 +2,8 @@ import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 
 class AvailabilityHours extends StatelessWidget {
-  AvailabilityHours({super.key, this.bloc});
-  final ProviderBloc? bloc;
+  AvailabilityHours({super.key, required this.bloc});
+  final ProviderBloc bloc;
   List<String> textClock = [
     'غير متوفر',
     '00:00-6:00',

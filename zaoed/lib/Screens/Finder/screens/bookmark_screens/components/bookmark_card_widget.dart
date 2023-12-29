@@ -13,16 +13,18 @@ class BookmarkCardWidget extends StatelessWidget {
     required this.pointName,
     required this.pointLocation,
     required this.chargingPort,
-    
     required this.rating,
     required this.chargingTimes,
     required this.portCount,
     required this.bookmarkID,
+    required this.pointID,
+    required this.longitude,
+    required this.lantitude,
   });
 
   final String? pointName, pointLocation, chargingPort;
-  final double? rating;
-  final int? chargingTimes, portCount, bookmarkID;
+  final double? rating, longitude, lantitude;
+  final int? chargingTimes, portCount, bookmarkID, pointID;
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +82,7 @@ class BookmarkCardWidget extends StatelessWidget {
                   const Spacer(),
                   if (isBookmarked == false)
                     AddToBookmarkDialog(
-                      pointName: pointName,
-                      pointLocation: pointLocation,
-                      chargingPort: chargingPort,
-                   
-                      rating: rating,
-                      chargingTimes: chargingTimes,
-                      portCount: portCount,
-                      idBookmark: bookmarkID,
+                      idPoint: pointID,
                     ),
                   if (isBookmarked == true)
                     RemoveBookMarkDialog(

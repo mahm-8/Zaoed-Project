@@ -23,9 +23,8 @@ class ActionSupabaseMethods {
     }
   }
 
-  addBookmark(Map body) async {
-    // take bookmark id
-    await supabase.from("bookmark").insert(body).select();
+  addBookmark({required int? pointID}) async {
+    await supabase.from("bookmark").insert({"point_id": pointID}).select();
   }
 
   deleteBookmark({required int? id}) async {
@@ -36,8 +35,8 @@ class ActionSupabaseMethods {
     final id = supabase.auth.currentUser?.id;
     final chargingPointData = await supabase
         .from("charging_point")
-        .select("* , port_counter(port_name, number_of_port)")
-        .eq("auth_id", id!);
+        .select("* , port_counter(port_name, number_of_port)");
+
     for (var element in chargingPointData) {
       chargingPointList.add(ChargingPoint.fromJson(element));
     }

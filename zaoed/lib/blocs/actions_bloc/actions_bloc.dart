@@ -10,6 +10,7 @@ bool isBookmarked = false;
 
 class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
   List<BookmarkModel>? bookmarkData;
+  List<ChargingPoint>? chargingPointData;
   double? price = 9;
   String? capon;
 
@@ -17,8 +18,8 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     on<GetBookmarkEvent>(getBookmarkMethod);
     on<AddBookmarkEvent>(addBookmarkMethod);
     on<DeleteBookmarkEvent>(deleteBookmarkMethod);
-    // on<Delte>
-    // add(GetBookmarkEvent());
+    on<GetChargingPointsEvent>(getChargingPointsMethod);
+
     on<CaponEvent>((event, emit) {
       if (capon == 'Zaoed') {
         price = price! - (price! * 0.25);
@@ -28,11 +29,23 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     });
   }
 
+  FutureOr<void> getChargingPointsMethod(
+      GetChargingPointsEvent event, Emitter<ActionsState> emit) async {
+    try {
+      chargingPointData = await ActionSupabaseMethods().getChargingPoint();
+      await Future.delayed(const Duration(seconds: 1));
+      emit(GetChargingPointsState(chargingPoints: chargingPointData!));
+      print(chargingPointData);
+      add(GetChargingPointsEvent());
+    } catch (e) {
+      ErrorState();
+    }
+  }
+
   FutureOr<void> getBookmarkMethod(
       GetBookmarkEvent event, Emitter<ActionsState> emit) async {
     // check if have error from merge??
     try {
-      emit(LoadingState());
       bookmarkData = await ActionSupabaseMethods().getBookmarks();
       await Future.delayed(const Duration(seconds: 1));
       emit(GetBookmarkState(bookmarks: bookmarkData!));
@@ -45,7 +58,7 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
   FutureOr<void> addBookmarkMethod(
       AddBookmarkEvent event, Emitter<ActionsState> emit) async {
     try {
-      await ActionSupabaseMethods().addBookmark({});
+      await ActionSupabaseMethods().addBookmark(pointID: event.pointID);
       emit(AddBookmarkState());
       isBookmarked = true;
       add(GetBookmarkEvent());

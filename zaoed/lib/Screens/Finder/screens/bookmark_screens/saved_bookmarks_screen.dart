@@ -6,7 +6,7 @@ class SavedBookmarksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // context.read<ActionsBloc>().add(GetBookmarkEvent());
+    context.read<ActionsBloc>().add(GetBookmarkEvent());
 
     return Scaffold(
       backgroundColor: AppColors().gray9,
@@ -39,6 +39,9 @@ class SavedBookmarksScreen extends StatelessWidget {
                           chargingPort: bookmarks.chargingPoint.chargingPort,
                           portCount: bookmarks.chargingPoint.portCount,
                           bookmarkID: bookmarks.bookmarkId,
+                          longitude: bookmarks.chargingPoint.longitude,
+                          lantitude: bookmarks.chargingPoint.latitude,
+                          pointID: bookmarks.chargingPoint.pointId,
                         );
                       });
                 } else {

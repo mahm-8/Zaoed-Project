@@ -2,22 +2,14 @@ part of 'actions_bloc.dart';
 
 class ActionsEvent {}
 
+class GetChargingPointsEvent extends ActionsEvent {}
+
 class GetBookmarkEvent extends ActionsEvent {}
 
 class AddBookmarkEvent extends ActionsEvent {
-  final String? pointName, chargingPort, pointLocation;
-  final double? rating;
-  final int? bookmarkID, chrgingTimes, portCount;
+  final int? pointID;
 
-  AddBookmarkEvent({
-    required this.bookmarkID,
-    required this.pointName,
-    required this.pointLocation,
-    required this.rating,
-    required this.chargingPort,
-    required this.chrgingTimes,
-    required this.portCount,
-  });
+  AddBookmarkEvent({required this.pointID});
 }
 
 class DeleteBookmarkEvent extends ActionsEvent {
@@ -33,4 +25,6 @@ class CaponEvent extends ActionsEvent {
   CaponEvent({required this.capon, required this.price});
 }
 
+
 class StatusCarsEvent extends ActionsEvent {}
+

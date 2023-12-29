@@ -24,7 +24,10 @@ class AddChargingPoint extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: Column(
             children: [
-              AddChargingPointTextField(textController: controller),
+              AddChargingPointTextField(
+                textController: controller,
+                isEdit: false,
+              ),
               ChargingPointLocation(
                 bloc: bloc,
               ),
@@ -32,7 +35,9 @@ class AddChargingPoint extends StatelessWidget {
                 bloc: bloc,
               ),
               // How to get it using count?? there is a count for each port type
-              const ChargingTypeSection(),
+              const ChargingTypeSection(
+                isEdit: false,
+              ),
               const SizedBox(
                 height: 8,
               ),

@@ -23,18 +23,29 @@ class ChargingTypeDecrementCountEvent extends ProviderEvent {
   ChargingTypeDecrementCountEvent({required this.name});
 }
 
-class GetChargingPointEvent extends ProviderEvent {}
+class GetChargingPointDetailsEvent extends ProviderEvent {}
 
 class AddChargingPointEvent extends ProviderEvent {
   final String chargingPointName;
-  final String chargingTimes;
+  final String arrivelHours;
   final double? longitude;
   final double? latitude;
   // getchargertype????
   // final int portCount;
   // final String chargingPortName;
-  AddChargingPointEvent(this.chargingPointName, this.chargingTimes,
-      this.longitude, this.latitude);
+  AddChargingPointEvent(
+      this.chargingPointName, this.arrivelHours, this.longitude, this.latitude);
+}
+
+class EditChargingPointEvent extends ProviderEvent {
+  final String chargingPointName;
+  final int chargingCount;
+
+  // ??
+  // final String chargingType;
+
+  EditChargingPointEvent(
+      {required this.chargingPointName, required this.chargingCount});
 }
 
 class DeleteChargingPointEvent extends ProviderEvent {

@@ -14,6 +14,7 @@ class ChargingPointDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
+    
 
     return Scaffold(
       backgroundColor: AppColors().gray9,
@@ -33,7 +34,7 @@ class ChargingPointDataScreen extends StatelessWidget {
                   locationDetails:
                       "longtude: ${bloc.bookmarkData?[index].chargingPoint.longitude}, latitude: ${bloc.bookmarkData?[index].chargingPoint.latitude}",
                   index: index,
-                  bloc: bloc,
+                  bloc: bloc, 
                 );
               },
             ),
