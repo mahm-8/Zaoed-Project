@@ -16,7 +16,6 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(type);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
@@ -87,6 +86,7 @@ class SignUpScreen extends StatelessWidget {
                     context.read<AuthBloc>().add(DisplayPasswordEvent(pass)),
                 validator: (value) {
                   if (value!.isEmpty) {
+                    print(type);
                     return "ادخل كلمة السر";
                   }
                   if (!value.isValidPassword) {
