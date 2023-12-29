@@ -11,6 +11,8 @@ Future<dynamic> logOutShowDailog(BuildContext context) {
         button1: 'نعم',
         button2: 'لا',
         pressOne: () {
+          context.read<AuthBloc>().add(LogoutEvent());
+
           showDialog(
             barrierColor: AppColors().gray9,
             context: context,
@@ -22,7 +24,6 @@ Future<dynamic> logOutShowDailog(BuildContext context) {
             },
           );
           Future.delayed(const Duration(seconds: 2), () {
-            context.pop();
             context.pushAndRemoveUntil(view: OnboradingScreen());
           });
         },

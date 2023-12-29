@@ -111,8 +111,6 @@ export 'package:zaoed/Screens/Finder/screens/Profile/screens/about_us_screen.dar
 export 'package:zaoed/Screens/Finder/screens/Profile/widgets/information_lable.dart';
 export 'package:zaoed/Screens/Provider/Profile/screens/legal_affairs_screen.dart';
 
-export 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/information_screen.dart';
-
 export 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/card_screen.dart';
 export 'package:zaoed/Screens/Finder/screens/Profile/method/date_time_widget.dart';
 

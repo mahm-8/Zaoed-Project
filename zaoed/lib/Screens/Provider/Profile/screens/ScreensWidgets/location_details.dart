@@ -1,17 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_charging_point.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/edit_charging_point_screen.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class LocationDetails extends StatelessWidget {
   const LocationDetails({
     super.key,
     required this.locationName,
     required this.locationDetails,
+    required this.index,
+    required this.bloc,
   });
-  final String locationName;
-  final String locationDetails;
+  final String? locationName;
+  final String? locationDetails;
+  final int index;
+  final ActionsBloc? bloc;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,12 +38,13 @@ class LocationDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    locationName,
+                    locationName ?? "",
                     style: TextStyle(color: AppColors().white, fontSize: 18),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const Spacer(),
                   Text(
-                    locationDetails,
+                    locationDetails ?? "",
                     style: TextStyle(color: AppColors().white),
                     overflow: TextOverflow.ellipsis,
                   )
@@ -56,7 +62,10 @@ class LocationDetails extends StatelessWidget {
                   const Spacer(),
                   InkWell(
                       onTap: () {
-                        deleteChargingPoint(context);
+                        context.read<ProviderBloc>().add(
+                            DeleteChargingPointEvent(
+                                pointId: bloc?.bookmarkData?[index].pointId));
+                        DeleteChargingPoint(context, index);
                       },
                       child: Image.asset('lib/assets/icons/delete.png'))
                 ],

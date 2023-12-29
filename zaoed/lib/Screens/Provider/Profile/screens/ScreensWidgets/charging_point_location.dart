@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ChargingPointLocation extends StatefulWidget {
-  const ChargingPointLocation({
+  ChargingPointLocation({
     super.key,
+    this.bloc,
   });
+  ProviderBloc? bloc;
 
   @override
   State<ChargingPointLocation> createState() => _ChargingPointLocationState();
@@ -13,8 +16,7 @@ class ChargingPointLocation extends StatefulWidget {
 
 class _ChargingPointLocationState extends State<ChargingPointLocation> {
   Set<Marker> markerSet = {};
-  double? pinLatitude;
-  double? pinLongitude;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -60,8 +62,8 @@ class _ChargingPointLocationState extends State<ChargingPointLocation> {
                             position: position,
                           )
                         };
-                        pinLatitude = position.latitude;
-                        pinLongitude = position.longitude;
+                        widget.bloc?.pinLatitude = position.latitude;
+                        widget.bloc?.pinLongitude = position.longitude;
                       });
                     },
                     onMapCreated: (GoogleMapController controller) {

@@ -6,6 +6,7 @@ import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/image_widget.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/add_profile.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/change_pass.dart.dart';
+import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_account.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
@@ -85,9 +86,9 @@ class InfoUser extends StatelessWidget {
                   value: user?.email ?? "",
                   onPressed: () => context.push(view: ChangePassword())),
               Divider(color: AppColors().black),
-              const EditProfile(title: 'كلمة المرور', value: '********'),
+               EditProfile(title: 'كلمة المرور',onPressed: () => context.push(view: ChangePassword()), value: '********'),
               Divider(color: AppColors().black),
-              const EditProfile(
+               EditProfile(onPressed: (){deleteAccount(context);},
                   title: 'حذف الحساب', icon: Icons.keyboard_arrow_left),
               const SizedBox(
                 height: 10,
