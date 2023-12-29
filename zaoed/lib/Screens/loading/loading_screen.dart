@@ -7,8 +7,8 @@ class LoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthStates>(
-      buildWhen: (oldState, newState) {
+    return BlocConsumer<AuthBloc, AuthStates>(
+      listener: (context, newState) {
         if (newState is CheckLoginState) {
           context.read<CardBloc>().add(GetCardDateEvent());
           if (newState.type == 'provider') {
@@ -19,7 +19,7 @@ class LoadingScreen extends StatelessWidget {
                       builder: (context) => NavigationBarScreen()),
                   (route) => false);
             });
-          } else {
+           } else {
             Future.delayed(const Duration(seconds: 3), () {
               Navigator.pushAndRemoveUntil(
                   context,
@@ -27,14 +27,14 @@ class LoadingScreen extends StatelessWidget {
                       builder: (context) => FinderNavigationBarScreen()),
                   (route) => false);
             });
-          }
+           }
         } else if (newState is ErrorCheckState) {
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => const TabBarLogin()),
               (route) => false);
         }
-        return false;
+       
       },
       builder: (context, state) {
         return Scaffold(
