@@ -36,7 +36,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
           cardList!.add(CardModel.fromJson(
               element)); //= CardModel.fromJson(element) as List<CardModel>?;
         }
-        log("=====================================");
+        log("==================card===================");
         print(cardList?[0].numberCard);
       } catch (e) {
         return;

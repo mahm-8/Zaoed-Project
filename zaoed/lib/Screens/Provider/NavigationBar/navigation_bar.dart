@@ -1,3 +1,4 @@
+import 'package:zaoed/Screens/Finder/screens/charging_statuse/ChargingScreen.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
@@ -8,7 +9,7 @@ class NavigationBarScreen extends StatelessWidget {
 
   final List providerScreens = [
     const SavedBookmarksScreen(),
-    const ChargingStatuesScreen(),
+    const ChargingScreen(),
     const MapHomeScreen(),
     const ProfileScreen(),
   ];

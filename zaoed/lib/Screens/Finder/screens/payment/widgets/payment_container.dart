@@ -2,6 +2,7 @@
 
 import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/test_pay.dart';
 
 class PaymentContainer extends StatelessWidget {
   PaymentContainer({
@@ -11,6 +12,7 @@ class PaymentContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<CardBloc>();
     return Container(
         width: 350,
         decoration: BoxDecoration(
@@ -20,8 +22,7 @@ class PaymentContainer extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
             child: BlocBuilder<CardBloc, CardState>(
               builder: (context, state) {
-                final bloc = context.read<CardBloc>();
-                print("===========================");
+                print("=============payment container==============");
                 print(bloc.cardList);
                 if (bloc.cardList != null) {
                   return Column(
@@ -130,7 +131,9 @@ class PaymentContainer extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              context.push(view: PaymentMethods());
+            },
             child: Padding(
               padding: const EdgeInsets.only(right: 14),
               child: Row(

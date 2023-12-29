@@ -16,9 +16,11 @@ class CarsBloc extends Bloc<CarsEvent, CarsState> {
   late String brand;
   late String model;
   late String type;
+  List? cars;
   CarsBloc() : super(CarsInitial()) {
     on<SelectCarDeteilsEvent>(brandMethod);
     on<AddcarEvent>(addCar);
+    on<CarsDataEvent>(carData);
   }
 
   FutureOr<void> brandMethod(
@@ -48,5 +50,13 @@ class CarsBloc extends Bloc<CarsEvent, CarsState> {
     } catch (e) {
       return;
     }
+  }
+
+  FutureOr<void> carData(CarsDataEvent event, Emitter<CarsState> emit) async {
+    try {
+      final supabase = SupabaseNetworking().getSupabase;
+      final id = supabase.auth.currentUser?.id;
+      cars = await supabase.from("cars").select().eq("id_user", id!);
+    } catch (error) {}
   }
 }
