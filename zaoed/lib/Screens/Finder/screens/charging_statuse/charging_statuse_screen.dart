@@ -13,7 +13,7 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: ChargingAppBar(context),
+      appBar: chargingAppBar(context),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
                     height: 150,
                     child: BlocBuilder<FinderBloc, FinderState>(
                       builder: (context, state) {
-                        return TimerWidget();
+                        return const TimerWidget();
                       },
                     ),
                   ),

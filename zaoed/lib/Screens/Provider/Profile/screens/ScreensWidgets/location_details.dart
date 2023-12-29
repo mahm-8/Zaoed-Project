@@ -56,7 +56,7 @@ class LocationDetails extends StatelessWidget {
                   const Spacer(),
                   InkWell(
                       onTap: () {
-                        DeleteChargingPoint(context);
+                        deleteChargingPoint(context);
                       },
                       child: Image.asset('lib/assets/icons/delete.png'))
                 ],

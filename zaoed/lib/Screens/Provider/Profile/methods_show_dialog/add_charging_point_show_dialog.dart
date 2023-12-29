@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> AddChargingPointShowDialog(BuildContext context) {
+Future<dynamic> addChargingPointShowDialog(BuildContext context) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,

@@ -14,7 +14,7 @@ class EditChargingPointScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: AddChargingScreenAppBar(context,
+      appBar: addChargingScreenAppBar(context,
           title: 'تعديل نقطة شحن', isEditing: true),
       body: SingleChildScrollView(
         child: Padding(
@@ -22,7 +22,7 @@ class EditChargingPointScreen extends StatelessWidget {
           child: Column(
             children: [
               AddChargingPointTextField(controller: controller),
-               ChargingPointLocation(),
+              const ChargingPointLocation(),
               const AvailabilityHours(),
               const ChargingTypeSection(),
               const SizedBox(

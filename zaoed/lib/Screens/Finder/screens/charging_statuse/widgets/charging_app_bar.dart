@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-AppBar ChargingAppBar(BuildContext context) {
+AppBar chargingAppBar(BuildContext context) {
   return AppBar(
     title: Text(
       'حالة الشحن',

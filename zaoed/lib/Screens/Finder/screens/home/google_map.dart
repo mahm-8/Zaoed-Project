@@ -1,14 +1,10 @@
 import 'dart:async';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
-import 'package:image/image.dart' as IMG;
 
 class GoogleMapScreen extends StatefulWidget {
   const GoogleMapScreen({super.key});
@@ -41,9 +37,9 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
       zoom: 15,
     );
     getCurrentLocation();
-    final LatLng sourceLocation = LatLng(37.4219983, -122.084);
-    final LatLng sourceLocation1 = LatLng(37.33500303, -122.03272188);
-    final LatLng destination = LatLng(37.33429383, -122.0660055);
+     LatLng sourceLocation = const LatLng(37.4219983, -122.084);
+     LatLng sourceLocation1 = const LatLng(37.33500303, -122.03272188);
+     LatLng destination = const LatLng(37.33429383, -122.0660055);
     // polylines =
     //     await createPolylines(sourceLocation, sourceLocation1, destination);
   }
@@ -52,8 +48,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   getCurrentLocation() {
     location?.getLocation().then((location) {
       currentLocation = location;
-      print(location.latitude);
-      print(location.longitude);
     });
     location?.onLocationChanged.listen((newLocation) {
       currentLocation = newLocation;
@@ -140,7 +134,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
                         },
                       );
                     }
-                    return Text('ggggg');
+                    return const Text('ggggg');
                   },
                 );
               } else {

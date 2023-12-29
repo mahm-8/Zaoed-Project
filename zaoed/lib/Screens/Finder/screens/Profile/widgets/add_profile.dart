@@ -35,7 +35,7 @@ class AddInformation extends StatelessWidget {
             context.successAddInfo(msg: 'تم إضافة البيانات بنجاح');
             final user = context.read<UserBloc>();
 
-            Future.delayed(Duration(seconds: 2), () {
+            Future.delayed(const Duration(seconds: 2), () {
               context.push(view: EditProfileScreen(user: user.user));
             });
           }
@@ -47,7 +47,6 @@ class AddInformation extends StatelessWidget {
                 phone: phoneController.text,
                 birthday: dateController.text,
                 gender: selectGender);
-            print(user);
             context.read<UserBloc>().add(UpdateUserEvent(user));
             context.showLoading();
           },

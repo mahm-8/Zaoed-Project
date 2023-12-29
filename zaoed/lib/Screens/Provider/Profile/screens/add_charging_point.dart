@@ -17,15 +17,15 @@ class AddChargingPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: AddChargingScreenAppBar(context, title: 'إضافة نقطة شحن'),
+      appBar: addChargingScreenAppBar(context, title: 'إضافة نقطة شحن'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: Column(
             children: [
               AddChargingPointTextField(controller: controller),
-               ChargingPointLocation(),
-              AvailabilityHours(),
+              const ChargingPointLocation(),
+              const AvailabilityHours(),
               const ChargingTypeSection(),
               const SizedBox(
                 height: 8,
@@ -34,7 +34,7 @@ class AddChargingPoint extends StatelessWidget {
                   textEntry: "إضافة",
                   backColor: AppColors().green,
                   onPress: () {
-                    AddChargingPointShowDialog(context);
+                    addChargingPointShowDialog(context);
                     Future.delayed(const Duration(seconds: 2), () {
                       context.pop();
                       context.pop();

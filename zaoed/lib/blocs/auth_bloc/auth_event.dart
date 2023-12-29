@@ -9,8 +9,9 @@ class SignUpEvent extends AuthEvent {
   final GlobalKey<FormState> keyEmail;
   final GlobalKey<FormState> keyPassword;
   final GlobalKey<FormState> keyUsername;
+   final String type;
 
-  SignUpEvent(this.email, this.password, this.username, this.keyEmail,
+  SignUpEvent(this.email, this.password, this.username, this.keyEmail,this.type,
       this.keyPassword, this.keyUsername);
 }
 

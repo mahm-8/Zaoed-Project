@@ -1,8 +1,6 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:moyasar/moyasar.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
 
 class PaymentMethods extends StatelessWidget {
   PaymentMethods({
@@ -21,22 +19,17 @@ class PaymentMethods extends StatelessWidget {
     if (result is PaymentResponse) {
       switch (result.status) {
         case PaymentStatus.paid:
-          print("paid");
           
           break;
         case PaymentStatus.failed:
-          print("failed");
           // handle failure.
           break;
         case PaymentStatus.initiated:
-          print("initiated");
           // TODO: Handle this case.
           break;
         case PaymentStatus.authorized:
-          print("authorized");
         // TODO: Handle this case.
         case PaymentStatus.captured:
-          print("captured");
         // TODO: Handle this case.
       }
     }

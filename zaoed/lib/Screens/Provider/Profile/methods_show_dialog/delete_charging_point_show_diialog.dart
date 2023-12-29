@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> DeleteChargingPointShowDialog(BuildContext context) {
+Future<dynamic> deleteChargingPointShowDialog(BuildContext context) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,
@@ -15,7 +15,7 @@ Future<dynamic> DeleteChargingPointShowDialog(BuildContext context) {
         button1: 'نعم',
         button2: 'التراجع',
         pressOne: () {
-          CancelShowDialog(context);
+          cancelShowDialog(context);
           Future.delayed(const Duration(seconds: 2), () {
             context.pop();
             context.pop();

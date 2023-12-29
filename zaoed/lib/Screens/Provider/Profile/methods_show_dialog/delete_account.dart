@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> DeleteAccount(BuildContext context) {
+Future<dynamic> deleteAccount(BuildContext context) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,

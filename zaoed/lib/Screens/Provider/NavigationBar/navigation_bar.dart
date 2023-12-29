@@ -2,13 +2,12 @@ import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
-import 'package:zaoed/constants/colors.dart';
 
 class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});
 
   final List providerScreens = [
-    SavedBookmarksScreen(),
+    const SavedBookmarksScreen(),
     const ChargingStatuesScreen(),
     const MapHomeScreen(),
     const ProfileScreen(),

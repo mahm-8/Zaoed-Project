@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit_profile_screen.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
@@ -19,7 +18,6 @@ class InformationScreen extends StatelessWidget {
             nameController: nameController,
             phoneController: phoneController,selectGender: bloc.user?.gender??"Select gender")
         : EditProfileScreen(user: bloc.user);
-//first screen
   }
 
   controllerText(BuildContext context) {

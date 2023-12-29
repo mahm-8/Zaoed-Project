@@ -27,7 +27,7 @@ class PersonalImageContainer extends StatelessWidget {
             left: 0,
             child: InkWell(
               onTap: () {
-                 UploadImageSheet(context);
+                uploadImageSheet(context);
               },
               child: ClipOval(
                 child: Container(

@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable
 
-import 'dart:math';
 
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_confirmation_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
@@ -86,7 +85,6 @@ class BookingScreen extends StatelessWidget {
                       bloc.price = 8 * 50;
                       break;
                     default:
-                      print('error');
                   }
 
                   context.push(

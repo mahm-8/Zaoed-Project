@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
@@ -26,21 +25,15 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       final response = await supabase
           .from('charging_point')
           .select('point_id,latitude,longitude');
-      print(response);
 
       for (var element in response) {
         chargingPoints.add(element);
       }
-      print('111111111111111111');
-      print(chargingPoints);
       if (chargingPoints != []) {
-        print(chargingPoints);
         Uint8List bytes = (await rootBundle.load('lib/assets/icons/pin.png'))
             .buffer
             .asUint8List();
         Uint8List? smallimg = resizeImage(bytes, 70, 70);
-        print('ssssssssssssssssssss');
-        print(smallimg);
         Set<Marker> markers = {};
         markers = createMarkers(
             chargingPoints, BitmapDescriptor.fromBytes(smallimg!));
@@ -79,8 +72,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
         markers.add(newMarker);
       }
     }
-    print('gggggggggggggggggggggggggggggggggggggg');
-    print(markers);
     return markers;
   }
 

@@ -1,6 +1,4 @@
-import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/test_pay.dart';
 
 class PurchaseScreen extends StatelessWidget {
   const PurchaseScreen({

@@ -12,7 +12,6 @@ class StaticsScreen extends StatelessWidget {
     context.read<StaticBloc>().add(CalculateDailyProfit());
     final staticbloc = context.read<StaticBloc>();
     context.read<StaticBloc>().add(HourStaticEvent());
-    final dailyhour = context.read<StaticBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'الاحصائيات'),
@@ -39,14 +38,13 @@ class StaticsScreen extends StatelessWidget {
                 ),
                 BlocBuilder<StaticBloc, StaticState>(
                   builder: (context, state) {
-                    print(dailyhour.dailyHour);
                     if (state is StaticHourState) {
                       return DailyHoursRateChartContainer(
                         title: 'معدل الساعات اليومية',
                         subTitle: '${state.totalToday} ساعات',
                       );
                     }
-                    return DailyHoursRateChartContainer(
+                    return const DailyHoursRateChartContainer(
                       title: 'معدل الساعات اليومية',
                       subTitle: '0 ساعات 0 دقيقة',
                     );

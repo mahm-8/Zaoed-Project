@@ -54,7 +54,7 @@ class BankInformationScreen extends StatelessWidget {
               backColor: AppColors().green,
               textColor: AppColors().white,
               onPress: () {
-                AddBankShowDialog(context);
+                addBankShowDialog(context);
                 Future.delayed(const Duration(seconds: 2), () {
                   Navigator.of(context).pop();
                 });

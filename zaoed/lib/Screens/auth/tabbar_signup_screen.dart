@@ -45,8 +45,8 @@ class _TabbarSignupState extends State<TabbarSignup>
                         child: TabBarView(
                             controller: signuptabController,
                             children: [
-                              SignUpScreen(),
-                              SignUpScreen(),
+                              SignUpScreen(type: 'provider',),
+                              SignUpScreen( type: 'finder',),
                             ]),
                       ),
                     ],
@@ -79,8 +79,8 @@ class _TabbarSignupState extends State<TabbarSignup>
                       child: TabBarView(
                           controller: signuptabController,
                           children: [
-                            SignUpScreen(),
-                            SignUpScreen(),
+                            SignUpScreen(type: 'provider',),
+                            SignUpScreen( type: 'finder',),
                           ]),
                     ),
                   ],

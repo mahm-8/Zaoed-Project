@@ -3,7 +3,7 @@ import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_prof
 import 'package:zaoed/constants/colors.dart';
 
 class DailyProfitRateChartContainer extends StatelessWidget {
-  DailyProfitRateChartContainer({
+  const DailyProfitRateChartContainer({
     super.key,
     required this.title,
     required this.subTitle,

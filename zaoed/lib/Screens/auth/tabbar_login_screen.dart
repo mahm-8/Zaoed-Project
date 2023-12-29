@@ -21,7 +21,6 @@ class _TabBarLoginState extends State<TabBarLogin>
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {
         if (state is PageTapBarState) {
-          print(state.selected);
           return DefaultTabController(
               initialIndex: state.selected,
               length: 2,
