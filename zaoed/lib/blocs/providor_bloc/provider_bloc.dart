@@ -15,6 +15,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
   int count7 = 0;
   String selectedHour = "";
   List<ChargingPoint> chargePointsData = [];
+  String? pointName;
 
   double? pinLatitude;
   double? pinLongitude;
@@ -127,6 +128,39 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
             .select()
             .single();
         emit(AddChargingPointState());
+        print(countersList);
+        List<Map<String, dynamic>> theList = [];
+        for (var element in countersList) {
+          Map<String, dynamic> updateElements = {...element};
+          updateElements
+              .addAll({"id_charging_point": chargingPoint["point_id"]});
+          theList.add(updateElements);
+        }
+        print(theList);
+        await supabase.from('port_counter').insert(theList);
+        emit(AddChargingPointState());
+      } catch (e) {
+        print(e.toString());
+        return;
+      }
+    });
+
+    on<EditChargingPointEvent>((event, emit) async {
+      try {
+        final id = supabase.auth.currentUser?.id;
+        final chargingPoint = await supabase
+            .from("charging_point")
+            .update({
+              "point_name": event.chargingPointName,
+              "arrivel_hour": event.chargingTimes,
+              'id_auth': id,
+            })
+            .select()
+            .single();
+
+        pointName = chargingPoint['point_name'];
+
+        emit(EditChargingPointState());
         print(countersList);
         List<Map<String, dynamic>> theList = [];
         for (var element in countersList) {

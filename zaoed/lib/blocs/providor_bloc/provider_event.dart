@@ -37,6 +37,14 @@ class AddChargingPointEvent extends ProviderEvent {
       this.longitude, this.latitude);
 }
 
+class EditChargingPointEvent extends ProviderEvent {
+  final String chargingPointName;
+  final String chargingTimes;
+
+  EditChargingPointEvent(
+      {required this.chargingPointName, required this.chargingTimes});
+}
+
 class DeleteChargingPointEvent extends ProviderEvent {
   final int? pointId;
 

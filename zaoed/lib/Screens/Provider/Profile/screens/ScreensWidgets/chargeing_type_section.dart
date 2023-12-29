@@ -4,7 +4,10 @@ import 'package:zaoed/constants/imports.dart';
 class ChargingTypeSection extends StatelessWidget {
   const ChargingTypeSection({
     super.key,
+    required this.isEdit,
   });
+
+  final bool isEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,8 @@ class ChargingTypeSection extends StatelessWidget {
                 children: [
                   ChargingType(
                     imageUrl: 'lib/assets/icons/GB.png',
-                    count: bloc.count1,
+                    // edit? edit on count: bloc.count;
+                    count: isEdit ? 0 : bloc.count1,
                     type: 'GB/T AC',
                     decrement: () {
                       bloc.add(ChargingTypeIncrementCountEvent(name: "count1"));
