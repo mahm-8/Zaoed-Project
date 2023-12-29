@@ -14,9 +14,6 @@ class _TimerWidgetState extends State<TimerWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FinderBloc, FinderState>(
-      buildWhen: (_, newstate) {
-        return true;
-      },
       builder: (context, state) {
         if (state is TimerDataState) {
           return Row(
