@@ -57,6 +57,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                   onTap: () async {
                     String state = '';
                     if (card.cardList != null) {
+                      print(card.cardList![0].numberCard);
                       final source = CardPaymentRequestSource(
                           creditCardData: CardFormModel(
                               name: card.cardList![0].name ?? '',

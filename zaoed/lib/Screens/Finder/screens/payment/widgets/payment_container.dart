@@ -21,6 +21,8 @@ class PaymentContainer extends StatelessWidget {
             child: BlocBuilder<CardBloc, CardState>(
               builder: (context, state) {
                 final bloc = context.read<CardBloc>();
+                print("===========================");
+                print(bloc.cardList);
                 if (bloc.cardList != null) {
                   return Column(
                     children: [

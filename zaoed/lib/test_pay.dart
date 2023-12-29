@@ -8,7 +8,7 @@ class PaymentMethods extends StatelessWidget {
   });
 
   final paymentConfig = PaymentConfig(
-    publishableApiKey: 'sk_test_WV8xzDhDfPDVq8UzSivsBUUBF5CebbhknDsF6uPo',
+    publishableApiKey: 'pk_test_K78biLZJNmBoMGzB44BN4B3yKoRMNCTqmfDEYvtX',
     amount: 25758, // SAR 257.58
     description: 'order #13243',
     creditCard: CreditCardConfig(saveCard: true, manual: false),
