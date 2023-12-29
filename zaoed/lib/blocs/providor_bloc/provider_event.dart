@@ -23,7 +23,7 @@ class ChargingTypeDecrementCountEvent extends ProviderEvent {
   ChargingTypeDecrementCountEvent({required this.name});
 }
 
-class GetChargingPointEvent extends ProviderEvent {}
+class GetChargingPointDetailsEvent extends ProviderEvent {}
 
 class AddChargingPointEvent extends ProviderEvent {
   final String chargingPointName;

@@ -63,7 +63,7 @@ class MainApp extends StatelessWidget {
           create: (context) => FinderBloc(),
         ),
         BlocProvider(
-          create: (context) => ActionsBloc()..add(GetBookmarkEvent()),
+          create: (context) => ActionsBloc()..add(GetChargingPointsEvent()),
         ),
       ],
       child: MaterialApp(
@@ -79,7 +79,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: const ChargingPointDataScreen(),
+        home: NavigationBarScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

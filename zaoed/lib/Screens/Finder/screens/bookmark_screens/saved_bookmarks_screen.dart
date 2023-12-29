@@ -6,6 +6,8 @@ class SavedBookmarksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<ActionsBloc>().add(GetBookmarkEvent());
+
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: customAppBar(context, title: "المحفوظات"),

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/model/bookmark_model.dart';
 export 'dart:async';
 part 'actions_event.dart';
@@ -20,8 +19,7 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     on<AddBookmarkEvent>(addBookmarkMethod);
     on<DeleteBookmarkEvent>(deleteBookmarkMethod);
     on<GetChargingPointsEvent>(getChargingPointsMethod);
-    // on<Delte>
-    // add(GetBookmarkEvent());
+
     on<CaponEvent>((event, emit) {
       if (capon == 'Zaoed') {
         price = price! - (price! * 0.25);
@@ -33,12 +31,11 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
 
   FutureOr<void> getChargingPointsMethod(
       GetChargingPointsEvent event, Emitter<ActionsState> emit) async {
-    // check if have error from merge??
     try {
-      emit(LoadingState());
       chargingPointData = await ActionSupabaseMethods().getChargingPoint();
       await Future.delayed(const Duration(seconds: 1));
       emit(GetChargingPointsState(chargingPoints: chargingPointData!));
+      print(chargingPointData);
       add(GetChargingPointsEvent());
     } catch (e) {
       ErrorState();
@@ -49,7 +46,6 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       GetBookmarkEvent event, Emitter<ActionsState> emit) async {
     // check if have error from merge??
     try {
-      emit(LoadingState());
       bookmarkData = await ActionSupabaseMethods().getBookmarks();
       await Future.delayed(const Duration(seconds: 1));
       emit(GetBookmarkState(bookmarks: bookmarkData!));

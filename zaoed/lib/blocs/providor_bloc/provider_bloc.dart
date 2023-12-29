@@ -103,15 +103,8 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
       }
     });
 
-    on<GetChargingPointEvent>((event, emit) async {
-      try {
-        emit(LoadingState());
-        chargePointsData = await ActionSupabaseMethods().getChargingPoint();
-        await Future.delayed(const Duration(seconds: 1));
-        emit(GetChargingPointState());
-      } catch (e) {
-        ErrorState(message: 'error');
-      }
+    on<GetChargingPointDetailsEvent>((event, emit) async {
+      // get charging o=point detals to edit
     });
     on<AddChargingPointEvent>((event, emit) async {
       try {
@@ -147,21 +140,19 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
 
     on<EditChargingPointEvent>((event, emit) async {
       try {
+        //
         final id = supabase.auth.currentUser?.id;
         final chargingPoint = await supabase
             .from("charging_point")
             .update({
               "point_name": event.chargingPointName,
-              //hours?
               'id_auth': id,
             })
             .select()
             .single();
 
         pointName = chargingPoint['point_name'];
-
-        emit(EditChargingPointState());
-        print(countersList);
+        print(pointName);
         List<Map<String, dynamic>> theList = [];
         for (var element in countersList) {
           Map<String, dynamic> updateElements = {...element};
@@ -183,7 +174,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
       try {
         await ActionSupabaseMethods().deleteChargingPoint(id: event.pointId);
         emit(DeleteChargingPointState());
-        add(GetChargingPointEvent());
+        add(GetChargingPointDetailsEvent());
         emit(LoadingState());
       } catch (e) {
         emit(ErrorState(message: 'لم يتم الحذف'));
@@ -206,24 +197,4 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
     //   }
     // });
   }
-
-  // getLocationMethod() async {
-  //   try {
-  //     final id = SupabaseNetworking().getSupabase.auth.currentUser?.id;
-
-  //     List locationList = [];
-  //     final locationData = await SupabaseNetworking()
-  //         .getSupabase
-  //         .from("charging_point")
-  //         .select('longitude,latitude')
-  //         .eq('id_auth', id!);
-  //     // print("locatiiiion$locationData");
-  //     for (var element in locationData) {
-  //       locationList.add(element);
-  //     }
-  //     return locationList;
-  //   } catch (e) {
-  //     print(e.toString());
-  //   }
-  // }
 }

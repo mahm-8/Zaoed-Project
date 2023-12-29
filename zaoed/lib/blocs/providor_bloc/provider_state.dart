@@ -28,7 +28,7 @@ class ChargingTypeCountUpdated extends ProviderState {
   ChargingTypeCountUpdated(this.count);
 }
 
-class GetChargingPointState extends ProviderState {}
+class GetChargingPointDetailsState extends ProviderState {}
 
 class AddChargingPointState extends ProviderState {}
 
