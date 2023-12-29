@@ -1,15 +1,23 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class BookingPriceContainer extends StatelessWidget {
-  const BookingPriceContainer({
+  BookingPriceContainer({
     super.key,
     required this.discount,
+    this.hour,
   });
 
   final int discount;
 
+  String? capon;
+
+  String? hour;
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ActionsBloc>();
     return Container(
       height: 192,
       width: 350,
@@ -19,11 +27,11 @@ class BookingPriceContainer extends StatelessWidget {
         children: [
           BookingPriceLabel(
             title: 'السعر الفرعي',
-            subTitle: '19.00 ريال',
+            subTitle: '${bloc.price} ريال',
           ),
           BookingPriceLabel(
             title: 'عدد ساعات الشحن',
-            subTitle: '3 ساعات',
+            subTitle: '$hour',
           ),
           BookingPriceLabel(
             title: 'الخصم ($discount)',
@@ -36,7 +44,7 @@ class BookingPriceContainer extends StatelessWidget {
           ),
           BookingPriceLabel(
             title: 'المجموع (تتضمن الـ VAT)',
-            subTitle: '57.00 ريال',
+            subTitle: '${bloc.price} ريال',
           )
         ],
       ),

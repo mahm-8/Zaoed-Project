@@ -9,10 +9,12 @@ class SignUpEvent extends AuthEvent {
   final GlobalKey<FormState> keyEmail;
   final GlobalKey<FormState> keyPassword;
   final GlobalKey<FormState> keyUsername;
+   final String type;
 
-  SignUpEvent(this.email, this.password, this.username, this.keyEmail, this.keyPassword, this.keyUsername);
-
+  SignUpEvent(this.email, this.password, this.username, this.keyEmail,this.type,
+      this.keyPassword, this.keyUsername);
 }
+
 class VerificationEvent extends AuthEvent {
   final String otp;
   final String email;
@@ -41,4 +43,13 @@ class LogInAuthEvent extends AuthEvent {
       required this.passwordKey});
 }
 class CheckLoginEvent extends AuthEvent {}
+
+
+class UpdatePassword extends AuthEvent {
+ final String pass;
+final String email;
+
+  UpdatePassword(this.pass, this.email);
+  
+}
 class LogoutEvent extends AuthEvent {}

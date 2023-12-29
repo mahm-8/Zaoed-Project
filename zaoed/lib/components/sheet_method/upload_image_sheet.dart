@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
 
-UploadImageSheet(BuildContext context) {
+uploadImageSheet(BuildContext context) {
   showModalBottomSheet(
       backgroundColor: AppColors().gray6,
       context: context,
@@ -15,7 +14,7 @@ UploadImageSheet(BuildContext context) {
               color: AppColors().gray9, borderRadius: BorderRadius.circular(8)),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Container(
@@ -23,11 +22,11 @@ UploadImageSheet(BuildContext context) {
                 height: 2,
                 decoration: BoxDecoration(color: AppColors().gray),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: AppColors().gray6),

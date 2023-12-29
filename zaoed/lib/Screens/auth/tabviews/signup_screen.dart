@@ -3,8 +3,9 @@
 import 'package:zaoed/constants/imports.dart';
 
 class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
+  SignUpScreen({super.key, required this.type});
   bool pass = false;
+  final String type;
   final _userNameKey = GlobalKey<FormState>();
   final _emailKey = GlobalKey<FormState>();
   final _passwordKey = GlobalKey<FormState>();
@@ -85,6 +86,7 @@ class SignUpScreen extends StatelessWidget {
                     context.read<AuthBloc>().add(DisplayPasswordEvent(pass)),
                 validator: (value) {
                   if (value!.isEmpty) {
+                    print(type);
                     return "ادخل كلمة السر";
                   }
                   if (!value.isValidPassword) {
@@ -126,6 +128,7 @@ class SignUpScreen extends StatelessWidget {
                     passwordController.text,
                     nameController.text,
                     _emailKey,
+                    type,
                     _passwordKey,
                     _userNameKey));
               },

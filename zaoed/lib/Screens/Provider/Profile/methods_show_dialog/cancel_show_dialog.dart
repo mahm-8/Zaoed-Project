@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> CancelShowDialog(BuildContext context) {
+Future<dynamic> cancelShowDialog(BuildContext context) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,

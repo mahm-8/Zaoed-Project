@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> AddBankShowDialog(BuildContext context) {
+Future<dynamic> addBankShowDialog(BuildContext context) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,

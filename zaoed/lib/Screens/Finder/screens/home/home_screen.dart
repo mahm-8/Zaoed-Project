@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           ButtonChoiceWidget(
             imageUrl: "lib/assets/icons/main_info.png",
             onPress: () {
-              context.charginfCarSheet();
+              context.chargingCarSheet();
             },
           ),
           const Spacer(),

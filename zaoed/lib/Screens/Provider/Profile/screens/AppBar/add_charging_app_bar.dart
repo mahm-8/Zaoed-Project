@@ -1,6 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
-AppBar AddChargingScreenAppBar(BuildContext context,
+AppBar addChargingScreenAppBar(BuildContext context,
     {title, isEditing = false}) {
   return AppBar(
     centerTitle: true,
@@ -21,7 +21,7 @@ AppBar AddChargingScreenAppBar(BuildContext context,
     actions: [
       TextButton(
           onPressed: () {
-            DeleteChargingPointShowDialog(context);
+            deleteChargingPointShowDialog(context);
             Future.delayed(const Duration(seconds: 2), () {
               context.pop();
             });

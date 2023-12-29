@@ -18,7 +18,7 @@ class AddChargingPoint extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: AddChargingScreenAppBar(context, title: 'إضافة نقطة شحن'),
+      appBar: addChargingScreenAppBar(context, title: 'إضافة نقطة شحن'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -46,7 +46,7 @@ class AddChargingPoint extends StatelessWidget {
                         bloc.selectedHour,
                         bloc.pinLongitude,
                         bloc.pinLatitude));
-                    AddChargingPointShowDialog(context);
+                    addChargingPointShowDialog(context);
                     Future.delayed(const Duration(seconds: 2), () {
                       context.pop();
                     });

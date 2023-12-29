@@ -1,18 +1,18 @@
 import 'package:zaoed/constants/imports.dart';
+
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 
-class NavigationBarScreen extends StatelessWidget {
-  NavigationBarScreen({super.key});
+class FinderNavigationBarScreen extends StatelessWidget {
+  FinderNavigationBarScreen({super.key});
 
-  final List providerScreens = [
+  final List finderScreens = [
     const SavedBookmarksScreen(),
     const ChargingStatuesScreen(),
     const MapHomeScreen(),
-    const ProfileScreen(),
+    const ProfileFinder(),
   ];
-
   @override
   Widget build(BuildContext context) {
     context.read<UserBloc>().add(GetUserDataEvent());
@@ -21,7 +21,7 @@ class NavigationBarScreen extends StatelessWidget {
         if (state is PagesNavigationState) {
           return Scaffold(
             extendBody: true,
-            body: providerScreens[state.seleted],
+            body: finderScreens[state.seleted],
             bottomNavigationBar: SizedBox(
               height: 64,
               child: BottomNavigationBar(
@@ -70,7 +70,7 @@ class NavigationBarScreen extends StatelessWidget {
         }
         return Scaffold(
           extendBody: true,
-          body: providerScreens[2],
+          body: finderScreens[2],
           bottomNavigationBar: SizedBox(
             height: 64,
             child: BottomNavigationBar(

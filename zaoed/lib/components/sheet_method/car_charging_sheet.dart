@@ -4,7 +4,7 @@ import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
 
 extension ChargingCarSheet on BuildContext {
-  charginfCarSheet() {
+  chargingCarSheet() {
     showBottomSheet(
       enableDrag: true,
       context: this,

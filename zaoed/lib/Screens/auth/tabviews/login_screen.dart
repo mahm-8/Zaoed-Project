@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Provider/NavigationBar/navigation_bar.dart';
+import 'package:zaoed/Screens/loading/loading_screen.dart';
 import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
@@ -100,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>  TabbarSignup()));
+                        builder: (context) => const TabbarSignup()));
               },
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",
@@ -112,7 +112,8 @@ class LoginScreen extends StatelessWidget {
             ),
             BlocConsumer<AuthBloc, AuthStates>(listener: (context, state) {
               if (state is SuccessLoginState) {
-                context.pushAndRemoveUntil(view: NavigationBarScreen());
+                context.read<AuthBloc>().add(CheckLoginEvent());
+                context.pushAndRemoveUntil(view: const LoadingScreen());
               }
               if (state is ErrorLoginState) {
                 context.showErrorMessage(msg: state.message);

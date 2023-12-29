@@ -32,6 +32,7 @@ final class ErrorLoginState extends AuthStates {
 
   ErrorLoginState(this.message);
 }
+
 final class LogoutSuccessState extends AuthStates {}
 
 final class ErrorLogoutState extends AuthStates {
@@ -39,9 +40,17 @@ final class ErrorLogoutState extends AuthStates {
 
   ErrorLogoutState(this.msg);
 }
-class CheckLoginState extends AuthStates {}
+
+class CheckLoginState extends AuthStates {
+  final String type;
+
+  CheckLoginState(this.type);
+}
 
 class ErrorCheckState extends AuthStates {}
+
 final class SuccessLoginState extends AuthStates {}
+
+class SuccessChangePass extends AuthStates {}
 
 final class SuccessVerificationState extends AuthStates {}

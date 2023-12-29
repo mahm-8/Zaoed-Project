@@ -27,7 +27,7 @@ class BookingChargingInformation extends StatelessWidget {
                       width: 21,
                       height: 20,
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
               const SizedBox(
                 width: 8,
               ),

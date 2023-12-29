@@ -1,6 +1,7 @@
 import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
+// ignore: must_be_immutable
 class AddCard extends StatelessWidget {
   AddCard({super.key});
   TextEditingController nameController = TextEditingController();
@@ -16,7 +17,7 @@ class AddCard extends StatelessWidget {
       floatingActionButton: BlocListener<CardBloc, CardState>(
         listener: (context, state) {
           if (state is AddCardState) {
-            context.pushAndRemoveUntil(view: CardScreen());
+            context.pushAndRemoveUntil(view: const CardScreen());
           }
         },
         child: ElevatedButton(

@@ -1,15 +1,16 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class BookingConfirmationScreen extends StatelessWidget {
   const BookingConfirmationScreen(
-      {super.key, required this.type, required this.hour, required this.image});
+      {super.key, required this.type, required this.hour, required this.image, required this.price});
   final String type;
   final String hour;
   final String image;
+  final double price;
   @override
   Widget build(BuildContext context) {
-    print(type);
-    print(hour);
+   final bloc = context.read<ActionsBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'تأكيد الحجز'),
@@ -24,7 +25,7 @@ class BookingConfirmationScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   color: AppColors().gray6),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -48,7 +49,7 @@ class BookingConfirmationScreen extends StatelessWidget {
                       view: PaymentProcessScreen(
                     type: type,
                     hour: hour,
-                    image: image,
+                    image: image, price: bloc.price,
                   ));
                 },
                 textColor: AppColors().gray8)

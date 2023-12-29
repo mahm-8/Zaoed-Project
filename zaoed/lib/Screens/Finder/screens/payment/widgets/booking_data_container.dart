@@ -1,7 +1,7 @@
 import 'package:zaoed/constants/imports.dart';
 
 class BookingDataContainer extends StatelessWidget {
-  BookingDataContainer({
+  const BookingDataContainer({
     super.key,
     required this.type,
     required this.hour,

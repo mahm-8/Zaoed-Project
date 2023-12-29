@@ -18,12 +18,12 @@ class BookmarkModel {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['bookmark_id'] = bookmarkId;
-    _data['point_id'] = pointId;
-    _data['id_auth'] = idAuth;
-    _data['charging_point'] = chargingPoint.toJson();
-    return _data;
+    final data = <String, dynamic>{};
+    data['bookmark_id'] = bookmarkId;
+    data['point_id'] = pointId;
+    data['id_auth'] = idAuth;
+    data['charging_point'] = chargingPoint.toJson();
+    return data;
   }
 }
 

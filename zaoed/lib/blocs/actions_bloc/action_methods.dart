@@ -19,7 +19,7 @@ class ActionSupabaseMethods {
       }
       return bookmarkList;
     } catch (e) {
-      print(e.toString());
+      return;
     }
   }
 

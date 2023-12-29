@@ -1,7 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_confirmation_screen.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -21,7 +23,7 @@ class BookingScreen extends StatelessWidget {
     'Tesla',
     'Type1',
   ];
-   List<String> imageUrl = [
+  List<String> imageUrl = [
     'lib/assets/icons/GB.png',
     'lib/assets/icons/Type 2.png',
     'lib/assets/icons/Tesla.png',
@@ -30,6 +32,7 @@ class BookingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final indexer = context.read<PagesBloc>();
+    final bloc = context.read<ActionsBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'الحجز'),
@@ -59,7 +62,41 @@ class BookingScreen extends StatelessWidget {
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-                  context.push(view:  BookingConfirmationScreen(type: types[indexer.typePort], hour: hours[indexer.hourCharg], image: imageUrl[indexer.typePort],));
+                  context
+                      .read<BottomSheetStatusBloc>()
+                      .add(UpdateStatusEvent(status: Status.completedPayment));
+                  switch (hours[indexer.hourCharg]) {
+                    case 'ساعة':
+                      bloc.price = 1 * 50;
+                      break;
+                    case "ساعتان":
+                      bloc.price = 2 * 50;
+                      break;
+                    case "3 ساعات":
+                      bloc.price = 3 * 50;
+                      break;
+                    case "4 ساعات":
+                      bloc.price = 4 * 50;
+                      break;
+                    case "5 ساعات":
+                      bloc.price = 5 * 50;
+                      break;
+                    case "6 ساعات":
+                      bloc.price = 6 * 50;
+                      break;
+                    case "8 ساعات":
+                      bloc.price = 8 * 50;
+                      break;
+                    default:
+                  }
+
+                  context.push(
+                      view: BookingConfirmationScreen(
+                    type: types[indexer.typePort],
+                    hour: hours[indexer.hourCharg],
+                    image: imageUrl[indexer.typePort],
+                    price: bloc.price!,
+                  ));
                 },
                 textColor: AppColors().gray8)
           ],
