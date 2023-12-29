@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -9,7 +8,6 @@ import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/model/google_map_model.dart';
 import 'package:zaoed/service/networking.dart';
 import 'package:image/image.dart' as IMG;
-
 part 'google_map_event.dart';
 part 'google_map_state.dart';
 
@@ -81,26 +79,22 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   ) async {
     final List<LatLng> polylineCoordinates = [];
     final PolylinePoints polylinePoints = PolylinePoints();
-
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       'AIzaSyB_pskxOAYeFwmfRTn-nQRRVocOj1Dyj6I',
       PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
       PointLatLng(sourceLocation1.latitude, sourceLocation1.longitude),
     );
-
     if (result.points.isNotEmpty) {
       result.points.forEach((PointLatLng point) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
       });
     }
-
     Polyline polyline = Polyline(
       polylineId: const PolylineId('route'),
       color: AppColors().green,
       width: 5,
       points: polylineCoordinates,
     );
-
     return {polyline};
   }
 }

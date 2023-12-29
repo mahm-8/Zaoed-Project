@@ -19,7 +19,7 @@ class LocationDetails extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: Text(
-              '${bloc.bookmarkData?[0].chargingPoint.pointName}',
+              '{bloc.bookmarkData?[0].chargingPoint.pointName}',
               style: TextStyle(color: AppColors().white, fontSize: 16),
             ),
           ),

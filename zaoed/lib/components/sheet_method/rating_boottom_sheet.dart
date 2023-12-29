@@ -1,7 +1,7 @@
 import 'package:zaoed/constants/imports.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-raitingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
+ratingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
   showModalBottomSheet(
     backgroundColor: AppColors().gray6,
     context: context,
