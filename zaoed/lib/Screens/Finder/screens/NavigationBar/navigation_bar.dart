@@ -4,12 +4,14 @@ import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 
+import '../charging_statuse/ChargingScreen.dart';
+
 class FinderNavigationBarScreen extends StatelessWidget {
   FinderNavigationBarScreen({super.key});
 
   final List finderScreens = [
     const SavedBookmarksScreen(),
-    const ChargingStatuesScreen(),
+    const ChargingScreen(),
     const MapHomeScreen(),
     const ProfileFinder(),
   ];

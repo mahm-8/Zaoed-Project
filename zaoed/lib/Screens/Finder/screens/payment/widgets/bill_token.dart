@@ -3,8 +3,9 @@ import 'package:zaoed/constants/imports.dart';
 class BillToken extends StatelessWidget {
   const BillToken({
     super.key,
+    this.token,
   });
-
+  final String? token;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +16,7 @@ class BillToken extends StatelessWidget {
           border: Border.all(style: BorderStyle.solid, color: Colors.black)),
       child: Center(
           child: Text(
-        '0237-7746-8981-9028-5626',
+        token ?? "",
         style: TextStyle(color: AppColors().black),
       )),
     );

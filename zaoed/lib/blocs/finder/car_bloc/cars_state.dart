@@ -9,13 +9,16 @@ final class CarBrandState extends CarsState {
 
   CarBrandState({required this.brand});
 }
+
 final class CarModelState extends CarsState {
   final String mdel;
 
   CarModelState({required this.mdel});
 }
+
 final class CarTypeState extends CarsState {
   final String type;
 
   CarTypeState({required this.type});
 }
+// class CarsDataState

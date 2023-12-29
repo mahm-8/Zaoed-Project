@@ -2,6 +2,7 @@ import 'package:zaoed/Screens/Provider/Profile/screens/charging_point_data.dart'
 import 'package:zaoed/Screens/loading/loading_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
+import 'package:zaoed/blocs/charging_bloc/charging_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
@@ -39,7 +40,10 @@ class MainApp extends StatelessWidget {
           create: (context) => StaticBloc(),
         ),
         BlocProvider(
-          create: (context) => FinderBloc()..add(LoadDataTimerEvent()),
+          create: (context) => FinderBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ChargingBloc(),
         ),
         BlocProvider(
           create: (context) => UserBloc(),

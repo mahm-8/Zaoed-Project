@@ -3,9 +3,12 @@ import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
+import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/test_pay.dart';
+
+import '../../../../blocs/finder/user_bloc/user_bloc.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
   const PaymentProcessScreen({
@@ -30,6 +33,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
     final card = context.read<CardBloc>();
+    final user = context.read<UserBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'الدفع'),
@@ -55,75 +59,86 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 1) ...[
                 PurchaseScreen(
                   onTap: () async {
-                    String state = '';
-                    if (card.cardList != null) {
-                      final source = CardPaymentRequestSource(
-                          creditCardData: CardFormModel(
-                              name: card.cardList![0].name ?? '',
-                              number: card.cardList![0].numberCard ?? "",
-                              month: card.cardList![0].expCard
-                                  .toString()
-                                  .split("/")[0],
-                              year:
-                                  '20${card.cardList![0].expCard.toString().split("/")[1]}',
-                              cvc: card.cardList![0].csv ?? ""),
-                          tokenizeCard: (PaymentMethods()
-                                  .paymentConfig
-                                  .creditCard as CreditCardConfig)
-                              .saveCard,
-                          manualPayment: (PaymentMethods()
-                                  .paymentConfig
-                                  .creditCard as CreditCardConfig)
-                              .manual);
-
-                      final paymentRequest = PaymentRequest(
-                          PaymentMethods().paymentConfig, source);
-
-                      final result = await Moyasar.pay(
-                          apiKey:
-                              PaymentMethods().paymentConfig.publishableApiKey,
-                          paymentRequest: paymentRequest);
-                      final String transactionUrl =
-                          (result.source as CardPaymentResponseSource)
-                              .transactionUrl;
-
-                      if (mounted) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              fullscreenDialog: true,
-                              maintainState: false,
-                              builder: (context) => ThreeDSWebView(
-                                  transactionUrl: transactionUrl,
-                                  on3dsDone:
-                                      (String status, String message) async {
-                                    if (status == PaymentStatus.paid.name) {
-                                      state = "paid";
-                                      result.status = PaymentStatus.paid;
-                                    } else if (status ==
-                                        PaymentStatus.authorized.name) {
-                                      state = "authorized";
-                                      result.status = PaymentStatus.authorized;
-                                    } else {
-                                      state = "failed";
-                                      result.status = PaymentStatus.failed;
-                                      (result.source
-                                              as CardPaymentResponseSource)
-                                          .message = message;
-                                    }
-                                    Navigator.pop(context);
-                                    PaymentMethods().onPaymentResult(result);
-                                    if (state == "paid") {
-                                      setState(() {
-                                        activeStep = 2;
-                                      });
-                                    }
-                                  })),
-                        );
-                      }
-                    } else {
-                      context.showErrorMessage(msg: "choose your card (^_^)");
-                    }
+                    context.read<FinderBloc>().add(PayEvent(
+                        nameFinder: user.user?.name ?? "",
+                        type: widget.type,
+                        amount: bloc.price ?? 0.0,
+                        providerName: "providerName",
+                        address: "address"));
+                    context.read<FinderBloc>().add(InvoiceDataEvent());
+                    // String state = '';
+                    // if (card.cardList != null) {
+                    //   print(card.cardList?[0].numberCard ?? '');
+                    //   final source = CardPaymentRequestSource(
+                    //       creditCardData: CardFormModel(
+                    //           name: card.cardList?[0].name ?? '',
+                    //           number: card.cardList?[0].numberCard ?? "",
+                    //           month: card.cardList?[0].expCard
+                    //                   .toString()
+                    //                   .split("/")[0] ??
+                    //               "",
+                    //           year:
+                    //               '20${card.cardList?[0].expCard.toString().split("/")[1] ?? '26'}',
+                    //           cvc: card.cardList![0].csv ?? ""),
+                    //       tokenizeCard: (PaymentMethods()
+                    //               .paymentConfig
+                    //               .creditCard as CreditCardConfig)
+                    //           .saveCard,
+                    //       manualPayment: (PaymentMethods()
+                    //               .paymentConfig
+                    //               .creditCard as CreditCardConfig)
+                    //           .manual);
+                    //   print("====$source");
+                    //   final paymentRequest = PaymentRequest(
+                    //       PaymentMethods().paymentConfig, source);
+                    //   print("====$paymentRequest=======");
+                    //   final result = await Moyasar.pay(
+                    //       apiKey:
+                    //           PaymentMethods().paymentConfig.publishableApiKey,
+                    //       paymentRequest: paymentRequest);
+                    //
+                    //   print(result);
+                    //   final String transactionUrl =
+                    //       (result.source as CardPaymentResponseSource)
+                    //           .transactionUrl;
+                    //
+                    //   if (mounted) {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           fullscreenDialog: true,
+                    //           maintainState: false,
+                    //           builder: (context) => ThreeDSWebView(
+                    //               transactionUrl: transactionUrl,
+                    //               on3dsDone:
+                    //                   (String status, String message) async {
+                    //                 if (status == PaymentStatus.paid.name) {
+                    //                   state = "paid";
+                    //                   result.status = PaymentStatus.paid;
+                    //                 } else if (status ==
+                    //                     PaymentStatus.authorized.name) {
+                    //                   state = "authorized";
+                    //                   result.status = PaymentStatus.authorized;
+                    //                 } else {
+                    //                   state = "failed";
+                    //                   result.status = PaymentStatus.failed;
+                    //                   (result.source
+                    //                           as CardPaymentResponseSource)
+                    //                       .message = message;
+                    //                 }
+                    //                 Navigator.pop(context);
+                    //                 PaymentMethods().onPaymentResult(result);
+                    // if (state == "paid") {
+                    setState(() {
+                      activeStep = 2;
+                    });
+                    // }
+                    // })),
+                    //   );
+                    // }
+                    // } else {
+                    //   context.showErrorMessage(msg: "choose your card (^_^)");
+                    // }
                   },
                 ),
               ],

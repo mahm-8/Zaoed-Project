@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/Screens/Provider/Profile/AppBar/information_app_bar.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/about_us_information.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/payment_information.dart';
@@ -6,6 +7,7 @@ import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/provi
 import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/public_sittings.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/social_media_information.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/information_title.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,9 +15,10 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<UserBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: profailAppBar(context),
+      appBar: profailAppBar(context, bloc.user?.name ?? ''),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(

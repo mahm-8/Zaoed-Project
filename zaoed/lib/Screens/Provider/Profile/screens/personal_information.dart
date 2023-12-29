@@ -26,23 +26,13 @@ class PersonalInformationScreen extends StatelessWidget {
               user: user,
             ),
             const Spacer(),
-            BlocListener<AuthBloc, AuthStates>(
-              listener: (context, state) {
-            if (state is LogoutSuccessState) {
-              context.pushAndRemoveUntil(view: const TabBarLogin());
-            } else if (state is ErrorLogoutState) {
-              Navigator.of(context).pop();
-              context.showErrorMessage(msg: state.msg);
-            }
-          },
-              child: ButtonWidget(
-                textEntry: 'تسجيل الخروج',
-                backColor: AppColors().green,
-                textColor: AppColors().white,
-                onPress: () {
-                  logOutShowDailog(context);
-                },
-              ),
+            ButtonWidget(
+              textEntry: 'تسجيل الخروج',
+              backColor: AppColors().green,
+              textColor: AppColors().white,
+              onPress: () {
+                logOutShowDailog(context);
+              },
             )
           ],
         ),

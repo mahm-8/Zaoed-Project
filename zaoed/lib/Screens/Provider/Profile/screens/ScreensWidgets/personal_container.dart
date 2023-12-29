@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/legal_affairs_lable.dart';
+import 'package:zaoed/Screens/Finder/screens/Profile/widgets/change_pass.dart.dart';
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_account.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/personal_information_label.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
@@ -8,8 +9,9 @@ import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/model/user_model.dart';
 
 class PersonalContainer extends StatelessWidget {
-   PersonalContainer({
-    super.key,required this.user,
+  PersonalContainer({
+    super.key,
+    required this.user,
   });
   final dateController = TextEditingController();
   final nameController = TextEditingController();
@@ -17,7 +19,7 @@ class PersonalContainer extends StatelessWidget {
   final UserModel? user;
   @override
   Widget build(BuildContext context) {
-     controllerText(context);
+    controllerText(context);
     return Column(
       children: [
         Container(
@@ -32,8 +34,15 @@ class PersonalContainer extends StatelessWidget {
               children: [
                 PersonalInformationLabel(
                   title: 'الأسم',
-                  onTap: () {},
-                  subTitle: 'علي محمد',
+                  onTap: () {
+                    context.push(
+                        view: AddInformation(
+                            dateController: dateController,
+                            nameController: nameController,
+                            phoneController: phoneController,
+                            selectGender: user?.gender ?? "Select gender"));
+                  },
+                  subTitle: user?.name ?? "",
                 ),
                 Divider(
                   thickness: 1,
@@ -41,8 +50,15 @@ class PersonalContainer extends StatelessWidget {
                 ),
                 PersonalInformationLabel(
                   title: 'تاريخ الميلاد',
-                  onTap: () {},
-                  subTitle: '28/04/1999',
+                  onTap: () {
+                    context.push(
+                        view: AddInformation(
+                            dateController: dateController,
+                            nameController: nameController,
+                            phoneController: phoneController,
+                            selectGender: user?.gender ?? "Select gender"));
+                  },
+                  subTitle: user?.birthday ?? "",
                 ),
                 Divider(
                   thickness: 1,
@@ -50,8 +66,15 @@ class PersonalContainer extends StatelessWidget {
                 ),
                 PersonalInformationLabel(
                   title: 'الجنس',
-                  onTap: () {},
-                  subTitle: 'ذكر',
+                  onTap: () {
+                    context.push(
+                        view: AddInformation(
+                            dateController: dateController,
+                            nameController: nameController,
+                            phoneController: phoneController,
+                            selectGender: user?.gender ?? "Select gender"));
+                  },
+                  subTitle: user?.gender ?? "",
                 ),
                 Divider(
                   thickness: 1,
@@ -59,8 +82,15 @@ class PersonalContainer extends StatelessWidget {
                 ),
                 PersonalInformationLabel(
                   title: 'رقم الجوال',
-                  onTap: () {},
-                  subTitle: '0507625994',
+                  onTap: () {
+                    context.push(
+                        view: AddInformation(
+                            dateController: dateController,
+                            nameController: nameController,
+                            phoneController: phoneController,
+                            selectGender: user?.gender ?? "Select gender"));
+                  },
+                  subTitle: user?.phone ?? "",
                 ),
                 Divider(
                   thickness: 1,
@@ -69,7 +99,7 @@ class PersonalContainer extends StatelessWidget {
                 PersonalInformationLabel(
                   title: 'البريد الإلكتروني',
                   onTap: () {},
-                  subTitle: 'ًExample@gmail.com',
+                  subTitle: user?.email ?? "",
                 ),
                 Divider(
                   thickness: 1,
@@ -77,8 +107,10 @@ class PersonalContainer extends StatelessWidget {
                 ),
                 PersonalInformationLabel(
                   title: "كلمة المرور",
-                  onTap: () {},
-                  subTitle: '00000000',
+                  onTap: () {
+                    context.push(view: ChangePassword());
+                  },
+                  subTitle: '********',
                 ),
                 Divider(
                   thickness: 1,
@@ -95,6 +127,7 @@ class PersonalContainer extends StatelessWidget {
       ],
     );
   }
+
   controllerText(BuildContext context) {
     final user = context.read<UserBloc>();
     dateController.text = user.user?.birthday ?? "";
