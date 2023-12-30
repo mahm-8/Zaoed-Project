@@ -32,7 +32,6 @@ class ActionSupabaseMethods {
   }
 
   getChargingPoint() async {
-    final id = supabase.auth.currentUser?.id;
     final chargingPointData = await supabase
         .from("charging_point")
         .select("* , port_counter(port_name, number_of_port)");
@@ -44,7 +43,6 @@ class ActionSupabaseMethods {
   }
 
   deleteChargingPoint({required int? id}) async {
-    // get id??
     await supabase.from("charging_point").delete().eq("point_id", id!);
   }
 }

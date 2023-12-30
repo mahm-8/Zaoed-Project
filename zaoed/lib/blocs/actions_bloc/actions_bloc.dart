@@ -19,6 +19,7 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     on<AddBookmarkEvent>(addBookmarkMethod);
     on<DeleteBookmarkEvent>(deleteBookmarkMethod);
     on<GetChargingPointsEvent>(getChargingPointsMethod);
+    on<ScanningEvent>(scanQrCodMethod);
 
     on<CaponEvent>((event, emit) {
       if (capon == 'Zaoed') {
@@ -79,5 +80,10 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     } catch (e) {
       emit(ErrorState());
     }
+  }
+
+  FutureOr<void> scanQrCodMethod(ScanningEvent event, Emitter<ActionsState> emit) {
+
+    
   }
 }

@@ -51,7 +51,6 @@ class HomeScreen extends StatelessWidget {
                     itemCount: state.chargingPoints.length,
                     itemBuilder: (context, index) {
                       final chargingPoints = state.chargingPoints[index];
-
                       return ChargePointsCard(
                         pointID: chargingPoints.pointId,
                         pointName: chargingPoints.pointName,

@@ -1,3 +1,4 @@
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/charging_point_data.dart';
 import 'package:zaoed/Screens/loading/loading_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
@@ -83,7 +84,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: NavigationBarScreen(),
+        home: ScanBarcodeScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
