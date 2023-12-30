@@ -29,28 +29,28 @@ class BookmarkModel {
 
 class ChargingPoint {
   ChargingPoint({
-    required this.pointId,
-    required this.userId,
-    required this.rating,
-    required this.pointName,
-    required this.portCount,
-    required this.chargingPort,
-    required this.chargingTimes,
-    required this.pointLocation,
-    required this.longitude,
-    required this.latitude,
+    this.pointId,
+    this.userId,
+    this.rating,
+    this.pointName,
+    this.portCount,
+    this.chargingPort,
+    this.chargingTimes,
+    this.pointLocation,
+    this.longitude,
+    this.latitude,
   });
-  late final int? pointId;
-  late final int? userId;
+  int? pointId;
+  int? userId;
 
-  late final double? rating;
-  late final String? pointName;
-  late final int? portCount;
-  late final String? chargingPort;
-  late final int? chargingTimes;
-  late final String? pointLocation;
-  late final double longitude;
-  late final double latitude;
+  double? rating;
+  String? pointName;
+  int? portCount;
+  String? chargingPort;
+  int? chargingTimes;
+  String? pointLocation;
+  double? longitude;
+  double? latitude;
 
   ChargingPoint.fromJson(Map<String, dynamic> json) {
     pointId = json['point_id'] ?? 0;

@@ -4,7 +4,6 @@ import 'package:zaoed/Screens/Finder/screens/charging_statuse/empty_car_charging
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/widgets/charging_app_bar.dart';
 
 import '../../../../blocs/charging_bloc/charging_bloc.dart';
-import '../../../../blocs/finder/car_bloc/cars_bloc.dart';
 import '../../../../constants/colors.dart';
 import 'charging_statuse_screen.dart';
 import 'empty_car_screen.dart';

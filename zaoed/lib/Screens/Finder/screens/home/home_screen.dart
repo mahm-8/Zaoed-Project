@@ -45,24 +45,30 @@ class HomeScreen extends StatelessWidget {
           BlocBuilder<ActionsBloc, ActionsState>(builder: ((context, state) {
             if (state is GetChargingPointsState) {
               if (state.chargingPoints.isNotEmpty) {
-                return ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: state.chargingPoints.length,
-                    itemBuilder: (context, index) {
-                      final chargingPoints = state.chargingPoints[index];
-                      return ChargePointsCard(
-                        pointID: chargingPoints.pointId,
-                        pointName: chargingPoints.pointName,
-                        chargingPort: chargingPoints.chargingPort,
-                        rating: chargingPoints.rating,
-                        langitude: chargingPoints.longitude,
-                        latitude: chargingPoints.latitude,
-                        chargingTimes: chargingPoints.chargingTimes,
-                        portCount: chargingPoints.portCount,
-                        index: index,
-                      );
-                    });
+                return SizedBox(
+                  width: context.getWidth(divide: 1.1),
+                  height: context.getHeight(divide: 2.9),
+                  child: ListView.builder(
+                      // seperated width
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.chargingPoints.length,
+                      itemBuilder: (context, index) {
+                        final chargingPoints = state.chargingPoints[index];
+
+                        return ChargePointsCard(
+                          pointID: chargingPoints.pointId,
+                          pointName: chargingPoints.pointName,
+                          chargingPort: chargingPoints.chargingPort,
+                          rating: chargingPoints.rating,
+                          langitude: chargingPoints.longitude,
+                          latitude: chargingPoints.latitude,
+                          chargingTimes: chargingPoints.chargingTimes,
+                          portCount: chargingPoints.portCount,
+                          index: index,
+                        );
+                      }),
+                );
               } else {
                 return Center(
                   child: Text(

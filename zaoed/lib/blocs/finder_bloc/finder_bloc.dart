@@ -33,7 +33,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
             .match({'id_auth': id!, "status": "progress"});
         print(response);
         final data = response.first;
-        staticRemainingTimeHour = int.parse(data['hours']) * 60;
+        staticRemainingTimeHour = int.parse(data['hours']) * 1;
         remainingTimeHour = staticRemainingTimeHour;
         add(TimerEvent());
         emit(LoadDataTimerState());
