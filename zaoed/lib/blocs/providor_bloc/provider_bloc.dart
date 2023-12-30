@@ -1,4 +1,5 @@
 import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 part 'provider_event.dart';
@@ -105,17 +106,19 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
 
     on<GetProviderChargingPointsEvent>((event, emit) async {
       try {
+        emit(ProviderLoadingState());
         providerPointsData =
             await ActionSupabaseMethods().getProviderChargingPoints();
         await Future.delayed(const Duration(seconds: 1));
         emit(GetProviderChargingPointsState(
             providerChargingPoints: providerPointsData!));
-        print("providerPointsData,,,,,,,,,,,,,,");
-        print(providerPointsData);
       } catch (e) {
-        ErrorState(message: e.toString());
+        print("jjjjjjjjjjjjjjjj");
+        print(e.toString());
+        return;
       }
     });
+
     on<AddChargingPointEvent>((event, emit) async {
       try {
         final id = supabase.auth.currentUser?.id;
@@ -141,7 +144,6 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         }
 
         print("--------------theList");
-
         print(theList);
         await supabase.from('port_counter').insert(theList);
         emit(AddChargingPointState());
@@ -157,15 +159,13 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         final id = supabase.auth.currentUser?.id;
         final chargingPoint = await supabase
             .from("charging_point")
-            .update({
-              "point_name": event.chargingPointName,
-              'id_auth': id,
-            })
+            .update({"point_name": event.chargingPointName})
+            .match({'id_auth': id!, "point_id": event.pointID})
             .select()
             .single();
 
-        pointName = chargingPoint['point_name'];
-        print(pointName);
+        // print(chargingPoint);
+
         List<Map<String, dynamic>> theList = [];
         for (var element in countersList) {
           Map<String, dynamic> updateElements = {...element};
@@ -174,9 +174,9 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
           theList.add(updateElements);
           // event.chargingCount how to get
         }
-        print(theList);
         await supabase.from('port_counter').insert(theList);
-        emit(AddChargingPointState());
+        emit(EditChargingPointState());
+        add(GetProviderChargingPointsEvent());
       } catch (e) {
         print(e.toString());
         return;
@@ -189,10 +189,8 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         emit(DeleteChargingPointState());
         add(GetProviderChargingPointsEvent());
       } catch (e) {
-        emit(ErrorState(message: 'لم يتم الحذف'));
+        print(e.toString());
       }
     });
-
-
   }
 }

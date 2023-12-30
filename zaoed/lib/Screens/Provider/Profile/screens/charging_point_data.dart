@@ -23,39 +23,29 @@ class ChargingPointDataScreen extends StatelessWidget {
       appBar: profileScreenAppBar(context, title: 'بيانات نقطة الشحن'),
       body: Padding(
         padding:
-            const EdgeInsets.only(top: 16, left: 22.5, right: 18.5, bottom: 27),
+            const EdgeInsets.only(top: 16, left: 22.5, right: 18.5, bottom: 20),
         child: Column(
           children: [
             BlocBuilder<ProviderBloc, ProviderState>(
-                // buildWhen: (previous, current) {
-                //   if (state is ol) {
-
-                //   }
-                // },
-                builder: ((context, state) {
+                buildWhen: (oldState, newState) {
+              if (newState is GetProviderChargingPointsState) {
+                return true;
+              }
+              return false;
+            }, builder: ((context, state) {
               if (state is GetProviderChargingPointsState) {
                 if (state.providerChargingPoints.isNotEmpty) {
                   return SizedBox(
-                    width: context.getWidth(divide: 1.1),
-                    height: context.getHeight(divide: 2.9),
-                    child: ListView.separated(
+                    width: context.getWidth(),
+                    height: context.getHeight(divide: 1.3),
+                    child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: state.providerChargingPoints.length,
                       itemBuilder: (BuildContext conntext, int index) {
-                        final providerChargingPoints =
-                            state.providerChargingPoints[index];
                         return LocationDetails(
-                          locationName: providerChargingPoints.pointName,
-                          locationDetails:
-                              "longtude: ${providerChargingPoints.longitude}\n, latitude: ${providerChargingPoints.latitude}",
-                          index: index,
                           bloc: bloc,
-                        );
-                      },
-                      separatorBuilder: (context, index) {
-                        return const SizedBox(
-                          height: 15,
+                          pointsData: state.providerChargingPoints[index],
                         );
                       },
                     ),

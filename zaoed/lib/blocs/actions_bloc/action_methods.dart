@@ -61,6 +61,8 @@ class ActionSupabaseMethods {
   }
 
   deleteChargingPoint({required int? id}) async {
-    await supabase.from("charging_point").delete().eq("point_id", id!);
+    //
+    await supabase.from("port_counter").delete().eq("id_charging_point", id!);
+    await supabase.from("charging_point").delete().eq("point_id", id);
   }
 }

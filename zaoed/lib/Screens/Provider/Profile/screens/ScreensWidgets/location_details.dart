@@ -7,14 +7,11 @@ import 'package:zaoed/constants/imports.dart';
 class LocationDetails extends StatelessWidget {
   const LocationDetails({
     super.key,
-    required this.locationName,
-    required this.locationDetails,
-    required this.index,
     required this.bloc,
+    required this.pointsData,
   });
-  final String? locationName;
-  final String? locationDetails;
-  final int index;
+
+  final ChargingPoint pointsData;
   final ActionsBloc? bloc;
 
   @override
@@ -39,13 +36,13 @@ class LocationDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    locationName ?? "",
+                    pointsData.pointName ?? "",
                     style: TextStyle(color: AppColors().white, fontSize: 18),
                     overflow: TextOverflow.ellipsis,
                   ),
                   const Spacer(),
                   Text(
-                    "$locationDetails",
+                    "${pointsData.longitude}\n ${pointsData.latitude}",
                     style: TextStyle(fontSize: 9, color: AppColors().white),
                     overflow: TextOverflow.ellipsis,
                   )
@@ -60,16 +57,14 @@ class LocationDetails extends StatelessWidget {
                         context.push(
                             view: EditChargingPointScreen(
                           bloc: dataBloc,
+                          pointData: pointsData,
                         ));
                       },
                       child: Image.asset('lib/assets/icons/edit.png')),
                   const Spacer(),
                   InkWell(
                       onTap: () {
-                        context.read<ProviderBloc>().add(
-                            DeleteChargingPointEvent(
-                                pointId: bloc?.bookmarkData?[index].pointId));
-                        DeleteChargingPoint(context, index);
+                        DeleteChargingPoint(context, pointsData.pointId);
                       },
                       child: Image.asset('lib/assets/icons/delete.png'))
                 ],
