@@ -7,7 +7,8 @@ import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.da
 import 'package:zaoed/constants/imports.dart';
 
 class BookingScreen extends StatelessWidget {
-  BookingScreen({super.key});
+  BookingScreen({super.key, required this.bookMark});
+  final ChargingPoint bookMark;
   final List hours = [
     'ساعة',
     "ساعتان",
@@ -96,6 +97,7 @@ class BookingScreen extends StatelessWidget {
                     hour: hours[indexer.hourCharg],
                     image: imageUrl[indexer.typePort],
                     price: bloc.price!,
+                    chargingPoint: bookMark,
                   ));
                 },
                 textColor: AppColors().gray8)

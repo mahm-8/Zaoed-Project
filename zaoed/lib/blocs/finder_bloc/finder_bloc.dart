@@ -21,8 +21,8 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
   FinderBloc() : super(FinderInitial()) {
     on<PayEvent>(invoice);
     on<InvoiceDataEvent>(invoiceDate);
+    on<PaymentStatusEvent>(paymentState);
     on<LoadDataTimerEvent>((event, emit) async {
-      print("################################");
       final supabase = SupabaseNetworking().getSupabase;
       final id = supabase.auth.currentUser?.id;
       try {
@@ -31,7 +31,6 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
             .select('hours')
             // .eq('id_povider', id!)
             .match({'id_auth': id!, "status": "progress"});
-        print(response);
         final data = response.first;
         staticRemainingTimeHour = int.parse(data['hours']) * 1;
         remainingTimeHour = staticRemainingTimeHour;
@@ -89,9 +88,8 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
         "id_auth": id,
         "token": token
       });
-      print("success===================================");
     } catch (error) {
-      print("$error ===error==");
+      print(error);
     }
   }
 
@@ -111,7 +109,20 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
 
       final datalist =
           await supabase.from("invoice").select().eq("id_auth", id);
+      print("wadha");
+      print(datalist.last);
       emit(InvoiceDataState(invoice: datalist));
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  FutureOr<void> paymentState(
+      PaymentStatusEvent event, Emitter<FinderState> emit) {
+    if (event.status == 'paid' || event.status == "authorized") {
+      emit(SuccessPayState());
+    } else if (event.status == "failed") {
+      emit(ErrorPayState());
+    }
   }
 }
