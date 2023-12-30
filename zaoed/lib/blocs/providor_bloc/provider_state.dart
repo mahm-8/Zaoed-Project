@@ -5,7 +5,7 @@ sealed class ProviderState {}
 
 final class ProviderInitial extends ProviderState {}
 
-final class LoadingState extends ProviderState {}
+final class ProviderLoadingState extends ProviderState {}
 
 class ErrorState extends ProviderState {
   final String message;
@@ -28,7 +28,11 @@ class ChargingTypeCountUpdated extends ProviderState {
   ChargingTypeCountUpdated(this.count);
 }
 
-class GetChargingPointDetailsState extends ProviderState {}
+class GetProviderChargingPointsState extends ProviderState {
+  final List<ChargingPoint> providerChargingPoints;
+
+  GetProviderChargingPointsState({required this.providerChargingPoints});
+}
 
 class AddChargingPointState extends ProviderState {}
 

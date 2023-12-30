@@ -19,6 +19,7 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     on<AddBookmarkEvent>(addBookmarkMethod);
     on<DeleteBookmarkEvent>(deleteBookmarkMethod);
     on<GetChargingPointsEvent>(getChargingPointsMethod);
+    on<ScanningEvent>(scanQrCodMethod);
 
     on<CaponEvent>((event, emit) {
       if (capon == 'Zaoed') {
@@ -46,7 +47,6 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
 
   FutureOr<void> getBookmarkMethod(
       GetBookmarkEvent event, Emitter<ActionsState> emit) async {
-    // check if have error from merge??
     try {
       bookmarkData = await ActionSupabaseMethods().getBookmarks();
       await Future.delayed(const Duration(seconds: 1));
@@ -81,5 +81,10 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     } catch (e) {
       emit(ErrorState());
     }
+  }
+
+  FutureOr<void> scanQrCodMethod(
+      ScanningEvent event, Emitter<ActionsState> emit) {
+//
   }
 }

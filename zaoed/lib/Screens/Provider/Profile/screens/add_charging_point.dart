@@ -34,7 +34,6 @@ class AddChargingPoint extends StatelessWidget {
               AvailabilityHours(
                 bloc: bloc,
               ),
-              // How to get it using count?? there is a count for each port type
               const ChargingTypeSection(
                 isEdit: false,
               ),

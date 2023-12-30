@@ -1,11 +1,11 @@
 import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 part 'provider_event.dart';
 part 'provider_state.dart';
 
 class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
+  List<ChargingPoint>? providerPointsData;
   int count1 = 0;
   int count2 = 0;
   int count3 = 0;
@@ -14,7 +14,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
   int count6 = 0;
   int count7 = 0;
   String selectedHour = "";
-  List<ChargingPoint> chargePointsData = [];
+
   String? pointName;
 
   double? pinLatitude;
@@ -103,8 +103,18 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
       }
     });
 
-    on<GetChargingPointDetailsEvent>((event, emit) async {
-      // get charging o=point detals to edit
+    on<GetProviderChargingPointsEvent>((event, emit) async {
+      try {
+        providerPointsData =
+            await ActionSupabaseMethods().getProviderChargingPoints();
+        await Future.delayed(const Duration(seconds: 1));
+        emit(GetProviderChargingPointsState(
+            providerChargingPoints: providerPointsData!));
+        print("providerPointsData,,,,,,,,,,,,,,");
+        print(providerPointsData);
+      } catch (e) {
+        ErrorState(message: e.toString());
+      }
     });
     on<AddChargingPointEvent>((event, emit) async {
       try {
@@ -129,6 +139,9 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
               .addAll({"id_charging_point": chargingPoint["point_id"]});
           theList.add(updateElements);
         }
+
+        print("--------------theList");
+
         print(theList);
         await supabase.from('port_counter').insert(theList);
         emit(AddChargingPointState());
@@ -174,27 +187,12 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
       try {
         await ActionSupabaseMethods().deleteChargingPoint(id: event.pointId);
         emit(DeleteChargingPointState());
-        add(GetChargingPointDetailsEvent());
-        emit(LoadingState());
+        add(GetProviderChargingPointsEvent());
       } catch (e) {
         emit(ErrorState(message: 'لم يتم الحذف'));
       }
     });
 
-//chargingPoin["id_charging_Poin"]
-    // on<GetPointLangLatEvent>((event, emit) async {
-    //   try {
-    //     List locations;
-    //     locations = await getLocationMethod();
-    //     print("location List$locations");
 
-    //     final longitude = locations[0]["longitude"];
-    //     final latitude = locations[0]["latitude"];
-    //     await Future.delayed(const Duration(seconds: 1));
-    //     emit(GetChargingPointLocationState(lang: longitude, lat: latitude));
-    //   } catch (e) {
-    //     print(e.toString());
-    //   }
-    // });
   }
 }
