@@ -5,8 +5,13 @@ sealed class CardState {}
 
 final class CardInitial extends CardState {}
 
-class AddCardState extends CardState{}
-class GetCardDataState extends CardState{}
+class AddCardState extends CardState {}
+
+class GetCardDataState extends CardState {
+  final List<CardModel?> cards;
+
+  GetCardDataState(this.cards);
+}
 // class AddCardState extends CardState {
 //   final String name;
 //   final String cardNumber;

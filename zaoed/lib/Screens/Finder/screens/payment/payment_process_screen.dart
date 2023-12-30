@@ -1,14 +1,17 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:moyasar/moyasar.dart';
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
+import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/test_pay.dart';
 
 import '../../../../blocs/finder/user_bloc/user_bloc.dart';
+import '../NavigationBar/navigation_bar.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
   const PaymentProcessScreen({
@@ -17,10 +20,12 @@ class PaymentProcessScreen extends StatefulWidget {
     required this.hour,
     required this.image,
     double? price,
+    required this.chargingPoint,
   });
   final String type;
   final String hour;
   final String image;
+  final ChargingPoint chargingPoint;
 
   @override
   State<PaymentProcessScreen> createState() => _PaymentProcessScreenState();
@@ -46,15 +51,17 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               ProgressBar(progress: 0.2, activeStep: activeStep),
               if (activeStep == 0) ...[
                 DetailsPaymentScreen(
-                    onTap: () {
-                      setState(() {
-                        activeStep = 1;
-                      });
-                    },
-                    type: widget.type,
-                    hour: widget.hour,
-                    image: widget.image,
-                    totalPrice: bloc.price!),
+                  onTap: () {
+                    setState(() {
+                      activeStep = 1;
+                    });
+                  },
+                  type: widget.type,
+                  hour: widget.hour,
+                  image: widget.image,
+                  totalPrice: bloc.price!,
+                  chargingPoint: widget.chargingPoint,
+                ),
               ],
               if (activeStep == 1) ...[
                 PurchaseScreen(
@@ -63,9 +70,13 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                         nameFinder: user.user?.name ?? "",
                         type: widget.type,
                         amount: bloc.price ?? 0.0,
-                        providerName: "providerName",
-                        address: "address"));
+                        providerName: widget.chargingPoint.pointName ?? "",
+                        address:
+                            "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}"));
                     context.read<FinderBloc>().add(InvoiceDataEvent());
+                    context.read<GoogleMapBloc>().add(FetchPolylineEvent(
+                        distention: LatLng(widget.chargingPoint.latitude!,
+                            widget.chargingPoint.longitude!)));
                     // String state = '';
                     // if (card.cardList != null) {
                     //   print(card.cardList?[0].numberCard ?? '');
@@ -145,9 +156,8 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    setState(() {
-                      activeStep = 3;
-                    });
+                    context.pushAndRemoveUntil(
+                        view: FinderNavigationBarScreen());
                   },
                 ),
               ],

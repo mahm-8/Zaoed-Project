@@ -4,14 +4,16 @@ import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class BookingLocationInformation extends StatelessWidget {
-  BookingLocationInformation({
+  const BookingLocationInformation({
     super.key,
+    this.bookmarks,
   });
-  BookmarkModel? bookmarks;
+  final ChargingPoint? bookmarks;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ActionsBloc, ActionsState>(
       builder: (context, state) {
+        if (state is GetChargingPointsState) {}
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -20,11 +22,11 @@ class BookingLocationInformation extends StatelessWidget {
               style: TextStyle(fontSize: 19, color: AppColors().white),
             ),
             Text(
-              '${bookmarks?.chargingPoint.pointName}',
+              '${bookmarks?.pointName}',
               style: TextStyle(fontSize: 17, color: AppColors().white),
             ),
             Text(
-              "${bookmarks?.chargingPoint.longitude}, ${bookmarks?.chargingPoint.latitude}",
+              "${bookmarks?.longitude}, ${bookmarks?.latitude}",
               style: TextStyle(
                   color: AppColors().white,
                   fontSize: 12,

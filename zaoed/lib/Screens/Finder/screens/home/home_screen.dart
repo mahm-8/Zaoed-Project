@@ -48,32 +48,19 @@ class HomeScreen extends StatelessWidget {
                 return SizedBox(
                   width: context.getWidth(divide: 1.1),
                   height: context.getHeight(divide: 2.9),
-                  child: ListView.separated(
-                    // seperated width
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: state.chargingPoints.length,
-                    itemBuilder: (context, index) {
-                      final chargingPoints = state.chargingPoints[index];
 
-                      return ChargePointsCard(
-                        pointID: chargingPoints.pointId,
-                        pointName: chargingPoints.pointName,
-                        chargingPort: chargingPoints.chargingPort,
-                        rating: chargingPoints.rating,
-                        langitude: chargingPoints.longitude,
-                        latitude: chargingPoints.latitude,
-                        chargingTimes: chargingPoints.chargingTimes,
-                        portCount: chargingPoints.portCount,
-                        index: index,
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const SizedBox(
-                        width: 15,
-                      );
-                    },
-                  ),
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.chargingPoints.length,
+                      itemBuilder: (context, index) {
+                        print(state.chargingPoints[index]);
+                        return ChargePointsCard(
+                          chargingPoint: state.chargingPoints[index],
+                          index: index,
+                        );
+                      }),
+
                 );
               } else {
                 return Center(

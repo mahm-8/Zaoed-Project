@@ -3,14 +3,20 @@ import 'package:zaoed/constants/imports.dart';
 
 class BookingConfirmationScreen extends StatelessWidget {
   const BookingConfirmationScreen(
-      {super.key, required this.type, required this.hour, required this.image, required this.price});
+      {super.key,
+      required this.type,
+      required this.hour,
+      required this.image,
+      required this.price,
+      required this.chargingPoint});
   final String type;
   final String hour;
   final String image;
   final double price;
+  final ChargingPoint chargingPoint;
   @override
   Widget build(BuildContext context) {
-   final bloc = context.read<ActionsBloc>();
+    final bloc = context.read<ActionsBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'تأكيد الحجز'),
@@ -25,11 +31,14 @@ class BookingConfirmationScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   color: AppColors().gray6),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BookingLocationInformation(),
+                      BookingLocationInformation(
+                        bookmarks: chargingPoint,
+                      ),
                       BookingChargingInformation(
                         type: type,
                         image: image,
@@ -49,7 +58,9 @@ class BookingConfirmationScreen extends StatelessWidget {
                       view: PaymentProcessScreen(
                     type: type,
                     hour: hour,
-                    image: image, price: bloc.price,
+                    image: image,
+                    price: bloc.price,
+                    chargingPoint: chargingPoint,
                   ));
                 },
                 textColor: AppColors().gray8)

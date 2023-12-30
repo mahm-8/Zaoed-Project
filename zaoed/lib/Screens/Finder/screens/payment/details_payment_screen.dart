@@ -12,6 +12,7 @@ class DetailsPaymentScreen extends StatelessWidget {
     required this.hour,
     required this.image,
     required this.totalPrice,
+    required this.chargingPoint,
   });
   final Function() onTap;
   int discount = 0;
@@ -19,10 +20,10 @@ class DetailsPaymentScreen extends StatelessWidget {
   final String hour;
   final String image;
   final double totalPrice;
+  final ChargingPoint? chargingPoint;
   TextEditingController caponController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    
     final bloc = context.read<ActionsBloc>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +39,9 @@ class DetailsPaymentScreen extends StatelessWidget {
         const TitleLabel(
           title: 'موقع الحجز',
         ),
-        const LocationDetails(),
+        LocationDetails(
+          namePoint: chargingPoint?.pointName ?? "",
+        ),
         const TitleLabel(
           title: 'كود الخصم',
         ),

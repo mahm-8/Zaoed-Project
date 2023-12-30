@@ -24,9 +24,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       GetUserDataEvent event, Emitter<UserState> emit) async {
     try {
       user = await getUser();
-      print(user);
     } catch (e) {
-      print(e);
       return;
     }
   }

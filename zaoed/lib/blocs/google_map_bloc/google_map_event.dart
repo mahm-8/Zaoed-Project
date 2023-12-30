@@ -14,9 +14,8 @@ class FetchMarkersEvent extends GoogleMapEvent {}
 // }
 
 class FetchPolylineEvent extends GoogleMapEvent {
-  final LatLng source;
-  final LatLng distention;
+  // final LatLng source;
+  final LatLng? distention;
 
-  FetchPolylineEvent({required this.source, required this.distention});
-
+  FetchPolylineEvent({required this.distention});
 }
