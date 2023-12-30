@@ -39,13 +39,16 @@ class AddChargingPointEvent extends ProviderEvent {
 
 class EditChargingPointEvent extends ProviderEvent {
   final String chargingPointName;
+  final int? pointID;
   final int chargingCount;
 
   // ??
   // final String chargingType;
 
   EditChargingPointEvent(
-      {required this.chargingPointName, required this.chargingCount});
+      {required this.pointID,
+      required this.chargingPointName,
+      required this.chargingCount});
 }
 
 class DeleteChargingPointEvent extends ProviderEvent {

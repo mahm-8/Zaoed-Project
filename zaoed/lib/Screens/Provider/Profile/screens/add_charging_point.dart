@@ -18,7 +18,8 @@ class AddChargingPoint extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: addChargingScreenAppBar(context, title: 'إضافة نقطة شحن'),
+      appBar: addChargingScreenAppBar(context,
+          title: 'إضافة نقطة شحن', isEditing: false),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),

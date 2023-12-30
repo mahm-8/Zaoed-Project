@@ -3,24 +3,35 @@ import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/availabili
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/chargeing_type_section.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_location.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_text_field.dart';
+import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/edit_charging_dialog.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore: must_be_immutable
 class EditChargingPointScreen extends StatelessWidget {
-  EditChargingPointScreen({super.key, required this.bloc});
+  EditChargingPointScreen(
+      {super.key, required this.bloc, required this.pointData});
+  final ChargingPoint pointData;
   final ProviderBloc bloc;
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    controllerData();
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: addChargingScreenAppBar(context,
           title: 'تعديل نقطة شحن', isEditing: true, editFunc: () {
-        context.read<ProviderBloc>().add(EditChargingPointEvent(
-            // chargingCount ??????
-            chargingPointName: controller.text,
-            chargingCount: 0));
+        editchargingscreenShowDialog(context, () {
+          // edit on event bloc
+          // edit hours
+          context.read<ProviderBloc>().add(EditChargingPointEvent(
+              chargingPointName: controller.text,
+              chargingCount: 0,
+              pointID: pointData.pointId));
+
+          context.pop();
+          context.pop();
+        });
       }),
       body: SingleChildScrollView(
         child: Padding(
@@ -49,5 +60,9 @@ class EditChargingPointScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  controllerData() {
+    controller.text = pointData.pointName ?? "";
   }
 }
