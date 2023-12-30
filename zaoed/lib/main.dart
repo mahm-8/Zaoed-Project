@@ -48,7 +48,8 @@ class MainApp extends StatelessWidget {
           create: (context) => UserBloc(),
         ),
         BlocProvider(
-          create: (context) => ProviderBloc(),
+          create: (context) =>
+              ProviderBloc()..add(GetProviderChargingPointsEvent()),
         ),
         BlocProvider(
           create: (context) => StaticBloc(),
@@ -82,7 +83,9 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
+
         home: LoadingScreen(),
+
         debugShowCheckedModeBanner: false,
       ),
     );

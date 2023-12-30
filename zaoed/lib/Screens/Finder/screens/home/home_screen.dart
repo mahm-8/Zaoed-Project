@@ -48,6 +48,7 @@ class HomeScreen extends StatelessWidget {
                 return SizedBox(
                   width: context.getWidth(divide: 1.1),
                   height: context.getHeight(divide: 2.9),
+
                   child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -59,6 +60,7 @@ class HomeScreen extends StatelessWidget {
                           index: index,
                         );
                       }),
+
                 );
               } else {
                 return Center(

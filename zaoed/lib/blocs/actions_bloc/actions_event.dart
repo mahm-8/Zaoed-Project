@@ -25,6 +25,6 @@ class CaponEvent extends ActionsEvent {
   CaponEvent({required this.capon, required this.price});
 }
 
+class ScanningEvent extends ActionsEvent {}
 
 class StatusCarsEvent extends ActionsEvent {}
-

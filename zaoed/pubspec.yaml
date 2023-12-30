@@ -33,6 +33,7 @@ dependencies:
   moyasar: ^2.0.5
   flutter_credit_card: ^4.0.1
   webview_flutter: ^4.4.2
+  qr_code_scanner: ^1.0.1
 
 dev_dependencies:
   flutter_test:
