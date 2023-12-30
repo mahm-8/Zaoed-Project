@@ -32,7 +32,7 @@ class ChargePointsCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 62.0),
       child: Container(
         height: 206,
-        width: context.getWidth(),
+        width: context.getWidth(divide: 1.2),
         decoration: BoxDecoration(
           color: AppColors().gray1Trans,
           borderRadius: BorderRadius.circular(16),

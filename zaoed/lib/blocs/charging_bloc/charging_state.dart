@@ -10,3 +10,6 @@ class EmptyCarState extends ChargingState {}
 class EmptyBookingState extends ChargingState {}
 
 class ChargingStatus extends ChargingState {}
+
+class ChargingFinishedStatus extends ChargingState {}
+

@@ -1,3 +1,4 @@
+import 'package:zaoed/Screens/Finder/screens/charging_statuse/charging_status_finished_screen.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
@@ -13,7 +14,7 @@ class TimerWidget extends StatefulWidget {
 class _TimerWidgetState extends State<TimerWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FinderBloc, FinderState>(
+    return BlocConsumer<FinderBloc, FinderState>(
       builder: (context, state) {
         if (state is TimerDataState) {
           return Row(
@@ -112,6 +113,13 @@ class _TimerWidgetState extends State<TimerWidget> {
           );
         }
         return const Text('');
+      },
+      listener: (BuildContext context, FinderState state) {
+        if (state is TimerDataState) {
+          if (state.completedPercentage == 100) {
+            context.push(view: ChargingStatusFinishedScreen());
+          }
+        }
       },
     );
   }

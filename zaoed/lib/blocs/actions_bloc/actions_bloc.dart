@@ -33,12 +33,14 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       GetChargingPointsEvent event, Emitter<ActionsState> emit) async {
     try {
       chargingPointData = await ActionSupabaseMethods().getChargingPoint();
+
       await Future.delayed(const Duration(seconds: 1));
       emit(GetChargingPointsState(chargingPoints: chargingPointData!));
+
       print(chargingPointData);
-      add(GetChargingPointsEvent());
     } catch (e) {
       ErrorState();
+      print(e.toString());
     }
   }
 
