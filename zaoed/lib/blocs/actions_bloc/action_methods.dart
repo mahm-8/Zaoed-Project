@@ -6,6 +6,7 @@ class ActionSupabaseMethods {
 
   List<BookmarkModel> bookmarkList = [];
   List<ChargingPoint> chargingPointList = [];
+  List<ChargingPoint> providerChargingList = [];
   getBookmarks() async {
     try {
       final id = supabase.auth.currentUser?.id;
@@ -40,6 +41,23 @@ class ActionSupabaseMethods {
       chargingPointList.add(ChargingPoint.fromJson(element));
     }
     return chargingPointList;
+  }
+
+  getProviderChargingPoints() async {
+    try {
+      final id = supabase.auth.currentUser?.id;
+
+      final providerPointData =
+          await supabase.from("charging_point").select("*").eq("id_auth", id!);
+      for (var element in providerPointData) {
+        providerChargingList.add(ChargingPoint.fromJson(element));
+
+        // make another lopp to port counters
+      }
+      return providerChargingList;
+    } catch (e) {
+      return;
+    }
   }
 
   deleteChargingPoint({required int? id}) async {

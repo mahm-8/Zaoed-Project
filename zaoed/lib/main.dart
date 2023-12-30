@@ -1,5 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/charging_point_data.dart';
 import 'package:zaoed/Screens/loading/loading_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
@@ -50,7 +48,8 @@ class MainApp extends StatelessWidget {
           create: (context) => UserBloc(),
         ),
         BlocProvider(
-          create: (context) => ProviderBloc(),
+          create: (context) =>
+              ProviderBloc()..add(GetProviderChargingPointsEvent()),
         ),
         BlocProvider(
           create: (context) => StaticBloc(),
@@ -84,7 +83,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: MapHomeScreen(),
+        home: const LoadingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

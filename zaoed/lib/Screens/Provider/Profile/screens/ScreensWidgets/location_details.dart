@@ -45,8 +45,8 @@ class LocationDetails extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    locationDetails ?? "",
-                    style: TextStyle(color: AppColors().white),
+                    "$locationDetails",
+                    style: TextStyle(fontSize: 9, color: AppColors().white),
                     overflow: TextOverflow.ellipsis,
                   )
                 ],

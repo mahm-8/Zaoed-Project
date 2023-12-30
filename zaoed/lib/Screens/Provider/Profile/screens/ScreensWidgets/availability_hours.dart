@@ -49,7 +49,7 @@ class AvailabilityHours extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) {
                         return GestureDetector(
                           onTap: () {
-                            bloc?.add(HoursSelectIndexEvent(index));
+                            bloc.add(HoursSelectIndexEvent(index));
                             selectHourMethod(index: index);
                           },
                           child: Container(
@@ -109,31 +109,31 @@ class AvailabilityHours extends StatelessWidget {
   void selectHourMethod({required int index}) {
     switch (index) {
       case 0:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       case 1:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       case 2:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       case 3:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       case 4:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       case 5:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       case 6:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       case 7:
-        bloc?.selectedHour = textClock[index];
+        bloc.selectedHour = textClock[index];
         break;
       default:
-        bloc?.selectedHour = textClock[0];
+        bloc.selectedHour = textClock[0];
     }
   }
 }

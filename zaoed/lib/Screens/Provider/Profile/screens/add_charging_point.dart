@@ -14,7 +14,6 @@ class AddChargingPoint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<ProviderBloc>();
     final bloc = context.read<ProviderBloc>();
 
     return Scaffold(
@@ -35,7 +34,6 @@ class AddChargingPoint extends StatelessWidget {
               AvailabilityHours(
                 bloc: bloc,
               ),
-              // How to get it using count?? there is a count for each port type
               const ChargingTypeSection(
                 isEdit: false,
               ),
@@ -46,12 +44,12 @@ class AddChargingPoint extends StatelessWidget {
                   textEntry: "إضافة",
                   backColor: AppColors().green,
                   onPress: () {
-                    // context.read<ProviderBloc>().add(AddChargingPointEvent(
-                    //     // edit and add the  charging type from the bloc
-                    //     controller.text,
-                    //     bloc.selectedHour,
-                    //     bloc.pinLongitude,
-                    //     bloc.pinLatitude));
+                    context.read<ProviderBloc>().add(AddChargingPointEvent(
+                        // edit and add the  charging type from the bloc
+                        controller.text,
+                        bloc.selectedHour,
+                        bloc.pinLongitude,
+                        bloc.pinLatitude));
                     addChargingPointShowDialog(context);
                     Future.delayed(const Duration(seconds: 2), () {
                       context.pop();

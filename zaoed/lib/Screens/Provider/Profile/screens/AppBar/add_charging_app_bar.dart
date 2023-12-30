@@ -22,6 +22,7 @@ AppBar addChargingScreenAppBar(BuildContext context,
     actions: [
       TextButton(
           onPressed: () {
+            // show edit charging point dialog
             deleteChargingPointShowDialog(context);
             Future.delayed(const Duration(seconds: 2), () {
               context.pop();

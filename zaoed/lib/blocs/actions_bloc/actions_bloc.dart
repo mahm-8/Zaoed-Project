@@ -47,7 +47,6 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
 
   FutureOr<void> getBookmarkMethod(
       GetBookmarkEvent event, Emitter<ActionsState> emit) async {
-    // check if have error from merge??
     try {
       bookmarkData = await ActionSupabaseMethods().getBookmarks();
       await Future.delayed(const Duration(seconds: 1));
@@ -84,8 +83,8 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     }
   }
 
-  FutureOr<void> scanQrCodMethod(ScanningEvent event, Emitter<ActionsState> emit) {
-
-    
+  FutureOr<void> scanQrCodMethod(
+      ScanningEvent event, Emitter<ActionsState> emit) {
+//
   }
 }

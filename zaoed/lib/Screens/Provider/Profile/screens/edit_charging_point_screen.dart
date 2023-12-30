@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/add_charging_app_bar.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/availability_hours.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/chargeing_type_section.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_location.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_text_field.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore: must_be_immutable
@@ -33,7 +31,7 @@ class EditChargingPointScreen extends StatelessWidget {
                 textController: controller,
                 isEdit: true,
               ),
-              // Text(bloc),
+
               // how to edit the old location
               ChargingPointLocation(),
               AvailabilityHours(
