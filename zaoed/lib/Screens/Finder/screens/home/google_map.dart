@@ -28,8 +28,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     init();
   }
 
-
-
   init() async {
     location = Location();
     cameraPosition = const CameraPosition(
@@ -37,9 +35,9 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
       zoom: 15,
     );
     getCurrentLocation();
-     LatLng sourceLocation = const LatLng(37.4219983, -122.084);
-     LatLng sourceLocation1 = const LatLng(37.33500303, -122.03272188);
-     LatLng destination = const LatLng(37.33429383, -122.0660055);
+    LatLng sourceLocation = const LatLng(37.4219983, -122.084);
+    LatLng sourceLocation1 = const LatLng(37.33500303, -122.03272188);
+    LatLng destination = const LatLng(37.33429383, -122.0660055);
     // polylines =
     //     await createPolylines(sourceLocation, sourceLocation1, destination);
   }
@@ -116,32 +114,48 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
               .loadString('lib/assets/google_map_style/dark_map_style.json'),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              if (polylines != {}) {
-                return BlocBuilder<GoogleMapBloc, GoogleMapState>(
-                  builder: (context, state) {
-                    if (state is MarkerLoadedState) {
-                      return GoogleMap(
-                        initialCameraPosition: cameraPosition!,
-                        mapType: MapType.normal,
-                        markers: state.markers,
-                        zoomControlsEnabled: false,
-                        // polylines: polylines,
-                        onMapCreated: (GoogleMapController controller) {
-                          if (!googleMapController.isCompleted) {
-                            googleMapController.complete(controller);
-                            setMapStyle(controller, snapshot.data.toString());
-                          }
-                        },
-                      );
-                    }
-                    return const Text('ggggg');
-                  },
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
+              // if (polylines != {}) {
+              return BlocBuilder<GoogleMapBloc, GoogleMapState>(
+                builder: (context, state) {
+                  if (state is FetchPolylineState) {
+                    print("polyline");
+                    return GoogleMap(
+                      initialCameraPosition: cameraPosition!,
+                      mapType: MapType.normal,
+                      // markers: state.markers,
+                      zoomControlsEnabled: false,
+                      polylines: state.polylines,
+                      onMapCreated: (GoogleMapController controller) {
+                        if (!googleMapController.isCompleted) {
+                          googleMapController.complete(controller);
+                          setMapStyle(controller, snapshot.data.toString());
+                        }
+                      },
+                    );
+                  }
+                  if (state is MarkerLoadedState) {
+                    return GoogleMap(
+                      initialCameraPosition: cameraPosition!,
+                      mapType: MapType.normal,
+                      markers: state.markers,
+                      zoomControlsEnabled: false,
+                      // polylines: polylines,
+                      onMapCreated: (GoogleMapController controller) {
+                        if (!googleMapController.isCompleted) {
+                          googleMapController.complete(controller);
+                          setMapStyle(controller, snapshot.data.toString());
+                        }
+                      },
+                    );
+                  }
+                  return const Text('ggggg');
+                },
+              );
+              // } else {
+              //   return const Center(
+              //     child: CircularProgressIndicator(),
+              //   );
+              // }
             } else {
               return const Center(
                 child: CircularProgressIndicator(),

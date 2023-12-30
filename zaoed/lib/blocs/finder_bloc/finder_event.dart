@@ -9,6 +9,12 @@ class TimerEvent extends FinderEvent {}
 
 class InvoiceDataEvent extends FinderEvent {}
 
+class PaymentStatusEvent extends FinderEvent {
+  final String status;
+
+  PaymentStatusEvent(this.status);
+}
+
 class PayEvent extends FinderEvent {
   final String nameFinder;
   final String type;

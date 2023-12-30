@@ -1,5 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 
+import '../../../../../blocs/finder/user_bloc/user_bloc.dart';
 import '../../../../../blocs/finder_bloc/finder_bloc.dart';
 
 class Bill extends StatelessWidget {
@@ -7,6 +8,7 @@ class Bill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<UserBloc>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Container(
@@ -28,37 +30,38 @@ class Bill extends StatelessWidget {
                     ),
                     BillToken(token: state.invoice?.last["token"] ?? ""),
                     const BillLabel(
-                      title: 'Token Type',
-                      subTitle: 'Visa Credit',
+                      title: 'نوع البطاقة',
+                      subTitle: 'Visa',
                     ),
                     const Divider(
                       thickness: 1,
                     ),
-                    const BillLabel(
-                      title: 'Customer Name',
-                      subTitle: 'Salwa Ibrahim',
+                    BillLabel(
+                      title: 'اسم العميل',
+                      subTitle: bloc.user?.name ?? "",
                     ),
                     BillLabel(
-                      title: 'Charger Type',
+                      title: 'منفذ الشحن',
                       subTitle: state.invoice?.last["type"] ?? "",
                     ),
                     BillLabel(
-                      title: 'Address',
-                      subTitle: state.invoice?.last["address"],
+                      title: 'العنوان',
+                      subTitle:
+                          '${state.invoice?.last["address"].toString().split(",")[0].substring(0, 6)}',
                     ),
                     const Divider(
                       thickness: 1,
                     ),
                     BillLabel(
-                      title: 'Amount',
+                      title: 'السعر',
                       subTitle: '${state.invoice?.last["amount"] ?? "0"} SAR',
                     ),
                     BillLabel(
-                      title: 'Tax',
+                      title: 'الضريبة',
                       subTitle: '${state.invoice?.last["tax"] ?? "0.00"}',
                     ),
                     BillLabel(
-                      title: 'Total',
+                      title: 'المجموع',
                       subTitle:
                           '${((state.invoice?.last["amount"] * (state.invoice?.last["tax"] + 1)).toStringAsFixed(2) ?? "")} SAR',
                     ),
@@ -66,7 +69,7 @@ class Bill extends StatelessWidget {
                       thickness: 1,
                     ),
                     BillLabel(
-                      title: 'Provider',
+                      title: 'نقطة الشحن',
                       subTitle: state.invoice?.last["provider_name"] ?? "",
                     )
                   ],

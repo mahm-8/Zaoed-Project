@@ -7,6 +7,10 @@ final class FinderInitial extends FinderState {}
 
 class LoadDataTimerState extends FinderState {}
 
+class SuccessPayState extends FinderState {}
+
+class ErrorPayState extends FinderState {}
+
 class TimerDataState extends FinderState {
   final String formattedTime;
   final String remainingTime;

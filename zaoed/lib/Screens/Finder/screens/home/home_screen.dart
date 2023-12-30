@@ -53,17 +53,9 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: state.chargingPoints.length,
                       itemBuilder: (context, index) {
-                        final chargingPoints = state.chargingPoints[index];
-
+                        print(state.chargingPoints[index]);
                         return ChargePointsCard(
-                          pointID: chargingPoints.pointId,
-                          pointName: chargingPoints.pointName,
-                          chargingPort: chargingPoints.chargingPort,
-                          rating: chargingPoints.rating,
-                          langitude: chargingPoints.longitude,
-                          latitude: chargingPoints.latitude,
-                          chargingTimes: chargingPoints.chargingTimes,
-                          portCount: chargingPoints.portCount,
+                          chargingPoint: state.chargingPoints[index],
                           index: index,
                         );
                       }),
