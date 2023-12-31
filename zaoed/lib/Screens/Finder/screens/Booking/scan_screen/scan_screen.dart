@@ -1,8 +1,11 @@
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scan_barcode.dart';
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/fisrt_scan_dialog.dart';
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/invalid_barcode_dialog.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ScanBarcodeScreen extends StatefulWidget {
-  const ScanBarcodeScreen({super.key});
+  ScanBarcodeScreen({super.key});
 
   @override
   State<ScanBarcodeScreen> createState() => _ScanBarcodeScreenState();
@@ -10,8 +13,9 @@ class ScanBarcodeScreen extends StatefulWidget {
 
 class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
   late QRViewController qrController;
+
   final GlobalKey _qrKey = GlobalKey(debugLabel: 'QR');
-  String? result;
+
   @override
   void dispose() {
     qrController.dispose();
@@ -19,68 +23,60 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
   }
 
   void onQRViewCreated(QRViewController controller) {
-    // add this to bloc
-    bool isScanned = false;
-    setState(() {
-      qrController = controller;
-      qrController.scannedDataStream.listen((event) {
-        result = event.code.toString();
-        qrController.stopCamera();
-        // qr code match
-        if (event.toString() == "qr code url" && isScanned == false) {
-          // emit ScaningSucessState
-          //show dialog
-          // navigate to screen
+    qrController = controller;
+    qrController.scannedDataStream.listen((event) {
+      // qr code match
+      if (event.code.toString() ==
+          "https://qr.io/?gad_source=1&gclid=Cj0KCQiAv8SsBhC7ARIsALIkVT2yv0c4bGfWfmT601_oZIWoOr63k_Q7l-in3LkJua5Ppw-oxJhwngkaArneEALw_wcB") {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return const ScanFirstDialog();
+            });
+        qrController.pauseCamera();
+      } else {
+        if (event.toString() !=
+            "https://qr.io/?=1&gclid=Cj0KCQiAv8SsBhC7ARIsALIkVT2yv0c4bGfWfmT601_oZIWoOr63k_Q7l-in3LkJua5Ppw-oxJhwngkaArneEALw_wcB") {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return const InvalidBarcodeDialog();
+              });
+          qrController.pauseCamera();
         }
-        // qr code not valid
-        if (event.toString() == "qr code url" && isScanned == true) {
-          // emit ScaningInvalidState
-          //show dialog
-        }
-        // qr code not found
-        if (event.toString() != "qr code url") {
-          // emit ScaningNotFoundState
+      }
+      // else if (event.code.toString() ==
+      //     "https://qr.io/?gad_source=1&gclid=Cj0KCQiAv8SsBhC7ARIsALIkVT2yv0c4bGfWfmT601_oZIWoOr63k_Q7l-in3LkJua5Ppw-oxJhwngkaArneEALw_wcB") {
+      //   //
+      // }
+      // not found
 
-          //show dialog
-        }
-
-        print("event ${event.toString()}");
-        // event code print the url of the scanned
-        print("event code ${event.code.toString()}");
-        print("event format ${event.format.toString()}");
-        print("event rawwwwwwwwwww ${event.rawBytes}");
-      });
+      print("event ${event.toString()}");
+      // event code print the url of the scanned
+      print("event code ${event.code.toString()}");
+      print("event format ${event.format.toString()}");
+      print("event rawwwwwwwwwww ${event.rawBytes}");
     });
   }
+
+  // @override
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Column(
-        children: [
-          Expanded(
-            flex: 5,
-            child: QRView(
-              key: _qrKey,
-              onQRViewCreated: onQRViewCreated,
-              overlay: QrScannerOverlayShape(
-                  cutOutSize: 300,
-                  borderLength: 60,
-                  borderWidth: 15,
-                  borderColor: AppColors().green),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Center(
-              child: (result != null)
-                  ? Text('Barcode Type: $result')
-                  : const Text('Scan a code'),
-            ),
-          )
-        ],
-      ),
+      body: Stack(children: [
+        QRView(
+          key: _qrKey,
+          onQRViewCreated: onQRViewCreated,
+          overlay: QrScannerOverlayShape(
+              cutOutSize: 300,
+              borderLength: 60,
+              borderWidth: 15,
+              borderColor: AppColors().green),
+        ),
+        const Positioned(top: 200, right: 120, child: ScanBarcode()),
+      ]),
     );
   }
 }

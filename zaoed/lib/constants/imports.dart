@@ -47,7 +47,6 @@ export 'package:zaoed/extensions/screen_dimensions.dart';
 export 'package:zaoed/providor_show_dialogs/components/added_dialog.dart';
 export 'package:zaoed/Screens/Finder/screens/customer_service_chat/chat_screen.dart';
 export 'package:zaoed/components/dialog_widgets/one_button_dialog_widget.dart.dart';
-export 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_barcode.dart';
 export 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_charging_information.dart';
 export 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_charging_time_information.dart';
 export 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_location_information.dart';

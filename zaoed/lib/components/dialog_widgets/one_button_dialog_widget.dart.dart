@@ -22,7 +22,7 @@ class DialogWidgetOneButton extends StatelessWidget {
       insetAnimationDuration: const Duration(milliseconds: 100),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
-        height: 220,
+        height: 230,
         width: context.getWidth(),
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -49,11 +49,16 @@ class DialogWidgetOneButton extends StatelessWidget {
               const SizedBox(
                 height: 32,
               ),
-              DialogButton(
-                textEntry: button1,
-                backColor: AppColors().green,
-                textColor: AppColors().gray6,
-                onPress: pressOne,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  DialogButton(
+                    textEntry: button1,
+                    backColor: AppColors().green,
+                    textColor: AppColors().gray6,
+                    onPress: pressOne,
+                  ),
+                ],
               ),
             ],
           ),
