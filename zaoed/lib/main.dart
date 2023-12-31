@@ -1,3 +1,4 @@
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/Screens/loading/loading_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
@@ -83,9 +84,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-
         home: LoadingScreen(),
-
         debugShowCheckedModeBanner: false,
       ),
     );

@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
+import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/model/bookmark_model.dart';
 export 'dart:async';
 part 'actions_event.dart';
@@ -13,13 +16,13 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
   List<ChargingPoint>? chargingPointData;
   double? price = 9;
   String? capon;
+  late QRViewController scanController;
 
   ActionsBloc() : super(ActionsInitial()) {
     on<GetBookmarkEvent>(getBookmarkMethod);
     on<AddBookmarkEvent>(addBookmarkMethod);
     on<DeleteBookmarkEvent>(deleteBookmarkMethod);
     on<GetChargingPointsEvent>(getChargingPointsMethod);
-    on<ScanningEvent>(scanQrCodMethod);
 
     on<CaponEvent>((event, emit) {
       if (capon == 'Zaoed') {
@@ -37,8 +40,6 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
 
       await Future.delayed(const Duration(seconds: 1));
       emit(GetChargingPointsState(chargingPoints: chargingPointData!));
-
-      print(chargingPointData);
     } catch (e) {
       ErrorState();
       print(e.toString());
@@ -83,8 +84,5 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
     }
   }
 
-  FutureOr<void> scanQrCodMethod(
-      ScanningEvent event, Emitter<ActionsState> emit) {
-//
-  }
+  
 }

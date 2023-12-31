@@ -21,7 +21,7 @@ class DialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       key: key,
-      alignment: Alignment.center,
+      alignment: Alignment.bottomCenter,
       backgroundColor: AppColors().gray6,
       insetAnimationDuration: const Duration(milliseconds: 100),
       child: Container(
@@ -56,9 +56,7 @@ class DialogWidget extends StatelessWidget {
                 bodyText,
                 style: TextStyle(fontSize: 17, color: AppColors().mainWhite),
               ),
-              const SizedBox(
-                height: 32,
-              ),
+              Spacer(),
               ButtonRowWidget(
                 buttontext1: button1,
                 onPress1: pressOne,

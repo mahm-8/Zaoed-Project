@@ -31,6 +31,7 @@ class ChargingPoint {
   ChargingPoint({
     this.pointId,
     this.userId,
+    this.pointAuthID,
     this.rating,
     this.pointName,
     this.portCount,
@@ -42,6 +43,7 @@ class ChargingPoint {
   });
   int? pointId;
   int? userId;
+  String? pointAuthID;
 
   double? rating;
   String? pointName;
@@ -55,6 +57,7 @@ class ChargingPoint {
   ChargingPoint.fromJson(Map<String, dynamic> json) {
     pointId = json['point_id'] ?? 0;
     userId = json['id_user'] ?? 0;
+    pointAuthID = json["id_auth"];
     rating = json['rating'] ?? 0.0;
     pointName = json['point_name'];
     portCount = json['port_count'];
@@ -69,6 +72,8 @@ class ChargingPoint {
     final _data = <String, dynamic>{};
     _data['point_id'] = pointId;
     _data['id_user'] = userId;
+    _data['id_auth'] = pointAuthID;
+
     _data['rating'] = rating;
     _data['point_name'] = pointName;
     _data['port_count'] = portCount;

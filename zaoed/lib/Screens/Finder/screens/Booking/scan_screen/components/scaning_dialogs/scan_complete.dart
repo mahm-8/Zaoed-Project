@@ -11,7 +11,7 @@ class ScanCompleteDialog extends StatelessWidget {
           "تمت عملية مسح الباركود بنجاح، نشكركم على الإستعانة بخدماتنا ونتمنى لكم رحلة آمنة",
       button1: "التالي",
       pressOne: () {
-        // pay screen
+        context.push(view: NavigationBarScreen());
       },
     );
   }
