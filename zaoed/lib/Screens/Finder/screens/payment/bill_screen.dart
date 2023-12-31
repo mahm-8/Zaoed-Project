@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:zaoed/constants/imports.dart';
 
@@ -26,12 +25,4 @@ class BillScreen extends StatelessWidget {
           ),
         ));
   }
-}
-
-String generateToken() {
-  final random = Random();
-  final token = List.generate(20, (_) => random.nextInt(10)).join();
-  final formattedToken =
-      token.replaceAllMapped(RegExp(r".{4}"), (match) => '${match.group(0)}-');
-  return formattedToken.substring(0, formattedToken.length - 1);
 }

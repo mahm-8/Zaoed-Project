@@ -1,6 +1,7 @@
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
-Future<dynamic> deleteChargingPoint(BuildContext context) {
+Future<dynamic> DeleteChargingPoint(BuildContext context, int? pointID) {
   return showDialog(
     barrierColor: Colors.transparent,
     context: context,
@@ -11,6 +12,10 @@ Future<dynamic> deleteChargingPoint(BuildContext context) {
         button1: 'نعم',
         button2: 'لا',
         pressOne: () {
+          context
+              .read<ProviderBloc>()
+              .add(DeleteChargingPointEvent(pointId: pointID));
+          context.pop();
           showDialog(
             barrierColor: Colors.transparent,
             context: context,
@@ -21,7 +26,6 @@ Future<dynamic> deleteChargingPoint(BuildContext context) {
             },
           );
           Future.delayed(const Duration(seconds: 3), () {
-            context.pop();
             context.pop();
           });
         },

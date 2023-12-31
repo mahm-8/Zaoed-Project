@@ -44,6 +44,7 @@ class LogInAuthEvent extends AuthEvent {
 }
 class CheckLoginEvent extends AuthEvent {}
 
+
 class UpdatePassword extends AuthEvent {
  final String pass;
 final String email;

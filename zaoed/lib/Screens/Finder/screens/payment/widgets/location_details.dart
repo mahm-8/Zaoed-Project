@@ -4,8 +4,9 @@ import 'package:zaoed/constants/imports.dart';
 class LocationDetails extends StatelessWidget {
   const LocationDetails({
     super.key,
+    this.namePoint,
   });
-
+  final String? namePoint;
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
@@ -19,7 +20,7 @@ class LocationDetails extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: Text(
-              '${bloc.bookmarkData?[0].chargingPoint.pointName}',
+              namePoint ?? "",
               style: TextStyle(color: AppColors().white, fontSize: 16),
             ),
           ),

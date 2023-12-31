@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class CardScreen extends StatelessWidget {
@@ -9,7 +10,7 @@ class CardScreen extends StatelessWidget {
       appBar: appBar(context, title: 'البطاقات'),
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          context.push(view:  AddCard());
+          context.push(view: AddCard());
         },
         style: ElevatedButton.styleFrom(
             shape:
@@ -20,31 +21,41 @@ class CardScreen extends StatelessWidget {
         child: const Text("إضافة بطاقة"),
       ),
       backgroundColor: AppColors().gray9,
-      body: SafeArea(
-          child: Card(
-        color: AppColors().gray6,
-        child: ListTile(
-          leading: Image.asset("lib/assets/icons/mastercard.png"),
-          title: Text.rich(TextSpan(
-              style: TextStyle(color: AppColors().white),
-              children: [
-                const TextSpan(text: "البنك الاهلي "),
-                TextSpan(text: "111".padLeft(10, "*"))
-              ])),
-          trailing: TextButton(
-              onPressed: () {},
+      body: SafeArea(child: BlocBuilder<CardBloc, CardState>(
+        builder: (context, state) {
+          if (state is GetCardDataState) {
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  ...state.cards.map(
+                    (e) => Card(
+                      color: AppColors().gray6,
+                      child: ListTile(
+                        leading: Image.asset("lib/assets/icons/mastercard.png"),
+                        title: Text(
+                            e?.numberCard?.substring(12).padLeft(10, "*") ??
+                                ""),
+                        trailing: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "تعديل",
+                              style: TextStyle(
+                                  fontSize: 18, color: AppColors().blue),
+                            )),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            );
+          }
+          return Center(
               child: Text(
-                "تعديل",
-                style: TextStyle(fontSize: 18, color: AppColors().blue),
-              )),
-        ),
-      )
-          //     Center(
-          //         child: Text(
-          //   "لاتوجد أي بطاقة مضافة حالياٍ",
-          //   style: TextStyle(color: AppColors().white),
-          // ))
-          ),
+            "لاتوجد أي بطاقة مضافة حالياٍ",
+            style: TextStyle(color: AppColors().white),
+          ));
+        },
+      )),
     );
   }
 }

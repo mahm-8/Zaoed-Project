@@ -4,7 +4,12 @@ part of '../finder_bloc/finder_bloc.dart';
 sealed class FinderState {}
 
 final class FinderInitial extends FinderState {}
+
 class LoadDataTimerState extends FinderState {}
+
+class SuccessPayState extends FinderState {}
+
+class ErrorPayState extends FinderState {}
 
 class TimerDataState extends FinderState {
   final String formattedTime;
@@ -13,4 +18,10 @@ class TimerDataState extends FinderState {
 
   TimerDataState(
       this.formattedTime, this.remainingTime, this.completedPercentage);
+}
+
+class InvoiceDataState extends FinderState {
+  final List? invoice;
+
+  InvoiceDataState({required this.invoice});
 }

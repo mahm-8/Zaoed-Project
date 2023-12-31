@@ -1,6 +1,6 @@
-
-import 'package:flutter/material.dart';
 import 'package:moyasar/moyasar.dart';
+import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class PaymentMethods extends StatelessWidget {
   PaymentMethods({
@@ -15,41 +15,43 @@ class PaymentMethods extends StatelessWidget {
     metadata: {'size': '250g'},
   );
 
-   onPaymentResult(result) {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CreditCard(
+            locale: const Localization.ar(),
+            config: paymentConfig,
+            onPaymentResult: onPaymentResult,
+          )
+        ],
+      ),
+    );
+  }
+    onPaymentResult(result,BuildContext context) {
     if (result is PaymentResponse) {
       switch (result.status) {
         case PaymentStatus.paid:
-          
+          context.read<FinderBloc>().add(PaymentStatusEvent("paid"));
           break;
         case PaymentStatus.failed:
-          // handle failure.
+          print("faild");
+          context.read<FinderBloc>().add(PaymentStatusEvent("faild"));
           break;
         case PaymentStatus.initiated:
           // TODO: Handle this case.
+          print("initated");
           break;
         case PaymentStatus.authorized:
+        context.read<FinderBloc>().add(PaymentStatusEvent("authorized"));
         // TODO: Handle this case.
         case PaymentStatus.captured:
         // TODO: Handle this case.
       }
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // ApplePay(
-        //   config: paymentConfig,
-        //   onPaymentResult: onPaymentResult,
-        // ),
-
-        CreditCard(
-          locale: Localization.ar(),
-          config: paymentConfig,
-          onPaymentResult: onPaymentResult,
-        )
-      ],
-    );
   }
 }

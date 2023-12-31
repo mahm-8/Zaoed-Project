@@ -11,6 +11,14 @@ class GoogleMapUpdatedState extends GoogleMapState {
   GoogleMapUpdatedState(this.locationData);
 }
 
+class FetchPolylineState extends GoogleMapState {
+  // final LatLng? distention;
+  final Set<Polyline> polylines;
+  final Set<Marker> markers;
+
+  FetchPolylineState(this.polylines, this.markers);
+}
+
 class MarkerLoadingState extends GoogleMapState {}
 
 class MarkerLoadedState extends GoogleMapState {

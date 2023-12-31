@@ -100,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>  const TabbarSignup()));
+                        builder: (context) => const TabbarSignup()));
               },
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",
@@ -112,6 +112,7 @@ class LoginScreen extends StatelessWidget {
             ),
             BlocConsumer<AuthBloc, AuthStates>(listener: (context, state) {
               if (state is SuccessLoginState) {
+                context.read<AuthBloc>().add(CheckLoginEvent());
                 context.pushAndRemoveUntil(view: const LoadingScreen());
               }
               if (state is ErrorLoginState) {

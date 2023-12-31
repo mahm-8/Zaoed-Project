@@ -1,10 +1,11 @@
 import 'package:zaoed/constants/imports.dart';
 
-AppBar profailAppBar(BuildContext context) {
+AppBar profailAppBar(BuildContext context ,String name) {
+  
   return AppBar(
       backgroundColor: AppColors().gray9,
       title: Text(
-        'علي محمد',
+        name,
         style: TextStyle(color: AppColors().white),
       ),
       leadingWidth: 100,

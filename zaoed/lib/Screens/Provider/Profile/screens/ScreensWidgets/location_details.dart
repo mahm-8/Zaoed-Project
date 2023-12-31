@@ -1,19 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_charging_point.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/edit_charging_point_screen.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class LocationDetails extends StatelessWidget {
   const LocationDetails({
     super.key,
-    required this.locationName,
-    required this.locationDetails,
+    required this.bloc,
+    required this.pointsData,
   });
-  final String locationName;
-  final String locationDetails;
+
+  final ChargingPoint pointsData;
+  final ActionsBloc? bloc;
+
   @override
   Widget build(BuildContext context) {
+    final dataBloc = context.read<ProviderBloc>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Container(
@@ -33,13 +36,14 @@ class LocationDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    locationName,
+                    pointsData.pointName ?? "",
                     style: TextStyle(color: AppColors().white, fontSize: 18),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const Spacer(),
                   Text(
-                    locationDetails,
-                    style: TextStyle(color: AppColors().white),
+                    "${pointsData.longitude}\n ${pointsData.latitude}",
+                    style: TextStyle(fontSize: 9, color: AppColors().white),
                     overflow: TextOverflow.ellipsis,
                   )
                 ],
@@ -50,13 +54,17 @@ class LocationDetails extends StatelessWidget {
                 children: [
                   InkWell(
                       onTap: () {
-                        context.push(view: EditChargingPointScreen());
+                        context.push(
+                            view: EditChargingPointScreen(
+                          bloc: dataBloc,
+                          pointData: pointsData,
+                        ));
                       },
                       child: Image.asset('lib/assets/icons/edit.png')),
                   const Spacer(),
                   InkWell(
                       onTap: () {
-                        deleteChargingPoint(context);
+                        DeleteChargingPoint(context, pointsData.pointId);
                       },
                       child: Image.asset('lib/assets/icons/delete.png'))
                 ],

@@ -29,23 +29,32 @@ class BookmarkModel {
 
 class ChargingPoint {
   ChargingPoint({
-    required this.rating,
-    required this.pointName,
-    required this.portCount,
-    required this.chargingPort,
-    required this.chargingTimes,
-    required this.pointLocation,
+    this.pointId,
+    this.userId,
+    this.rating,
+    this.pointName,
+    this.portCount,
+    this.chargingPort,
+    this.chargingTimes,
+    this.pointLocation,
+    this.longitude,
+    this.latitude,
   });
-  late final double? rating;
-  late final String? pointName;
-  late final int? portCount;
-  late final String? chargingPort;
-  late final int? chargingTimes;
-  late final String? pointLocation;
-  late final double? longitude;
-  late final double? latitude;
+  int? pointId;
+  int? userId;
+
+  double? rating;
+  String? pointName;
+  int? portCount;
+  String? chargingPort;
+  int? chargingTimes;
+  String? pointLocation;
+  double? longitude;
+  double? latitude;
 
   ChargingPoint.fromJson(Map<String, dynamic> json) {
+    pointId = json['point_id'] ?? 0;
+    userId = json['id_user'] ?? 0;
     rating = json['rating'] ?? 0.0;
     pointName = json['point_name'];
     portCount = json['port_count'];
@@ -57,15 +66,17 @@ class ChargingPoint {
   }
 
   Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['rating'] = rating;
-    data['point_name'] = pointName;
-    data['port_count'] = portCount;
-    data['charging_port'] = chargingPort;
-    data['charging_times'] = chargingTimes;
-    data['point_location'] = pointLocation;
-    data['longitude'] = longitude;
-    data['latitude'] = latitude;
-    return data;
+    final _data = <String, dynamic>{};
+    _data['point_id'] = pointId;
+    _data['id_user'] = userId;
+    _data['rating'] = rating;
+    _data['point_name'] = pointName;
+    _data['port_count'] = portCount;
+    _data['charging_port'] = chargingPort;
+    _data['charging_times'] = chargingTimes;
+    _data['point_location'] = pointLocation;
+    _data['longitude'] = longitude;
+    _data['latitude'] = latitude;
+    return _data;
   }
 }

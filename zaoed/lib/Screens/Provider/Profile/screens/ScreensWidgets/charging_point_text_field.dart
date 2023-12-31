@@ -1,15 +1,19 @@
+import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class AddChargingPointTextField extends StatelessWidget {
   const AddChargingPointTextField({
     super.key,
-    required this.controller,
+    required this.textController,
+    required this.isEdit,
   });
 
-  final TextEditingController controller;
+  final TextEditingController textController;
+  final bool isEdit;
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ProviderBloc>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,11 +34,12 @@ class AddChargingPointTextField extends StatelessWidget {
                   left: BorderSide(color: AppColors().green, width: 0.3)),
             ),
             child: TextField(
-              controller: controller,
+              controller: textController,
               decoration: InputDecoration(
                 fillColor: AppColors().gray6,
                 filled: true,
-                hintText: 'المنزل,العمل...',
+                // if editing return old data else show hint
+                hintText: isEdit ? bloc.pointName : 'المنزل,العمل...',
                 hintStyle: const TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),

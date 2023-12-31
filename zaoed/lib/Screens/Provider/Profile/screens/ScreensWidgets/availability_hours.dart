@@ -1,14 +1,9 @@
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 
-class AvailabilityHours extends StatefulWidget {
-  const AvailabilityHours({super.key});
-
-  @override
-  State<AvailabilityHours> createState() => _AvailabilityHoursState();
-}
-
-class _AvailabilityHoursState extends State<AvailabilityHours> {
+class AvailabilityHours extends StatelessWidget {
+  AvailabilityHours({super.key, required this.bloc});
+  final ProviderBloc bloc;
   List<String> textClock = [
     'غير متوفر',
     '00:00-6:00',
@@ -16,6 +11,7 @@ class _AvailabilityHoursState extends State<AvailabilityHours> {
     '12:00-18:00',
     '18:00-00:00'
   ];
+
   List<String> imageClock = [
     'lib/assets/icons/Clock_.png',
     'lib/assets/icons/ClockFri12-6.png',
@@ -25,7 +21,6 @@ class _AvailabilityHoursState extends State<AvailabilityHours> {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ProviderBloc>();
     return BlocBuilder<ProviderBloc, ProviderState>(
       builder: (context, state) {
         final selectedIndex =
@@ -55,6 +50,7 @@ class _AvailabilityHoursState extends State<AvailabilityHours> {
                         return GestureDetector(
                           onTap: () {
                             bloc.add(HoursSelectIndexEvent(index));
+                            selectHourMethod(index: index);
                           },
                           child: Container(
                             height: 90,
@@ -108,5 +104,36 @@ class _AvailabilityHoursState extends State<AvailabilityHours> {
         );
       },
     );
+  }
+
+  void selectHourMethod({required int index}) {
+    switch (index) {
+      case 0:
+        bloc.selectedHour = textClock[index];
+        break;
+      case 1:
+        bloc.selectedHour = textClock[index];
+        break;
+      case 2:
+        bloc.selectedHour = textClock[index];
+        break;
+      case 3:
+        bloc.selectedHour = textClock[index];
+        break;
+      case 4:
+        bloc.selectedHour = textClock[index];
+        break;
+      case 5:
+        bloc.selectedHour = textClock[index];
+        break;
+      case 6:
+        bloc.selectedHour = textClock[index];
+        break;
+      case 7:
+        bloc.selectedHour = textClock[index];
+        break;
+      default:
+        bloc.selectedHour = textClock[0];
+    }
   }
 }

@@ -18,7 +18,6 @@ Future<dynamic> deleteChargingPointShowDialog(BuildContext context) {
           cancelShowDialog(context);
           Future.delayed(const Duration(seconds: 2), () {
             context.pop();
-            context.pop();
           });
         },
         pressTwo: () {
