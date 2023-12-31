@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -16,22 +15,25 @@ enum Status {
   reachedChargingPoint,
   InProcessing,
   rating,
+  nono
 }
+
 class BottomSheetStatusBloc
     extends Bloc<BottomSheetStatusEvent, BottomSheetStatusState> {
-  final statusController = StreamController<Status>();
+  String? image;
+  String? point;
+  String? hour;
   BottomSheetStatusBloc() : super(BottomSheetStatusInitial()) {
-    updateStatus(Status status) {
-      statusController.sink.add(status);
-    }
-
-    on<BottomSheetStatusEvent>((event, emit) {
-      if (event is UpdateStatusEvent) {
-        updateStatus(event.status);
-      }
+    on<UpdateStatusEvent>((event, emit) async {
+      image = event.imageType;
+      point = event.point;
+      hour = event.hour;
+      print(hour);
+      emit(SuccessState(status: event.status));
     });
   }
- switchShowBottomSheet(BuildContext context, Status status) {
+
+  switchShowBottomSheet(BuildContext context, Status status) {
     switch (status) {
       case Status.completedPayment:
         context.receiveDialog();

@@ -84,7 +84,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: ScanBarcodeScreen(),
+        home: LoadingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

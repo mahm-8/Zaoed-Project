@@ -4,6 +4,7 @@ import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dar
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
@@ -164,6 +165,14 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                         view: ScanBarcodeScreen(
                       chargingPoint: widget.chargingPoint,
                     ));
+                    ///////////////////////////////////
+                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                        status: Status.completedPayment,
+                        imageType: widget.image,
+                        point: widget.chargingPoint.pointName,
+                        hour: widget.hour));
+                    context.pushAndRemoveUntil(
+                        view: FinderNavigationBarScreen());
                   },
                 ),
               ],

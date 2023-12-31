@@ -15,23 +15,36 @@ class _MapHomeScreenState extends State<MapHomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    bottomSheetStatusBloc = BottomSheetStatusBloc();
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   bottomSheetStatusBloc.switchShowBottomSheet(
-    //     context,
-    //     Status.completedPayment,
-    //   );
-    // });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      extendBody: true,
-      body: Stack(children: [
-        Positioned.fill(child: GoogleMapScreen()),
-        HomeScreen(),
-      ]),
+    return Scaffold(
+      // extendBody: true,
+      body: BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
+        buildWhen: (_, newstate) {
+          if (newstate is SuccessState) {
+            return true;
+          }
+          return false;
+        },
+        builder: (context, state) {
+          if (state is SuccessState) {
+            bottomSheetStatusBloc = BottomSheetStatusBloc();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              bottomSheetStatusBloc.switchShowBottomSheet(
+                context,
+                state.status,
+              );
+            });
+          }
+
+          return Stack(children: [
+            Positioned.fill(child: GoogleMapScreen()),
+            HomeScreen(),
+          ]);
+        },
+      ),
     );
   }
 }

@@ -25,10 +25,13 @@ class CarInformation extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Center(
+              Center(
                 child: Text(
                   'جاري الشحن',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors().black),
                 ),
               ),
               Image.asset('lib/assets/icons/black_logo.png'),

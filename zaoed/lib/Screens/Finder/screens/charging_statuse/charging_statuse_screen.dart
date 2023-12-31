@@ -16,7 +16,7 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
         children: [
           const ChargingCar(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
