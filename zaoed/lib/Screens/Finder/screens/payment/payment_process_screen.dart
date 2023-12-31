@@ -1,6 +1,7 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 
@@ -153,6 +154,9 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                 BillScreen(
                   onTap: () {
                     context.push(view: FinderNavigationBarScreen());
+                    context.read<BottomSheetStatusBloc>().add(
+                        UpdateStatusEvent(status: Status.completedPayment,imageType: widget.image,point: widget.chargingPoint.pointName,hour:widget.hour));
+                    
                   },
                 ),
               ],
