@@ -124,11 +124,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
 
       if (token != null) {
         final id = supabaseClint.auth.currentUser?.id;
+       
         final type =
             await supabaseClint.from('user').select('type').eq('id_auth', id!);
         
         if (isExp) {
-          await supabaseClint.auth
+           await supabaseClint.auth
               .setSession(supabaseClint.auth.currentSession!.refreshToken!);
           emit(CheckLoginState(type[0]['type']));
         } else {
