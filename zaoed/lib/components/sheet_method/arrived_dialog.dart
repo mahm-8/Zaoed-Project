@@ -1,21 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
-import 'package:zaoed/components/sheet_method/widget/spen_text.dart';
-import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
 extension ArrivedSheet on BuildContext {
   arrivedToCharging() {
     showBottomSheet(
       context: this,
       builder: (context) {
-       
         return Container(
           decoration: BoxDecoration(
               borderRadius:
@@ -49,7 +39,9 @@ extension ArrivedSheet on BuildContext {
                   const SizedBox(height: 15),
                   ButtonWidget(
                     onPress: () {
-                      context.push(view: ScanBarcodeScreen());
+                      ////////////////////////////////////////
+                      /// send charging point data
+                      // context.push(view: ScanBarcodeScreen());
                     },
                     textEntry: "مسح الباركود",
                     backColor: AppColors().green,

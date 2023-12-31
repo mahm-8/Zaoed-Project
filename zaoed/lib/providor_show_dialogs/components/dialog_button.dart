@@ -18,7 +18,6 @@ class DialogButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 38,
-      width: 96,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             alignment: Alignment.center,

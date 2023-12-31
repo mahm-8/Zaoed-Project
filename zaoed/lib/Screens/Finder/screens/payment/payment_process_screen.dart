@@ -1,4 +1,7 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:moyasar/moyasar.dart';
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
+import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
@@ -6,6 +9,7 @@ import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/test_pay.dart';
 
 import '../../../../blocs/finder/user_bloc/user_bloc.dart';
 import '../NavigationBar/navigation_bar.dart';
@@ -153,12 +157,14 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    context.push(view: FinderNavigationBarScreen());
-                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
-                        status: Status.completedPayment,
-                        imageType: widget.type,
-                        point: widget.chargingPoint.pointName,
-                        hour: widget.hour));
+                    context.read<BottomSheetStatusBloc>().add(
+                        UpdateStatusEvent(status: Status.completedPayment,imageType: widget.image,point: widget.chargingPoint.pointName,hour:widget.hour));
+                    context.pushAndRemoveUntil(
+                        view: FinderNavigationBarScreen());
+                        context.push(
+                        view: ScanBarcodeScreen(
+                      chargingPoint: widget.chargingPoint,
+                    ));
                   },
                 ),
               ],

@@ -1,17 +1,17 @@
-
 import 'package:zaoed/constants/imports.dart';
 
-class InvalidBarcodeDialog extends StatelessWidget {
-  const InvalidBarcodeDialog({super.key});
+class NotFoundBarcodeDialog extends StatelessWidget {
+  const NotFoundBarcodeDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DialogWidget(
       title: "خطأ!",
-      bodyText: "هذا الباركود غير صالح",
+      bodyText: "لم يتم إيجاد الباركود",
       button1: "إعادة المحاولة",
       pressOne: () {
-        Navigator.pop(context);
+        Future.delayed(const Duration(seconds: 2));
+        context.pop();
       },
       button2: "الدعم",
       pressTwo: () {
