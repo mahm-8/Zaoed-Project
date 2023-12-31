@@ -1,16 +1,18 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:meta/meta.dart';
-import 'package:zaoed/Screens/Finder/screens/home/google_map.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/model/google_map_model.dart';
 import 'package:zaoed/service/networking.dart';
+import 'dart:math' show cos, sqrt, asin;
+
 import 'package:image/image.dart' as IMG;
+
 part 'google_map_event.dart';
 part 'google_map_state.dart';
 
@@ -84,13 +86,11 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   ) async {
     final List<LatLng> polylineCoordinates = [];
     final PolylinePoints polylinePoints = PolylinePoints();
-    print("====================wadha no 1=============");
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       'AIzaSyB_pskxOAYeFwmfRTn-nQRRVocOj1Dyj6I',
       PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
       PointLatLng(sourceLocation1.latitude, sourceLocation1.longitude),
     );
-    print("=========================");
     print(result);
     if (result.points.isNotEmpty) {
       result.points.forEach((PointLatLng point) {
@@ -114,19 +114,38 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
         currentLocation?.latitude ?? 0,
         currentLocation?.longitude ?? 0,
       ));
-      final polylines = await createPolylines(
-          LatLng(
-            currentLocation?.latitude ?? 0,
-            currentLocation?.longitude ?? 0,
-          ),
-          event.distention!);
-      emit(FetchPolylineState(polylines));
+      final dist = calculateDistance(
+          currentLocation?.latitude ?? 0,
+          currentLocation?.longitude ?? 0,
+          event.distention!.latitude,
+          event.distention!.longitude);
+      if (dist <= 3) {
+        // Show the dialog when within 3 meters of the destination location
+        print("=============================================== i am here");
+      } else {
+        final polylines = await createPolylines(
+            LatLng(
+              currentLocation?.latitude ?? 0,
+              currentLocation?.longitude ?? 0,
+            ),
+            event.distention!);
+        emit(FetchPolylineState(polylines));
+      }
       // await getCurrentLocation();
-      print(polylines);
+      // print(polylines);
     } catch (error) {
-      print("!!!!!!!!!!!!!!!!!!!!!!!!!");
       print(error);
     }
+  }
+
+  double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+    final p = 0.017453292519943295;
+    final a = 0.5 -
+        cos((lat2 - lat1) * p) / 2 +
+        cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2;
+    return 12742 *
+        asin(sqrt(a)) *
+        1000; // Multiply by 1000 to get distance in meters
   }
 
   getCurrentLocation() {
