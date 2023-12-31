@@ -6,7 +6,6 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:meta/meta.dart';
-import 'package:zaoed/Screens/Finder/screens/home/google_map.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/model/google_map_model.dart';
 import 'package:zaoed/service/networking.dart';

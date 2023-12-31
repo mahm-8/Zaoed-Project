@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {
   const ChargingStatuesScreen({super.key});

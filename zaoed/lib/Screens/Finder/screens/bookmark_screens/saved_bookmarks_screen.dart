@@ -63,7 +63,7 @@ class SavedBookmarksScreen extends StatelessWidget {
                   ));
                 }
               }
-              return const Text("error");
+              return const SizedBox();
             })
           ],
         ),
