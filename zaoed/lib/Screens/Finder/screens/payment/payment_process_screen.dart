@@ -163,8 +163,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                         point: widget.chargingPoint.pointName,
                         hour: widget.hour,
                         chargingPoint: widget.chargingPoint));
-                    context.pushAndRemoveUntil(
-                        view: FinderNavigationBarScreen());
+                    context.pushAndRemoveUntil(view: NavigationBarScreen());
                   },
                 ),
               ],

@@ -50,8 +50,7 @@ class MainApp extends StatelessWidget {
           create: (context) => UserBloc(),
         ),
         BlocProvider(
-          create: (context) =>
-              ProviderBloc()..add(GetProviderChargingPointsEvent()),
+          create: (context) => ProviderBloc(),
         ),
         BlocProvider(
           create: (context) => StaticBloc(),

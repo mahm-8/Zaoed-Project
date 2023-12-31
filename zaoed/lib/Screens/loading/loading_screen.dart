@@ -7,6 +7,7 @@ import '../../blocs/actions_bloc/actions_bloc.dart';
 import '../../blocs/charging_bloc/charging_bloc.dart';
 import '../../blocs/finder_bloc/finder_bloc.dart';
 import '../../blocs/google_map_bloc/google_map_bloc.dart';
+import '../../blocs/providor_bloc/provider_bloc.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});
@@ -17,7 +18,7 @@ class LoadingScreen extends StatelessWidget {
       listener: (context, newState) {
         if (newState is CheckLoginState) {
           context.read<ActionsBloc>().add(GetChargingPointsEvent());
-
+          context.read<ProviderBloc>().add(GetProviderChargingPointsEvent());
           context.read<CardBloc>().add(GetCardDateEvent());
           context.read<FinderBloc>().add(LoadDataTimerEvent());
           context.read<ChargingBloc>().add(EmptyCarsEvent());
