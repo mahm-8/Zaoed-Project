@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
 class ChargingStatuesScreen extends StatefulWidget {
   const ChargingStatuesScreen({super.key});
@@ -17,7 +16,7 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
         children: [
           const ChargingCar(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

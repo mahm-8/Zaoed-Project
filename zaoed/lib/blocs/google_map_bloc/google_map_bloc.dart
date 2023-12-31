@@ -116,25 +116,31 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
         currentLocation?.longitude ?? 0,
       ));
 
-      final dist = calculateDistance(
-          currentLocation?.latitude ?? 0,
-          currentLocation?.longitude ?? 0,
-          event.distention!.latitude,
-          event.distention!.longitude);
-      if (dist <= 3) {
-        print("=============================================== i am here");
-      } else {
-        final polylines = await createPolylines(
-            LatLng(
-              currentLocation?.latitude ?? 0,
-              currentLocation?.longitude ?? 0,
-            ),
-            event.distention!);
-        emit(FetchPolylineState(polylines));
-      }
+      // final dist = calculateDistance(
+      //     currentLocation?.latitude ?? 0,
+      //     currentLocation?.longitude ?? 0,
+      //     event.distention!.latitude,
+      //     event.distention!.longitude);
+      // if (dist <= 3) {
+      //   print("=============================================== i am here");
+      // } else {
+      final polylines = await createPolylines(
+          LatLng(
+            currentLocation?.latitude ?? 0,
+            currentLocation?.longitude ?? 0,
+          ),
+          event.distention!);
+      Uint8List bytes = (await rootBundle.load('lib/assets/icons/pin.png'))
+          .buffer
+          .asUint8List();
+      Uint8List? smallimg = resizeImage(bytes, 70, 70);
+      Set<Marker> markers = {};
+      markers =
+          createMarkers(chargingPoints, BitmapDescriptor.fromBytes(smallimg!));
+      emit(FetchPolylineState(polylines, markers));
+      // }
       // await getCurrentLocation();
       // print(polylines);
-
     } catch (error) {
       print(error);
     }
@@ -145,17 +151,18 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
     final a = 0.5 -
         cos((lat2 - lat1) * p) / 2 +
         cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2;
-    return 12742 *
-        asin(sqrt(a)) *
-        1000; // Multiply by 1000 to get distance in meters
+    return 12742 * asin(sqrt(a)) * 1000;
   }
 
   getCurrentLocation() {
     location.getLocation().then((location) {
       currentLocation = location;
+
+      print(location.longitude);
     });
     location.onLocationChanged.listen((newLocation) {
       currentLocation = newLocation;
+
       moveToPosition(LatLng(
         currentLocation?.latitude ?? 0,
         currentLocation?.longitude ?? 0,
