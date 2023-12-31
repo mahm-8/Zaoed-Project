@@ -120,7 +120,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
           event.distention!.latitude,
           event.distention!.longitude);
       if (dist <= 3) {
-        // Show the dialog when within 3 meters of the destination location
         print("=============================================== i am here");
       } else {
         final polylines = await createPolylines(
