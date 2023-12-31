@@ -110,10 +110,12 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       FetchPolylineEvent event, Emitter<GoogleMapState> emit) async {
     try {
       currentLocation = await location.getLocation();
+      print(currentLocation);
       moveToPosition(LatLng(
         currentLocation?.latitude ?? 0,
         currentLocation?.longitude ?? 0,
       ));
+
       final dist = calculateDistance(
           currentLocation?.latitude ?? 0,
           currentLocation?.longitude ?? 0,
@@ -132,6 +134,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       }
       // await getCurrentLocation();
       // print(polylines);
+
     } catch (error) {
       print(error);
     }
@@ -163,9 +166,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   moveToPosition(LatLng latLng) async {
     final GoogleMapController mapController = await googleMapController.future;
     mapController.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(target: latLng, zoom: 15),
-      ),
+      CameraUpdate.newLatLngZoom(latLng, 15),
     );
   }
 }

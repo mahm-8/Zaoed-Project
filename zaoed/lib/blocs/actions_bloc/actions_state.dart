@@ -10,6 +10,8 @@ final class GetBookmarkState extends ActionsState {
   GetBookmarkState({required this.bookmarks});
 }
 
+final class LoadingBookmarkState extends ActionsState {}
+
 final class GetChargingPointsState extends ActionsState {
   final List<ChargingPoint> chargingPoints;
 

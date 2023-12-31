@@ -28,9 +28,10 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
       try {
         final response = await supabase
             .from('cars_booking')
-            .select('hours')
+            .select('hours,timer')
             // .eq('id_povider', id!)
             .match({'id_auth': id!, "status": "progress"});
+
         final data = response.first;
         staticRemainingTimeHour = int.parse(data['hours']) * 1;
         remainingTimeHour = staticRemainingTimeHour;

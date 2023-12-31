@@ -24,7 +24,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<GoogleMapBloc>().add(FetchMarkersEvent());
+    // context.read<GoogleMapBloc>().add(FetchMarkersEvent());
     init();
   }
 
@@ -32,14 +32,9 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     location = Location();
     cameraPosition = const CameraPosition(
       target: LatLng(0, 0),
-      zoom: 15,
+      zoom: 20,
     );
     getCurrentLocation();
-    LatLng sourceLocation = const LatLng(37.4219983, -122.084);
-    LatLng sourceLocation1 = const LatLng(37.33500303, -122.03272188);
-    LatLng destination = const LatLng(37.33429383, -122.0660055);
-    // polylines =
-    //     await createPolylines(sourceLocation, sourceLocation1, destination);
   }
 
 //24.82434094026811, 46.715431292126944
@@ -59,9 +54,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   moveToPosition(LatLng latLng) async {
     final GoogleMapController mapController = await googleMapController.future;
     mapController.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(target: latLng, zoom: 15),
-      ),
+      CameraUpdate.newLatLngZoom(latLng, 15),
     );
   }
 
@@ -122,7 +115,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
                     return GoogleMap(
                       initialCameraPosition: cameraPosition!,
                       mapType: MapType.normal,
-                      // markers: state.markers,
+                      markers: state.markers,
                       zoomControlsEnabled: false,
                       polylines: state.polylines,
                       onMapCreated: (GoogleMapController controller) {
