@@ -26,10 +26,10 @@ class _MapHomeScreenState extends State<MapHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       extendBody: true,
       body: Stack(children: [
-        Positioned.fill(child: GoogleMapScreen()),
+        const Positioned.fill(child: GoogleMapScreen()),
         HomeScreen(),
       ]),
     );

@@ -1,14 +1,10 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:moyasar/moyasar.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/test_pay.dart';
 
 import '../../../../blocs/finder/user_bloc/user_bloc.dart';
 import '../NavigationBar/navigation_bar.dart';
@@ -37,7 +33,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
-    final card = context.read<CardBloc>();
+    // final card = context.read<CardBloc>();
     final user = context.read<UserBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
@@ -156,8 +152,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    context.pushAndRemoveUntil(
-                        view: FinderNavigationBarScreen());
+                    context.push(view: FinderNavigationBarScreen());
                   },
                 ),
               ],

@@ -1,17 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/home/component/button_choice_widget.dart';
-import 'package:zaoed/Screens/Finder/screens/home/component/charge_points_card.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+import 'package:zaoed/blocs/bloc/raiting_bloc.dart';
 import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
 import 'package:zaoed/constants/imports.dart';
 
-import 'component/search_field.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     context.read<ActionsBloc>().add(GetChargingPointsEvent());
+    context.read<RaitingBloc>().add(GetRateEvent());
 
     return Padding(
       padding: const EdgeInsets.all(20.0),
@@ -28,6 +27,8 @@ class HomeScreen extends StatelessWidget {
           ButtonChoiceWidget(
             imageUrl: "lib/assets/icons/map_layer.png",
             onPress: () {
+              ratingBottomSheet(context,controller: controller);
+
               // change map type
               // show trafic
             },
@@ -48,7 +49,6 @@ class HomeScreen extends StatelessWidget {
                 return SizedBox(
                   width: context.getWidth(divide: 1.1),
                   height: context.getHeight(divide: 2.9),
-
                   child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -60,7 +60,6 @@ class HomeScreen extends StatelessWidget {
                           index: index,
                         );
                       }),
-
                 );
               } else {
                 return Center(

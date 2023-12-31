@@ -1,11 +1,16 @@
+
+import 'package:zaoed/blocs/bloc/raiting_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-ratingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
+ratingBottomSheet(BuildContext context,
+    {TextEditingController? controller, double rate = 1.0}) {
   showModalBottomSheet(
     backgroundColor: AppColors().gray6,
     context: context,
     builder: (BuildContext context) {
+      final user = context.read<UserBloc>();
       return Container(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -22,7 +27,7 @@ ratingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
               height: 20,
             ),
             Text(
-              'شكراً $name لاستخدامك نقطة الشحن',
+              'شكراً ${user.user?.name ?? ""} لاستخدامك نقطة الشحن',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
@@ -31,26 +36,55 @@ ratingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
             const SizedBox(height: 8),
             Text(
               '''قيم تجربتك لمساعدتنا في تطوير وتحسين خدماتنا 
-                    وتقديم تجربة مميزة لكم 🤩.''',
+                        وتقديم تجربة مميزة لكم 🤩.''',
               style: TextStyle(fontSize: 16, color: AppColors().white),
             ),
             const SizedBox(height: 8),
-            RatingBar.builder(
-              initialRating: 0,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => ImageIcon(
-                const AssetImage('lib/assets/icons/Star 5.png'),
-                color: AppColors().green,
-              ),
-              onRatingUpdate: (rating) {
+            BlocBuilder<RaitingBloc, RaitingState>(
+              builder: (context, state) {
+                if (state is UpdateRateState) {
+                  return RatingBar.builder(
+                    initialRating: state.rate,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 5,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => ImageIcon(
+                      const AssetImage('lib/assets/icons/Star 5.png'),
+                      color: AppColors().green,
+                    ),
+                    onRatingUpdate: (rating) {
+                      rate = rating;
+                      context
+                          .read<RaitingBloc>()
+                          .add(UpdateRateEvent(rate: rating));
+                    },
+                  );
+                }
+                return RatingBar.builder(
+                  initialRating: 0,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  itemBuilder: (context, _) => ImageIcon(
+                    const AssetImage('lib/assets/icons/Star 5.png'),
+                    color: AppColors().green,
+                  ),
+                  onRatingUpdate: (rating) {
+                    rate = rating;
+                    context
+                        .read<RaitingBloc>()
+                        .add(UpdateRateEvent(rate: rating));
+                  },
+                );
               },
             ),
             const SizedBox(height: 12),
             TextField(
+              controller: controller,
               maxLines: 4,
               decoration: InputDecoration(
                 hintText: 'قيم تجربتك هنا...',
@@ -63,7 +97,12 @@ ratingBottomSheet(BuildContext context, {String name = 'سلوى'}) {
             ButtonWidget(
                 textEntry: 'إرسال',
                 backColor: AppColors().green,
-                onPress: () {},
+                onPress: () {
+                  context.read<RaitingBloc>().add(SaveRateEvent(
+                      rate: rate, comment: controller?.text ?? ""));
+                  controller?.clear();
+                  context.pop();
+                },
                 textColor: AppColors().black)
           ],
         ),

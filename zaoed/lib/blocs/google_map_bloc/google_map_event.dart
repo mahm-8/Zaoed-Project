@@ -1,7 +1,6 @@
 part of 'google_map_bloc.dart';
 
-@immutable
-sealed class GoogleMapEvent {}
+abstract class GoogleMapEvent {}
 
 class LoadMarkersEvent extends GoogleMapEvent {}
 

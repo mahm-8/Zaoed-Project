@@ -42,7 +42,6 @@ class ChargingPoint {
   });
   int? pointId;
   int? userId;
-
   double? rating;
   String? pointName;
   int? portCount;

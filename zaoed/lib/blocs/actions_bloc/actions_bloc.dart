@@ -41,7 +41,7 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       print(chargingPointData);
     } catch (e) {
       ErrorState();
-      print(e.toString());
+      print(e);
     }
   }
 
