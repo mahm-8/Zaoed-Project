@@ -133,20 +133,31 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
             })
             .select()
             .single();
-        emit(AddChargingPointState());
         print(countersList);
         List<Map<String, dynamic>> theList = [];
         for (var element in countersList) {
-          Map<String, dynamic> updateElements = {...element};
+          Map<String, dynamic> updateElements = element;
+          print(updateElements);
+          print("================================");
           updateElements
               .addAll({"id_charging_point": chargingPoint["point_id"]});
+          print(updateElements);
           theList.add(updateElements);
         }
 
         print("--------------theList");
         print(theList);
         await supabase.from('port_counter').insert(theList);
+        ActionsBloc().add(GetChargingPointsEvent());
         emit(AddChargingPointState());
+        count1 = 0;
+        count2 = 0;
+        count3 = 0;
+        count4 = 0;
+        count5 = 0;
+        count6 = 0;
+        count7 = 0;
+        countersList = [];
       } catch (e) {
         print(e.toString());
         return;

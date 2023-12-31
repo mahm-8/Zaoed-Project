@@ -1,4 +1,3 @@
-
 import 'package:zaoed/blocs/bloc/raiting_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
@@ -6,12 +5,15 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 ratingBottomSheet(BuildContext context,
     {TextEditingController? controller, double rate = 1.0}) {
-  showModalBottomSheet(
+  showBottomSheet(
     backgroundColor: AppColors().gray6,
     context: context,
     builder: (BuildContext context) {
       final user = context.read<UserBloc>();
       return Container(
+        constraints: BoxConstraints(
+            minHeight: context.getHeight(divide: 10),
+            maxHeight: context.getHeight(divide: 1.8)),
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

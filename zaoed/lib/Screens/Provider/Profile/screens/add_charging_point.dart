@@ -35,7 +35,8 @@ class AddChargingPoint extends StatelessWidget {
               AvailabilityHours(
                 bloc: bloc,
               ),
-              const ChargingTypeSection(
+              ChargingTypeSection(
+                bloc: bloc,
                 isEdit: false,
               ),
               const SizedBox(
@@ -51,6 +52,7 @@ class AddChargingPoint extends StatelessWidget {
                         bloc.selectedHour,
                         bloc.pinLongitude,
                         bloc.pinLatitude));
+
                     addChargingPointShowDialog(context);
                     Future.delayed(const Duration(seconds: 2), () {
                       context.pop();

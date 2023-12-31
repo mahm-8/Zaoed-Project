@@ -9,8 +9,4 @@ final class UpdateRateState extends RaitingState {
   final double rate;
 
   UpdateRateState({required this.rate});
-}final class GetRateState extends RaitingState {
-  final List allRate;
-
-  GetRateState({required this.allRate});
 }

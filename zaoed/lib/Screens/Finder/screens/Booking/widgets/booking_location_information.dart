@@ -13,7 +13,6 @@ class BookingLocationInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ActionsBloc, ActionsState>(
       builder: (context, state) {
-        if (state is GetChargingPointsState) {}
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

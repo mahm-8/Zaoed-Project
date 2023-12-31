@@ -14,7 +14,4 @@ class SaveRateEvent extends RaitingEvent {
   final String comment;
 
   SaveRateEvent({required this.rate, required this.comment});
-
- 
 }
-class GetRateEvent extends RaitingEvent {}

@@ -11,7 +11,6 @@ class RaitingBloc extends Bloc<RaitingEvent, RaitingState> {
       emit(UpdateRateState(rate: event.rate));
     });
     on<SaveRateEvent>(sendRate);
-    on<GetRateEvent>(getRate);
   }
 
   FutureOr<void> sendRate(
@@ -21,23 +20,13 @@ class RaitingBloc extends Bloc<RaitingEvent, RaitingState> {
       final id = supabase.auth.currentUser!.id;
       await supabase.from('rates').insert(
           {"id_auth": id, "hourly_rate": event.rate, "comment": event.comment});
+      emit(UpdateRateState(rate: 0.0));
     } on PostgrestException catch (e) {
       print(e.message);
       return;
     } catch (e) {
       print(e);
       return;
-    }
-  }
-
-  FutureOr<void> getRate(GetRateEvent event, Emitter<RaitingState> emit) async {
-    final supabase = SupabaseNetworking().getSupabase;
-    try {
-      final allRate = await supabase.from('rates').select("*");
-      print(allRate);
-      emit(GetRateState(allRate: allRate));
-    } catch (e) {
-      print(e);
     }
   }
 }

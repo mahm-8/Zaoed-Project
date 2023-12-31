@@ -49,7 +49,8 @@ class EditChargingPointScreen extends StatelessWidget {
                 bloc: bloc,
               ),
               // edit charging type get count from bloc
-              const ChargingTypeSection(
+              ChargingTypeSection(
+                bloc: bloc,
                 isEdit: true,
               ),
               const SizedBox(

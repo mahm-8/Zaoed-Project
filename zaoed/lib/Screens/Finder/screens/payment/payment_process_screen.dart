@@ -157,14 +157,14 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    context.read<BottomSheetStatusBloc>().add(
-                        UpdateStatusEvent(status: Status.completedPayment,imageType: widget.image,point: widget.chargingPoint.pointName,hour:widget.hour));
+                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                        status: Status.completedPayment,
+                        imageType: widget.image,
+                        point: widget.chargingPoint.pointName,
+                        hour: widget.hour,
+                        chargingPoint: widget.chargingPoint));
                     context.pushAndRemoveUntil(
                         view: FinderNavigationBarScreen());
-                        context.push(
-                        view: ScanBarcodeScreen(
-                      chargingPoint: widget.chargingPoint,
-                    ));
                   },
                 ),
               ],

@@ -52,7 +52,6 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       bookmarkData = await ActionSupabaseMethods().getBookmarks();
       await Future.delayed(const Duration(seconds: 1));
       emit(GetBookmarkState(bookmarks: bookmarkData!));
-      add(GetBookmarkEvent());
     } catch (e) {
       ErrorState();
     }
@@ -83,6 +82,4 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       emit(ErrorState());
     }
   }
-
-  
 }

@@ -32,7 +32,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
             .match({'id_auth': id!, "status": "progress"});
 
         final data = response.first;
-        staticRemainingTimeHour = int.parse(data['hours']) * 60;
+        staticRemainingTimeHour = int.parse(data['hours']) * 1;
         remainingTimeHour = staticRemainingTimeHour;
         add(TimerEvent());
         emit(LoadDataTimerState());
@@ -49,9 +49,17 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
       }
     });
     myStream = myController.stream;
-    myStream?.listen((event) {
+    myStream?.listen((event) async {
       emit(TimerDataState(
           formattedTime, timeFormat(remainingTimeHour), completedPercentage));
+      if (completedPercentage == 100) {
+        final supabase = SupabaseNetworking().getSupabase;
+        final id = supabase.auth.currentUser?.id;
+        await supabase
+            .from('cars_booking')
+            .update({"status": "complete"}).match(
+                {'id_auth': id!, "status": "progress"});
+      }
     });
     timer = Timer.periodic(const Duration(minutes: 1), (timer) {
       timeFormat(remainingTimeHour.toInt());
