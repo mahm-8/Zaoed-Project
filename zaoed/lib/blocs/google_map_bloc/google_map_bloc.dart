@@ -110,6 +110,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       FetchPolylineEvent event, Emitter<GoogleMapState> emit) async {
     try {
       currentLocation = await location.getLocation();
+      print(currentLocation);
       moveToPosition(LatLng(
         currentLocation?.latitude ?? 0,
         currentLocation?.longitude ?? 0,
@@ -120,9 +121,16 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
             currentLocation?.longitude ?? 0,
           ),
           event.distention!);
-      emit(FetchPolylineState(polylines));
+      Uint8List bytes = (await rootBundle.load('lib/assets/icons/pin.png'))
+          .buffer
+          .asUint8List();
+      Uint8List? smallimg = resizeImage(bytes, 70, 70);
+      Set<Marker> markers = {};
+      markers =
+          createMarkers(chargingPoints, BitmapDescriptor.fromBytes(smallimg!));
+      emit(FetchPolylineState(polylines, markers));
       // await getCurrentLocation();
-      print(polylines);
+      print(polylines.last);
     } catch (error) {
       print("!!!!!!!!!!!!!!!!!!!!!!!!!");
       print(error);
@@ -145,9 +153,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   moveToPosition(LatLng latLng) async {
     final GoogleMapController mapController = await googleMapController.future;
     mapController.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(target: latLng, zoom: 15),
-      ),
+      CameraUpdate.newLatLngZoom(latLng, 15),
     );
   }
 }
