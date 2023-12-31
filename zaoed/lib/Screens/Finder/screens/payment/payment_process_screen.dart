@@ -154,9 +154,11 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                 BillScreen(
                   onTap: () {
                     context.push(view: FinderNavigationBarScreen());
-                    context.read<BottomSheetStatusBloc>().add(
-                        UpdateStatusEvent(status: Status.completedPayment,imageType: widget.image,point: widget.chargingPoint.pointName,hour:widget.hour));
-                    
+                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                        status: Status.completedPayment,
+                        imageType: widget.type,
+                        point: widget.chargingPoint.pointName,
+                        hour: widget.hour));
                   },
                 ),
               ],

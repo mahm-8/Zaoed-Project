@@ -109,6 +109,15 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
             if (snapshot.hasData) {
               // if (polylines != {}) {
               return BlocBuilder<GoogleMapBloc, GoogleMapState>(
+                buildWhen: (previous, current) {
+                  if (current is FetchPolylineState) {
+                    return true;
+                  }
+                  if (current is MarkerLoadedState) {
+                    return true;
+                  }
+                  return false;
+                },
                 builder: (context, state) {
                   if (state is FetchPolylineState) {
                     print("polyline");
@@ -141,7 +150,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
                       },
                     );
                   }
-                  return const Text('ggggg');
+                  return const Text('');
                 },
               );
               // } else {
