@@ -1,5 +1,6 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:moyasar/moyasar.dart';
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
@@ -155,8 +156,14 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    context.pushAndRemoveUntil(
-                        view: FinderNavigationBarScreen());
+                    // show home then show dialog to pay and track
+
+                    // context.pushAndRemoveUntil(
+                    //     view: FinderNavigationBarScreen());
+                    context.push(
+                        view: ScanBarcodeScreen(
+                      chargingPoint: widget.chargingPoint,
+                    ));
                   },
                 ),
               ],
