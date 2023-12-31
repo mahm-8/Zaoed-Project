@@ -1,16 +1,32 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:geocoding/geocoding.dart';
 
 class BookingLocationInformation extends StatelessWidget {
-  const BookingLocationInformation({
+  BookingLocationInformation({
     super.key,
     this.bookmarks,
   });
   final ChargingPoint? bookmarks;
+  Placemark? placemark;
+  Future<void> convertToCity(double? latitude, double? longitude) async {
+    try {
+      List<Placemark>? placemarks =
+          await placemarkFromCoordinates(latitude!, longitude!);
+      if (placemarks.isNotEmpty) {
+        Placemark placemark = placemarks.first;
+        print('======================City${placemark.locality}');
+        print('====================${placemark.subLocality}');
+      }
+    } catch (error) {
+      print(error);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    convertToCity(bookmarks!.longitude, bookmarks!.latitude);
     return BlocBuilder<ActionsBloc, ActionsState>(
       builder: (context, state) {
         if (state is GetChargingPointsState) {}
