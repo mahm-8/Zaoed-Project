@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/settings_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class PublicSittings extends StatelessWidget {
   const PublicSittings({
@@ -13,7 +11,7 @@ class PublicSittings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 96,
-      width: 350,
+      width: context.getWidth(),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,

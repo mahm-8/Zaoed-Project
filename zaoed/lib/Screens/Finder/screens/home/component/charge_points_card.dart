@@ -1,3 +1,4 @@
+import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
@@ -85,17 +86,29 @@ class ChargePointsCard extends StatelessWidget {
                     ),
                 ],
               ),
-              Text(
-                // get location name from lati, long
-                //chargingPoint.pointLocation
-                "${chargingPoint.longitude?.toStringAsFixed(5) ?? ""}, ${chargingPoint.latitude?.toStringAsFixed(5) ?? ""}",
-                overflow: TextOverflow.clip,
-
-                style: TextStyle(
-                  color: AppColors().gray4,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
+              FutureBuilder(
+                future: BookingLocationInformation().convertToCity(
+                    chargingPoint.latitude, chargingPoint.longitude),
+                builder:
+                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const CircularProgressIndicator();
+                  } else if (snapshot.hasError || snapshot.data == null) {
+                    return const Text("");
+                  } else {
+                    // first or index??????
+                    Placemark placemark = snapshot.data!.last;
+                    return Text(
+                      "${placemark.locality}, ${placemark.subLocality}",
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(
+                        color: AppColors().gray4,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    );
+                  }
+                },
               ),
               const SizedBox(
                 height: 30,

@@ -103,13 +103,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
         if (login.user?.id != null) {
           emit(SuccessLoginState());
         } else if (login.user?.id == null) {
-          emit(ErrorLoginState("Wrong!!!!1"));
+          emit(ErrorLoginState("خطأ"));
         }
       } else {
         emit(ValidLoginState());
       }
     } on AuthException {
-      emit(ErrorLoginState("Password or email wrong"));
+      emit(ErrorLoginState("البريد الإلكتروني أو كلمة السر خاطئة"));
     } catch (e) {
       return;
     }

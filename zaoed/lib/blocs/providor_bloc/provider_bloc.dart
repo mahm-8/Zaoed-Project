@@ -31,6 +31,15 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
     'CCS 2',
     'Chademo'
   ];
+  List<String> textClock = [
+    'غير متوفر',
+    '00:00-6:00',
+    '6:00-12:00',
+    '12:00-18:00',
+    '18:00-00:00'
+  ];
+  int currentCount  = 0;
+
   ProviderBloc() : super(ProviderInitial()) {
     on<HoursSelectIndexEvent>((event, emit) {
       emit(HoursIndexSelectedState(event.selectedIndex));
@@ -40,68 +49,71 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
       emit(ChargingTypeIndexSelectedState(event.selectedIndex));
     });
     on<ChargingTypeIncrementCountEvent>((event, emit) {
-      if (event.name == "count1") {
-        count1++;
-        emit(ChargingTypeCountUpdated(count1));
-      } else if (event.name == "count2") {
-        count2++;
-        emit(ChargingTypeCountUpdated(count2));
-      } else if (event.name == "count3") {
-        count3++;
-        emit(ChargingTypeCountUpdated(count3));
-      } else if (event.name == "count4") {
-        count4++;
-        emit(ChargingTypeCountUpdated(count4));
-      } else if (event.name == "count5") {
-        count5++;
-        emit(ChargingTypeCountUpdated(count5));
-      } else if (event.name == "count6") {
-        count6++;
-        emit(ChargingTypeCountUpdated(count6));
-      } else if (event.name == "count7") {
-        count7++;
-        emit(ChargingTypeCountUpdated(count7));
+      int index = int.parse(
+          event.name.substring(5)); // Extract the index from the event name
+
+      switch (index) {
+        case 1:
+          currentCount  = ++count1;
+          break;
+        case 2:
+          currentCount  = ++count2;
+          break;
+        case 3:
+          currentCount  = ++count3;
+          break;
+        case 4:
+          currentCount  = ++count4;
+          break;
+        case 5:
+          currentCount  = ++count5;
+          break;
+        case 6:
+          currentCount  = ++count6;
+          break;
+        case 7:
+          currentCount  = ++count7;
+          break;
       }
 
-      if (count1 != 0) {
-        countersList.add({"number_of_port": count1, "port_name": port_type[0]});
-      } else if (count2 != 0) {
-        countersList.add({"number_of_port": count2, "port_name": port_type[1]});
-      } else if (count3 != 0) {
-        countersList.add({"number_of_port": count3, "port_name": port_type[2]});
-      } else if (count4 != 0) {
-        countersList.add({"number_of_port": count4, "port_name": port_type[3]});
-      } else if (count5 != 0) {
-        countersList.add({"number_of_port": count5, "port_name": port_type[4]});
-      } else if (count6 != 0) {
-        countersList.add({"number_of_port": count6, "port_name": port_type[5]});
-      } else if (count7 != 0) {
-        countersList.add({"number_of_port": count7, "port_name": port_type[6]});
+      emit(ChargingTypeCountUpdated(currentCount ));
+
+      if (currentCount  > 0) {
+        countersList.add({
+          "number_of_port": currentCount ,
+          "port_name": port_type[index - 1]
+        });
       }
     });
     on<ChargingTypeDecrementCountEvent>((event, emit) {
-      if (count1 > 0 && event.name == "count1") {
-        count1--;
-        emit(ChargingTypeCountUpdated(count1));
-      } else if (count2 > 0 && event.name == "count2") {
-        count2--;
-        emit(ChargingTypeCountUpdated(count2));
-      } else if (count3 > 0 && event.name == "count3") {
-        count3--;
-        emit(ChargingTypeCountUpdated(count3));
-      } else if (count4 > 0 && event.name == "count4") {
-        count4--;
-        emit(ChargingTypeCountUpdated(count4));
-      } else if (count5 > 0 && event.name == "count5") {
-        count5--;
-        emit(ChargingTypeCountUpdated(count5));
-      } else if (count6 > 0 && event.name == "count6") {
-        count6--;
-        emit(ChargingTypeCountUpdated(count6));
-      } else if (count7 > 0 && event.name == "count7") {
-        count7--;
-        emit(ChargingTypeCountUpdated(count7));
+      int index = int.parse(
+          event.name.substring(5)); 
+
+      switch (index) {
+        case 1:
+          currentCount  = --count1;
+          break;
+        case 2:
+          currentCount  = --count2;
+          break;
+        case 3:
+          currentCount  = --count3;
+          break;
+        case 4:
+          currentCount  = --count4;
+          break;
+        case 5:
+          currentCount  = --count5;
+          break;
+        case 6:
+          currentCount  = --count6;
+          break;
+        case 7:
+          currentCount  = --count7;
+          break;
       }
+
+      emit(ChargingTypeCountUpdated(currentCount ));
     });
 
     on<GetProviderChargingPointsEvent>((event, emit) async {
@@ -136,17 +148,17 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         print(countersList);
         List<Map<String, dynamic>> theList = [];
         for (var element in countersList) {
-          Map<String, dynamic> updateElements = element;
-          print(updateElements);
-          print("================================");
+          Map<String, dynamic> updateElements = {...element};
+
           updateElements
               .addAll({"id_charging_point": chargingPoint["point_id"]});
-          print(updateElements);
           theList.add(updateElements);
+          print("updateElements");
+
+          print(updateElements);
         }
 
         print("--------------theList");
-        print(theList);
         await supabase.from('port_counter').insert(theList);
         ActionsBloc().add(GetChargingPointsEvent());
         emit(AddChargingPointState());
@@ -170,12 +182,13 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         final id = supabase.auth.currentUser?.id;
         final chargingPoint = await supabase
             .from("charging_point")
-            .update({"point_name": event.chargingPointName})
+            .update({
+              "point_name": event.chargingPointName,
+              "arrivel_hour": event.arrivelHours,
+            })
             .match({'id_auth': id!, "point_id": event.pointID})
             .select()
             .single();
-
-        // print(chargingPoint);
 
         List<Map<String, dynamic>> theList = [];
         for (var element in countersList) {
@@ -186,6 +199,13 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
           // event.chargingCount how to get
         }
         await supabase.from('port_counter').insert(theList);
+        print("chargingPoint--------------------------------ppp");
+
+        // print(chargingPoint);
+        print("theList--------------------------------ppp");
+
+        // print(theList);
+
         emit(EditChargingPointState());
         add(GetProviderChargingPointsEvent());
       } catch (e) {

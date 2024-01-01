@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/bank_information.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class PaymentInformation extends StatelessWidget {
   const PaymentInformation({
@@ -13,7 +11,7 @@ class PaymentInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 144,
-      width: 350,
+      width: context.getWidth(),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,
@@ -24,8 +22,9 @@ class PaymentInformation extends StatelessWidget {
           title: 'البطاقات',
           onTap: () {},
         ),
-         Divider(
-        thickness: 1,color: AppColors().gray9,
+        Divider(
+          thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Card.png',
@@ -34,8 +33,9 @@ class PaymentInformation extends StatelessWidget {
             context.push(view: BankInformationScreen());
           },
         ),
-         Divider(
-           thickness: 1,color: AppColors().gray9,
+        Divider(
+          thickness: 1,
+          color: AppColors().gray9,
         ),
         InformationLabel(
           imageIcon: 'lib/assets/icons/Bill.png',

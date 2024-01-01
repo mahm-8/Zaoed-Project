@@ -1,5 +1,4 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/bloc/raiting_bloc.dart';
 import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
 import 'package:zaoed/constants/imports.dart';
 
@@ -24,9 +23,6 @@ class HomeScreen extends StatelessWidget {
             imageUrl: "lib/assets/icons/map_layer.png",
             onPress: () {
               ratingBottomSheet(context, controller: controller);
-
-              // change map type
-              // show trafic
             },
           ),
           const SizedBox(

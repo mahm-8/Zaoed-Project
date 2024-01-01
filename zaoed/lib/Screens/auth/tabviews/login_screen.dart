@@ -120,7 +120,7 @@ class LoginScreen extends StatelessWidget {
               }
             }, builder: (context, state) {
               return ButtonWidget(
-                textEntry: "إرسال رمز التحقق",
+                textEntry: "تسجيل الدخول",
                 backColor: AppColors().mainWhite,
                 textColor: AppColors().gray9,
                 onPress: () {

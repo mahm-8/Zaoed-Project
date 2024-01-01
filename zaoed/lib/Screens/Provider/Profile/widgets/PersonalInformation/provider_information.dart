@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/charging_point_data.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/personal_information.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
-
-import '../../../../Finder/screens/Profile/screens/car_screen.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ProviderInformation extends StatelessWidget {
   const ProviderInformation({
@@ -17,7 +13,7 @@ class ProviderInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 210,
-      width: 350,
+      width: context.getWidth(),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,

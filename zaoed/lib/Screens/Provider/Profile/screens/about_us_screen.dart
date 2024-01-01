@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});
@@ -13,7 +11,7 @@ class AboutUsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(
-            width: 350,
+            width: context.getWidth(),
             height: 243,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),

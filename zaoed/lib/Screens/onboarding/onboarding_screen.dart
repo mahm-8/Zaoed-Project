@@ -34,7 +34,7 @@ class OnboradingScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 650,
+                  top: 850,
                   left: 165,
                   child: SmoothPageIndicator(
                     controller: controller,
