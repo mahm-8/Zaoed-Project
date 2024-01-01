@@ -4,10 +4,13 @@ import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scan
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/invalid_barcode_dialog.dart';
 import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/model/cars_booking_model.dart';
 
 class ScanBarcodeScreen extends StatefulWidget {
-  ScanBarcodeScreen({super.key, required this.chargingPoint});
+  ScanBarcodeScreen(
+      {super.key, required this.chargingPoint, required this.carBooking});
   final ChargingPoint chargingPoint;
+  final CarBookingModel carBooking;
 
   @override
   State<ScanBarcodeScreen> createState() => _ScanBarcodeScreenState();
@@ -48,7 +51,7 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
     qrController = controller;
     qrController.scannedDataStream.listen((event) {
       final bookedUserId = widget.chargingPoint.pointAuthID;
-      final bookedPointAuth = widget.chargingPoint.pointAuthID;
+      final bookedPointAuth = widget.carBooking.idPovider;
       final currentUserID = supabase.auth.currentUser?.id;
       // qr code match
       if (event.code.toString() == bookedPointAuth &&

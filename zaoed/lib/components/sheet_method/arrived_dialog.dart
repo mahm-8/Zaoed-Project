@@ -1,8 +1,10 @@
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/model/cars_booking_model.dart';
 
 extension ArrivedSheet on BuildContext {
-  arrivedToCharging({ChargingPoint? chargingPoint}) {
+  arrivedToCharging(
+      {ChargingPoint? chargingPoint, CarBookingModel? carBooking}) {
     showBottomSheet(
       context: this,
       builder: (context) {
@@ -44,6 +46,7 @@ extension ArrivedSheet on BuildContext {
                       context.push(
                           view: ScanBarcodeScreen(
                         chargingPoint: chargingPoint!,
+                        carBooking: carBooking!,
                       ));
                     },
                     textEntry: "مسح الباركود",
