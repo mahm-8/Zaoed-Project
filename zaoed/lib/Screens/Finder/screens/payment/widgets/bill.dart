@@ -18,6 +18,12 @@ class Bill extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: BlocBuilder<FinderBloc, FinderState>(
+            buildWhen: (previous, current) {
+              if (current is InvoiceDataState) {
+                return true;
+              }
+              return false;
+            },
             builder: (context, state) {
               if (state is InvoiceDataState) {
                 return Column(

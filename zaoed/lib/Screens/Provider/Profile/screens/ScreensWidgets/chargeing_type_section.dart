@@ -5,13 +5,13 @@ class ChargingTypeSection extends StatelessWidget {
   const ChargingTypeSection({
     super.key,
     required this.isEdit,
+    required this.bloc,
   });
-
+  final ProviderBloc bloc;
   final bool isEdit;
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ProviderBloc>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

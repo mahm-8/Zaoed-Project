@@ -16,8 +16,6 @@ class ChargingPointDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
-    context.read<ProviderBloc>();
-
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'بيانات نقطة الشحن'),
@@ -87,8 +85,7 @@ class ChargingPointDataScreen extends StatelessWidget {
   }
 }
 
-
 /**
  *
-  
+
  */

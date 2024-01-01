@@ -1,15 +1,13 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
-import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
-
 import 'package:zaoed/constants/imports.dart';
 import '../../../../blocs/finder/user_bloc/user_bloc.dart';
-import '../NavigationBar/navigation_bar.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
   const PaymentProcessScreen({
@@ -35,7 +33,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
-    final card = context.read<CardBloc>();
+    // final card = context.read<CardBloc>();
     final user = context.read<UserBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
@@ -64,6 +62,9 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 1) ...[
                 PurchaseScreen(
                   onTap: () async {
+                    context.read<FinderBloc>().add(AddCarsChargeEvent(
+                        chargingPoint: widget.chargingPoint,
+                        hour: widget.hour));
                     context.read<FinderBloc>().add(PayEvent(
                         nameFinder: user.user?.name ?? "",
                         type: widget.type,
@@ -154,22 +155,13 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    // show home then show dialog to pay and track
-
-                    // context.pushAndRemoveUntil(
-                    //     view: FinderNavigationBarScreen());
-                    context.push(
-                        view: ScanBarcodeScreen(
-                      chargingPoint: widget.chargingPoint,
-                    ));
-                    ///////////////////////////////////
                     context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
                         status: Status.completedPayment,
                         imageType: widget.image,
                         point: widget.chargingPoint.pointName,
-                        hour: widget.hour));
-                    context.pushAndRemoveUntil(
-                        view: FinderNavigationBarScreen());
+                        hour: widget.hour,
+                        chargingPoint: widget.chargingPoint));
+                    context.pushAndRemoveUntil(view: NavigationBarScreen());
                   },
                 ),
               ],

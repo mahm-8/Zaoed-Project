@@ -5,7 +5,7 @@ class ActionSupabaseMethods {
   final supabase = SupabaseNetworking().getSupabase;
 
   List<BookmarkModel> bookmarkList = [];
-  List<ChargingPoint> chargingPointList = [];
+
   List<ChargingPoint> providerChargingList = [];
   getBookmarks() async {
     try {
@@ -33,6 +33,7 @@ class ActionSupabaseMethods {
   }
 
   getChargingPoint() async {
+    List<ChargingPoint> chargingPointList = [];
     final chargingPointData = await supabase
         .from("charging_point")
         .select("* , port_counter(port_name, number_of_port)");
@@ -60,7 +61,6 @@ class ActionSupabaseMethods {
     }
   }
 
-  
   deleteChargingPoint({required int? id}) async {
     //
     await supabase.from("port_counter").delete().eq("id_charging_point", id!);

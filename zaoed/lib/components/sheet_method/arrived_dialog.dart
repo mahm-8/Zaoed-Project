@@ -2,7 +2,7 @@ import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dar
 import 'package:zaoed/constants/imports.dart';
 
 extension ArrivedSheet on BuildContext {
-  arrivedToCharging() {
+  arrivedToCharging({ChargingPoint? chargingPoint}) {
     showBottomSheet(
       context: this,
       builder: (context) {
@@ -41,7 +41,10 @@ extension ArrivedSheet on BuildContext {
                     onPress: () {
                       ////////////////////////////////////////
                       /// send charging point data
-                      // context.push(view: ScanBarcodeScreen());
+                      context.push(
+                          view: ScanBarcodeScreen(
+                        chargingPoint: chargingPoint!,
+                      ));
                     },
                     textEntry: "مسح الباركود",
                     backColor: AppColors().green,

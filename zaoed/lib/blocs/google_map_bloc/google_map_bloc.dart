@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:meta/meta.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/model/google_map_model.dart';
 import 'package:zaoed/service/networking.dart';
@@ -109,6 +107,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   FutureOr<void> polyline(
       FetchPolylineEvent event, Emitter<GoogleMapState> emit) async {
     try {
+      print("staaaaaaaaaaaaaaaaaaaaaaaaaaart");
       currentLocation = await location.getLocation();
       print(currentLocation);
       moveToPosition(LatLng(

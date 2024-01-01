@@ -29,7 +29,6 @@ class BookingLocationInformation extends StatelessWidget {
     convertToCity(bookmarks!.longitude, bookmarks!.latitude);
     return BlocBuilder<ActionsBloc, ActionsState>(
       builder: (context, state) {
-        if (state is GetChargingPointsState) {}
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
