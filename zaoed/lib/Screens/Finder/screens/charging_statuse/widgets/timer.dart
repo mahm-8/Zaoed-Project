@@ -13,7 +13,10 @@ class TimerWidget extends StatefulWidget {
 class _TimerWidgetState extends State<TimerWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FinderBloc, FinderState>(
+    return BlocConsumer<FinderBloc, FinderState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
       builder: (context, state) {
         if (state is TimerDataState) {
           return Row(

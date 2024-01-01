@@ -22,6 +22,7 @@ class BillLabel extends StatelessWidget {
           const Spacer(),
           Text(
             subTitle,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(fontSize: 12, color: AppColors().black),
           )
         ],

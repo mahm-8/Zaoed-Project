@@ -1,7 +1,4 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
-
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
@@ -74,8 +71,8 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                             "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}"));
                     context.read<FinderBloc>().add(InvoiceDataEvent());
                     context.read<GoogleMapBloc>().add(FetchPolylineEvent(
-                        distention: LatLng(widget.chargingPoint.latitude!,
-                            widget.chargingPoint.longitude!)));
+                        distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
+                            widget.chargingPoint.longitude ?? 0.0)));
                     // String state = '';
                     // if (card.cardList != null) {
                     //   print(card.cardList?[0].numberCard ?? '');

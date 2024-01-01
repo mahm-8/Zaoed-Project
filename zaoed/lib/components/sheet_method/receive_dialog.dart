@@ -77,6 +77,8 @@ extension ReceiveDialog on BuildContext {
                                 button1: "نعم",
                                 button2: "تراجع",
                                 pressOne: () {
+                                  context.read<BottomSheetStatusBloc>().add(
+                                      UpdateStatusEvent(status: Status.nono));
                                   context.pop();
                                   context.pop();
                                   showDialog(

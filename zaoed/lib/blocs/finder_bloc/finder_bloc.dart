@@ -1,10 +1,8 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member
-
 import 'dart:math';
 
 import 'package:zaoed/constants/imports.dart';
 import 'package:intl/intl.dart';
-
 import '../charging_bloc/charging_bloc.dart';
 part 'finder_event.dart';
 part 'finder_state.dart';
@@ -56,6 +54,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
       emit(TimerDataState(
           formattedTime, timeFormat(remainingTimeHour), completedPercentage));
       if (completedPercentage == 100) {
+        ChargingBloc().add(CompleteCarsEvent());
         final supabase = SupabaseNetworking().getSupabase;
         final id = supabase.auth.currentUser?.id;
         await supabase
