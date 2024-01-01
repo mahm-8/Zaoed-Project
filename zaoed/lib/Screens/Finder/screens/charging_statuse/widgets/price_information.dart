@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PriceInformation extends StatelessWidget {
@@ -7,6 +8,7 @@ class PriceInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ActionsBloc>();
     return Container(
       height: 70,
       width: 349,
@@ -42,7 +44,7 @@ class PriceInformation extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                '14.00 ريال',
+                '${bloc.price} ريال',
                 style: TextStyle(fontSize: 14, color: AppColors().white),
               ),
             ],
