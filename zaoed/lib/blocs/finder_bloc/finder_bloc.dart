@@ -17,6 +17,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
   late Timer timer;
   late String formattedTime;
   List? invoiceList;
+  ChargingPoint? point;
 
   FinderBloc() : super(FinderInitial()) {
     on<PayEvent>(invoice);
@@ -33,7 +34,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
             .match({'id_auth': id!, "status": "progress"});
 
         final data = response.first;
-        staticRemainingTimeHour = int.parse(data['hours']) * 1;
+        staticRemainingTimeHour = int.parse(data['hours']) * 2;
         remainingTimeHour = staticRemainingTimeHour;
         add(TimerEvent());
         emit(LoadDataTimerState());
@@ -51,6 +52,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     });
     myStream = myController.stream;
     myStream?.listen((event) async {
+      print(completedPercentage);
       emit(TimerDataState(
           formattedTime, timeFormat(remainingTimeHour), completedPercentage));
       if (completedPercentage == 100) {
@@ -175,6 +177,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
         "id_povider": event.chargingPoint.pointAuthID,
         "id_point": event.chargingPoint.pointId
       });
+      point = event.chargingPoint;
       await Future.delayed(const Duration(seconds: 2));
       ChargingBloc().add(EmptyCarsEvent());
       add(LoadDataTimerEvent());

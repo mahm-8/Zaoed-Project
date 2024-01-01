@@ -27,27 +27,27 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
             .select()
             .match({'id_auth': id, "status": "progress"});
         await Future.delayed(const Duration(seconds: 1));
-        print("ssssssssssssssssssssssssssssssssssssssssssssssssssss");
-        print(states);
         if (states.isNotEmpty) {
-          print("jjjjjjjjjjjjjjjjj");
           emit(ChargingStatus());
         } else if (states.isEmpty) {
-          print("2222222222222222222222");
           emit(EmptyBookingState());
         }
       } else {
         emit(EmptyCarState());
       }
     } catch (error) {
-      print("crach $error");
+      return;
     }
   }
 
   FutureOr<void> completeCar(
       CompleteCarsEvent event, Emitter<ChargingState> emit) async {
+    print("1");
     emit(ChargingFinishedStatus());
-    await Future.delayed(const Duration(minutes: 1));
-    add(EmptyCarsEvent());
+    await Future.delayed(const Duration(minutes: 1), () {
+      add(EmptyCarsEvent());
+      print("2state");
+    });
+    print("3state");
   }
 }
