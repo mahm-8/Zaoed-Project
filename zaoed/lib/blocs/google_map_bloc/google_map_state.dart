@@ -1,7 +1,5 @@
 part of 'google_map_bloc.dart';
-
-@immutable
-sealed class GoogleMapState {}
+abstract class GoogleMapState {}
 
 final class GoogleMapInitial extends GoogleMapState {}
 

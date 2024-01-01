@@ -1,18 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/home/component/button_choice_widget.dart';
-import 'package:zaoed/Screens/Finder/screens/home/component/charge_points_card.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+import 'package:zaoed/blocs/bloc/raiting_bloc.dart';
 import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
 import 'package:zaoed/constants/imports.dart';
 
-import 'component/search_field.dart';
-
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    context.read<ActionsBloc>().add(GetChargingPointsEvent());
-
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -28,6 +23,8 @@ class HomeScreen extends StatelessWidget {
           ButtonChoiceWidget(
             imageUrl: "lib/assets/icons/map_layer.png",
             onPress: () {
+              ratingBottomSheet(context, controller: controller);
+
               // change map type
               // show trafic
             },
@@ -42,25 +39,28 @@ class HomeScreen extends StatelessWidget {
             },
           ),
           const Spacer(),
-          BlocBuilder<ActionsBloc, ActionsState>(builder: ((context, state) {
+          BlocBuilder<ActionsBloc, ActionsState>(
+              buildWhen: (oldState, newState) {
+            if (newState is GetChargingPointsState) {
+              return true;
+            }
+            return false;
+          }, builder: ((context, state) {
             if (state is GetChargingPointsState) {
               if (state.chargingPoints.isNotEmpty) {
                 return SizedBox(
                   width: context.getWidth(divide: 1.1),
                   height: context.getHeight(divide: 2.9),
-
                   child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemCount: state.chargingPoints.length,
                       itemBuilder: (context, index) {
-                        print(state.chargingPoints[index]);
                         return ChargePointsCard(
                           chargingPoint: state.chargingPoints[index],
                           index: index,
                         );
                       }),
-
                 );
               } else {
                 return Center(
@@ -70,18 +70,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               }
-            } else {
-              if (state is LoadingState) {
-                return Center(
-                    child: CircularProgressIndicator(
-                  color: AppColors().green,
-                  strokeAlign: CircularProgressIndicator.strokeAlignCenter,
-                  strokeWidth: 6,
-                  strokeCap: StrokeCap.round,
-                ));
-              }
             }
-            return const Text("error");
+            return const SizedBox();
           })),
         ],
       ),

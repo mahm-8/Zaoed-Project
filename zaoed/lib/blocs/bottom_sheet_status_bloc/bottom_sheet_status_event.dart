@@ -8,6 +8,12 @@ class UpdateStatusEvent extends BottomSheetStatusEvent {
   final String? point;
   final String? imageType;
   final String? hour;
+  final ChargingPoint? chargingPoint;
 
-  UpdateStatusEvent({this.imageType, this.hour,this.point, required this.status});
+  UpdateStatusEvent(
+      {this.chargingPoint,
+      this.imageType,
+      this.hour,
+      this.point,
+      required this.status});
 }

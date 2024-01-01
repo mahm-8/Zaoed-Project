@@ -41,7 +41,7 @@ class AvailabilityHours extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(
-                    width: 320,
+                    width: context.getWidth(divide: 1.3),
                     height: 86,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,

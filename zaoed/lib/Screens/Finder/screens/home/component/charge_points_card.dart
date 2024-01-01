@@ -1,6 +1,7 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
+import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 
 import 'package:zaoed/constants/imports.dart';
 
@@ -111,7 +112,11 @@ class ChargePointsCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TrackonGoogleButtonWidget(
-                    onPress: () {},
+                    onPress: () {
+                      context
+                          .read<BottomSheetStatusBloc>()
+                          .add(UpdateStatusEvent(status: Status.rating));
+                    },
                   ),
                   const SizedBox(
                     width: 8,

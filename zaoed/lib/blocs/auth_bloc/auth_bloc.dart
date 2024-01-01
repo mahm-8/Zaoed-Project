@@ -116,29 +116,38 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
   }
 
   FutureOr<void> _check(CheckLoginEvent event, Emitter<AuthStates> emit) async {
-    final supabaseClint = SupabaseNetworking().getSupabase;
-    await Future.delayed(const Duration(seconds: 1));
-    if (supabaseClint.auth.currentUser?.emailConfirmedAt != null) {
-      final token = supabaseClint.auth.currentSession?.accessToken;
-      final isExp = supabaseClint.auth.currentSession!.isExpired;
+    try {
+      final supabaseClint = SupabaseNetworking().getSupabase;
+      await Future.delayed(const Duration(seconds: 1));
+      if (supabaseClint.auth.currentUser?.emailConfirmedAt != null) {
+        final token = supabaseClint.auth.currentSession?.accessToken;
+        final isExp = supabaseClint.auth.currentSession!.isExpired;
 
-      if (token != null) {
-        final id = supabaseClint.auth.currentUser?.id;
-       
-        final type =
-            await supabaseClint.from('user').select('type').eq('id_auth', id!);
-        
-        if (isExp) {
-           await supabaseClint.auth
-              .setSession(supabaseClint.auth.currentSession!.refreshToken!);
-          emit(CheckLoginState(type[0]['type']));
+        if (token != null) {
+          final id = supabaseClint.auth.currentUser?.id;
+
+          if (isExp) {
+            await supabaseClint.auth
+                .setSession(supabaseClint.auth.currentSession!.refreshToken!);
+            final type = await supabaseClint
+                .from('user')
+                .select('type')
+                .eq('id_auth', id!);
+            emit(CheckLoginState(type[0]['type']));
+          } else {
+            final type = await supabaseClint
+                .from('user')
+                .select('type')
+                .eq('id_auth', id!);
+            emit(CheckLoginState(type[0]['type']));
+          }
         } else {
-          emit(CheckLoginState(type[0]['type']));
+          emit(ErrorCheckState());
         }
       } else {
         emit(ErrorCheckState());
       }
-    } else {
+    } catch (e) {
       emit(ErrorCheckState());
     }
   }

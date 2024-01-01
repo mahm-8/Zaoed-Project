@@ -14,7 +14,7 @@ class ChatScreen extends StatelessWidget {
       child: Scaffold(
         appBar: customAppBar(context, title: "الدعم", backTitle: "الرئيسية",
             onPress: () {
-          context.push(view: const HomeScreen());
+          context.push(view: const MapHomeScreen());
         }, hasAction: true, showIcon: true),
         backgroundColor: AppColors().gray9,
         bottomSheet: ChatField(

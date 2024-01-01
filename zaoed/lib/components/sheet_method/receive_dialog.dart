@@ -50,7 +50,7 @@ extension ReceiveDialog on BuildContext {
                         style:
                             TextStyle(color: AppColors().white, fontSize: 20)),
                     SpanText(title: "الموقع:", result: blocState.point),
-                    SpanText(title: "نوع الموصل:", image: blocState.image),
+                    SpanText(title: "نوع الموصل:", result: blocState.image),
                     SpanText(title: "مدة الشحن:", result: "${blocState.hour}"),
                     const SizedBox(
                       height: 15,
