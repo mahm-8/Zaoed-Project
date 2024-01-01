@@ -15,8 +15,6 @@ class AddToBookmarkDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // add to bookmark list
-        //show dialog added
         showDialog(
           barrierColor: Colors.transparent,
           context: context,

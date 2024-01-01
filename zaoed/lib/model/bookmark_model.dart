@@ -36,6 +36,7 @@ class ChargingPoint {
     this.pointName,
     this.portCount,
     this.chargingPort,
+    this.arrivelHours,
     this.chargingTimes,
     this.pointLocation,
     this.longitude,
@@ -43,8 +44,9 @@ class ChargingPoint {
   });
   int? pointId;
   int? userId;
-  String? pointAuthID;
 
+  String? pointAuthID;
+  String? arrivelHours;
   double? rating;
   String? pointName;
   int? portCount;
@@ -59,6 +61,7 @@ class ChargingPoint {
     userId = json['id_user'] ?? 0;
     pointAuthID = json["id_auth"];
     rating = json['rating'] ?? 0.0;
+    arrivelHours = json['arrivel_hour'] ?? "";
     pointName = json['point_name'];
     portCount = json['port_count'];
     chargingPort = json['charging_port'];
@@ -73,7 +76,7 @@ class ChargingPoint {
     _data['point_id'] = pointId;
     _data['id_user'] = userId;
     _data['id_auth'] = pointAuthID;
-
+    _data['arrivel_hour'] = pointAuthID;
     _data['rating'] = rating;
     _data['point_name'] = pointName;
     _data['port_count'] = portCount;

@@ -14,6 +14,7 @@ class EditChargingPointScreen extends StatelessWidget {
   final ChargingPoint pointData;
   final ProviderBloc bloc;
   final controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     controllerData();
@@ -22,12 +23,16 @@ class EditChargingPointScreen extends StatelessWidget {
       appBar: addChargingScreenAppBar(context,
           title: 'تعديل نقطة شحن', isEditing: true, editFunc: () {
         editchargingscreenShowDialog(context, () {
-          // edit on event bloc
-          // edit hours
+          // edit on  hours
+          // edit on  port counters
+
           context.read<ProviderBloc>().add(EditChargingPointEvent(
               chargingPointName: controller.text,
               chargingCount: 0,
-              pointID: pointData.pointId));
+              pointID: pointData.pointId,
+              // problem is here  add the selected index
+
+              arrivelHours: bloc.textClock[index1]));
 
           context.pop();
           context.pop();
@@ -46,7 +51,9 @@ class EditChargingPointScreen extends StatelessWidget {
               // how to edit the old location
               ChargingPointLocation(),
               AvailabilityHours(
+                // initialSelectedIndex
                 bloc: bloc,
+                initialSelectedHour: pointData.arrivelHours!, isEdit: true,
               ),
               // edit charging type get count from bloc
               ChargingTypeSection(

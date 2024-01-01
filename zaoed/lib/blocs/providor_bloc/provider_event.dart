@@ -39,6 +39,7 @@ class AddChargingPointEvent extends ProviderEvent {
 
 class EditChargingPointEvent extends ProviderEvent {
   final String chargingPointName;
+  final String arrivelHours;
   final int? pointID;
   final int chargingCount;
 
@@ -47,6 +48,7 @@ class EditChargingPointEvent extends ProviderEvent {
 
   EditChargingPointEvent(
       {required this.pointID,
+      required this.arrivelHours,
       required this.chargingPointName,
       required this.chargingCount});
 }

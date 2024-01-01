@@ -1,16 +1,18 @@
-import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
+
+int index1 = 0;
 
 class AvailabilityHours extends StatelessWidget {
-  AvailabilityHours({super.key, required this.bloc});
+  AvailabilityHours(
+      {super.key,
+      required this.bloc,
+      required this.initialSelectedHour,
+      required this.isEdit});
+
   final ProviderBloc bloc;
-  List<String> textClock = [
-    'غير متوفر',
-    '00:00-6:00',
-    '6:00-12:00',
-    '12:00-18:00',
-    '18:00-00:00'
-  ];
+  final String? initialSelectedHour;
+  final bool isEdit;
 
   List<String> imageClock = [
     'lib/assets/icons/Clock_.png',
@@ -47,10 +49,13 @@ class AvailabilityHours extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
+                        selectHourMethod(initialSelectedHour, index);
+                        index1 = index;
                         return GestureDetector(
                           onTap: () {
                             bloc.add(HoursSelectIndexEvent(index));
-                            selectHourMethod(index: index);
+
+                            print(index);
                           },
                           child: Container(
                             height: 90,
@@ -58,9 +63,12 @@ class AvailabilityHours extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(9),
                               border: Border.all(
+                                // change color based on index in supabase
                                 color: selectedIndex == index
                                     ? AppColors().green
-                                    : AppColors().gray6,
+                                    : selectedIndex != index
+                                        ? AppColors().gray6
+                                        : AppColors().green,
                               ),
                             ),
                             child: Padding(
@@ -70,11 +78,13 @@ class AvailabilityHours extends StatelessWidget {
                                   Image.asset(imageClock[index]),
                                   const Spacer(),
                                   Text(
-                                    textClock[index],
+                                    bloc.textClock[index],
                                     style: TextStyle(
                                       color: selectedIndex == index
                                           ? AppColors().green
-                                          : AppColors().white,
+                                          : selectedIndex != index
+                                              ? AppColors().white
+                                              : AppColors().green,
                                       fontSize: 12,
                                     ),
                                   ),
@@ -106,34 +116,26 @@ class AvailabilityHours extends StatelessWidget {
     );
   }
 
-  void selectHourMethod({required int index}) {
-    switch (index) {
-      case 0:
-        bloc.selectedHour = textClock[index];
-        break;
-      case 1:
-        bloc.selectedHour = textClock[index];
-        break;
-      case 2:
-        bloc.selectedHour = textClock[index];
-        break;
-      case 3:
-        bloc.selectedHour = textClock[index];
-        break;
-      case 4:
-        bloc.selectedHour = textClock[index];
-        break;
-      case 5:
-        bloc.selectedHour = textClock[index];
-        break;
-      case 6:
-        bloc.selectedHour = textClock[index];
-        break;
-      case 7:
-        bloc.selectedHour = textClock[index];
-        break;
+  int selectHourMethod(String? initialSelectedHour, int index) {
+    switch (initialSelectedHour) {
+      case 'غير متوفر':
+        bloc.selectedHour = bloc.textClock[index];
+        return 0;
+      case '00:00-6:00':
+        bloc.selectedHour = bloc.textClock[index];
+        return 1;
+      case '6:00-12:00':
+        bloc.selectedHour = bloc.textClock[index];
+        return 2;
+      case '12:00-18:00':
+        bloc.selectedHour = bloc.textClock[index];
+        return 3;
+      case '18:00-00:00':
+        bloc.selectedHour = bloc.textClock[index];
+        return 4;
       default:
-        bloc.selectedHour = textClock[0];
+        bloc.selectedHour = bloc.textClock[0]; // Default to the first item
+        return 0;
     }
   }
 }

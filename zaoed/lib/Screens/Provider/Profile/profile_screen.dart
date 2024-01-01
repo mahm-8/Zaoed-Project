@@ -44,7 +44,10 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 height: 32,
               ),
-              SocialMediaInformation()
+              SocialMediaInformation(),
+              SizedBox(
+                height: 80,
+              ),
             ],
           ),
         ),

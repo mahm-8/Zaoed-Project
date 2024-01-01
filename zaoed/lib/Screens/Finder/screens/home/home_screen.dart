@@ -23,10 +23,7 @@ class HomeScreen extends StatelessWidget {
           ButtonChoiceWidget(
             imageUrl: "lib/assets/icons/map_layer.png",
             onPress: () {
-              // ScanBarcodeScreen(chargingPoint: ,)
-
-              // change map type
-              // show trafic
+              ratingBottomSheet(context, controller: controller);
             },
           ),
           const SizedBox(
