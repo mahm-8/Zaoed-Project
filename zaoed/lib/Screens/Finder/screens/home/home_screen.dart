@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/components/sheet_method/arrived_dialog.dart';
