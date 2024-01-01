@@ -22,12 +22,12 @@ class _MapHomeScreenState extends State<MapHomeScreen> {
     return Scaffold(
       // extendBody: true,
       body: BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
-        buildWhen: (_, newstate) {
-          if (newstate is SuccessState) {
-            return true;
-          }
-          return false;
-        },
+        // buildWhen: (_, newstate) {
+        //   if (newstate is SuccessState) {
+        //     return false;
+        //   }
+        //   return false;
+        // },
         builder: (context, state) {
           if (state is SuccessState) {
             bottomSheetStatusBloc = BottomSheetStatusBloc();

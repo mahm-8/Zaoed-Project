@@ -19,7 +19,6 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   glass: ^1.0.2+1
   intl: ^0.18.1
-  intl_utils: ^2.0.6
   image_picker: ^1.0.5
   lottie: ^2.7.0
   pinput: ^3.0.1

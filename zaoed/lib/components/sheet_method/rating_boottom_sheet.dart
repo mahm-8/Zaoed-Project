@@ -1,4 +1,5 @@
 import 'package:zaoed/blocs/bloc/raiting_bloc.dart';
+import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -102,7 +103,11 @@ ratingBottomSheet(BuildContext context,
                 onPress: () {
                   context.read<RaitingBloc>().add(SaveRateEvent(
                       rate: rate, comment: controller?.text ?? ""));
+
                   controller?.clear();
+                  context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                        status: Status.nono,
+                      ));
                   context.pop();
                 },
                 textColor: AppColors().black)
