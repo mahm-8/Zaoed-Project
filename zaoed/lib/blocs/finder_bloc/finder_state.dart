@@ -19,7 +19,11 @@ class TimerDataState extends FinderState {
   TimerDataState(
       this.formattedTime, this.remainingTime, this.completedPercentage);
 }
+class PrecentageState extends FinderState {
+  final double completedPercentage;
 
+  PrecentageState({required this.completedPercentage});
+}
 class InvoiceDataState extends FinderState {
   final List? invoice;
 

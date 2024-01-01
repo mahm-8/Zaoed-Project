@@ -52,8 +52,10 @@ class Bill extends StatelessWidget {
                     ),
                     BillLabel(
                       title: 'العنوان',
-                      subTitle:
-                          '${state.invoice?.last["address"].toString().split(",")[0].substring(0, 6)}',
+                      subTitle: state.invoice?.last["address"]
+                              .toString()
+                              .split(",")[0] ??
+                          "",
                     ),
                     const Divider(
                       thickness: 1,

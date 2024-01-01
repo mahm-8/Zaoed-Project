@@ -76,7 +76,7 @@ class ChargingPoint {
     _data['point_id'] = pointId;
     _data['id_user'] = userId;
     _data['id_auth'] = pointAuthID;
-    _data['arrivel_hour'] = pointAuthID;
+    _data['arrivel_hour'] = arrivelHours;
     _data['rating'] = rating;
     _data['point_name'] = pointName;
     _data['port_count'] = portCount;

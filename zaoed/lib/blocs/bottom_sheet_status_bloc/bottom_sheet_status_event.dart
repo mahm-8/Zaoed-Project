@@ -17,3 +17,6 @@ class UpdateStatusEvent extends BottomSheetStatusEvent {
       this.point,
       required this.status});
 }
+class StatusBottomEvent extends BottomSheetStatusEvent {
+
+}

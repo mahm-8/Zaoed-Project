@@ -2,7 +2,6 @@
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_confirmation_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -62,9 +61,7 @@ class BookingScreen extends StatelessWidget {
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-                  context
-                      .read<BottomSheetStatusBloc>()
-                      .add(UpdateStatusEvent(status: Status.completedPayment));
+               
                   switch (hours[indexer.hourCharg]) {
                     case 'ساعة':
                       bloc.price = 1 * 50;
