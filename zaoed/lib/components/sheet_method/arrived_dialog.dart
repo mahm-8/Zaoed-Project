@@ -11,7 +11,7 @@ extension ArrivedSheet on BuildContext {
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(25)),
               color: AppColors().gray6),
-          height: context.getHeight(divide: 3),
+          height: context.getHeight(divide: 2),
           width: context.getWidth(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),

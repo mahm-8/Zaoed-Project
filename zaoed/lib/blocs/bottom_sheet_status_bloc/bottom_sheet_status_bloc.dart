@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -24,42 +26,57 @@ class BottomSheetStatusBloc
   String? hour;
   ChargingPoint? chargingPoint;
   Status currentStatus = Status.nono;
+  Status? stat;
   BottomSheetStatusBloc() : super(BottomSheetStatusInitial()) {
-    on<UpdateStatusEvent>((event, emit) async {
+    on<UpdateStatusEvent>((event, emit) {
       image = event.imageType;
       point = event.point;
       hour = event.hour;
       chargingPoint = event.chargingPoint;
-      print(hour);
-      emit(SuccessState(status: event.status));
+      print(event.status);
+      stat = event.status;
+      log("xxxxxxxxxxxxxxxxxxxxx$stat.xxxxxxxxxxxxxxxxxxxxxx");
+    });
+    on<StatusBottomEvent>((event, emit) {
+      print(stat);
+      emit(SuccessStatusState(status: Status.reachedChargingPoint));
     });
   }
 
   switchShowBottomSheet(BuildContext context, Status status) {
     if (status == currentStatus) {
-      return ;
+      return;
     }
     currentStatus = status;
 
     switch (status) {
       case Status.completedPayment:
+        print("completedPayment");
         context.receiveDialog();
 
         break;
       case Status.reachedChargingPoint:
-        context.arrivedToCharging(chargingPoint: chargingPoint);
+        log("$chargingPoint".toString());
+        if (chargingPoint != null) {
+          context.arrivedToCharging(chargingPoint: chargingPoint);
+        }
 
         break;
       case Status.InProcessing:
+        print("InProcessing");
+
         context.chargingCarSheet();
 
         break;
       case Status.rating:
+        print("rating");
         ratingBottomSheet(context);
 
         break;
       default:
-        return Container();
+        print("stop");
+        Container();
+        break;
     }
   }
 }

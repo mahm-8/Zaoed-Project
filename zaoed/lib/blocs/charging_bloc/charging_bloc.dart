@@ -26,7 +26,7 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
             .from("cars_booking")
             .select()
             .match({'id_auth': id, "status": "progress"});
-        await Future.delayed(Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 1));
         print("ssssssssssssssssssssssssssssssssssssssssssssssssssss");
         print(states);
         if (states.isNotEmpty) {
@@ -39,7 +39,9 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
       } else {
         emit(EmptyCarState());
       }
-    } catch (error) {}
+    } catch (error) {
+      print("crach $error");
+    }
   }
 
   FutureOr<void> completeCar(

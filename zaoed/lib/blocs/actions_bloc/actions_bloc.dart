@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
-import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/model/bookmark_model.dart';
 export 'dart:async';
 part 'actions_event.dart';

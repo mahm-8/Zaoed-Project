@@ -73,92 +73,24 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                     context.read<GoogleMapBloc>().add(FetchPolylineEvent(
                         distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
                             widget.chargingPoint.longitude ?? 0.0)));
-                    // String state = '';
-                    // if (card.cardList != null) {
-                    //   print(card.cardList?[0].numberCard ?? '');
-                    //   final source = CardPaymentRequestSource(
-                    //       creditCardData: CardFormModel(
-                    //           name: card.cardList?[0].name ?? '',
-                    //           number: card.cardList?[0].numberCard ?? "",
-                    //           month: card.cardList?[0].expCard
-                    //                   .toString()
-                    //                   .split("/")[0] ??
-                    //               "",
-                    //           year:
-                    //               '20${card.cardList?[0].expCard.toString().split("/")[1] ?? '26'}',
-                    //           cvc: card.cardList![0].csv ?? ""),
-                    //       tokenizeCard: (PaymentMethods()
-                    //               .paymentConfig
-                    //               .creditCard as CreditCardConfig)
-                    //           .saveCard,
-                    //       manualPayment: (PaymentMethods()
-                    //               .paymentConfig
-                    //               .creditCard as CreditCardConfig)
-                    //           .manual);
-                    //   print("====$source");
-                    //   final paymentRequest = PaymentRequest(
-                    //       PaymentMethods().paymentConfig, source);
-                    //   print("====$paymentRequest=======");
-                    //   final result = await Moyasar.pay(
-                    //       apiKey:
-                    //           PaymentMethods().paymentConfig.publishableApiKey,
-                    //       paymentRequest: paymentRequest);
-                    //
-                    //   print(result);
-                    //   final String transactionUrl =
-                    //       (result.source as CardPaymentResponseSource)
-                    //           .transactionUrl;
-                    //
-                    //   if (mounted) {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //           fullscreenDialog: true,
-                    //           maintainState: false,
-                    //           builder: (context) => ThreeDSWebView(
-                    //               transactionUrl: transactionUrl,
-                    //               on3dsDone:
-                    //                   (String status, String message) async {
-                    //                 if (status == PaymentStatus.paid.name) {
-                    //                   state = "paid";
-                    //                   result.status = PaymentStatus.paid;
-                    //                 } else if (status ==
-                    //                     PaymentStatus.authorized.name) {
-                    //                   state = "authorized";
-                    //                   result.status = PaymentStatus.authorized;
-                    //                 } else {
-                    //                   state = "failed";
-                    //                   result.status = PaymentStatus.failed;
-                    //                   (result.source
-                    //                           as CardPaymentResponseSource)
-                    //                       .message = message;
-                    //                 }
-                    //                 Navigator.pop(context);
-                    //                 PaymentMethods().onPaymentResult(result);
-                    // if (state == "paid") {
+             
                     setState(() {
                       activeStep = 2;
                     });
-                    // }
-                    // })),
-                    //   );
-                    // }
-                    // } else {
-                    //   context.showErrorMessage(msg: "choose your card (^_^)");
-                    // }
+             
                   },
                 ),
               ],
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
-                        status: Status.completedPayment,
-                        imageType: widget.image,
-                        point: widget.chargingPoint.pointName,
-                        hour: widget.hour,
-                        chargingPoint: widget.chargingPoint));
                     context.pushAndRemoveUntil(view: NavigationBarScreen());
+                    //                 context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                    // status: Status.completedPayment,
+                    // imageType: widget.image,
+                    // point: widget.chargingPoint.pointName,
+                    // hour: widget.hour,
+                    // chargingPoint: widget.chargingPoint));
                   },
                 ),
               ],

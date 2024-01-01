@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -109,22 +110,29 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   FutureOr<void> polyline(
       FetchPolylineEvent event, Emitter<GoogleMapState> emit) async {
     try {
-      print("staaaaaaaaaaaaaaaaaaaaaaaaaaart");
-      currentLocation = await location.getLocation();
-      print(currentLocation);
-      moveToPosition(LatLng(
-        currentLocation?.latitude ?? 0,
-        currentLocation?.longitude ?? 0,
-      ));
+      print("staaaaaaaaaaaaaaaaaaaaaaaaaaart11111");
+      try {
+        currentLocation = await location.getLocation();
+        print(
+            "=============================$currentLocation==========1=========");
+        moveToPosition(LatLng(
+          currentLocation?.latitude ?? 0,
+          currentLocation?.longitude ?? 0,
+        ));
+      } catch (e) {
+        log("currnt: ${e.toString()}");
+      }
+
+      print("====================2======dist===================");
 
       final dist = calculateDistance(
           currentLocation?.latitude ?? 0,
           currentLocation?.longitude ?? 0,
           event.distention!.latitude,
           event.distention!.longitude);
+      print("=====================3=====$dist===================");
       if (dist <= 20) {
-        // context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
-        //     status: Status.completedPayment,);
+        print("Im here==========================$dist===================");
         BottomSheetStatusBloc()
             .add(UpdateStatusEvent(status: Status.reachedChargingPoint));
       } else {
@@ -145,7 +153,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       }
       await getCurrentLocation();
     } catch (error) {
-      print(error);
+      log(error.toString());
     }
   }
 

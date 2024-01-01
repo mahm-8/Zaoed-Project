@@ -5,8 +5,8 @@ sealed class BottomSheetStatusState {}
 
 final class BottomSheetStatusInitial extends BottomSheetStatusState {}
 
-final class SuccessState extends BottomSheetStatusState {
+final class SuccessStatusState extends BottomSheetStatusState {
   final Status status;
 
-  SuccessState({required this.status});
+  SuccessStatusState({required this.status});
 }

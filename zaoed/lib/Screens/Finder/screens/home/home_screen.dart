@@ -1,5 +1,5 @@
+import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/bloc/raiting_bloc.dart';
 import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
 import 'package:zaoed/constants/imports.dart';
 
@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           ButtonChoiceWidget(
             imageUrl: "lib/assets/icons/map_layer.png",
             onPress: () {
-              ratingBottomSheet(context, controller: controller);
+              // ScanBarcodeScreen(chargingPoint: ,)
 
               // change map type
               // show trafic
