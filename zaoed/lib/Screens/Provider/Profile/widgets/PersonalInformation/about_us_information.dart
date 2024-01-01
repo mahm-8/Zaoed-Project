@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/about_us_screen.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/legal_affairs_screen.dart';
 import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class AboutUsInformation extends StatelessWidget {
   const AboutUsInformation({
@@ -14,7 +10,7 @@ class AboutUsInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 210,
-      width: 350,
+      width: context.getWidth(),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: AppColors().gray6,

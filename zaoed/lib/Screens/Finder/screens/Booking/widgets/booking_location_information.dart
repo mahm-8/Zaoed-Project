@@ -6,52 +6,56 @@ import 'package:geocoding/geocoding.dart';
 class BookingLocationInformation extends StatelessWidget {
   BookingLocationInformation({
     super.key,
-    this.bookmarks,
+    this.chargingPoint,
   });
-  final ChargingPoint? bookmarks;
-  Placemark? placemark;
-  Future convertToCity(double? latitude, double? longitude) async {
-    try {
-      List<Placemark>? placemarks =
-          await placemarkFromCoordinates(latitude!, longitude!);
-      print(placemarks);
-      if (placemarks.isNotEmpty) {
-        Placemark placemark = placemarks.first;
-        print('======================City${placemark.country}');
-        print('====================${placemark.locality}');
-      }
-      return placemark;
-    } catch (error) {
-      print(error);
-    }
-  }
+  final ChargingPoint? chargingPoint;
 
   @override
   Widget build(BuildContext context) {
-    convertToCity(bookmarks!.longitude, bookmarks!.latitude);
     return BlocBuilder<ActionsBloc, ActionsState>(
       builder: (context, state) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "الموقع",
-              style: TextStyle(fontSize: 19, color: AppColors().white),
-            ),
-            Text(
-              '${bookmarks?.pointName}',
-              style: TextStyle(fontSize: 17, color: AppColors().white),
-            ),
-            Text(
-              "${placemark?.country}, ${bookmarks?.latitude}",
-              style: TextStyle(
-                  color: AppColors().white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w200),
-            ),
-          ],
+        return FutureBuilder<List<Placemark>?>(
+          future:
+              convertToCity(chargingPoint?.latitude, chargingPoint?.longitude),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasError || snapshot.data == null) {
+              return const Text("خطأ");
+            } else {
+              Placemark placemark = snapshot.data!.first;
+              // DefaultLocale.of(context)!.locale = 'ar';
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "الموقع",
+                    style: TextStyle(fontSize: 19, color: AppColors().white),
+                  ),
+                  Text(
+                    "${placemark.locality}, ${placemark.subLocality}",
+                    style: TextStyle(fontSize: 17, color: AppColors().white),
+                  ),
+                ],
+              );
+            }
+          },
         );
       },
     );
+  }
+
+  Future<List<Placemark>?> convertToCity(
+      double? latitude, double? longitude) async {
+    try {
+      List<Placemark>? placemarks =
+          await placemarkFromCoordinates(latitude!, longitude!);
+
+      return placemarks;
+    } catch (error) {
+      print(error);
+      return null;
+    }
   }
 }

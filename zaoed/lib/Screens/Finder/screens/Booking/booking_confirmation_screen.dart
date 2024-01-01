@@ -37,7 +37,7 @@ class BookingConfirmationScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BookingLocationInformation(
-                        bookmarks: chargingPoint,
+                        chargingPoint: chargingPoint,
                       ),
                       BookingChargingInformation(
                         type: type,

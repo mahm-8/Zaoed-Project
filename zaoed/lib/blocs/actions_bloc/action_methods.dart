@@ -1,3 +1,4 @@
+import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/model/bookmark_model.dart';
 import 'package:zaoed/service/networking.dart';
 
@@ -7,6 +8,9 @@ class ActionSupabaseMethods {
   List<BookmarkModel> bookmarkList = [];
 
   List<ChargingPoint> providerChargingList = [];
+
+
+
   getBookmarks() async {
     try {
       final id = supabase.auth.currentUser?.id;

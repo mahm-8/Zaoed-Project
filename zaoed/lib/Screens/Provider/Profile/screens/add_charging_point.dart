@@ -34,6 +34,8 @@ class AddChargingPoint extends StatelessWidget {
               ),
               AvailabilityHours(
                 bloc: bloc,
+                initialSelectedHour: bloc.selectedHour,
+                isEdit: false,
               ),
               ChargingTypeSection(
                 bloc: bloc,
@@ -58,7 +60,7 @@ class AddChargingPoint extends StatelessWidget {
                       context.pop();
                     });
                   },
-                  textColor: AppColors().white)
+                  textColor: AppColors().gray8)
             ],
           ),
         ),

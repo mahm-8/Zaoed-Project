@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/legal_affairs_lable.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class LegalAffairsScreen extends StatelessWidget {
   const LegalAffairsScreen({super.key});
@@ -15,7 +12,7 @@ class LegalAffairsScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(
             height: 240,
-            width: 350,
+            width: context.getHeight(),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: AppColors().gray6,
