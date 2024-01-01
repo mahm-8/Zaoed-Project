@@ -6,6 +6,8 @@ import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/navigator.dart';
 
+import '../../../../Finder/screens/Profile/screens/car_screen.dart';
+
 class ProviderInformation extends StatelessWidget {
   const ProviderInformation({
     super.key,
@@ -60,7 +62,9 @@ class ProviderInformation extends StatelessWidget {
             InformationLabel(
               imageIcon: 'lib/assets/icons/bolt.car.png',
               title: 'بيانات السيارة',
-              onTap: () {},
+              onTap: () {
+                context.push(view: const CarScreen());
+              },
             ),
           ]),
     );

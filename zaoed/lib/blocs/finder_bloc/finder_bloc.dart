@@ -4,6 +4,8 @@ import 'dart:math';
 
 import 'package:zaoed/constants/imports.dart';
 import 'package:intl/intl.dart';
+
+import '../charging_bloc/charging_bloc.dart';
 part 'finder_event.dart';
 part 'finder_state.dart';
 
@@ -22,6 +24,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     on<PayEvent>(invoice);
     on<InvoiceDataEvent>(invoiceDate);
     on<PaymentStatusEvent>(paymentState);
+    on<AddCarsChargeEvent>(bookCar);
     on<LoadDataTimerEvent>((event, emit) async {
       final supabase = SupabaseNetworking().getSupabase;
       final id = supabase.auth.currentUser?.id;
@@ -132,5 +135,50 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     } else if (event.status == "failed") {
       emit(ErrorPayState());
     }
+  }
+
+  FutureOr<void> bookCar(
+      AddCarsChargeEvent event, Emitter<FinderState> emit) async {
+    try {
+      String hours = '';
+      switch (event.hour) {
+        case 'ساعة':
+          hours = "1";
+          break;
+        case "ساعتان":
+          hours = "2";
+          break;
+        case "3 ساعات":
+          hours = "3";
+          break;
+        case "4 ساعات":
+          hours = "4";
+          break;
+        case "5 ساعات":
+          hours = "5";
+          break;
+        case "6 ساعات":
+          hours = "6";
+          break;
+        case "8 ساعات":
+          hours = "8";
+          break;
+        default:
+      }
+      final supabase = SupabaseNetworking().getSupabase;
+      final id = supabase.auth.currentUser?.id;
+      final car = await supabase.from("cars").select().eq("id_user", id!);
+      await supabase.from('cars_booking').insert({
+        'id_auth': id,
+        "status": "progress",
+        "id_cars": car.last["id"],
+        "hours": hours,
+        "id_povider": event.chargingPoint.pointAuthID,
+        "id_point": event.chargingPoint.pointId
+      });
+      await Future.delayed(const Duration(seconds: 2));
+      ChargingBloc().add(EmptyCarsEvent());
+      add(LoadDataTimerEvent());
+    } catch (e) {}
   }
 }

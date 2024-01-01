@@ -29,6 +29,7 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
           print("انا");
           emit(ChargingStatus());
         } else {
+          print("2");
           emit(EmptyBookingState());
         }
       } else {

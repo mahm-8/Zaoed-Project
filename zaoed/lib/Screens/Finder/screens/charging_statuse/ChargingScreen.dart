@@ -28,14 +28,24 @@ class ChargingScreen extends StatelessWidget {
         }
 
         return BlocBuilder<ChargingBloc, ChargingState>(
+          buildWhen: (previous, current) {
+            if (current is EmptyCarState) {
+              print("1");
+              return true;
+            }
+            if (current is ChargingStatus) {
+              print("2");
+              return true;
+            }
+            return false;
+          },
           builder: (context, state) {
             if (state is EmptyCarState) {
               print("1");
               return const Column(
                 children: [EmptyCarScreen()],
               );
-            }
-            if (state is ChargingStatus) {
+            } else if (state is ChargingStatus) {
               print("2");
               return const ChargingStatuesScreen();
             } else {

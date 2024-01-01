@@ -15,6 +15,13 @@ class PaymentStatusEvent extends FinderEvent {
   PaymentStatusEvent(this.status);
 }
 
+class AddCarsChargeEvent extends FinderEvent {
+  final ChargingPoint chargingPoint;
+  final String hour;
+
+  AddCarsChargeEvent({required this.chargingPoint, required this.hour});
+}
+
 class PayEvent extends FinderEvent {
   final String nameFinder;
   final String type;
