@@ -21,4 +21,9 @@ final class CarTypeState extends CarsState {
 
   CarTypeState({required this.type});
 }
-// class CarsDataState
+
+final class CarDataState extends CarsState {
+  final List<CarModel>? cars;
+
+  CarDataState(this.cars);
+}

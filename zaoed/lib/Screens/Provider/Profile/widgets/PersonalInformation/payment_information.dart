@@ -20,7 +20,9 @@ class PaymentInformation extends StatelessWidget {
         InformationLabel(
           imageIcon: 'lib/assets/icons/akar-icons_credit-card.png',
           title: 'البطاقات',
-          onTap: () {},
+          onTap: () {
+            context.push(view: const CardScreen());
+          },
         ),
         Divider(
           thickness: 1,

@@ -94,10 +94,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           .from('user')
           .update({'image_profile': upload}).eq('id_auth', idAuth);
       emit(UploadImageState(upload));
+      emit(PoviderImageState(upload));
     } on StorageException catch (e) {
       emit(ErrorUploadState(msg: e.message));
+      emit(ErrorPoviderUploadState(msg: e.message));
     } catch (error) {
-      emit(ErrorUploadState(msg: error.toString()));
+      emit(ErrorPoviderUploadState(msg: "Sorry try later after 5 min "));
+      emit(ErrorUploadState(msg: "Sorry try later after 5 min "));
     }
   }
 }
