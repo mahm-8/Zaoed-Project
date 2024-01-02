@@ -120,8 +120,8 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
 
       final datalist =
           await supabase.from("invoice").select().eq("id_auth", id);
-      print("wadha");
-      print(datalist.last);
+    
+      
       emit(InvoiceDataState(invoice: datalist));
     } catch (e) {
       print(e);
