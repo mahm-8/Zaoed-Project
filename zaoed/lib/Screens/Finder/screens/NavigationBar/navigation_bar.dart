@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
@@ -18,6 +19,8 @@ class FinderNavigationBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<UserBloc>().add(GetUserDataEvent());
+    context.read<ActionsBloc>().add(GetChargingPointsEvent());
+
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {
         if (state is PagesNavigationState) {
