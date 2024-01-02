@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_profit_rate_chart.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/screen_dimensions.dart';
 
 class DailyProfitRateChartContainer extends StatelessWidget {
   const DailyProfitRateChartContainer({
@@ -17,7 +18,7 @@ class DailyProfitRateChartContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 304,
-      width: 350,
+      width: context.getWidth(),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 37),
         child: Column(

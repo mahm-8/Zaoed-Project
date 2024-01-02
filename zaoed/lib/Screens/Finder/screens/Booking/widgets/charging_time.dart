@@ -23,7 +23,7 @@ class ChargingTime extends StatelessWidget {
         if (state is ChargingTimeState) {
           return SizedBox(
             height: 42,
-            width: 350,
+            width: context.getWidth(),
             child: ListView.separated(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

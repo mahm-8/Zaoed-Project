@@ -12,7 +12,7 @@ class LocationDetails extends StatelessWidget {
       children: [
         Container(
           height: 40,
-          width: 350,
+          width: context.getWidth(),
           decoration: BoxDecoration(
               color: AppColors().gray6, borderRadius: BorderRadius.circular(8)),
           child: Padding(

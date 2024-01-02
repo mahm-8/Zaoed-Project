@@ -16,9 +16,12 @@ class CardScreen extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             foregroundColor: AppColors().gray8,
-            minimumSize: Size(context.getWidth(divide: 1.1), 40),
+            minimumSize: Size(context.getWidth(divide: 1.1), 45),
             backgroundColor: AppColors().green),
-        child: const Text("إضافة بطاقة"),
+        child: const Text(
+          "إضافة بطاقة",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+        ),
       ),
       backgroundColor: AppColors().gray9,
       body: SafeArea(child: BlocBuilder<CardBloc, CardState>(

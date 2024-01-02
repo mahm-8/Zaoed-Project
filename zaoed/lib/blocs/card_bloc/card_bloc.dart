@@ -11,12 +11,14 @@ class CardBloc extends Bloc<CardEvent, CardState> {
   CardBloc() : super(CardInitial()) {
     on<AddCardEvent>((event, emit) async {
       final supabase = SupabaseNetworking().getSupabase;
+      final id = supabase.auth.currentUser?.id;
       try {
         await supabase.from('card').insert({
           'name': event.name,
           'number_card': event.cardNumber,
           'exp_card': event.endDate,
-          'csv': event.cvv
+          'csv': event.cvv,
+          "id_user": id
         });
 
         emit(AddCardState());
@@ -31,6 +33,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
         final supabase = SupabaseNetworking().getSupabase;
         final id = supabase.auth.currentUser?.id;
         print("test");
+        await Future.delayed(Duration(seconds: 2));
         final data = await supabase.from('card').select().eq('id_user', id!);
         List<CardModel?> card = [];
         for (var element in data) {

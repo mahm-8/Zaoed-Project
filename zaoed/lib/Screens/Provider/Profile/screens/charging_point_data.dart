@@ -17,6 +17,7 @@ class ChargingPointDataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'بيانات نقطة الشحن'),
       body: Padding(
@@ -73,7 +74,7 @@ class ChargingPointDataScreen extends StatelessWidget {
             ButtonWidget(
               textEntry: "إضافة نقطة شحن",
               backColor: AppColors().green,
-              textColor: AppColors().white,
+              textColor: AppColors().gray9,
               onPress: () {
                 context.push(view: AddChargingPoint());
               },

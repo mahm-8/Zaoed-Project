@@ -50,7 +50,9 @@ class AboutUsInformation extends StatelessWidget {
         InformationLabel(
           imageIcon: 'lib/assets/icons/Support.png',
           title: 'الدعم الفني',
-          onTap: () {},
+          onTap: () {
+            context.push(view: ChatScreen());
+          },
         ),
       ]),
     );

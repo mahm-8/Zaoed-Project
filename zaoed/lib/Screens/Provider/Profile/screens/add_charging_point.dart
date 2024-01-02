@@ -17,6 +17,7 @@ class AddChargingPoint extends StatelessWidget {
     final bloc = context.read<ProviderBloc>();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
       appBar: addChargingScreenAppBar(context,
           title: 'إضافة نقطة شحن', isEditing: false),

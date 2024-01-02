@@ -37,7 +37,7 @@ class _ChargingStatuesScreenState extends State<ChargingStatuesScreen> {
                     color: AppColors().gray6,
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  width: 350,
+                  width: context.getWidth(),
                   height: 150,
                   child: const TimerWidget(),
                 ),

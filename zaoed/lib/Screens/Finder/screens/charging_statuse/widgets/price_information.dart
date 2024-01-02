@@ -11,7 +11,7 @@ class PriceInformation extends StatelessWidget {
     final bloc = context.read<ActionsBloc>();
     return Container(
       height: 70,
-      width: 349,
+      width: context.getWidth(),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: AppColors().gray6),
       padding: const EdgeInsets.all(8),

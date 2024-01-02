@@ -15,24 +15,26 @@ class PaymentMethods extends StatelessWidget {
     metadata: {'size': '250g'},
   );
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CreditCard(
-            locale: const Localization.ar(),
-            config: paymentConfig,
-            onPaymentResult: onPaymentResult,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: CreditCard(
+              locale: const Localization.ar(),
+              config: paymentConfig,
+              onPaymentResult: onPaymentResult,
+            ),
           )
         ],
       ),
     );
   }
-    onPaymentResult(result,BuildContext context) {
+
+  onPaymentResult(result, BuildContext context) {
     if (result is PaymentResponse) {
       switch (result.status) {
         case PaymentStatus.paid:
@@ -47,7 +49,7 @@ class PaymentMethods extends StatelessWidget {
           print("initated");
           break;
         case PaymentStatus.authorized:
-        context.read<FinderBloc>().add(PaymentStatusEvent("authorized"));
+          context.read<FinderBloc>().add(PaymentStatusEvent("authorized"));
         // TODO: Handle this case.
         case PaymentStatus.captured:
         // TODO: Handle this case.

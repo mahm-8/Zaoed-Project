@@ -14,7 +14,7 @@ class DailyHoursRateChartContainer extends StatelessWidget {
     final dailyhour = context.read<StaticBloc>();
     return SizedBox(
       height: 304,
-      width: 350,
+      width: context.getWidth(),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 37),
         child: Column(

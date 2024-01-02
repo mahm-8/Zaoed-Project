@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/screen_dimensions.dart';
 
 class DailyProfitRateChart extends StatelessWidget {
   const DailyProfitRateChart({super.key, required this.dataProfitRate});
@@ -11,7 +12,7 @@ class DailyProfitRateChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 164,
-      width: 308,
+      width: context.getWidth(),
       child: SfCartesianChart(
         plotAreaBorderWidth: 0,
         primaryXAxis: const CategoryAxis(

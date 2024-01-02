@@ -17,7 +17,7 @@ class CaponWidget extends StatelessWidget {
     final bloc = context.read<ActionsBloc>();
     return SizedBox(
         height: 40,
-        width: 350,
+        width: context.getWidth(),
         child: Row(
           children: [
             Expanded(

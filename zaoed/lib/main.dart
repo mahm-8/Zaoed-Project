@@ -27,6 +27,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
+          
           create: (context) => AuthBloc()..add(CheckLoginEvent()),
         ),
         BlocProvider(
