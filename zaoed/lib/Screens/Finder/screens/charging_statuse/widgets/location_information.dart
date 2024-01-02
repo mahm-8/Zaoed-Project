@@ -8,6 +8,7 @@ class LocationInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<FinderBloc>().add(InvoiceDataEvent());
     return Container(
       height: 69,
       width: 349,
@@ -15,6 +16,12 @@ class LocationInformation extends StatelessWidget {
           borderRadius: BorderRadius.circular(8), color: AppColors().gray6),
       padding: const EdgeInsets.all(8),
       child: BlocBuilder<FinderBloc, FinderState>(
+        buildWhen: (_, newState) {
+          if (newState is InvoiceDataState) {
+            return true;
+          }
+          return false;
+        },
         builder: (context, state) {
           if (state is InvoiceDataState) {
             return Column(

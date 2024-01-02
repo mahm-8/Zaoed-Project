@@ -1,9 +1,7 @@
 import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-
 import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
-
 import 'package:zaoed/constants/imports.dart';
 
 class ChargePointsCard extends StatelessWidget {
@@ -30,8 +28,8 @@ class ChargePointsCard extends StatelessWidget {
           color: AppColors().gray1Trans,
           borderRadius: BorderRadius.circular(16),
           border: Border(
-              left: BorderSide(color: AppColors().green, width: 0.4),
-              top: BorderSide(color: AppColors().green, width: 0.4)),
+              left: BorderSide(color: AppColors().green, width: 0.3),
+              top: BorderSide(color: AppColors().green, width: 0.3)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -93,14 +91,16 @@ class ChargePointsCard extends StatelessWidget {
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
+                    return CircularProgressIndicator(
+                      color: AppColors().green,
+                    );
                   } else if (snapshot.hasError || snapshot.data == null) {
                     return const Text("");
                   } else {
                     // first or index??????
                     Placemark placemark = snapshot.data!.last;
                     return Text(
-                      "${placemark.locality}, ${placemark.subLocality}",
+                      "${placemark.locality} ${placemark.subLocality}",
                       overflow: TextOverflow.clip,
                       style: TextStyle(
                         color: AppColors().gray4,
@@ -118,9 +118,7 @@ class ChargePointsCard extends StatelessWidget {
                 portCount: chargingPoint.portCount,
                 chargingPort: chargingPoint.chargingPort,
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
