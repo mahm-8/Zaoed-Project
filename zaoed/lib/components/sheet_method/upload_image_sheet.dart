@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
 
 uploadImageSheet(BuildContext context) {
@@ -38,7 +42,18 @@ uploadImageSheet(BuildContext context) {
                     children: [
                       InkWell(
                         onTap: () async {
-                          // XFile? image = await picker.pickImage(source: ImageSource.gallery);
+                          final ImagePicker picker = ImagePicker();
+                          XFile? image = await picker.pickImage(
+                              source: ImageSource.camera);
+                          final imageFile = await image!.readAsBytes();
+                          if (imageFile.isNotEmpty) {
+                            // ignore: use_build_context_synchronously
+                            context
+                                .read<UserBloc>()
+                                .add(UploadImageEvent(imageFile));
+                            // ignore: use_build_context_synchronously
+                            context.showLoading();
+                          }
                         },
                         child: Row(
                           children: [
@@ -60,7 +75,20 @@ uploadImageSheet(BuildContext context) {
                         thickness: 1,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () async {
+                          final ImagePicker picker = ImagePicker();
+                          XFile? image = await picker.pickImage(
+                              source: ImageSource.gallery);
+                          final imageFile = await image!.readAsBytes();
+                          if (imageFile.isNotEmpty) {
+                            // ignore: use_build_context_synchronously
+                            context
+                                .read<UserBloc>()
+                                .add(UploadImageEvent(imageFile));
+                            // ignore: use_build_context_synchronously
+                            context.showLoading();
+                          }
+                        },
                         child: Row(
                           children: [
                             Image.asset('lib/assets/icons/Photo.png'),

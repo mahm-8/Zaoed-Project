@@ -23,7 +23,7 @@ class PersonalInformationScreen extends StatelessWidget {
             ButtonWidget(
               textEntry: 'تسجيل الخروج',
               backColor: AppColors().green,
-              textColor: AppColors().white,
+              textColor: AppColors().gray8,
               onPress: () {
                 logOutShowDailog(context);
               },

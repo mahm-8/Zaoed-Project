@@ -27,4 +27,14 @@ class ErrorUploadState extends UserState {
 
   ErrorUploadState({required this.msg});
 }
+class PoviderImageState extends UserState {
+  final String url;
+
+  PoviderImageState(this.url);
+}
+class ErrorPoviderUploadState extends UserState {
+  final String msg;
+
+  ErrorPoviderUploadState({required this.msg});
+}
 
