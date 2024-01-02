@@ -97,7 +97,6 @@ class ChargePointsCard extends StatelessWidget {
                   } else if (snapshot.hasError || snapshot.data == null) {
                     return const Text("");
                   } else {
-                    // first or index??????
                     Placemark placemark = snapshot.data!.last;
                     return Text(
                       "${placemark.locality}, ${placemark.subLocality}",

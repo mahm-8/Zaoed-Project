@@ -25,13 +25,13 @@ class CarBookingModel {
     return CarBookingModel(
       id: json["id"],
       createdAt: DateTime.tryParse(json["created_at"] ?? ""),
-      idAuth: json["id_auth"],
-      idCars: json["id_cars"],
-      hours: json["hours"],
-      idPovider: json["id_povider"],
-      status: json["status"],
+      idAuth: json["id_auth"] ?? "",
+      idCars: json["id_cars"] ?? 0,
+      hours: json["hours"] ?? "",
+      idPovider: json["id_povider"] ?? "",
+      status: json["status"] ?? "",
       timer: DateTime.tryParse(json["timer"] ?? ""),
-      idPoint: json["id_point"],
+      idPoint: json["id_point"] ?? 0,
     );
   }
 }

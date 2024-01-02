@@ -21,7 +21,7 @@ class DialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       key: key,
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.center,
       backgroundColor: AppColors().gray6,
       insetAnimationDuration: const Duration(milliseconds: 100),
       child: Container(
