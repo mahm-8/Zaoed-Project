@@ -45,8 +45,8 @@ extension ArrivedSheet on BuildContext {
                       /// send charging point data
                       context.push(
                           view: ScanBarcodeScreen(
-                        chargingPoint: chargingPoint!,
-                        carBooking: carBooking!,
+                        chargingPoint: chargingPoint,
+                        carBooking: carBooking,
                       ));
                     },
                     textEntry: "مسح الباركود",

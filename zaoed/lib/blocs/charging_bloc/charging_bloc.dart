@@ -1,9 +1,7 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-
-import '../../service/networking.dart';
+import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 
 part 'charging_event.dart';
 part 'charging_state.dart';
@@ -12,12 +10,12 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
   ChargingBloc() : super(ChargingInitial()) {
     on<EmptyCarsEvent>(emptyCar);
     on<CompleteCarsEvent>(completeCar);
+    on<GetUserBooking>(getBookedUser);
   }
 
   FutureOr<void> emptyCar(
       EmptyCarsEvent event, Emitter<ChargingState> emit) async {
     try {
-      final supabase = SupabaseNetworking().getSupabase;
       final id = supabase.auth.currentUser?.id;
 
       final cars = await supabase.from("cars").select().eq("id_user", id!);
@@ -49,5 +47,32 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
       print("2state");
     });
     print("3state");
+  }
+
+  FutureOr<void> getBookedUser(
+      GetUserBooking event, Emitter<ChargingState> emit) async {
+    try {
+      final id = supabase.auth.currentUser?.id;
+
+      final userBooked =
+          await supabase.from("cars_booking").select().eq('id_auth', id!);
+      await Future.delayed(
+        const Duration(minutes: 1),
+      );
+
+      print("lllllllllllllllllllllll");
+      print("lllllllllllllllllllllll");
+      print("lllllllllllllllllllllll");
+
+      print(userBooked);
+
+      print("lllllllllllllllllllllll");
+      print("lllllllllllllllllllllll");
+      print("lllllllllllllllllllllll");
+      emit(GetBookingStatus());
+    } catch (e) {
+      print(e.toString());
+      print(e.toString());
+    }
   }
 }

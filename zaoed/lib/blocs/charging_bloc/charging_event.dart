@@ -13,6 +13,6 @@ class EmptyCarsEvent extends ChargingEvent {
 
 class NonCarsEvent extends ChargingEvent {}
 
-class CompleteCarsEvent extends ChargingEvent {
-  
-}
+class CompleteCarsEvent extends ChargingEvent {}
+
+class GetUserBooking extends ChargingEvent {}
