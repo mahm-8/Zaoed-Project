@@ -27,6 +27,10 @@ class StaticBloc extends Bloc<StaticEvent, StaticState> {
           .select(''' hours,created_at ''')
           .gte("created_at", DateTime(year, month, day6))
           .eq('id_povider', id);
+
+      final static = await supabase.from('cars_booking').select();
+
+      print(static[0]);
       dailyHour = await StaticDaily()
           .totalHour(staticData: staticdata, dailyHour: dailyHour);
       emit(StaticHourState(totalToday: dailyHour?[7] ?? 0));

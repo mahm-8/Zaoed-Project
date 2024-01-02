@@ -6,7 +6,6 @@ part 'provider_event.dart';
 part 'provider_state.dart';
 
 class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
-  List<ChargingPoint>? providerPointsData;
   int count1 = 0;
   int count2 = 0;
   int count3 = 0;
@@ -119,13 +118,13 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
     on<GetProviderChargingPointsEvent>((event, emit) async {
       try {
         emit(ProviderLoadingState());
-        providerPointsData =
+        final providerPointsData =
             await ActionSupabaseMethods().getProviderChargingPoints();
         await Future.delayed(const Duration(seconds: 1));
         emit(GetProviderChargingPointsState(
-            providerChargingPoints: providerPointsData!));
+            providerChargingPoints: providerPointsData));
       } catch (e) {
-        print("jjjjjjjjjjjjjjjj");
+        print("Errror: GetProviderChargingPointsEvent BLOC");
         print(e.toString());
         return;
       }

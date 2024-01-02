@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -10,6 +11,8 @@ import 'package:zaoed/service/networking.dart';
 import 'dart:math' show cos, sqrt, asin;
 
 import 'package:image/image.dart' as IMG;
+
+import '../bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 
 part 'google_map_event.dart';
 part 'google_map_state.dart';
@@ -107,41 +110,50 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   FutureOr<void> polyline(
       FetchPolylineEvent event, Emitter<GoogleMapState> emit) async {
     try {
-      print("staaaaaaaaaaaaaaaaaaaaaaaaaaart");
-      currentLocation = await location.getLocation();
-      print(currentLocation);
-      moveToPosition(LatLng(
-        currentLocation?.latitude ?? 0,
-        currentLocation?.longitude ?? 0,
-      ));
+      print("staaaaaaaaaaaaaaaaaaaaaaaaaaart11111");
+      try {
+        currentLocation = await location.getLocation();
+        print(
+            "=============================$currentLocation==========1=========");
+        moveToPosition(LatLng(
+          currentLocation?.latitude ?? 0,
+          currentLocation?.longitude ?? 0,
+        ));
+      } catch (e) {
+        log("currnt: ${e.toString()}");
+      }
 
-      // final dist = calculateDistance(
-      //     currentLocation?.latitude ?? 0,
-      //     currentLocation?.longitude ?? 0,
-      //     event.distention!.latitude,
-      //     event.distention!.longitude);
-      // if (dist <= 3) {
-      //   print("=============================================== i am here");
-      // } else {
-      final polylines = await createPolylines(
-          LatLng(
-            currentLocation?.latitude ?? 0,
-            currentLocation?.longitude ?? 0,
-          ),
-          event.distention!);
-      Uint8List bytes = (await rootBundle.load('lib/assets/icons/pin.png'))
-          .buffer
-          .asUint8List();
-      Uint8List? smallimg = resizeImage(bytes, 70, 70);
-      Set<Marker> markers = {};
-      markers =
-          createMarkers(chargingPoints, BitmapDescriptor.fromBytes(smallimg!));
-      emit(FetchPolylineState(polylines, markers));
-      // }
-      // await getCurrentLocation();
-      // print(polylines);
+      print("====================2======dist===================");
+
+      final dist = calculateDistance(
+          currentLocation?.latitude ?? 0,
+          currentLocation?.longitude ?? 0,
+          event.distention!.latitude,
+          event.distention!.longitude);
+      print("=====================3=====$dist===================");
+      if (dist <= 20) {
+        print("Im here==========================$dist===================");
+        BottomSheetStatusBloc()
+            .add(UpdateStatusEvent(status: Status.reachedChargingPoint));
+      } else {
+        final polylines = await createPolylines(
+            LatLng(
+              currentLocation?.latitude ?? 0,
+              currentLocation?.longitude ?? 0,
+            ),
+            event.distention!);
+        Uint8List bytes = (await rootBundle.load('lib/assets/icons/pin.png'))
+            .buffer
+            .asUint8List();
+        Uint8List? smallimg = resizeImage(bytes, 70, 70);
+        Set<Marker> markers = {};
+        markers = createMarkers(
+            chargingPoints, BitmapDescriptor.fromBytes(smallimg!));
+        emit(FetchPolylineState(polylines, markers));
+      }
+      await getCurrentLocation();
     } catch (error) {
-      print(error);
+      log(error.toString());
     }
   }
 

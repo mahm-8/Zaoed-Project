@@ -58,36 +58,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     );
   }
 
-  // Future<Set<Polyline>> createPolylines(
-  //   LatLng sourceLocation,
-  //   LatLng sourceLocation1,
-  //   LatLng destination,
-  // ) async {
-  //   final List<LatLng> polylineCoordinates = [];
-  //   final PolylinePoints polylinePoints = PolylinePoints();
-
-  //   PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-  //     'AIzaSyB_pskxOAYeFwmfRTn-nQRRVocOj1Dyj6I',
-  //     PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
-  //     PointLatLng(sourceLocation1.latitude, sourceLocation1.longitude),
-  //   );
-
-  //   if (result.points.isNotEmpty) {
-  //     result.points.forEach((PointLatLng point) {
-  //       polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-  //     });
-  //   }
-
-  //   Polyline polyline = Polyline(
-  //     polylineId: const PolylineId('route'),
-  //     color: AppColors().green,
-  //     width: 5,
-  //     points: polylineCoordinates,
-  //   );
-
-  //   return {polyline};
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +77,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
               .loadString('lib/assets/google_map_style/dark_map_style.json'),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              // if (polylines != {}) {
               return BlocBuilder<GoogleMapBloc, GoogleMapState>(
                 buildWhen: (previous, current) {
                   if (current is FetchPolylineState) {
@@ -141,7 +110,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
                       mapType: MapType.normal,
                       markers: state.markers,
                       zoomControlsEnabled: false,
-                      // polylines: polylines,
                       onMapCreated: (GoogleMapController controller) {
                         if (!googleMapController.isCompleted) {
                           googleMapController.complete(controller);
@@ -150,14 +118,15 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
                       },
                     );
                   }
-                  return const Text('');
+                  return Center(
+                      child: CircularProgressIndicator(
+                    color: AppColors().green,
+                    strokeAlign: CircularProgressIndicator.strokeAlignCenter,
+                    strokeWidth: 6,
+                    strokeCap: StrokeCap.round,
+                  ));
                 },
               );
-              // } else {
-              //   return const Center(
-              //     child: CircularProgressIndicator(),
-              //   );
-              // }
             } else {
               return const Center(
                 child: CircularProgressIndicator(),

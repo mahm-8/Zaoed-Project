@@ -30,6 +30,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
         cardList = [];
         final supabase = SupabaseNetworking().getSupabase;
         final id = supabase.auth.currentUser?.id;
+        print("test");
         final data = await supabase.from('card').select().eq('id_user', id!);
         List<CardModel?> card = [];
         for (var element in data) {

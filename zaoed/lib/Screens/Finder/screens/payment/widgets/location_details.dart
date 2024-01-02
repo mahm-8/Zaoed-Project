@@ -1,4 +1,3 @@
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class LocationDetails extends StatelessWidget {
@@ -9,7 +8,6 @@ class LocationDetails extends StatelessWidget {
   final String? namePoint;
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ActionsBloc>();
     return Column(
       children: [
         Container(

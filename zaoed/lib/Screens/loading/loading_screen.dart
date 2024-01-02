@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:zaoed/Screens/Finder/screens/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';

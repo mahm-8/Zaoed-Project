@@ -1,6 +1,5 @@
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/charging_status_finished_screen.dart';
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/empty_car_charging_screen.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import '../../../../blocs/charging_bloc/charging_bloc.dart';
 import 'empty_car_screen.dart';
@@ -10,45 +9,26 @@ class ChargingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final bloc = context.read<CarsBloc>();
+    context.read<ChargingBloc>().add(EmptyCarsEvent());
     return Scaffold(
       backgroundColor: AppColors().gray9,
       appBar: chargingAppBar(context),
-      body: BlocBuilder<FinderBloc, FinderState>(builder: (context, state) {
-        if (state is TimerDataState) {
-          if (state.completedPercentage == 100) {
-            return ChargingStatusFinishedScreen();
+      body: BlocBuilder<ChargingBloc, ChargingState>(
+        builder: (context, state) {
+          print("here i am $state");
+          if (state is ChargingStatus) {
+            print("2");
+
+            return const ChargingStatuesScreen();
+          } else if (state is EmptyBookingState) {
+            return const EmptyChargingCarScreen();
+          } else if (state is ChargingFinishedStatus) {
+            return const ChargingStatusFinishedScreen();
+          } else {
+            return const EmptyCarScreen();
           }
-        }
-
-        return BlocBuilder<ChargingBloc, ChargingState>(
-          buildWhen: (previous, current) {
-            if (current is EmptyCarState) {
-              print("1");
-              return true;
-            }
-            if (current is ChargingStatus) {
-              print("2");
-              return true;
-            }
-            return false;
-          },
-          builder: (context, state) {
-            if (state is EmptyCarState) {
-              return const Column(
-                children: [EmptyCarScreen()],
-              );
-
-            } else if (state is ChargingStatus) {
-              print("2");
-
-              return const ChargingStatuesScreen();
-            } else {
-              return const EmptyChargingCarScreen();
-            }
-          },
-        );
-      }),
+        },
+      ),
     );
   }
 }
