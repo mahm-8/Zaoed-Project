@@ -1,3 +1,5 @@
+import 'package:zaoed/Screens/Finder/screens/Profile/widgets/car_widget.dart';
+import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class CarScreen extends StatelessWidget {
@@ -26,72 +28,25 @@ class CarScreen extends StatelessWidget {
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: ListView(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              height: context.getHeight(divide: 8),
-              width: context.getWidth(divide: 1.2),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: AppColors().gray6),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "تيسلا",
-                            style: TextStyle(
-                                color: AppColors().white, fontSize: 16),
-                          ),
-                        ],
-                      ),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                              enableFeedback: true,
-                              foregroundColor: AppColors().green),
-                          onPressed: () {},
-                          child: Text(
-                            "بيانات السيارة",
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                decorationColor: AppColors().green),
-                          ))
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("موديل 3 (Model 3)",
-                          style: TextStyle(
-                              color: AppColors().white, fontSize: 14)),
-                      SizedBox(
-                        height: 30,
-                        child: VerticalDivider(
-                          color: AppColors().black,
-                        ),
-                      ),
-                      Text("منفذ (CCS 2)",
-                          style:
-                              TextStyle(color: AppColors().white, fontSize: 14))
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
+        child: BlocBuilder<CarsBloc, CarsState>(
+          builder: (context, state) {
+            if (state is CarDataState) {
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: state.cars?.length,
+                itemBuilder: (context, index) {
+                  return CarWidget(car: state.cars?[index]);
+                },
+              );
+            }
+            return Center(
+                child: Text(
+              "لاتوجد أي مركبة مضافة حالياٍ",
+              style: TextStyle(color: AppColors().white),
+            ));
+          },
         ),
-      )
-          //     Center(
-          //         child: Text(
-          //   "لاتوجد أي مركبة مضافة حالياٍ",
-          //   style: TextStyle(color: AppColors().white),
-          // ))
-          ),
+      )),
     );
   }
 }
