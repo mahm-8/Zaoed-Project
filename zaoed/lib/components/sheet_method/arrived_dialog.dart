@@ -1,6 +1,4 @@
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/model/cars_booking_model.dart';
 
 extension ArrivedSheet on BuildContext {
   arrivedToCharging(

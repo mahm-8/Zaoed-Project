@@ -5,10 +5,8 @@ import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
 import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
 class AddToBookmarkDialog extends StatelessWidget {
-  const AddToBookmarkDialog(
-      {super.key,
-      required this.idPoint});
- 
+  const AddToBookmarkDialog({super.key, required this.idPoint});
+
   final int? idPoint;
 
   @override
@@ -25,7 +23,7 @@ class AddToBookmarkDialog extends StatelessWidget {
               button1: 'موافق',
               pressOne: () {
                 context.read<ActionsBloc>().add(AddBookmarkEvent(
-                     pointID: idPoint,
+                      pointID: idPoint,
                     ));
                 Navigator.of(context).pop();
                 showDialog(

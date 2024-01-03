@@ -1,8 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/screens/charging_point_data.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/personal_information.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/statics_screen.dart';
-import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ProviderInformation extends StatelessWidget {
@@ -28,7 +23,7 @@ class ProviderInformation extends StatelessWidget {
               imageIcon: 'lib/assets/icons/person1.png',
               title: 'البيانات الشخصية',
               onTap: () {
-                context.push(view:  PersonalInformationScreen(user: bloc.user));
+                context.push(view: PersonalInformationScreen(user: bloc.user));
               },
             ),
             Divider(
