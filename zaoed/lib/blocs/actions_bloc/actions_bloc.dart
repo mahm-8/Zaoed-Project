@@ -7,8 +7,6 @@ export 'dart:async';
 part 'actions_event.dart';
 part 'actions_state.dart';
 
-bool isBookmarked = false;
-
 class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
   List<BookmarkModel>? bookmarkData;
   List<ChargingPoint>? chargingPointData;
@@ -58,8 +56,9 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       AddBookmarkEvent event, Emitter<ActionsState> emit) async {
     try {
       await ActionSupabaseMethods().addBookmark(pointID: event.pointID);
-      emit(AddBookmarkState());
-      isBookmarked = true;
+
+      emit(AddBookmarkState(isBookmarked: true));
+
       add(GetBookmarkEvent());
       emit(LoadingState());
     } catch (e) {
@@ -71,8 +70,8 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       DeleteBookmarkEvent event, Emitter<ActionsState> emit) async {
     try {
       await ActionSupabaseMethods().deleteBookmark(id: event.bookmarkID);
-      emit(DeleteBookmarkState());
-      isBookmarked = false;
+
+      emit(DeleteBookmarkState(isBookmarked: false));
       add(GetBookmarkEvent());
       emit(LoadingState());
     } catch (e) {

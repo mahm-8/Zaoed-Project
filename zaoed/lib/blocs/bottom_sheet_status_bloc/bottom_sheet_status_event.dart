@@ -18,6 +18,8 @@ class UpdateStatusEvent extends BottomSheetStatusEvent {
       required this.status});
 }
 
+class StatusEvent extends BottomSheetStatusEvent {}
+
 class StatusBottomEvent extends BottomSheetStatusEvent {}
 
 class StatusBottomSheetEvent extends BottomSheetStatusEvent {}

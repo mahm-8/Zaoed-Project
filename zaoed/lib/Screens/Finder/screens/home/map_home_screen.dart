@@ -1,9 +1,4 @@
 import 'package:zaoed/Screens/Finder/screens/home/google_map.dart';
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/components/sheet_method/arrived_dialog.dart';
-import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class MapHomeScreen extends StatelessWidget {
@@ -13,30 +8,40 @@ class MapHomeScreen extends StatelessWidget {
   final bottomSheetStatusBloc = BottomSheetStatusBloc();
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<FinderBloc>();
-    context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
     context.read<ActionsBloc>().add(GetChargingPointsEvent());
+    final bloc = context.read<FinderBloc>();
+    // context.read<BottomSheetStatusBloc>().add(StatusEvent());
+    // context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
+
     return Scaffold(
       // extendBody: true,
       body: BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
-       
+        buildWhen: (previous, current) {
+          if (current is SuccessStatusState) {
+            return true;
+          }
+          return false;
+        },
         builder: (context, state) {
-          print("%%%%%%%%%%%%%%%5$state%%%%%%%%%%%%%%%%%%%%%%%");
-          if (state is SuccessStatusState) {
-            print("BottomSheetStatusBlocs${state.status}");
-            // final bottomSheetStatusBloc = context.read<BottomSheetStatusBloc>();
+          print("=========State is =======$state");
 
-            // bottomSheetStatusBloc = BottomSheetStatusBloc();
+          if (state is SuccessStatusState) {
+            print("${state.status}========1========");
+            final bottomSheetStatusBloc = context.read<BottomSheetStatusBloc>();
+            print("${state.status}========2========");
             WidgetsBinding.instance.addPostFrameCallback((_) {
+              print("${state.status}========3=======");
               bottomSheetStatusBloc.switchShowBottomSheet(
                 context,
                 state.status,
               );
+              print("${state.status}========4========");
             });
           }
           //   print(state);
-         
-          if (state is DestinationState) {
+
+          else if (state is DestinationState) {
+            print("===========================5555================");
             if (bloc.point != null) {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 context.arrivedToCharging(chargingPoint: bloc.point);
@@ -44,7 +49,7 @@ class MapHomeScreen extends StatelessWidget {
             }
           }
           return Stack(children: [
-            Positioned.fill(child: GoogleMapScreen()),
+            const Positioned.fill(child: GoogleMapScreen()),
             HomeScreen(),
           ]);
         },

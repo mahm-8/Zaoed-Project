@@ -38,13 +38,12 @@ class ChargingPoint {
     this.chargingPort,
     this.arrivelHours,
     this.chargingTimes,
-    this.pointLocation,
     this.longitude,
     this.latitude,
+    this.booked,
   });
   int? pointId;
   int? userId;
-
   String? pointAuthID;
   String? arrivelHours;
   double? rating;
@@ -52,9 +51,9 @@ class ChargingPoint {
   int? portCount;
   String? chargingPort;
   int? chargingTimes;
-  String? pointLocation;
   double? longitude;
   double? latitude;
+  bool? booked;
 
   ChargingPoint.fromJson(Map<String, dynamic> json) {
     pointId = json['point_id'] ?? 0;
@@ -62,11 +61,11 @@ class ChargingPoint {
     pointAuthID = json["id_auth"];
     rating = json['rating'] ?? 0.0;
     arrivelHours = json['arrivel_hour'] ?? "";
-    pointName = json['point_name'];
-    portCount = json['port_count'];
+    pointName = json['point_name'] ?? "";
+    portCount = json['port_count'] ?? 0;
     chargingPort = json['charging_port'];
-    chargingTimes = json['charging_times'];
-    pointLocation = json['point_location'];
+    chargingTimes = json['charging_times'] ?? 0;
+    booked = json['booked'];
     longitude = json['longitude'];
     latitude = json['latitude'];
   }
@@ -82,7 +81,7 @@ class ChargingPoint {
     _data['port_count'] = portCount;
     _data['charging_port'] = chargingPort;
     _data['charging_times'] = chargingTimes;
-    _data['point_location'] = pointLocation;
+    _data['booked'] = booked;
     _data['longitude'] = longitude;
     _data['latitude'] = latitude;
     return _data;

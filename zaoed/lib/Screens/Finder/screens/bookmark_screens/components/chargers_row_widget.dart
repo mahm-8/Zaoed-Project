@@ -20,8 +20,7 @@ class ChargersRowWidget extends StatelessWidget {
         ),
         Text(
           "0x",
-          style: TextStyle(
-              fontSize: 11, fontFamily: "SfArabic", color: AppColors().green),
+          style: TextStyle(fontSize: 11, color: AppColors().green),
         ),
         const SizedBox(
           width: 22,
@@ -32,8 +31,7 @@ class ChargersRowWidget extends StatelessWidget {
         ),
         Text(
           "0x",
-          style: TextStyle(
-              fontSize: 11, fontFamily: "SfArabic", color: AppColors().green),
+          style: TextStyle(fontSize: 11, color: AppColors().green),
         ),
         const SizedBox(
           width: 22,
@@ -44,8 +42,7 @@ class ChargersRowWidget extends StatelessWidget {
         ),
         Text(
           "0x",
-          style: TextStyle(
-              fontSize: 11, fontFamily: "SfArabic", color: AppColors().green),
+          style: TextStyle(fontSize: 11, color: AppColors().green),
         ),
         const SizedBox(
           width: 22,
@@ -54,11 +51,7 @@ class ChargersRowWidget extends StatelessWidget {
         const SizedBox(
           width: 2,
         ),
-        Text("0x",
-            style: TextStyle(
-                fontSize: 11,
-                fontFamily: "SfArabic",
-                color: AppColors().green)),
+        Text("0x", style: TextStyle(fontSize: 11, color: AppColors().green)),
         const SizedBox(
           width: 22,
         ),

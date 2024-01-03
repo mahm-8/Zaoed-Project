@@ -1,15 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
-
-import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
-import 'package:zaoed/components/sheet_method/arrived_dialog.dart';
-import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
-import 'package:zaoed/components/sheet_method/rating_boottom_sheet.dart';
-import 'package:zaoed/components/sheet_method/receive_dialog.dart';
-import 'package:zaoed/model/bookmark_model.dart';
-import 'package:zaoed/service/networking.dart';
+import '../../constants/imports.dart';
 part 'bottom_sheet_status_event.dart';
 part 'bottom_sheet_status_state.dart';
 
@@ -28,16 +19,20 @@ class BottomSheetStatusBloc
   String? hour;
   ChargingPoint? chargingPoint;
   Status currentStatus = Status.nono;
+  Status? statusUsed;
   // Status? stat;
   BottomSheetStatusBloc() : super(BottomSheetStatusInitial()) {
     on<StatusBottomSheetEvent>(bottomSheetUp);
+    on<StatusEvent>(statusSwitch);
     on<UpdateStatusEvent>((event, emit) {
       image = event.imageType;
       point = event.point;
       hour = event.hour;
       chargingPoint = event.chargingPoint;
+      emit(SuccessStatusState(status: event.status!));
       print(event.status);
-      emit(SuccessStatusState(status: event.status));
+      statusUsed = event.status;
+      // add(StatusEvent());
       // stat = event.status;
       // log("xxxxxxxxxxxxxxxxxxxxx$stat.xxxxxxxxxxxxxxxxxxxxxx");
     });
@@ -52,7 +47,7 @@ class BottomSheetStatusBloc
             .select()
             .match({'id_auth': id, "destination": "destination"});
         print(data);
-        if (data != null) {
+        if (data.isNotEmpty) {
           emit(DestinationState());
         }
       } catch (e) {
@@ -71,9 +66,7 @@ class BottomSheetStatusBloc
 
     switch (status) {
       case Status.completedPayment:
-        print("completedPayment");
         context.receiveDialog();
-
         break;
       case Status.reachedChargingPoint:
         log("$chargingPoint".toString());
@@ -112,6 +105,14 @@ class BottomSheetStatusBloc
       print("send");
     } catch (e) {
       print("$e===============================");
+    }
+  }
+
+  FutureOr<void> statusSwitch(
+      StatusEvent event, Emitter<BottomSheetStatusState> emit) {
+    if (statusUsed != null) {
+      print("++++++++++++BAD REQUSERT+++++++++++++++");
+      emit(SuccessStatusState(status: statusUsed!));
     }
   }
 }

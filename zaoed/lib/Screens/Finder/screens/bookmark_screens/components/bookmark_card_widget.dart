@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_location_information.dart';
 import 'package:zaoed/Screens/Finder/screens/bookmark_screens/bookmark_dialogs/add_bookmark_dialog.dart';
 import 'package:zaoed/Screens/Finder/screens/bookmark_screens/bookmark_dialogs/remove_bookmark_dialog.dart';
 import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/book_charge_button.dart';
 import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/chargers_row_widget.dart';
 import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/share_button_widget.dart';
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
+
 import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/screen_dimensions.dart';
 
 class BookmarkCardWidget extends StatelessWidget {
   const BookmarkCardWidget({
     super.key,
     required this.pointName,
-    required this.pointLocation,
     required this.chargingPort,
     required this.rating,
     required this.chargingTimes,
@@ -19,11 +21,11 @@ class BookmarkCardWidget extends StatelessWidget {
     required this.bookmarkID,
     required this.pointID,
     required this.longitude,
-    required this.lantitude,
+    required this.latitude,
   });
 
-  final String? pointName, pointLocation, chargingPort;
-  final double? rating, longitude, lantitude;
+  final String? pointName, chargingPort;
+  final double? rating, longitude, latitude;
   final int? chargingTimes, portCount, bookmarkID, pointID;
 
   @override
@@ -31,8 +33,8 @@ class BookmarkCardWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15, left: 10, right: 10),
       child: Container(
-        height: 203,
-        width: 350,
+        height: 210,
+        width: context.getWidth(),
         decoration: BoxDecoration(
             color: AppColors().gray1Trans,
             borderRadius: BorderRadius.circular(16)),
@@ -48,10 +50,10 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     pointName ?? "",
                     style: TextStyle(
-                        color: AppColors().mainWhite,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "SfArabic"),
+                      color: AppColors().mainWhite,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   const SizedBox(
                     width: 8,
@@ -63,10 +65,10 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "$rating",
                     style: TextStyle(
-                        color: AppColors().mainWhite,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "SfArabic"),
+                      color: AppColors().mainWhite,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   const SizedBox(
                     width: 4,
@@ -74,29 +76,41 @@ class BookmarkCardWidget extends StatelessWidget {
                   Text(
                     "$chargingTimes",
                     style: TextStyle(
-                        color: AppColors().gray4,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "SfArabic"),
+                      color: AppColors().gray4,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   const Spacer(),
-                  if (isBookmarked == false)
-                    AddToBookmarkDialog(
-                      idPoint: pointID,
-                    ),
-                  if (isBookmarked == true)
-                    RemoveBookMarkDialog(
-                      bookmarkID: bookmarkID,
-                    ),
+                  RemoveBookMarkDialog(
+                    bookmarkID: bookmarkID,
+                  ),
                 ],
               ),
-              Text(
-                pointLocation ?? "",
-                style: TextStyle(
-                    color: AppColors().gray4,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "SfArabic"),
+              FutureBuilder(
+                future: BookingLocationInformation()
+                    .convertToCity(latitude, longitude),
+                builder:
+                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator(
+                      color: AppColors().green,
+                    );
+                  } else if (snapshot.hasError || snapshot.data == null) {
+                    return const Text("");
+                  } else {
+                    Placemark placemark = snapshot.data!.last;
+                    return Text(
+                      "${placemark.locality} ${placemark.subLocality}",
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(
+                        color: AppColors().gray4,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    );
+                  }
+                },
               ),
               const SizedBox(
                 height: 30,

@@ -1,7 +1,3 @@
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/components/sheet_method/arrived_dialog.dart';
-import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +5,6 @@ class HomeScreen extends StatelessWidget {
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-   
     final bloc = context.read<FinderBloc>();
     return Padding(
       padding: const EdgeInsets.all(20.0),
@@ -27,11 +22,8 @@ class HomeScreen extends StatelessWidget {
             imageUrl: "lib/assets/icons/map_layer.png",
             onPress: () {
               if (bloc.point != null) {
-                context.arrivedToCharging(
-                    chargingPoint: bloc
-                        .point); // ScanBarcodeScreen(chargingPoint: bloc.point!,);
+                context.arrivedToCharging(chargingPoint: bloc.point);
               }
-              // ratingBottomSheet(context, controller: controller);
             },
           ),
           const SizedBox(

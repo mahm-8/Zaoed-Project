@@ -1,10 +1,4 @@
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import '../../../../blocs/finder/user_bloc/user_bloc.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
   const PaymentProcessScreen({
@@ -71,7 +65,9 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                             "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}",
                         idPoint: widget.chargingPoint.pointId ?? 1));
                     context.read<FinderBloc>().add(InvoiceDataEvent());
-
+                    context.read<GoogleMapBloc>().add(FetchPolylineEvent(
+                        distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
+                            widget.chargingPoint.longitude ?? 0.0)));
                     setState(() {
                       activeStep = 2;
                     });
@@ -81,19 +77,30 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () async {
-                    context.read<GoogleMapBloc>().add(FetchPolylineEvent(
-                        distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
-                            widget.chargingPoint.longitude ?? 0.0)));
+                    // context.showLoading();
+                    // await Future.delayed(Duration(seconds: 5), () {
+
+                    // if (user.user?.type == 'provider') {
+
                     context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
                         status: Status.completedPayment,
                         imageType: widget.image,
                         point: widget.chargingPoint.pointName,
                         hour: widget.hour,
                         chargingPoint: widget.chargingPoint));
-                    context.showLoading();
-                    await Future.delayed(Duration(seconds: 10), () {
-                    context.pushAndRemoveUntil(view: NavigationBarScreen());
-                    });
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NavigationBarScreen()));
+                    // } else if (user.user!.type == 'finder') {
+                    //   Navigator.pushAndRemoveUntil(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => FinderNavigationBarScreen()),
+                    //     (route) => false,
+                    //   );
+                    // }
+                    //  });
                   },
                 ),
               ],

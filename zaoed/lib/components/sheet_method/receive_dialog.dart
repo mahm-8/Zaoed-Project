@@ -3,8 +3,9 @@ import 'package:zaoed/constants/imports.dart';
 
 // String pointName,String timeCharging
 extension ReceiveDialog on BuildContext {
-  receiveDialog({String? pointName, String? timeCharging}) {
+  receiveDialog() {
     showBottomSheet(
+      enableDrag: true,
       context: this,
       builder: (context) {
         final blocState = context.read<BottomSheetStatusBloc>();
@@ -77,7 +78,6 @@ extension ReceiveDialog on BuildContext {
                                 button1: "نعم",
                                 button2: "تراجع",
                                 pressOne: () {
-                                 
                                   context.read<BottomSheetStatusBloc>().add(
                                       UpdateStatusEvent(status: Status.nono));
 
@@ -91,7 +91,6 @@ extension ReceiveDialog on BuildContext {
                                 },
                                 pressTwo: () {
                                   context.pop();
-                               
                                 });
                           }),
                       textEntry: "إلغاء الحجز",
