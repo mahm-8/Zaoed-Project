@@ -14,6 +14,7 @@ class PersonalImageContainer extends StatelessWidget {
   final UserModel? user;
   @override
   Widget build(BuildContext context) {
+    print(user);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 125, vertical: 16),
       child: Stack(
@@ -39,19 +40,17 @@ class PersonalImageContainer extends StatelessWidget {
             builder: (context, state) {
               if (state is PoviderImageState) {
                 return Container(
-                  height: context.getHeight(divide: 8),
-                  width: context.getWidth(divide: 4),
-                  color: AppColors().gray6,
-                  child: Image.network(state.url),
-                );
+                    height: context.getHeight(divide: 8),
+                    width: context.getWidth(divide: 4),
+                    color: AppColors().gray6,
+                    child: Image.network(state.url));
               }
               return Container(
                   height: context.getHeight(divide: 8),
                   width: context.getWidth(divide: 4),
                   color: AppColors().gray6,
                   child: user?.imageProfile != null
-                      ? Image.network(user?.imageProfile ??
-                          'lib/assets/icons/person_prof.png')
+                      ? Image.network(user!.imageProfile!)
                       : ImageIcon(
                           const AssetImage('lib/assets/icons/person_prof.png'),
                           color: AppColors().white,

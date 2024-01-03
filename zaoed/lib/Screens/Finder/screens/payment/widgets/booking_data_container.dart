@@ -14,7 +14,7 @@ class BookingDataContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 350,
+      width: context.getWidth(),
       height: 85,
       decoration: BoxDecoration(
           color: AppColors().gray6, borderRadius: BorderRadius.circular(8)),

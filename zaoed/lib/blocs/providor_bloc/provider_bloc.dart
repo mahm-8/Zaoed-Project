@@ -37,7 +37,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
     '12:00-18:00',
     '18:00-00:00'
   ];
-  int currentCount  = 0;
+  int currentCount = 0;
 
   ProviderBloc() : super(ProviderInitial()) {
     on<HoursSelectIndexEvent>((event, emit) {
@@ -53,66 +53,67 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
 
       switch (index) {
         case 1:
-          currentCount  = ++count1;
+          currentCount = ++count1;
           break;
         case 2:
-          currentCount  = ++count2;
+          currentCount = ++count2;
           break;
         case 3:
-          currentCount  = ++count3;
+          currentCount = ++count3;
           break;
         case 4:
-          currentCount  = ++count4;
+          currentCount = ++count4;
           break;
         case 5:
-          currentCount  = ++count5;
+          currentCount = ++count5;
           break;
         case 6:
-          currentCount  = ++count6;
+          currentCount = ++count6;
           break;
         case 7:
-          currentCount  = ++count7;
+          currentCount = ++count7;
           break;
       }
 
-      emit(ChargingTypeCountUpdated(currentCount ));
+      emit(ChargingTypeCountUpdated(currentCount));
 
-      if (currentCount  > 0) {
+      if (currentCount > 0) {
         countersList.add({
-          "number_of_port": currentCount ,
+          "number_of_port": currentCount,
           "port_name": port_type[index - 1]
         });
       }
     });
     on<ChargingTypeDecrementCountEvent>((event, emit) {
-      int index = int.parse(
-          event.name.substring(5)); 
+      int index = int.parse(event.name.substring(5));
 
-      switch (index) {
-        case 1:
-          currentCount  = --count1;
-          break;
-        case 2:
-          currentCount  = --count2;
-          break;
-        case 3:
-          currentCount  = --count3;
-          break;
-        case 4:
-          currentCount  = --count4;
-          break;
-        case 5:
-          currentCount  = --count5;
-          break;
-        case 6:
-          currentCount  = --count6;
-          break;
-        case 7:
-          currentCount  = --count7;
-          break;
+      if (currentCount > 0) {
+        switch (index) {
+          case 1:
+            currentCount = --count1;
+            break;
+          case 2:
+            currentCount = --count2;
+            break;
+          case 3:
+            currentCount = --count3;
+            break;
+          case 4:
+            currentCount = --count4;
+            break;
+          case 5:
+            currentCount = --count5;
+            break;
+          case 6:
+            currentCount = --count6;
+            break;
+          case 7:
+            currentCount = --count7;
+            break;
+        }
       }
-
-      emit(ChargingTypeCountUpdated(currentCount ));
+      ;
+      emit(ChargingTypeCountUpdated(currentCount));
     });
 
     on<GetProviderChargingPointsEvent>((event, emit) async {

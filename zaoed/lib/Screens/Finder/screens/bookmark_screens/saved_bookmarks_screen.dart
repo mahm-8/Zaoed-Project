@@ -10,7 +10,7 @@ class SavedBookmarksScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors().gray9,
-      appBar: customAppBar(context, title: "المحفوظات"),
+      appBar: customAppBar(context, title: "المحفوظات", showIcon: true),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+   
     final bloc = context.read<FinderBloc>();
     return Padding(
       padding: const EdgeInsets.all(20.0),
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
               context.chargingCarSheet();
             },
           ),
-          const Spacer(),
+          Spacer(),
           BlocBuilder<ActionsBloc, ActionsState>(
               buildWhen: (oldState, newState) {
             if (newState is GetChargingPointsState) {

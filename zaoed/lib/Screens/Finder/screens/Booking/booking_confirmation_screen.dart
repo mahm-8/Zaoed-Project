@@ -26,7 +26,7 @@ class BookingConfirmationScreen extends StatelessWidget {
           children: [
             Container(
               height: 267,
-              width: 350,
+              width: context.getWidth(),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: AppColors().gray6),

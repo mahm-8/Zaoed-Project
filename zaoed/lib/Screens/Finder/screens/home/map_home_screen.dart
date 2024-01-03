@@ -1,15 +1,28 @@
 import 'dart:developer';
 
 import 'package:zaoed/Screens/Finder/screens/home/google_map.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
-class MapHomeScreen extends StatelessWidget {
+class MapHomeScreen extends StatefulWidget {
   const MapHomeScreen({super.key});
 
   @override
+  State<MapHomeScreen> createState() => _MapHomeScreenState();
+}
+
+class _MapHomeScreenState extends State<MapHomeScreen> {
+  @override
+  void initState() {
+     context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
+    context.read<ActionsBloc>().add(GetChargingPointsEvent());
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
+   
+
     return Scaffold(
       // extendBody: true,
       body: BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
@@ -17,7 +30,7 @@ class MapHomeScreen extends StatelessWidget {
           log("State is =======$state=====");
           if (state is SuccessStatusState) {
             print("BottomSheetStatusBlocs${state.status}");
-           final bottomSheetStatusBloc = context.read<BottomSheetStatusBloc>();
+            final bottomSheetStatusBloc = context.read<BottomSheetStatusBloc>();
             WidgetsBinding.instance.addPostFrameCallback((_) {
               bottomSheetStatusBloc.switchShowBottomSheet(
                 context,

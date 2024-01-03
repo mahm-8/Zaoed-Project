@@ -12,10 +12,8 @@ class ChatScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        appBar: customAppBar(context, title: "الدعم", backTitle: "الرئيسية",
-            onPress: () {
-          context.push(view: const MapHomeScreen());
-        }, hasAction: true, showIcon: true),
+        appBar: customAppBar(context,
+            title: "الدعم", hasAction: true, showIcon: true),
         backgroundColor: AppColors().gray9,
         bottomSheet: ChatField(
           controller: chatController,

@@ -8,7 +8,7 @@ class DailyHoursRateChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 164,
-      width: 308,
+      width: context.getWidth(),
       child: SfCartesianChart(
         plotAreaBorderWidth: 0,
         primaryXAxis: const CategoryAxis(

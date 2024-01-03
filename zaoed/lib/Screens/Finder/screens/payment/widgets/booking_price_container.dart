@@ -20,7 +20,7 @@ class BookingPriceContainer extends StatelessWidget {
     final bloc = context.read<ActionsBloc>();
     return Container(
       height: 192,
-      width: 350,
+      width: context.getWidth(),
       decoration: BoxDecoration(
           color: AppColors().gray6, borderRadius: BorderRadius.circular(8)),
       child: Column(

@@ -1,4 +1,3 @@
-import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/model/bookmark_model.dart';
 import 'package:zaoed/service/networking.dart';
 
@@ -8,8 +7,6 @@ class ActionSupabaseMethods {
   List<BookmarkModel> bookmarkList = [];
 
   List<ChargingPoint> providerChargingList = [];
-
-
 
   getBookmarks() async {
     try {
@@ -45,6 +42,7 @@ class ActionSupabaseMethods {
     for (var element in chargingPointData) {
       chargingPointList.add(ChargingPoint.fromJson(element));
     }
+    await Future.delayed(const Duration(seconds: 1));
     return chargingPointList;
   }
 

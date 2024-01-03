@@ -12,7 +12,7 @@ class AboutUsScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Container(
             width: context.getWidth(),
-            height: 243,
+            height: 250,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: AppColors().gray6,

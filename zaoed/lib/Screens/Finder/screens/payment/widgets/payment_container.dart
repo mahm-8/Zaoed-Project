@@ -14,7 +14,7 @@ class PaymentContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<CardBloc>();
     return Container(
-        width: 350,
+        width: context.getWidth(),
         decoration: BoxDecoration(
             color: AppColors().gray6, borderRadius: BorderRadius.circular(8)),
         child: Column(children: [
@@ -24,10 +24,11 @@ class PaymentContainer extends StatelessWidget {
               builder: (context, state) {
                 print("=============payment container==============");
                 print(bloc.cardList);
-                if (bloc.cardList != null) {
+
+                if (state is GetCardDataState) {
                   return Column(
                     children: [
-                      ...bloc.cardList!.map((e) => Column(
+                      ...state.cards.map((e) => Column(
                             children: [
                               Row(
                                 children: [
@@ -40,7 +41,7 @@ class PaymentContainer extends StatelessWidget {
                                     width: 4,
                                   ),
                                   Text(
-                                      e.numberCard
+                                      e!.numberCard
                                           .toString()
                                           .substring(12)
                                           .padRight(12, '*'),

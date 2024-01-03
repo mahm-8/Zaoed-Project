@@ -17,6 +17,7 @@ class BankInformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
       appBar: profileScreenAppBar(context, title: 'البيانات البنكية'),
       body: Padding(
@@ -52,7 +53,7 @@ class BankInformationScreen extends StatelessWidget {
             ButtonWidget(
               textEntry: "إضافة",
               backColor: AppColors().green,
-              textColor: AppColors().white,
+              textColor: AppColors().gray9,
               onPress: () {
                 addBankShowDialog(context);
                 Future.delayed(const Duration(seconds: 2), () {

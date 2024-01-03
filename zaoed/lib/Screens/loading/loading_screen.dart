@@ -1,6 +1,8 @@
 import 'package:zaoed/Screens/Finder/screens/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
+import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/constants/imports.dart';
 
 import '../../blocs/actions_bloc/actions_bloc.dart';
@@ -24,6 +26,7 @@ class LoadingScreen extends StatelessWidget {
           context.read<ChargingBloc>().add(EmptyCarsEvent());
           context.read<GoogleMapBloc>().add(FetchMarkersEvent());
           context.read<CarsBloc>().add(CarsDataEvent());
+          context.read<UserBloc>().add(GetUserDataEvent());
           if (newState.type == 'provider') {
             Future.delayed(const Duration(seconds: 4), () {
               Navigator.pushAndRemoveUntil(

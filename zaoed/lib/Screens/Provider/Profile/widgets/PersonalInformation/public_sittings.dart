@@ -31,7 +31,9 @@ class PublicSittings extends StatelessWidget {
         InformationLabel(
           imageIcon: 'lib/assets/icons/sign.png',
           title: 'المحفوظات',
-          onTap: () {},
+          onTap: () {
+            context.push(view: SavedBookmarksScreen());
+          },
         ),
       ]),
     );

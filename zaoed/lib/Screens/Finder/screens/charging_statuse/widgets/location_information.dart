@@ -11,7 +11,6 @@ class LocationInformation extends StatelessWidget {
     context.read<FinderBloc>().add(InvoiceDataEvent());
     return Container(
       height: 69,
-      width: 349,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: AppColors().gray6),
       padding: const EdgeInsets.all(8),

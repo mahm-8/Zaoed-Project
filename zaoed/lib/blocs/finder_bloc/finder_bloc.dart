@@ -34,7 +34,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
             .match({'id_auth': id!, "status": "progress"});
 
         final data = response.first;
-        staticRemainingTimeHour = int.parse(data['hours']) * 2;
+        staticRemainingTimeHour = int.parse(data['hours']) * 60;
         remainingTimeHour = staticRemainingTimeHour;
         add(TimerEvent());
         emit(LoadDataTimerState());
@@ -121,8 +121,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
 
       final datalist =
           await supabase.from("invoice").select().eq("id_auth", id);
-    
-      
+
       emit(InvoiceDataState(invoice: datalist));
     } catch (e) {
       print(e);

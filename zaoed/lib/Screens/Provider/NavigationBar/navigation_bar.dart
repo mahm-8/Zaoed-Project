@@ -1,8 +1,7 @@
 import 'package:zaoed/Screens/Finder/screens/charging_statuse/ChargingScreen.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 
 class NavigationBarScreen extends StatelessWidget {
   NavigationBarScreen({super.key});
@@ -16,12 +15,12 @@ class NavigationBarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<UserBloc>().add(GetUserDataEvent());
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {
         if (state is PagesNavigationState) {
           return Scaffold(
             extendBody: true,
+            resizeToAvoidBottomInset: false,
             body: providerScreens[state.seleted],
             bottomNavigationBar: SizedBox(
               height: 64,

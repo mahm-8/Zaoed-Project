@@ -61,7 +61,6 @@ class BookingScreen extends StatelessWidget {
                 textEntry: 'التالي',
                 backColor: AppColors().green,
                 onPress: () {
-               
                   switch (hours[indexer.hourCharg]) {
                     case 'ساعة':
                       bloc.price = 1 * 50;
