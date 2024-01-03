@@ -68,29 +68,32 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                         amount: bloc.price ?? 0.0,
                         providerName: widget.chargingPoint.pointName ?? "",
                         address:
-                            "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}"));
+                            "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}",
+                        idPoint: widget.chargingPoint.pointId ?? 1));
                     context.read<FinderBloc>().add(InvoiceDataEvent());
-                    context.read<GoogleMapBloc>().add(FetchPolylineEvent(
-                        distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
-                            widget.chargingPoint.longitude ?? 0.0)));
-             
+
                     setState(() {
                       activeStep = 2;
                     });
-             
                   },
                 ),
               ],
               if (activeStep == 2) ...[
                 BillScreen(
-                  onTap: () {
+                  onTap: () async {
+                    context.read<GoogleMapBloc>().add(FetchPolylineEvent(
+                        distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
+                            widget.chargingPoint.longitude ?? 0.0)));
+                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                        status: Status.completedPayment,
+                        imageType: widget.image,
+                        point: widget.chargingPoint.pointName,
+                        hour: widget.hour,
+                        chargingPoint: widget.chargingPoint));
+                    context.showLoading();
+                    await Future.delayed(Duration(seconds: 10), () {
                     context.pushAndRemoveUntil(view: NavigationBarScreen());
-                    //                 context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
-                    // status: Status.completedPayment,
-                    // imageType: widget.image,
-                    // point: widget.chargingPoint.pointName,
-                    // hour: widget.hour,
-                    // chargingPoint: widget.chargingPoint));
+                    });
                   },
                 ),
               ],

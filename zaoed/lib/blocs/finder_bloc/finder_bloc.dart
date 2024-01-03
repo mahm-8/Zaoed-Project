@@ -52,7 +52,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     });
     myStream = myController.stream;
     myStream?.listen((event) async {
-      print(completedPercentage);
+      print("+++++++%%%%%%%%%%%%%%%%%%%$completedPercentage%%%%%%%%%%%%%%%%%%%%%++++++");
       emit(TimerDataState(
           formattedTime, timeFormat(remainingTimeHour), completedPercentage));
       if (completedPercentage == 100) {
@@ -98,7 +98,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
         "address": event.address,
         "type": event.type,
         "id_auth": id,
-        "token": token
+        "token": token,"id_point":event.idPoint
       });
     } catch (error) {
       print(error);

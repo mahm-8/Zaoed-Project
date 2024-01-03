@@ -17,8 +17,6 @@ class ChargingScreen extends StatelessWidget {
         builder: (context, state) {
           print("here i am $state");
           if (state is ChargingStatus) {
-            print("2");
-
             return const ChargingStatuesScreen();
           } else if (state is EmptyBookingState) {
             return const EmptyChargingCarScreen();

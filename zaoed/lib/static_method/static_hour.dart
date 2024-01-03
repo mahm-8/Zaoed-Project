@@ -86,51 +86,51 @@ class StaticDaily {
     for (var element in profit) {
       if (DateFormat()
           .add_MEd()
-          .format(DateTime.parse(element["date"]))
+          .format(DateTime.parse(element["created_at"]))
           .contains("Sun")) {
         amountSun += (element["amount"]);
-
       }
       if (DateFormat()
           .add_MEd()
-          .format(DateTime.parse(element["date"]))
+          .format(DateTime.parse(element["created_at"]))
           .contains("Mon")) {
         amountMon += (element["amount"]);
-
       }
       if (DateFormat()
           .add_MEd()
-          .format(DateTime.parse(element["date"]))
+          .format(DateTime.parse(element["created_at"]))
           .contains("Tue")) {
         amountTue += (element["amount"]);
       }
       if (DateFormat()
           .add_MEd()
-          .format(DateTime.parse(element["date"]))
+          .format(DateTime.parse(element["created_at"]))
           .contains("Wed")) {
         amountWed += (element["amount"]);
-
       }
       if (DateFormat()
           .add_MEd()
-          .format(DateTime.parse(element["date"]))
+          .format(DateTime.parse(element["created_at"]))
           .contains("Thu")) {
         amountThu += (element["amount"]);
-
       }
       if (DateFormat()
           .add_MEd()
-          .format(DateTime.parse(element["date"]))
+          .format(DateTime.parse(element["created_at"]))
           .contains("Fri")) {
         amountFri += (element["amount"]);
       }
       if (DateFormat()
           .add_MEd()
-          .format(DateTime.parse(element["date"]))
+          .format(DateTime.parse(element["created_at"]))
           .contains("Sat")) {
         amountSat += (element["amount"]);
       }
-      if (element["date"] == DateTime.now().toString().split(" ")[0]) {
+      if (DateFormat()
+              .add_MEd()
+              .format(DateTime.parse(element["created_at"])) ==
+          DateFormat().add_MEd().format(DateTime.now())) {
+        print("today");
         amountToday += (element["amount"]);
       }
     }

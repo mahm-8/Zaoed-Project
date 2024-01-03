@@ -13,7 +13,7 @@ class FinderNavigationBarScreen extends StatelessWidget {
   final List finderScreens = [
     const SavedBookmarksScreen(),
     const ChargingScreen(),
-    const MapHomeScreen(),
+    MapHomeScreen(),
     const ProfileFinder(),
   ];
   @override

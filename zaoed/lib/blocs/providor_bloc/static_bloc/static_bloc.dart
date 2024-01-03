@@ -48,13 +48,17 @@ class StaticBloc extends Bloc<StaticEvent, StaticState> {
       final id = supabase.auth.currentUser!.id;
       final profit = await supabase
           .from("invoice")
-          .select("*, user!inner(type)")
-          .match({"id_auth": id, "user.type": "provider"}).gte(
-              "date", DateTime(year, month, day));
-
+          .select("*, charging_point!inner(*)")
+          .match({"charging_point.id_auth": id}).gte(
+              "created_at", DateTime(year, month, day));
+      print(profit);
       amountTotal = await StaticDaily()
           .getAnalytics(profit: profit, amountTotal: amountTotal);
+      print(amountTotal?[7]);
+      print("+++++++++++++++amountTotal================");
+      emit(StaticAmountState(totalToday: amountTotal?[7]));
     } catch (e) {
+      print(e);
       return;
     }
   }

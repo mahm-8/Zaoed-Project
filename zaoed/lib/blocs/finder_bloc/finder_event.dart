@@ -27,7 +27,7 @@ class PayEvent extends FinderEvent {
   final String type;
   final double amount;
   final String providerName;
-  // final double totalPrice;
+   final int idPoint;
   final String address;
 
   PayEvent(
@@ -35,6 +35,6 @@ class PayEvent extends FinderEvent {
       required this.type,
       required this.amount,
       required this.providerName,
-      // required this.totalPrice,
+       required this.idPoint,
       required this.address});
 }

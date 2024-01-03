@@ -77,8 +77,10 @@ extension ReceiveDialog on BuildContext {
                                 button1: "نعم",
                                 button2: "تراجع",
                                 pressOne: () {
+                                 
                                   context.read<BottomSheetStatusBloc>().add(
                                       UpdateStatusEvent(status: Status.nono));
+
                                   context.pop();
                                   context.pop();
                                   showDialog(
@@ -87,7 +89,10 @@ extension ReceiveDialog on BuildContext {
                                         const StateDialog(title: "تم الإلغاء"),
                                   );
                                 },
-                                pressTwo: () => context.pop());
+                                pressTwo: () {
+                                  context.pop();
+                               
+                                });
                           }),
                       textEntry: "إلغاء الحجز",
                       backColor: AppColors().gray6,

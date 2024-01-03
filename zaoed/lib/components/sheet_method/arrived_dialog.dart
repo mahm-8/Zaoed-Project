@@ -1,4 +1,5 @@
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/scan_screen.dart';
+import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/model/cars_booking_model.dart';
 
@@ -41,8 +42,12 @@ extension ArrivedSheet on BuildContext {
                   const SizedBox(height: 15),
                   ButtonWidget(
                     onPress: () {
-                      ////////////////////////////////////////
-                      /// send charging point data
+                      context
+                          .read<BottomSheetStatusBloc>()
+                          .add(StatusBottomSheetEvent());
+                      context
+                          .read<BottomSheetStatusBloc>()
+                          .add(UpdateStatusEvent(status: Status.InProcessing));
                       context.push(
                           view: ScanBarcodeScreen(
                         chargingPoint: chargingPoint,
@@ -72,6 +77,9 @@ extension ArrivedSheet on BuildContext {
                               button1: "نعم",
                               button2: "تراجع",
                               pressOne: () {
+                                context
+                                    .read<BottomSheetStatusBloc>()
+                                    .add(StatusBottomSheetEvent());
                                 context.pop();
                                 context.pop();
                                 showDialog(
@@ -80,7 +88,12 @@ extension ArrivedSheet on BuildContext {
                                       const StateDialog(title: "تم الإلغاء"),
                                 );
                               },
-                              pressTwo: () => context.pop());
+                              pressTwo: () {
+                                context.pop();
+                                context
+                                    .read<BottomSheetStatusBloc>()
+                                    .add(StatusBottomSheetEvent());
+                              });
                         }),
                     textEntry: "إلغاء الحجز",
                     backColor: AppColors().gray6,
