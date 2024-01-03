@@ -1,10 +1,5 @@
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
-import 'package:zaoed/blocs/google_map_bloc/google_map_bloc.dart';
+
 import 'package:zaoed/constants/imports.dart';
-import '../../../../blocs/finder/user_bloc/user_bloc.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
   const PaymentProcessScreen({
@@ -84,13 +79,21 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () {
-                    context.pushAndRemoveUntil(view: NavigationBarScreen());
-                    //                 context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
-                    // status: Status.completedPayment,
-                    // imageType: widget.image,
-                    // point: widget.chargingPoint.pointName,
-                    // hour: widget.hour,
-                    // chargingPoint: widget.chargingPoint));
+                 if (user.user?.type == 'provider') {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NavigationBarScreen()),
+                        (route) => false,
+                      );
+                    } else if (user.user!.type == 'finder') {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FinderNavigationBarScreen()),
+                        (route) => false,
+                      );
+                    }
                   },
                 ),
               ],

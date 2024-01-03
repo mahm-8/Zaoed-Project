@@ -2,10 +2,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scan_barcode.dart';
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/fisrt_scan_dialog.dart';
 import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/invalid_barcode_dialog.dart';
-import 'package:zaoed/blocs/charging_bloc/charging_bloc.dart';
-import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/model/cars_booking_model.dart';
 
 class ScanBarcodeScreen extends StatefulWidget {
   ScanBarcodeScreen(

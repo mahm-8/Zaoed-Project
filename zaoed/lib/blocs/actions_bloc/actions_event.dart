@@ -9,13 +9,17 @@ class GetBookmarkEvent extends ActionsEvent {}
 class AddBookmarkEvent extends ActionsEvent {
   final int? pointID;
 
-  AddBookmarkEvent({required this.pointID});
+  AddBookmarkEvent({
+    required this.pointID,
+  });
 }
 
 class DeleteBookmarkEvent extends ActionsEvent {
   final int? bookmarkID;
 
-  DeleteBookmarkEvent({required this.bookmarkID});
+  DeleteBookmarkEvent({
+    required this.bookmarkID,
+  });
 }
 
 class CaponEvent extends ActionsEvent {

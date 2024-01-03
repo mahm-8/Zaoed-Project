@@ -18,9 +18,17 @@ final class GetChargingPointsState extends ActionsState {
   GetChargingPointsState({required this.chargingPoints});
 }
 
-final class AddBookmarkState extends ActionsState {}
+final class AddBookmarkState extends ActionsState {
+  final bool isBookmarked;
 
-final class DeleteBookmarkState extends ActionsState {}
+  AddBookmarkState({required this.isBookmarked});
+}
+
+final class DeleteBookmarkState extends ActionsState {
+  final bool isBookmarked;
+
+  DeleteBookmarkState({required this.isBookmarked});
+}
 
 final class CaponState extends ActionsState {}
 

@@ -1,7 +1,3 @@
-import 'package:geocoding/geocoding.dart';
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/booking_screen.dart';
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargePointsCard extends StatelessWidget {
@@ -67,7 +63,7 @@ class ChargePointsCard extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    "(${chargingPoint.chargingTimes ?? ""})",
+                    "(${chargingPoint.chargingTimes})",
                     style: TextStyle(
                       color: AppColors().gray4,
                       fontSize: 12,
@@ -75,13 +71,9 @@ class ChargePointsCard extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  if (isBookmarked == false)
+                  if (chargingPoint.booked == false)
                     AddToBookmarkDialog(
                       idPoint: chargingPoint.pointId,
-                    ),
-                  if (isBookmarked == true)
-                    RemoveBookMarkDialog(
-                      bookmarkID: id,
                     ),
                 ],
               ),

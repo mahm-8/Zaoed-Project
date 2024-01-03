@@ -15,21 +15,18 @@ class MapHomeScreen extends StatefulWidget {
 class _MapHomeScreenState extends State<MapHomeScreen> {
   @override
   void initState() {
-     context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
+    context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
     context.read<ActionsBloc>().add(GetChargingPointsEvent());
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-   
-
     return Scaffold(
       // extendBody: true,
       body: BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
         builder: (context, state) {
-          log("State is =======$state=====");
           if (state is SuccessStatusState) {
-            print("BottomSheetStatusBlocs${state.status}");
             final bottomSheetStatusBloc = context.read<BottomSheetStatusBloc>();
             WidgetsBinding.instance.addPostFrameCallback((_) {
               bottomSheetStatusBloc.switchShowBottomSheet(
@@ -40,7 +37,7 @@ class _MapHomeScreenState extends State<MapHomeScreen> {
           }
 
           return Stack(children: [
-            Positioned.fill(child: GoogleMapScreen()),
+            const Positioned.fill(child: GoogleMapScreen()),
             HomeScreen(),
           ]);
         },

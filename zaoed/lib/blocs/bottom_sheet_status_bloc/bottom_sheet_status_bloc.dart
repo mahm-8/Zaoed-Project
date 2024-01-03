@@ -1,13 +1,7 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
-import 'package:zaoed/components/sheet_method/arrived_dialog.dart';
-import 'package:zaoed/components/sheet_method/car_charging_sheet.dart';
-import 'package:zaoed/components/sheet_method/rating_boottom_sheet.dart';
-import 'package:zaoed/components/sheet_method/receive_dialog.dart';
-import 'package:zaoed/model/bookmark_model.dart';
+import '../../constants/imports.dart';
+
 part 'bottom_sheet_status_event.dart';
 part 'bottom_sheet_status_state.dart';
 

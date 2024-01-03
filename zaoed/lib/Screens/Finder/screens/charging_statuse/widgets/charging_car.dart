@@ -1,3 +1,4 @@
+import 'package:lottie/lottie.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargingCar extends StatelessWidget {

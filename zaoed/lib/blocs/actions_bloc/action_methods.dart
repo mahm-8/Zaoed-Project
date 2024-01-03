@@ -14,7 +14,7 @@ class ActionSupabaseMethods {
       final bookmarkData = await supabase
           .from("bookmark")
           .select(
-              "*, charging_point(point_name,point_location, charging_port, port_count, rating, charging_times, longitude, latitude)")
+              "*, charging_point(point_name,charging_port, port_count, rating, charging_times, longitude, latitude)")
           .eq("id_auth", id!);
       for (var element in bookmarkData) {
         bookmarkList.add(BookmarkModel.fromJson(element));
@@ -26,7 +26,11 @@ class ActionSupabaseMethods {
   }
 
   addBookmark({required int? pointID}) async {
-    await supabase.from("bookmark").insert({"point_id": pointID}).select();
+    final id = supabase.auth.currentUser?.id;
+
+    await supabase
+        .from("bookmark")
+        .insert({"point_id": pointID, "id_auth": id!}).select();
   }
 
   deleteBookmark({required int? id}) async {
