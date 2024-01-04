@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key, required this.type});
@@ -106,10 +107,7 @@ class SignUpScreen extends StatelessWidget {
             },
             child: Text(
               "لديك حساب مسبقاً؟ تسجيل الدخول",
-              style: TextStyle(
-                fontSize: 14,
-                color: AppColors().mainWhite,
-              ),
+              style: TextStyle().appBarAction,
             ),
           ),
           BlocListener<AuthBloc, AuthStates>(

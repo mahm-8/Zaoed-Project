@@ -9,6 +9,7 @@ import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/share_b
 
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class BookmarkCardWidget extends StatelessWidget {
   const BookmarkCardWidget({
@@ -64,22 +65,14 @@ class BookmarkCardWidget extends StatelessWidget {
                   ),
                   Text(
                     "$rating",
-                    style: TextStyle(
-                      color: AppColors().mainWhite,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: const TextStyle().style22,
                   ),
                   const SizedBox(
                     width: 4,
                   ),
                   Text(
                     "$chargingTimes",
-                    style: TextStyle(
-                      color: AppColors().gray4,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: const TextStyle().style21,
                   ),
                   const Spacer(),
                   RemoveBookMarkDialog(
@@ -103,11 +96,7 @@ class BookmarkCardWidget extends StatelessWidget {
                     return Text(
                       "${placemark.locality} ${placemark.subLocality}",
                       overflow: TextOverflow.clip,
-                      style: TextStyle(
-                        color: AppColors().gray4,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: const TextStyle().style23,
                     );
                   }
                 },

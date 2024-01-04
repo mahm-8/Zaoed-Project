@@ -1,8 +1,8 @@
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/raiting_bloc/raiting_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:zaoed/extensions/outline_style.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 ratingBottomSheet(BuildContext context,
     {TextEditingController? controller, double rate = 1.0}) {
@@ -31,16 +31,13 @@ ratingBottomSheet(BuildContext context,
             ),
             Text(
               'شكراً ${user.user?.name ?? ""} لاستخدامك نقطة الشحن',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                  color: AppColors().white),
+              style: const TextStyle().style5,
             ),
             const SizedBox(height: 8),
             Text(
               '''قيم تجربتك لمساعدتنا في تطوير وتحسين خدماتنا 
                         وتقديم تجربة مميزة لكم 🤩.''',
-              style: TextStyle(fontSize: 16, color: AppColors().white),
+              style: const TextStyle().style6,
             ),
             const SizedBox(height: 8),
             BlocBuilder<RaitingBloc, RaitingState>(
@@ -90,11 +87,9 @@ ratingBottomSheet(BuildContext context,
               controller: controller,
               maxLines: 4,
               decoration: InputDecoration(
-                hintText: 'قيم تجربتك هنا...',
-                hintStyle: TextStyle(color: AppColors().gray, fontSize: 17),
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors().green)),
-              ),
+                  hintText: 'قيم تجربتك هنا...',
+                  hintStyle: TextStyle().style7,
+                  border: OutlineStyle.defaultRatingBorder),
             ),
             const SizedBox(height: 20),
             ButtonWidget(

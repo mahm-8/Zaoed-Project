@@ -2,6 +2,7 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class BookingLocationInformation extends StatelessWidget {
   BookingLocationInformation({
@@ -31,11 +32,11 @@ class BookingLocationInformation extends StatelessWidget {
                 children: [
                   Text(
                     "الموقع",
-                    style: TextStyle(fontSize: 19, color: AppColors().white),
+                    style: const TextStyle().style17,
                   ),
                   Text(
                     "${placemark.locality}, ${placemark.subLocality}",
-                    style: TextStyle(fontSize: 17, color: AppColors().white),
+                    style: const TextStyle().style2,
                   ),
                 ],
               );

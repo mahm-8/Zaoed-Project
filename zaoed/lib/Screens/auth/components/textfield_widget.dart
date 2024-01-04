@@ -1,3 +1,6 @@
+import 'package:zaoed/extensions/outline_style.dart';
+import 'package:zaoed/extensions/text_style.dart';
+
 import '../../../constants/imports.dart';
 
 class TextfieldWidget extends StatelessWidget {
@@ -36,10 +39,7 @@ class TextfieldWidget extends StatelessWidget {
             validator: validator,
             obscureText: !obscure ? false : !displayPass,
             controller: controller,
-            style: TextStyle(
-              fontSize: 17,
-              color: AppColors().white,
-            ),
+            style: const TextStyle().style13,
             decoration: InputDecoration(
               fillColor: AppColors().gray1Trans,
               filled: true,
@@ -54,20 +54,12 @@ class TextfieldWidget extends StatelessWidget {
                       ),
                     ),
               hintText: hint,
-              hintStyle: TextStyle(color: AppColors().gray4, fontSize: 17),
+              hintStyle: const TextStyle().style15,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: AppColors().green, width: 0.4),
-                  borderRadius: BorderRadius.circular(8)),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: AppColors().green, width: 0.4),
-                  borderRadius: BorderRadius.circular(8)),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: AppColors().green, width: 0.4),
-                  borderRadius: BorderRadius.circular(8)),
-              errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: AppColors().green, width: 0.4),
-                  borderRadius: BorderRadius.circular(8)),
+              focusedErrorBorder: OutlineStyle.deafultTextfieldError,
+              enabledBorder: OutlineStyle.defaultTextfieldEnabled,
+              focusedBorder: OutlineStyle.defaultTextfieldfocused,
+              errorBorder: OutlineStyle.defaultTextfieldError,
             ),
           ),
         ),

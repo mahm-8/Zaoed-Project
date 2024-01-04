@@ -3,6 +3,7 @@ import 'package:zaoed/Screens/Finder/screens/Booking/booking_confirmation_screen
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class BookingScreen extends StatelessWidget {
   BookingScreen({super.key, required this.bookMark});
@@ -54,7 +55,7 @@ class BookingScreen extends StatelessWidget {
             ),
             Text(
               '*تنبيه، سيتم حجز الموصل لمدة 10 دقائق وفي حال لم يتم إتمام عملية الحجز خلال هذه المدة سيتم إلغاء الحجز',
-              style: TextStyle(fontSize: 12, color: AppColors().white),
+              style: const TextStyle().style16,
             ),
             const Spacer(),
             ButtonWidget(

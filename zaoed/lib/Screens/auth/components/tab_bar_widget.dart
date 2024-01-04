@@ -1,9 +1,8 @@
 // ignore_for_file: must_be_immutable
 
-
-
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class TabBarWidget extends StatelessWidget {
   TabBarWidget({
@@ -35,22 +34,16 @@ class TabBarWidget extends StatelessWidget {
             color: Color(0xff3FEDB2),
           ),
           unselectedLabelColor: const Color(0xff3FEDB2),
-          tabs: const [
+          tabs:  [
             Tab(
               child: Text(
                 "صاحب نقطة شحن",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle().style14,
               ),
             ),
             Tab(
               child: Text("صاحب مركبة",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  )),
+                  style: const TextStyle().style14,),
             ),
           ]),
     );

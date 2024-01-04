@@ -1,5 +1,5 @@
-
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class LanguageWidget extends StatelessWidget {
   const LanguageWidget({
@@ -9,12 +9,9 @@ class LanguageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-      const Text(
+      Text(
         "English",
-        style: TextStyle(
-          fontSize: 22,
-          color: Colors.white,
-        ),
+        style: const TextStyle().style9,
       ),
       const SizedBox(
         width: 15,

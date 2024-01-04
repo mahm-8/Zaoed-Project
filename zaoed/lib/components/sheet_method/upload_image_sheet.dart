@@ -5,6 +5,7 @@ import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 uploadImageSheet(BuildContext context) {
   showModalBottomSheet(
@@ -35,7 +36,7 @@ uploadImageSheet(BuildContext context) {
                     borderRadius: BorderRadius.circular(8),
                     color: AppColors().gray6),
                 height: 96,
-                width: 350,
+                width: context.getWidth(),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +64,7 @@ uploadImageSheet(BuildContext context) {
                             ),
                             Text(
                               'التقاط صورة',
-                              style: TextStyle(color: AppColors().white),
+                              style: const TextStyle().style8,
                             ),
                             const Spacer(),
                             Image.asset('lib/assets/icons/small-left-solid.png')
@@ -96,7 +97,7 @@ uploadImageSheet(BuildContext context) {
                               width: 8,
                             ),
                             Text('اختيار من معرض الصور',
-                                style: TextStyle(color: AppColors().white)),
+                                style: const TextStyle().style8),
                             const Spacer(),
                             Image.asset('lib/assets/icons/small-left-solid.png')
                           ],

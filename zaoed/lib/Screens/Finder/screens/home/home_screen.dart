@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -35,7 +36,7 @@ class HomeScreen extends StatelessWidget {
               context.chargingCarSheet();
             },
           ),
-          Spacer(),
+          const Spacer(),
           BlocBuilder<ActionsBloc, ActionsState>(
               buildWhen: (oldState, newState) {
             if (newState is GetChargingPointsState) {
@@ -63,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 return Center(
                   child: Text(
                     "لا توجد أي نقاط شحن حاليّا",
-                    style: TextStyle(color: AppColors().gray4, fontSize: 19),
+                    style: const TextStyle().style20,
                   ),
                 );
               }

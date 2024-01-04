@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 extension LoadingExtension on BuildContext {
   showLoading() {
@@ -30,8 +31,7 @@ extension LoadingExtension on BuildContext {
               shadowColor: AppColors().green,
               backgroundColor: AppColors().gray6,
               elevation: 2,
-              contentTextStyle:
-                  TextStyle(fontSize: 18, color: AppColors().white),
+              contentTextStyle: const TextStyle().style9,
               content: Text(msg!),
             ));
   }

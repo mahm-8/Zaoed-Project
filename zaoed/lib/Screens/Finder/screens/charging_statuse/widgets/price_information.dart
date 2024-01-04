@@ -1,5 +1,6 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class PriceInformation extends StatelessWidget {
   const PriceInformation({
@@ -28,7 +29,7 @@ class PriceInformation extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 'السعر',
-                style: TextStyle(fontSize: 16, color: AppColors().white),
+                style: const TextStyle().style6,
               ),
             ],
           ),
@@ -40,12 +41,12 @@ class PriceInformation extends StatelessWidget {
               ),
               Text(
                 'رسوم الشحن',
-                style: TextStyle(fontSize: 14, color: AppColors().gray),
+                style: const TextStyle().style29,
               ),
               const Spacer(),
               Text(
                 '${bloc.price} ريال',
-                style: TextStyle(fontSize: 14, color: AppColors().white),
+                style: const TextStyle().style27,
               ),
             ],
           ),

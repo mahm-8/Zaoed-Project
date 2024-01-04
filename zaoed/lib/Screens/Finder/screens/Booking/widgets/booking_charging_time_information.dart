@@ -1,8 +1,10 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class BookingChargingTimeInformation extends StatelessWidget {
   const BookingChargingTimeInformation({
-    super.key, this.hour,
+    super.key,
+    this.hour,
   });
   final String? hour;
   @override
@@ -12,14 +14,11 @@ class BookingChargingTimeInformation extends StatelessWidget {
       children: [
         Text(
           "مدة الشحن",
-          style: TextStyle(fontSize: 19, color: AppColors().white),
+          style: TextStyle().style17,
         ),
         Text(
-          hour??"",
-          style: TextStyle(
-              fontSize: 16,
-              color: AppColors().white,
-              fontWeight: FontWeight.w200),
+          hour ?? "",
+          style: const TextStyle().style19,
         ),
       ],
     );

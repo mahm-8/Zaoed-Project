@@ -1,4 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/outline_style.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class ChatField extends StatelessWidget {
   const ChatField({
@@ -20,49 +22,48 @@ class ChatField extends StatelessWidget {
       decoration: BoxDecoration(color: AppColors().gray6),
       child: TextField(
         cursorColor: AppColors().gray,
-        style: TextStyle(color: AppColors().gray, fontSize: 18),
+        style: const TextStyle().style25,
         minLines: 1,
         maxLines: 4,
         controller: controller,
         decoration: InputDecoration(
-            prefixIconColor: AppColors().mainWhite,
-            suffixIconColor: AppColors().mainWhite,
-            prefixIcon: const ImageIcon(
-              AssetImage(
-                "lib/assets/icons/uil_paperclip.png",
+          prefixIconColor: AppColors().mainWhite,
+          suffixIconColor: AppColors().mainWhite,
+          prefixIcon: const ImageIcon(
+            AssetImage(
+              "lib/assets/icons/uil_paperclip.png",
+            ),
+          ),
+          hintText: "اكتب رسالتك هنا",
+          hintStyle: TextStyle(color: AppColors().gray),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 3.0),
+            child: Container(
+              height: 38,
+              decoration: BoxDecoration(
+                color: AppColors().gray5,
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                alignment: Alignment.center,
+                onPressed: () {
+                  // send messsage
+                  context.read<ChatBloc>().add(MessageEvent(
+                      message: controller.text.trim(), idUserTo: toUserId));
+                  controller.clear();
+                },
+                icon: const Icon(
+                  Icons.send,
+                  size: 22,
+                ),
               ),
             ),
-            hintText: "اكتب رسالتك هنا",
-            hintStyle: TextStyle(color: AppColors().gray),
-            suffixIcon: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 3.0),
-              child: Container(
-                height: 38,
-                decoration: BoxDecoration(
-                  color: AppColors().gray5,
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  alignment: Alignment.center,
-                  onPressed: () {
-                    // send messsage
-                    context.read<ChatBloc>().add(MessageEvent(
-                        message: controller.text.trim(), idUserTo: toUserId));
-                    controller.clear();
-                  },
-                  icon: const Icon(
-                    Icons.send,
-                    size: 22,
-                  ),
-                ),
-              ),
-            ),
-            filled: true,
-            fillColor: AppColors().gray6,
-            focusedBorder:
-                const OutlineInputBorder(borderSide: BorderSide.none),
-            enabledBorder:
-                const OutlineInputBorder(borderSide: BorderSide.none)),
+          ),
+          filled: true,
+          fillColor: AppColors().gray6,
+          focusedBorder: OutlineStyle.noneBorder,
+          enabledBorder: OutlineStyle.noneBorder,
+        ),
       ),
     );
   }

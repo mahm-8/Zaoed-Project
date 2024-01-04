@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class CarInformation extends StatelessWidget {
   const CarInformation({
@@ -11,7 +12,7 @@ class CarInformation extends StatelessWidget {
       children: [
         Text(
           'تسلا موديل X',
-          style: TextStyle(color: AppColors().white, fontSize: 18),
+          style: const TextStyle().style3,
         ),
         const Spacer(),
         Container(
@@ -28,10 +29,7 @@ class CarInformation extends StatelessWidget {
               Center(
                 child: Text(
                   'جاري الشحن',
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors().black),
+                  style: const TextStyle().style26,
                 ),
               ),
               Image.asset('lib/assets/icons/black_logo.png'),

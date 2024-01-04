@@ -1,5 +1,6 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class SavedBookmarksScreen extends StatelessWidget {
   const SavedBookmarksScreen({super.key});
@@ -50,7 +51,7 @@ class SavedBookmarksScreen extends StatelessWidget {
                 return Center(
                   child: Text(
                     "لا توجد أي نقاط شحن محفوظة حاليّا",
-                    style: TextStyle(color: AppColors().gray4, fontSize: 19),
+                    style: const TextStyle().style20,
                   ),
                 );
               }

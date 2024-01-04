@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class MessageWidget extends StatelessWidget {
   const MessageWidget({
@@ -44,10 +45,7 @@ class MessageWidget extends StatelessWidget {
                           )),
                       child: Text(
                         message.trim(),
-                        style: TextStyle(
-                            color: AppColors().mainWhite,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16),
+                        style: const TextStyle().style30,
                       ),
                     ),
                   ),
@@ -56,16 +54,12 @@ class MessageWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Text(
                     "15:00",
-                    style: TextStyle(
-                      color: AppColors().mainWhite,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: const TextStyle().style22,
                   ),
                 ),
               ],
             ),
             Container(
-              // alignment: Alignment.center,
               height: 38,
               width: 38,
               decoration: BoxDecoration(boxShadow: [

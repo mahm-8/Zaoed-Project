@@ -1,5 +1,6 @@
 import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 // String pointName,String timeCharging
 extension ReceiveDialog on BuildContext {
@@ -40,15 +41,12 @@ extension ReceiveDialog on BuildContext {
                       height: 20,
                     ),
                     Text("التوجه إلى نقطة الشحن",
-                        style:
-                            TextStyle(color: AppColors().white, fontSize: 20)),
+                        style: const TextStyle().style4),
                     const SpanText(title: "بقي 5 دقائق حتى الوصول الى الموقع"),
                     const SizedBox(
                       height: 15,
                     ),
-                    Text("تفاصيل الحجز",
-                        style:
-                            TextStyle(color: AppColors().white, fontSize: 20)),
+                    Text("تفاصيل الحجز", style: const TextStyle().style4),
                     SpanText(title: "الموقع:", result: blocState.point),
                     SpanText(title: "نوع الموصل:", result: blocState.image),
                     SpanText(title: "مدة الشحن:", result: "${blocState.hour}"),

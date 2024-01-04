@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/outline_style.dart';
 
 class ShowDialog extends StatelessWidget {
   const ShowDialog({
@@ -11,7 +12,7 @@ class ShowDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: const OutlineInputBorder(borderSide: BorderSide.none),
+      shape: OutlineStyle.noneBorder,
       alignment: Alignment.center,
       backgroundColor: AppColors().gray6,
       insetAnimationDuration: const Duration(milliseconds: 100),

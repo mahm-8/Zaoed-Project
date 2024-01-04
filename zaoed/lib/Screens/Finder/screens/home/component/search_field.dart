@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/outline_style.dart';
 
 class SearchFieldWidget extends StatelessWidget {
   SearchFieldWidget({super.key});
@@ -44,12 +45,8 @@ class SearchFieldWidget extends StatelessWidget {
           hintText: "بحث",
           hintStyle: TextStyle(color: AppColors().gray4, fontSize: 17),
           floatingLabelBehavior: FloatingLabelBehavior.never,
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(30)),
+          enabledBorder: OutlineStyle.none30Border,
+          focusedBorder: OutlineStyle.none30Border,
         ),
       ),
     ).asGlass(clipBorderRadius: BorderRadius.circular(30));

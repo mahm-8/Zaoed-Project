@@ -1,5 +1,5 @@
-
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class EmptyChargingCarScreen extends StatelessWidget {
   const EmptyChargingCarScreen({super.key});
@@ -18,7 +18,7 @@ class EmptyChargingCarScreen extends StatelessWidget {
               children: [
                 Text(
                   'لا توجد عملية شحن للسيارة!',
-                  style: TextStyle(color: AppColors().gray, fontSize: 18),
+                  style: const TextStyle().style25,
                 ),
                 const SizedBox(
                   height: 8,

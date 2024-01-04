@@ -1,11 +1,12 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 AppBar customAppBar(
   BuildContext context, {
   bool hasAction = false,
   bool showIcon = false,
   String? title,
- String? backTitle,
+  String? backTitle,
   Function()? onPress,
 }) {
   return AppBar(
@@ -26,10 +27,7 @@ AppBar customAppBar(
         )),
     title: Text(
       title ?? "",
-      style: TextStyle(
-          color: AppColors().mainWhite,
-          fontSize: 20,
-          fontWeight: FontWeight.w700),
+      style: const TextStyle().appBarTitlestyle,
     ),
     actions: [
       Visibility(
@@ -39,11 +37,8 @@ AppBar customAppBar(
             child: TextButton(
               onPressed: onPress,
               child: Text(
-                backTitle??"",
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors().mainWhite),
+                backTitle ?? "",
+                style: const TextStyle().appBarAction,
               ),
             )),
       ),

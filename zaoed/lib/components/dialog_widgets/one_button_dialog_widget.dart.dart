@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class DialogWidgetOneButton extends StatelessWidget {
   const DialogWidgetOneButton({
@@ -31,20 +32,14 @@ class DialogWidgetOneButton extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors().mainWhite),
+                style: const TextStyle().buttonstyle1,
               ),
               const SizedBox(
                 height: 8,
               ),
               Text(
                 bodyText,
-                style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors().mainWhite),
+                style: const TextStyle().buttonstyle2,
               ),
               const SizedBox(
                 height: 32,

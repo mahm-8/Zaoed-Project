@@ -4,6 +4,8 @@ import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
 
+import 'card_widget/field_text_widget.dart';
+
 class AddInformation extends StatelessWidget {
   AddInformation(
       {super.key,

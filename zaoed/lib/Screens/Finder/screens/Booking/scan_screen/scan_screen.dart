@@ -5,7 +5,7 @@ import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scan
 import 'package:zaoed/constants/imports.dart';
 
 class ScanBarcodeScreen extends StatefulWidget {
-  ScanBarcodeScreen(
+  const ScanBarcodeScreen(
       {super.key, required this.chargingPoint, required this.carBooking});
   final ChargingPoint? chargingPoint;
   final CarBookingModel? carBooking;
@@ -49,14 +49,8 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
   void onQRViewCreated(QRViewController controller) {
     qrController = controller;
     qrController.scannedDataStream.listen((event) {
-      final bookedUserId = widget.carBooking?.idAuth;
       final bookedPointID = widget.chargingPoint?.pointId;
-      // final currentUserID = supabase.auth.currentUser?.id;
-      // qr code match
-      if (event.code.toString() == bookedPointID.toString()
-          //  &&
-          //     currentUserID == bookedUserId
-          ) {
+      if (event.code.toString() == bookedPointID.toString()) {
         showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -71,10 +65,6 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
             });
         qrController.pauseCamera();
       }
-
-      print("------------------------");
-
-      print(bookedUserId);
 
       if (event.code.toString() == bookedPointID.toString()) {
         print("=====================");
@@ -91,52 +81,3 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
     });
   }
 }
-
-
-/**
- * 
- * 
-  void onQRViewCreated(QRViewController controller) {
-    qrController = controller;
-    qrController.scannedDataStream.listen((event) {
-      final bookedUserId = widget.carBooking?.idAuth;
-      final bookedPointIDQR = widget.chargingPoint?.pointId;
-
-      final currentUserID = supabase.auth.currentUser?.id;
-
-      if (event.code.toString() == bookedPointIDQR &&
-          currentUserID == bookedUserId) {
-        showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return const ScanFirstDialog();
-            });
-        qrController.pauseCamera();
-      } else {
-        showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return const InvalidBarcodeDialog();
-            });
-        qrController.pauseCamera();
-      }
-      print("point ID");
-
-      print(bookedPointIDQR);
-      print("current yser");
-      print(currentUserID);
-      print("user ID");
-
-      print(bookedUserId);
-      print("eventttttttttttttttttttttt");
-
-      print("event ${event.toString()}");
-
-      print("event ${event.toString()}");
-      // event code print the url of the scanned
-      print("event code ${event.code.toString()}");
-      print("event format ${event.format.toString()}");
-      print("event rawwwwwwwwwww ${event.rawBytes}");
-    });
-  }
- */

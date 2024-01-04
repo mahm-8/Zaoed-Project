@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class ScanBarcode extends StatelessWidget {
   const ScanBarcode({
@@ -9,10 +10,7 @@ class ScanBarcode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "امسح الباركود",
-      style: TextStyle(
-          color: AppColors().mainWhite,
-          fontSize: 20,
-          fontWeight: FontWeight.w700),
+      style: const TextStyle().appBarTitlestyle,
     );
   }
 }

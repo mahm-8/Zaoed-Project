@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/outline_style.dart';
 
 class BankTextField extends StatelessWidget {
   const BankTextField({
@@ -34,8 +35,7 @@ class BankTextField extends StatelessWidget {
                   filled: true,
                   hintText: hint,
                   hintStyle: const TextStyle(color: Colors.grey),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8))),
+                  border: OutlineStyle.defaultBorder),
             ),
           )
         ],

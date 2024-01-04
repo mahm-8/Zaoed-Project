@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class BookingChargingInformation extends StatelessWidget {
   const BookingChargingInformation({
@@ -17,7 +18,7 @@ class BookingChargingInformation extends StatelessWidget {
         children: [
           Text(
             "المنفذ",
-            style: TextStyle(fontSize: 19, color: AppColors().white),
+            style: const TextStyle().style17,
           ),
           Row(
             children: [
@@ -33,8 +34,7 @@ class BookingChargingInformation extends StatelessWidget {
               ),
               Text(
                 type ?? "",
-                style: TextStyle(
-                    color: AppColors().white, fontWeight: FontWeight.w300),
+                style: const TextStyle().style18,
               )
             ],
           ),

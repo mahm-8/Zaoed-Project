@@ -1,5 +1,6 @@
 import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/outline_style.dart';
 
 class AddChargingPointTextField extends StatelessWidget {
   const AddChargingPointTextField({
@@ -36,15 +37,12 @@ class AddChargingPointTextField extends StatelessWidget {
             child: TextField(
               controller: textController,
               decoration: InputDecoration(
-                fillColor: AppColors().gray6,
-                filled: true,
-                // if editing return old data else show hint
-                hintText: isEdit ? bloc.pointName : 'المنزل,العمل...',
-                hintStyle: const TextStyle(color: Colors.grey),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
+                  fillColor: AppColors().gray6,
+                  filled: true,
+                  // if editing return old data else show hint
+                  hintText: isEdit ? bloc.pointName : 'المنزل,العمل...',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  border: OutlineStyle.defaultBorder),
             ),
           ),
         ),

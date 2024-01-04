@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 extension ChargingCarSheet on BuildContext {
   chargingCarSheet() {
@@ -27,8 +28,7 @@ extension ChargingCarSheet on BuildContext {
                 Row(
                   children: [
                     Text("يتم شحن مركبتك",
-                        style:
-                            TextStyle(color: AppColors().white, fontSize: 24)),
+                        style: const TextStyle().dialogStyle1),
                     const SizedBox(width: 8),
                     SizedBox(
                       height: 15,
@@ -50,7 +50,7 @@ extension ChargingCarSheet on BuildContext {
                 ),
                 Text(
                     "يمكنك معرفة تفاصيل أكثر من خلال \nالذهاب إلى خانة معلومات المركبة",
-                    style: TextStyle(color: AppColors().white, fontSize: 20)),
+                    style: TextStyle().style4),
                 const SizedBox(height: 25),
                 ButtonWidget(
                   onPress: () {},

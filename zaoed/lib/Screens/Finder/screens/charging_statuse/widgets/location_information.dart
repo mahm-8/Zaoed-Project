@@ -1,5 +1,5 @@
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class LocationInformation extends StatelessWidget {
   const LocationInformation({
@@ -32,19 +32,19 @@ class LocationInformation extends StatelessWidget {
                     const SizedBox(width: 8),
                     Text(
                       state.invoice?.last["provider_name"] ?? "",
-                      style: TextStyle(fontSize: 16, color: AppColors().white),
+                      style: const TextStyle().style6,
                     ),
                     const SizedBox(width: 8),
                     Image.asset('lib/assets/icons/Star.png'),
                     const SizedBox(width: 4),
                     Text(
                       '5.0',
-                      style: TextStyle(fontSize: 14, color: AppColors().white),
+                      style: const TextStyle().style27,
                     ),
                     const SizedBox(width: 4),
                     Text(
                       '(50)',
-                      style: TextStyle(fontSize: 12, color: AppColors().gray),
+                      style: const TextStyle().style28,
                     ),
                   ],
                 ),
@@ -53,13 +53,13 @@ class LocationInformation extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     '${state.invoice?.last["address"].toString().split(",")[0].substring(0, 6)}',
-                    style: TextStyle(fontSize: 14, color: AppColors().gray),
+                    style: const TextStyle().style29,
                   ),
                 ),
               ],
             );
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );

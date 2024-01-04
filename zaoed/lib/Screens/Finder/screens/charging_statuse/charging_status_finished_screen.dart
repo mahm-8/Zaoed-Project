@@ -1,5 +1,5 @@
-
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class ChargingStatusFinishedScreen extends StatelessWidget {
   const ChargingStatusFinishedScreen({super.key});
@@ -20,7 +20,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
                 children: [
                   Text(
                     'انتهت عملية الشحن',
-                    style: TextStyle(color: AppColors().white, fontSize: 18),
+                    style: TextStyle().style9,
                   ),
                   const SizedBox(
                     height: 8,

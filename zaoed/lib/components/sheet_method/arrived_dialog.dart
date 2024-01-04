@@ -1,4 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 extension ArrivedSheet on BuildContext {
   arrivedToCharging(
@@ -23,12 +24,12 @@ extension ArrivedSheet on BuildContext {
                     height: 25,
                   ),
                   Text("وصلت لنقطة الشحن",
-                      style: TextStyle(color: AppColors().white, fontSize: 24)),
+                      style: const TextStyle().dialogStyle1),
                   const SizedBox(
                     height: 10,
                   ),
                   Text("لبدء عملية الشحن الرجاء مسح الكود",
-                      style: TextStyle(color: AppColors().white, fontSize: 18)),
+                      style: const TextStyle().style3),
                   SpanText(
                     resultTitle: 18,
                     sizeTitle: 18,
