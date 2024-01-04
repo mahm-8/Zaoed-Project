@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/model/google_map_model.dart';
 import 'package:zaoed/service/networking.dart';
@@ -133,8 +134,8 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       print("=====================3=====$dist===================");
       if (dist <= 20) {
         print("Im here==========================$dist===================");
-        BottomSheetStatusBloc()
-            .add(UpdateStatusEvent(status: Status.reachedChargingPoint));
+        final id = supabase.auth.currentUser!.id;
+       await supabase.from("invoice").update({"destination":"destination"}).eq('id_auth',id);
       } else {
         final polylines = await createPolylines(
             LatLng(

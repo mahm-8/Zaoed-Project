@@ -24,8 +24,9 @@ class RemoveBookMarkDialog extends StatelessWidget {
               bodyText: "سيتم إزالة نقطة الشحن من المحفوظات، هل أنت موافق؟",
               button1: 'موافق',
               pressOne: () {
-                context.read<ActionsBloc>().add(DeleteBookmarkEvent(
-                    bookmarkID: bookmarkID));
+                context
+                    .read<ActionsBloc>()
+                    .add(DeleteBookmarkEvent(bookmarkID: bookmarkID));
                 Navigator.of(context).pop();
 
                 showDialog(
@@ -37,9 +38,9 @@ class RemoveBookMarkDialog extends StatelessWidget {
                     );
                   },
                 );
-                Future.delayed(const Duration(seconds: 3), () {
-                  Navigator.of(context).pop(); // Dismiss the dialog
-                });
+                // Future.delayed(const Duration(seconds: 3), () {
+                //   Navigator.of(context).pop(); // Dismiss the dialog
+                // });
               },
               button2: 'إلغاء',
               pressTwo: () {

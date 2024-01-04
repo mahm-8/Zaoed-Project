@@ -16,6 +16,7 @@ class DailyProfitRateChartContainer extends StatelessWidget {
   final List<dynamic>? dataProfitRate;
   @override
   Widget build(BuildContext context) {
+    
     return SizedBox(
       height: 304,
       width: context.getWidth(),

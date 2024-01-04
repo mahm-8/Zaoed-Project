@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,6 +6,7 @@ class HomeScreen extends StatelessWidget {
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    ActionSupabaseMethods().port();
     final bloc = context.read<FinderBloc>();
     return Padding(
       padding: const EdgeInsets.all(20.0),
@@ -36,8 +38,7 @@ class HomeScreen extends StatelessWidget {
             },
           ),
           Spacer(),
-          BlocBuilder<ActionsBloc, ActionsState>(
-              buildWhen: (oldState, newState) {
+          BlocBuilder<ActionsBloc, ActionsState>(buildWhen: (_, newState) {
             if (newState is GetChargingPointsState) {
               return true;
             }

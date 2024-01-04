@@ -31,11 +31,14 @@ class CarScreen extends StatelessWidget {
         child: BlocBuilder<CarsBloc, CarsState>(
           builder: (context, state) {
             if (state is CarDataState) {
-              return ListView.builder(
+              return ListView.separated(
                 shrinkWrap: true,
-                itemCount: state.cars?.length,
+                itemCount: state.cars?.length ?? 0,
                 itemBuilder: (context, index) {
                   return CarWidget(car: state.cars?[index]);
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return SizedBox(height: 10);
                 },
               );
             }

@@ -1,4 +1,3 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
@@ -63,37 +62,45 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                         amount: bloc.price ?? 0.0,
                         providerName: widget.chargingPoint.pointName ?? "",
                         address:
-                            "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}"));
+                            "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}",
+                        idPoint: widget.chargingPoint.pointId ?? 1));
                     context.read<FinderBloc>().add(InvoiceDataEvent());
                     context.read<GoogleMapBloc>().add(FetchPolylineEvent(
                         distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
                             widget.chargingPoint.longitude ?? 0.0)));
-             
                     setState(() {
                       activeStep = 2;
                     });
-             
                   },
                 ),
               ],
               if (activeStep == 2) ...[
                 BillScreen(
-                  onTap: () {
-                 if (user.user?.type == 'provider') {
-                      Navigator.pushAndRemoveUntil(
+                  onTap: () async {
+                    // context.showLoading();
+                    // await Future.delayed(Duration(seconds: 5), () {
+
+                    // if (user.user?.type == 'provider') {
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => NavigationBarScreen()),
-                        (route) => false,
-                      );
-                    } else if (user.user!.type == 'finder') {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => FinderNavigationBarScreen()),
-                        (route) => false,
-                      );
-                    }
+                            builder: (context) => NavigationBarScreen()));
+                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                        status: Status.completedPayment,
+                        imageType: widget.image,
+                        point: widget.chargingPoint.pointName,
+                        hour: widget.hour,
+                        chargingPoint: widget.chargingPoint));
+
+                    // } else if (user.user!.type == 'finder') {
+                    //   Navigator.pushAndRemoveUntil(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => FinderNavigationBarScreen()),
+                    //     (route) => false,
+                    //   );
+                    // }
+                    //  });
                   },
                 ),
               ],

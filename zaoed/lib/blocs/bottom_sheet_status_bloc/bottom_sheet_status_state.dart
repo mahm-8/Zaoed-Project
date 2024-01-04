@@ -10,3 +10,13 @@ final class SuccessStatusState extends BottomSheetStatusState {
 
   SuccessStatusState({required this.status});
 }
+
+final class ChargingProgressState extends BottomSheetStatusState {}
+
+final class DestinationState extends BottomSheetStatusState {}
+
+final class ScanProgressState extends BottomSheetStatusState {}
+
+final class ArrivalState extends BottomSheetStatusState {}
+
+final class RaitingBootomSheetState extends BottomSheetStatusState {}

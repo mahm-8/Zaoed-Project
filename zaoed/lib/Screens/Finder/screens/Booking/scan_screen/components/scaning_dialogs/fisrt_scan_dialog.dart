@@ -11,6 +11,9 @@ class ScanFirstDialog extends StatelessWidget {
       bodyText: "تمت عملية مسح الباركود  بنجاح، يمكن البدء بشحن مركبتك",
       button1: "حسنًا",
       pressOne: () {
+        context
+            .read<BottomSheetStatusBloc>()
+            .add(UpdateStatusEvent(status: Status.InProcessing));
         // push to charging screen
         context.push(view: FinderNavigationBarScreen());
       },

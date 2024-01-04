@@ -13,13 +13,13 @@ class FinderNavigationBarScreen extends StatelessWidget {
   final List finderScreens = [
     const SavedBookmarksScreen(),
     const ChargingScreen(),
-    const MapHomeScreen(),
+    MapHomeScreen(),
     const ProfileFinder(),
   ];
   @override
   Widget build(BuildContext context) {
     context.read<UserBloc>().add(GetUserDataEvent());
-    context.read<ActionsBloc>().add(GetChargingPointsEvent());
+    // context.read<ActionsBloc>().add(GetChargingPointsEvent());
 
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {
