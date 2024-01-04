@@ -10,3 +10,9 @@ final class StaticHourState extends StaticState {
 
   StaticHourState({required this.totalToday});
 }
+
+final class StaticAmountState extends StaticState {
+  final double totalToday;
+
+  StaticAmountState({required this.totalToday});
+}

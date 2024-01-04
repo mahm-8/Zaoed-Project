@@ -23,7 +23,13 @@ class SavedBookmarksScreen extends StatelessWidget {
           const SizedBox(
             height: 17,
           ),
-          BlocBuilder<ActionsBloc, ActionsState>(builder: (context, state) {
+          BlocBuilder<ActionsBloc, ActionsState>(
+              buildWhen: (previous, current) {
+            if (current is GetBookmarkState) {
+              return true;
+            }
+            return false;
+          }, builder: (context, state) {
             if (state is GetBookmarkState) {
               if (state.bookmarks.isNotEmpty) {
                 return SizedBox(

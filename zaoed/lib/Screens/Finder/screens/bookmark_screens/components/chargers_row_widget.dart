@@ -21,7 +21,11 @@ class ChargersRowWidget extends StatelessWidget {
         ),
         Text(
           "$portCount x",
+<<<<<<< HEAD
           style: const TextStyle().style24,
+=======
+          style: TextStyle(fontSize: 11, color: AppColors().green),
+>>>>>>> 67c72e5dced85de035492b5da477599d5729dd3c
         ),
         const SizedBox(
           width: 22,

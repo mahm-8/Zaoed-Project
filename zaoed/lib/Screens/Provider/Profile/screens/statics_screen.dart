@@ -26,10 +26,27 @@ class StaticsScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             child: Column(
               children: [
-                DailyProfitRateChartContainer(
-                  title: 'معدل الربح اليومي',
-                  subTitle: '${staticbloc.amountTotal?[7] ?? 0.0} ريال',
-                  dataProfitRate: staticbloc.amountTotal,
+                BlocBuilder<StaticBloc, StaticState>(
+                  buildWhen: (previous, current) {
+                    if (current is StaticAmountState) {
+                      return true;
+                    }
+                    return false;
+                  },
+                  builder: (context, state) {
+                    if (state is StaticAmountState) {
+                      return DailyProfitRateChartContainer(
+                        title: 'معدل الربح اليومي',
+                        subTitle: '${state.totalToday} ريال',
+                        dataProfitRate: staticbloc.amountTotal,
+                      );
+                    }
+                    return DailyProfitRateChartContainer(
+                      title: 'معدل الربح اليومي',
+                      subTitle: '0.0 ريال',
+                      dataProfitRate: staticbloc.amountTotal,
+                    );
+                  },
                 ).asGlass(
                     tintColor: AppColors().gray1,
                     clipBorderRadius: BorderRadius.circular(8)),
@@ -37,6 +54,12 @@ class StaticsScreen extends StatelessWidget {
                   height: 16,
                 ),
                 BlocBuilder<StaticBloc, StaticState>(
+                  buildWhen: (previous, current) {
+                    if (current is StaticHourState) {
+                      return true;
+                    }
+                    return false;
+                  },
                   builder: (context, state) {
                     if (state is StaticHourState) {
                       return DailyHoursRateChartContainer(

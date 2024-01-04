@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
 class AddToBookmarkDialog extends StatelessWidget {
@@ -21,11 +22,11 @@ class AddToBookmarkDialog extends StatelessWidget {
               title: "إضافة إلى المحفوظات",
               bodyText: "سيتم إضافة نقطة الشحن إلى المحفوظات هل أنت موافق؟",
               button1: 'موافق',
-              pressOne: () {
+              pressOne: () async {
                 context.read<ActionsBloc>().add(AddBookmarkEvent(
                       pointID: idPoint,
                     ));
-                Navigator.of(context).pop();
+                context.pop();
                 showDialog(
                   barrierColor: Colors.transparent,
                   context: context,
@@ -35,13 +36,13 @@ class AddToBookmarkDialog extends StatelessWidget {
                     );
                   },
                 );
-                Future.delayed(const Duration(seconds: 3), () {
-                  Navigator.of(context).pop();
-                });
+                // Future.delayed(const Duration(seconds: 3), () {
+                //   context.pop();
+                // });
               },
               button2: 'إلغاء',
               pressTwo: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
             );
           },

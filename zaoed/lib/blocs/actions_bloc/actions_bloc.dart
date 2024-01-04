@@ -62,6 +62,7 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       add(GetBookmarkEvent());
       emit(LoadingState());
     } catch (e) {
+      print(e);
       emit(ErrorState());
     }
   }
