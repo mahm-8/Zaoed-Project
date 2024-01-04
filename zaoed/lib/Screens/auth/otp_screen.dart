@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class OTPScreen extends StatelessWidget {
   OTPScreen({super.key, required this.email});

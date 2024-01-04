@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:zaoed/model/bookmark_model.dart';
 import 'package:zaoed/model/port_model.dart';
 import 'package:zaoed/service/networking.dart';
@@ -37,8 +38,9 @@ class ActionSupabaseMethods {
             .insert({"point_id": pointID, "id_auth": id}).select();
       }
     } catch (e) {
-      print("bbbbbbbbbbbbbbbbb");
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 
@@ -55,8 +57,7 @@ class ActionSupabaseMethods {
     for (var element in chargingPointData) {
       chargingPointList.add(ChargingPoint.fromJson(element));
     }
-    print("itsme");
-    print(chargingPointData.last);
+
     await Future.delayed(const Duration(seconds: 1));
     return chargingPointList;
   }
@@ -70,8 +71,6 @@ class ActionSupabaseMethods {
     for (var element in chargingPointData) {
       chargingPointList.add(PortModel.fromJson(element));
     }
-    // print("itsme");
-    print(chargingPointData.last);
     await Future.delayed(const Duration(seconds: 1));
     return chargingPointData;
   }
@@ -84,8 +83,6 @@ class ActionSupabaseMethods {
           await supabase.from("charging_point").select("*").eq("id_auth", id!);
       for (var element in providerPointData) {
         providerChargingList.add(ChargingPoint.fromJson(element));
-
-        // make another lopp to port counters
       }
       return providerChargingList;
     } catch (e) {
@@ -94,7 +91,6 @@ class ActionSupabaseMethods {
   }
 
   deleteChargingPoint({required int? id}) async {
-    //
     await supabase.from("port_counter").delete().eq("id_charging_point", id!);
     await supabase.from("charging_point").delete().eq("point_id", id);
   }

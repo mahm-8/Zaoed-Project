@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_profit_rate_chart.dart';
-import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/screen_dimensions.dart';
+import 'package:zaoed/extensions/text_style.dart';
 
 class DailyProfitRateChartContainer extends StatelessWidget {
   const DailyProfitRateChartContainer({
@@ -16,7 +16,6 @@ class DailyProfitRateChartContainer extends StatelessWidget {
   final List<dynamic>? dataProfitRate;
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       height: 304,
       width: context.getWidth(),
@@ -27,11 +26,11 @@ class DailyProfitRateChartContainer extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(color: Colors.grey, fontSize: 16),
+              style: const TextStyle().style38,
             ),
             Text(
               subTitle,
-              style: TextStyle(color: AppColors().white, fontSize: 16),
+              style: const TextStyle().style38,
             ),
             const Divider(
               color: Colors.grey,

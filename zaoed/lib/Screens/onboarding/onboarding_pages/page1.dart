@@ -18,7 +18,7 @@ class Page1 extends StatelessWidget {
           Text(
             "ابحث عن نقطة شحن",
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors().mainWhite, fontSize: 31),
+            style: const TextStyle().style36,
           ),
           const SizedBox(
             height: 16,
@@ -26,7 +26,7 @@ class Page1 extends StatelessWidget {
           Text(
             "سهولة البحث للمستخدم من خلال استخدام الخريطة لعرض نقاط الشحن الأقرب لموقعه والمناسبة لاحتياجه",
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors().mainWhite, fontSize: 14.5),
+            style: const TextStyle().style22,
           ),
         ],
       ),

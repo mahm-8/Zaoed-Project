@@ -1,6 +1,4 @@
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/outline_style.dart';
 
 class AddChargingPointTextField extends StatelessWidget {
   const AddChargingPointTextField({
@@ -20,7 +18,7 @@ class AddChargingPointTextField extends StatelessWidget {
       children: [
         Text(
           'اسم نقطة الشحن',
-          style: TextStyle(color: AppColors().white, fontSize: 20),
+          style: const TextStyle().style4,
         ),
         const SizedBox(
           height: 8,

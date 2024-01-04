@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/outline_style.dart';
 
 class FieldTextWidget extends StatelessWidget {
   const FieldTextWidget(
@@ -30,15 +29,12 @@ class FieldTextWidget extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(color: Colors.white, fontSize: 20),
+              style: const TextStyle().style4,
             ),
             InkWell(
               onTap: !isFelid ? onTap : null,
               child: TextField(
-                style: TextStyle(
-                  fontSize: 17,
-                  color: AppColors().white,
-                ),
+                style: const TextStyle().style13,
                 controller: controller,
                 minLines: maxLines,
                 maxLines: maxLines,

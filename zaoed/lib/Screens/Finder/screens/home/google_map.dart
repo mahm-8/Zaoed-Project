@@ -89,7 +89,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
                 },
                 builder: (context, state) {
                   if (state is FetchPolylineState) {
-                    print("polyline");
                     return GoogleMap(
                       initialCameraPosition: cameraPosition!,
                       mapType: MapType.normal,

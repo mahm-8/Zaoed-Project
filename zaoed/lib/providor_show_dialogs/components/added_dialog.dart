@@ -1,6 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/outline_style.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class AddedDialog extends StatelessWidget {
   const AddedDialog({

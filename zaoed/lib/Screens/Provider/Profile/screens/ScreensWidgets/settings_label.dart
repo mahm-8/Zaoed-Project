@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class SettingsLabel extends StatelessWidget {
   const SettingsLabel({
@@ -19,7 +18,7 @@ class SettingsLabel extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(color: AppColors().white, fontSize: 16),
+            style: const TextStyle().style6,
           ),
           const Spacer(),
           Text(
@@ -27,7 +26,6 @@ class SettingsLabel extends StatelessWidget {
             style: const TextStyle(color: Colors.grey),
           ),
           Image.asset('lib/assets/icons/small-left-solid.png'),
-         
         ],
       ),
     );

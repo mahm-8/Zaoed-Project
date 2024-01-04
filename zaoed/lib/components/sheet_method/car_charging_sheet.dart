@@ -50,7 +50,7 @@ extension ChargingCarSheet on BuildContext {
                 ),
                 Text(
                     "يمكنك معرفة تفاصيل أكثر من خلال \nالذهاب إلى خانة معلومات المركبة",
-                    style: TextStyle().style4),
+                    style: const TextStyle().style4),
                 const SizedBox(height: 25),
                 ButtonWidget(
                   onPress: () {},

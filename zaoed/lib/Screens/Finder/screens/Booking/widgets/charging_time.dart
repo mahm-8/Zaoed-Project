@@ -1,7 +1,6 @@
 import 'package:zaoed/constants/imports.dart';
 // ignore_for_file: must_be_immutable
 
-import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 
 class ChargingTime extends StatelessWidget {
   ChargingTime({super.key, required this.hours});

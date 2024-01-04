@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:flutter/foundation.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/model/card_model.dart';
 
@@ -32,8 +31,8 @@ class CardBloc extends Bloc<CardEvent, CardState> {
         cardList = [];
         final supabase = SupabaseNetworking().getSupabase;
         final id = supabase.auth.currentUser?.id;
-        print("test");
-        await Future.delayed(Duration(seconds: 2));
+
+        await Future.delayed(const Duration(seconds: 2));
         final data = await supabase.from('card').select().eq('id_user', id!);
         List<CardModel?> card = [];
         for (var element in data) {
@@ -41,11 +40,11 @@ class CardBloc extends Bloc<CardEvent, CardState> {
           card.add(CardModel.fromJson(element));
         }
         emit(GetCardDataState(card));
-        log(card.toString());
-        log("==================card===================");
-        print(cardList?[0].numberCard);
+        // print(cardList?[0].numberCard);
       } catch (e) {
-        print(e);
+        if (kDebugMode) {
+          print(e);
+        }
         return;
       }
     });

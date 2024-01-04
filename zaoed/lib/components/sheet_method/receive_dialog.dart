@@ -1,8 +1,5 @@
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
-// String pointName,String timeCharging
 extension ReceiveDialog on BuildContext {
   receiveDialog() {
     showBottomSheet(

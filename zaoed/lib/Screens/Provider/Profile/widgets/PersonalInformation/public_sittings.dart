@@ -1,6 +1,4 @@
 import 'package:zaoed/Screens/Provider/Profile/screens/settings_screen.dart';
-import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
-import 'package:zaoed/blocs/bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PublicSittings extends StatelessWidget {
@@ -36,7 +34,7 @@ class PublicSittings extends StatelessWidget {
           imageIcon: 'lib/assets/icons/sign.png',
           title: 'المحفوظات',
           onTap: () {
-            context.push(view: SavedBookmarksScreen());
+            context.push(view: const SavedBookmarksScreen());
           },
         ),
       ]),

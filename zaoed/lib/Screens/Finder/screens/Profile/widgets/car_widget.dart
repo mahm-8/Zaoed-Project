@@ -1,9 +1,9 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/model/car_model.dart';
 
 class CarWidget extends StatelessWidget {
   const CarWidget({
-    super.key, required this.car,
+    super.key,
+    required this.car,
   });
   final CarModel? car;
   @override
@@ -23,8 +23,8 @@ class CarWidget extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    car?.brand??"",
-                    style: TextStyle(color: AppColors().white, fontSize: 16),
+                    car?.brand ?? "",
+                    style: const TextStyle().style6,
                   ),
                 ],
               ),
@@ -43,16 +43,14 @@ class CarWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(car?.model??"",
-                  style: TextStyle(color: AppColors().white, fontSize: 14)),
+              Text(car?.model ?? "", style: const TextStyle().style27),
               SizedBox(
                 height: 30,
                 child: VerticalDivider(
                   color: AppColors().black,
                 ),
               ),
-              Text(car?.type??"",
-                  style: TextStyle(color: AppColors().white, fontSize: 14))
+              Text(car?.type ?? "", style: const TextStyle().style27)
             ],
           )
         ],

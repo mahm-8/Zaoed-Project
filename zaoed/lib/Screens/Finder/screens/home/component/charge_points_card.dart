@@ -1,5 +1,5 @@
+import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class ChargePointsCard extends StatelessWidget {
   const ChargePointsCard({
@@ -13,9 +13,6 @@ class ChargePointsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ActionsBloc>();
-    final id = bloc.bookmarkData?[index].bookmarkId;
-
     return Padding(
       padding: const EdgeInsets.only(bottom: 62.0, left: 8, right: 8),
       child: Container(
@@ -65,7 +62,7 @@ class ChargePointsCard extends StatelessWidget {
                 ],
               ),
               FutureBuilder(
-                future: BookingLocationInformation().convertToCity(
+                future: const BookingLocationInformation().convertToCity(
                     chargingPoint.latitude, chargingPoint.longitude),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {

@@ -1,6 +1,5 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/outline_style.dart';
 
 // ignore: must_be_immutable
 class CaponWidget extends StatelessWidget {

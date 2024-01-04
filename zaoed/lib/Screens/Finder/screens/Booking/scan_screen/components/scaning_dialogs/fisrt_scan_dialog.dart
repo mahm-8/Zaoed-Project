@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/NavigationBar/navigation_bar.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ScanFirstDialog extends StatelessWidget {

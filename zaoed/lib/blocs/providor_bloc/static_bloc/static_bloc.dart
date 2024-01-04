@@ -28,9 +28,6 @@ class StaticBloc extends Bloc<StaticEvent, StaticState> {
           .gte("created_at", DateTime(year, month, day6))
           .eq('id_povider', id);
 
-      final static = await supabase.from('cars_booking').select();
-
-      print(static[0]);
       dailyHour = await StaticDaily()
           .totalHour(staticData: staticdata, dailyHour: dailyHour);
       emit(StaticHourState(totalToday: dailyHour?[7] ?? 0));
@@ -51,14 +48,10 @@ class StaticBloc extends Bloc<StaticEvent, StaticState> {
           .select("*, charging_point!inner(*)")
           .match({"charging_point.id_auth": id}).gte(
               "created_at", DateTime(year, month, day));
-      print(profit);
       amountTotal = await StaticDaily()
           .getAnalytics(profit: profit, amountTotal: amountTotal);
-      print(amountTotal?[7]);
-      print("+++++++++++++++amountTotal================");
       emit(StaticAmountState(totalToday: amountTotal?[7]));
     } catch (e) {
-      print(e);
       return;
     }
   }

@@ -1,19 +1,10 @@
-import 'dart:async';
 import 'dart:developer';
-import 'package:bloc/bloc.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location/location.dart';
-import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/model/google_map_model.dart';
-import 'package:zaoed/service/networking.dart';
+
 import 'dart:math' show cos, sqrt, asin;
 
 import 'package:image/image.dart' as IMG;
+import 'package:zaoed/constants/imports.dart';
 
-import '../bottom_sheet_status_bloc/bottom_sheet_status_bloc.dart';
 
 part 'google_map_event.dart';
 part 'google_map_state.dart';
@@ -93,7 +84,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
       PointLatLng(sourceLocation1.latitude, sourceLocation1.longitude),
     );
-    print(result);
     if (result.points.isNotEmpty) {
       result.points.forEach((PointLatLng point) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
@@ -111,11 +101,9 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   FutureOr<void> polyline(
       FetchPolylineEvent event, Emitter<GoogleMapState> emit) async {
     try {
-      print("staaaaaaaaaaaaaaaaaaaaaaaaaaart11111");
       try {
         currentLocation = await location.getLocation();
-        print(
-            "=============================$currentLocation==========1=========");
+
         moveToPosition(LatLng(
           currentLocation?.latitude ?? 0,
           currentLocation?.longitude ?? 0,
@@ -124,18 +112,16 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
         log("currnt: ${e.toString()}");
       }
 
-      print("====================2======dist===================");
-
       final dist = calculateDistance(
           currentLocation?.latitude ?? 0,
           currentLocation?.longitude ?? 0,
           event.distention!.latitude,
           event.distention!.longitude);
-      print("=====================3=====$dist===================");
       if (dist <= 20) {
-        print("Im here==========================$dist===================");
         final id = supabase.auth.currentUser!.id;
-       await supabase.from("invoice").update({"destination":"destination"}).eq('id_auth',id);
+        await supabase
+            .from("invoice")
+            .update({"destination": "destination"}).eq('id_auth', id);
       } else {
         final polylines = await createPolylines(
             LatLng(
@@ -159,7 +145,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   }
 
   double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
-    final p = 0.017453292519943295;
+    const p = 0.017453292519943295;
     final a = 0.5 -
         cos((lat2 - lat1) * p) / 2 +
         cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2;
@@ -169,8 +155,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   getCurrentLocation() {
     location.getLocation().then((location) {
       currentLocation = location;
-
-      print(location.longitude);
     });
     location.onLocationChanged.listen((newLocation) {
       currentLocation = newLocation;

@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class StateDialog extends StatelessWidget {
   const StateDialog({

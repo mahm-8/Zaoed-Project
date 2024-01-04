@@ -1,9 +1,6 @@
-import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/outline_style.dart';
 
 import 'card_widget.dart';
-import 'field_text_widget.dart';
 
 // ignore: must_be_immutable
 class AddCard extends StatelessWidget {

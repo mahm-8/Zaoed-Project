@@ -17,7 +17,7 @@ class RatingLevelWidget extends StatelessWidget {
           Image.asset(imagUrl),
           Text(
             title,
-            style: TextStyle(fontSize: 9, color: AppColors().mainWhite),
+            style: const TextStyle().style33,
           ),
         ],
       ),

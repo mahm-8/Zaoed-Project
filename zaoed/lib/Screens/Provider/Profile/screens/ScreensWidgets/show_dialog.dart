@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/outline_style.dart';
 
 class ShowDialog extends StatelessWidget {
   const ShowDialog({

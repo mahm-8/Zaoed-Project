@@ -1,8 +1,5 @@
-import 'package:zaoed/blocs/raiting_bloc/raiting_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:zaoed/extensions/outline_style.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 ratingBottomSheet(BuildContext context,
     {TextEditingController? controller, double rate = 1.0}) {
@@ -88,7 +85,7 @@ ratingBottomSheet(BuildContext context,
               maxLines: 4,
               decoration: InputDecoration(
                   hintText: 'قيم تجربتك هنا...',
-                  hintStyle: TextStyle().style7,
+                  hintStyle: const TextStyle().style7,
                   border: OutlineStyle.defaultRatingBorder),
             ),
             const SizedBox(height: 20),

@@ -97,4 +97,29 @@ extension TextStyleExt on TextStyle {
 
   TextStyle get style31 =>
       TextStyle(fontSize: 19, color: AppColors().mainWhite);
+
+  TextStyle get style32 => TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+        color: AppColors().gray8,
+      );
+
+  TextStyle get style33 => TextStyle(fontSize: 9, color: AppColors().mainWhite);
+
+  TextStyle get style34 => TextStyle(
+        fontSize: 25,
+        color: AppColors().black,
+      );
+
+  TextStyle get style35 => TextStyle(fontSize: 14, color: AppColors().green);
+
+  TextStyle get style36 =>
+      TextStyle(color: AppColors().mainWhite, fontSize: 31);
+  TextStyle get style37 => TextStyle(color: AppColors().white, fontSize: 10);
+
+  TextStyle get style38 => const TextStyle(color: Colors.grey, fontSize: 16);
+
+
+  TextStyle get style39 => TextStyle(fontSize: 9, color: AppColors().white);
+
 }

@@ -1,11 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
-import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 uploadImageSheet(BuildContext context) {
   showModalBottomSheet(

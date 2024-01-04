@@ -1,6 +1,5 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class SavedBookmarksScreen extends StatelessWidget {
   const SavedBookmarksScreen({super.key});

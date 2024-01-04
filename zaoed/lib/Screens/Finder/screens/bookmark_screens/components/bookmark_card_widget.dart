@@ -1,15 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/widgets/booking_location_information.dart';
-import 'package:zaoed/Screens/Finder/screens/bookmark_screens/bookmark_dialogs/add_bookmark_dialog.dart';
-import 'package:zaoed/Screens/Finder/screens/bookmark_screens/bookmark_dialogs/remove_bookmark_dialog.dart';
-import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/book_charge_button.dart';
-import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/chargers_row_widget.dart';
-import 'package:zaoed/Screens/Finder/screens/bookmark_screens/components/share_button_widget.dart';
-
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/extensions/text_style.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class BookmarkCardWidget extends StatelessWidget {
   const BookmarkCardWidget({
@@ -50,11 +40,7 @@ class BookmarkCardWidget extends StatelessWidget {
                 children: [
                   Text(
                     pointName ?? "",
-                    style: TextStyle(
-                      color: AppColors().mainWhite,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: const TextStyle().buttonstyle2,
                   ),
                   const SizedBox(
                     width: 8,
@@ -81,7 +67,7 @@ class BookmarkCardWidget extends StatelessWidget {
                 ],
               ),
               FutureBuilder(
-                future: BookingLocationInformation()
+                future: const BookingLocationInformation()
                     .convertToCity(latitude, longitude),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {

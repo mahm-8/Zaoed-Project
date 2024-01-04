@@ -1,6 +1,4 @@
-import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-
 
 class TabBarLogin extends StatefulWidget {
   const TabBarLogin({
@@ -35,6 +33,9 @@ class _TabBarLoginState extends State<TabBarLogin>
                         height: 55,
                       ),
                       const LanguageWidget(),
+                      const SizedBox(
+                        height: 25,
+                      ),
                       Image.asset('lib/assets/images/faded_logo.png'),
                       const SizedBox(
                         height: 50,

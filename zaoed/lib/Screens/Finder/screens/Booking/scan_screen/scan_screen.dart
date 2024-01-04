@@ -1,7 +1,4 @@
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scan_barcode.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/fisrt_scan_dialog.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/invalid_barcode_dialog.dart';
+
 import 'package:zaoed/constants/imports.dart';
 
 class ScanBarcodeScreen extends StatefulWidget {
@@ -66,18 +63,7 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
         qrController.pauseCamera();
       }
 
-      if (event.code.toString() == bookedPointID.toString()) {
-        print("=====================");
-        print(event.code.toString());
-        print(bookedPointID.toString());
-        print("=====================");
-      }
 
-      print("event ${event.toString()}");
-      // event code print the url of the scanned
-      print("event code ${event.code.toString()}");
-      print("event format ${event.format.toString()}");
-      print("event rawwwwwwwwwww ${event.rawBytes}");
     });
   }
 }

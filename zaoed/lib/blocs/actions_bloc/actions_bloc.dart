@@ -1,8 +1,7 @@
-import 'dart:async';
-import 'package:bloc/bloc.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
-import 'package:zaoed/model/bookmark_model.dart';
+// ignore_for_file: depend_on_referenced_packages, void_checks
+
+import 'package:zaoed/constants/imports.dart';
+
 export 'dart:async';
 part 'actions_event.dart';
 part 'actions_state.dart';
@@ -37,7 +36,6 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       emit(GetChargingPointsState(chargingPoints: chargingPointData!));
     } catch (e) {
       ErrorState();
-      print(e);
     }
   }
 
@@ -62,7 +60,6 @@ class ActionsBloc extends Bloc<ActionsEvent, ActionsState> {
       add(GetBookmarkEvent());
       emit(LoadingState());
     } catch (e) {
-      print(e);
       emit(ErrorState());
     }
   }

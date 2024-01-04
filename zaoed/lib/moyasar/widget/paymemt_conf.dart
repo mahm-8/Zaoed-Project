@@ -1,5 +1,4 @@
-import 'package:moyasar/src/models/apple_pay_config.dart';
-import 'package:moyasar/src/models/credit_card_config.dart';
+import 'package:moyasar/moyasar.dart';
 
 /// Used by Moyasar API along with any of the supported sources.
 class PaymentConfi {

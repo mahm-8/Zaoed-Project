@@ -1,6 +1,5 @@
-import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -38,14 +37,8 @@ class HomeScreen extends StatelessWidget {
               context.chargingCarSheet();
             },
           ),
-<<<<<<< HEAD
           const Spacer(),
-          BlocBuilder<ActionsBloc, ActionsState>(
-              buildWhen: (oldState, newState) {
-=======
-          Spacer(),
           BlocBuilder<ActionsBloc, ActionsState>(buildWhen: (_, newState) {
->>>>>>> 67c72e5dced85de035492b5da477599d5729dd3c
             if (newState is GetChargingPointsState) {
               return true;
             }

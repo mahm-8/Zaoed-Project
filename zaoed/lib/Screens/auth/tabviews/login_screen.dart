@@ -105,7 +105,7 @@ class LoginScreen extends StatelessWidget {
               },
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",
-                style: TextStyle().appBarAction,
+                style: const TextStyle().appBarAction,
               ),
             ),
             BlocConsumer<AuthBloc, AuthStates>(listener: (context, state) {

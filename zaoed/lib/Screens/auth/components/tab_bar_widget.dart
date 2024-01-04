@@ -1,8 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class TabBarWidget extends StatelessWidget {
   TabBarWidget({

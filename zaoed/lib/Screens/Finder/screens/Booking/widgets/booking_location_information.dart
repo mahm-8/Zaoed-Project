@@ -2,10 +2,9 @@
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 class BookingLocationInformation extends StatelessWidget {
-  BookingLocationInformation({
+  const BookingLocationInformation({
     super.key,
     this.chargingPoint,
   });
@@ -25,8 +24,6 @@ class BookingLocationInformation extends StatelessWidget {
               return const Text("خطأ");
             } else {
               Placemark placemark = snapshot.data!.first;
-              // DefaultLocale.of(context)!.locale = 'ar';
-
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -55,7 +52,6 @@ class BookingLocationInformation extends StatelessWidget {
 
       return placemarks;
     } catch (error) {
-      print(error);
       return null;
     }
   }

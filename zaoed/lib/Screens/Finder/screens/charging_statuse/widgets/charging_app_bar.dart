@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/extensions/text_style.dart';
 
 AppBar chargingAppBar(BuildContext context) {
   return AppBar(

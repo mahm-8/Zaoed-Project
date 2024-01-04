@@ -38,7 +38,7 @@ class _ProgressBarState extends State<ProgressBar> {
           customTitle: Text(
             'التفاصيل',
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors().white, fontSize: 16),
+            style: const TextStyle().style6,
           ),
           customStep: CircleAvatar(
             radius: 8,
@@ -63,7 +63,7 @@ class _ProgressBarState extends State<ProgressBar> {
           customTitle: Text(
             'الدفع',
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors().white, fontSize: 16),
+            style: const TextStyle().style6,
           ),
           customStep: CircleAvatar(
             radius: 8,
@@ -88,7 +88,7 @@ class _ProgressBarState extends State<ProgressBar> {
           customTitle: Text(
             'الفاتورة',
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors().white, fontSize: 16),
+            style: const TextStyle().style6,
           ),
           customStep: CircleAvatar(
             radius: 8,
