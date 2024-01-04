@@ -1,6 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
 
-
 class Bill extends StatelessWidget {
   const Bill({super.key});
 
