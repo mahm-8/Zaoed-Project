@@ -31,6 +31,9 @@ class FieldTextWidget extends StatelessWidget {
               title,
               style: const TextStyle().style4,
             ),
+            SizedBox(
+              height: 5,
+            ),
             InkWell(
               onTap: !isFelid ? onTap : null,
               child: TextField(

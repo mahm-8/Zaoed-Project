@@ -15,27 +15,26 @@ class AddCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: BlocListener<CardBloc, CardState>(
         listener: (context, state) {
           if (state is AddCardState) {
             context.pushAndRemoveUntil(view: const CardScreen());
           }
         },
-        child: ElevatedButton(
-          onPressed: () {
-            context.read<CardBloc>().add(AddCardEvent(
-                name: nameController.text,
-                cardNumber: cardNumberController.text,
-                endDate: expDateController.text,
-                cvv: cvvController.text));
-          },
-          style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              foregroundColor: AppColors().gray8,
-              minimumSize: Size(context.getWidth(divide: 1.1), 40),
-              backgroundColor: AppColors().green),
-          child: const Text("إضافة"),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          child: ButtonWidget(
+              textEntry: "إضافة",
+              onPress: () {
+                context.read<CardBloc>().add(AddCardEvent(
+                    name: nameController.text,
+                    cardNumber: cardNumberController.text,
+                    endDate: expDateController.text,
+                    cvv: cvvController.text));
+              },
+              backColor: AppColors().green,
+              textColor: AppColors().gray8),
         ),
       ),
       backgroundColor: AppColors().gray9,
@@ -63,7 +62,7 @@ class AddCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  width: context.getWidth(divide: 3),
+                  width: context.getWidth(divide: 2.4),
                   child: FieldTextWidget(
                     title: 'التاريخ',
                     hint: 'الشهر/السنة',
@@ -71,7 +70,7 @@ class AddCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: context.getWidth(divide: 3),
+                  width: context.getWidth(divide: 2.4),
                   child: FieldTextWidget(
                     title: 'رمز التحقق',
                     hint: 'CVV',
