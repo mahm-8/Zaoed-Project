@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:developer';
 import '../../constants/imports.dart';
 part 'bottom_sheet_status_event.dart';
 part 'bottom_sheet_status_state.dart';
@@ -20,7 +18,6 @@ class BottomSheetStatusBloc
   ChargingPoint? chargingPoint;
   Status currentStatus = Status.nono;
   Status? statusUsed;
-  // Status? stat;
   BottomSheetStatusBloc() : super(BottomSheetStatusInitial()) {
     on<StatusBottomSheetEvent>(bottomSheetUp);
     on<StatusEvent>(statusSwitch);

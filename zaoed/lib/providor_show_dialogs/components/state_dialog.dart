@@ -31,10 +31,7 @@ class StateDialog extends StatelessWidget {
               ),
               Text(
                 title,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors().mainWhite),
+                style: const TextStyle().style11,
               ),
             ],
           ),

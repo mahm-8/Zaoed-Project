@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
+// ignore_for_file: must_be_immutable
+
+import 'package:zaoed/constants/imports.dart';
 
 class ChargingPointLocation extends StatefulWidget {
   ChargingPointLocation({
@@ -26,7 +25,7 @@ class _ChargingPointLocationState extends State<ChargingPointLocation> {
         children: [
           Text(
             'موقع نقطة الشحن',
-            style: TextStyle(color: AppColors().white, fontSize: 20),
+            style: const TextStyle().style4,
           ),
           const SizedBox(
             height: 8,

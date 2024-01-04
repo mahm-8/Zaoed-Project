@@ -4,7 +4,6 @@ import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/chargeing_
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_location.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_text_field.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/edit_charging_dialog.dart';
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore: must_be_immutable

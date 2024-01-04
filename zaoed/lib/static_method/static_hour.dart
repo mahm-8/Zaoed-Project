@@ -130,7 +130,6 @@ class StaticDaily {
               .add_MEd()
               .format(DateTime.parse(element["created_at"])) ==
           DateFormat().add_MEd().format(DateTime.now())) {
-        print("today");
         amountToday += (element["amount"]);
       }
     }

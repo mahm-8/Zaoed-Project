@@ -1,8 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
 
-import '../../../../../blocs/finder/user_bloc/user_bloc.dart';
-import '../../../../../blocs/finder_bloc/finder_bloc.dart';
-
 class Bill extends StatelessWidget {
   const Bill({super.key});
 

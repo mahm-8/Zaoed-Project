@@ -44,7 +44,7 @@ class ChargingType extends StatelessWidget {
                     Image.asset(imageUrl),
                     Text(
                       type,
-                      style: TextStyle(color: AppColors().white, fontSize: 10),
+                      style: const TextStyle().style37,
                     ),
                   ],
                 ),

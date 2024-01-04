@@ -1,10 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
 import 'package:zaoed/components/sheet_method/upload_image_sheet.dart';
-import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/model/user_model.dart';
 
 class PersonalImageContainer extends StatelessWidget {
   const PersonalImageContainer({
@@ -14,7 +9,6 @@ class PersonalImageContainer extends StatelessWidget {
   final UserModel? user;
   @override
   Widget build(BuildContext context) {
-    print(user);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 125, vertical: 16),
       child: Stack(

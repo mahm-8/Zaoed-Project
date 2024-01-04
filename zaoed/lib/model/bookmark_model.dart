@@ -71,19 +71,19 @@ class ChargingPoint {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['point_id'] = pointId;
-    _data['id_user'] = userId;
-    _data['id_auth'] = pointAuthID;
-    _data['arrivel_hour'] = arrivelHours;
-    _data['rating'] = rating;
-    _data['point_name'] = pointName;
-    _data['port_count'] = portCount;
-    _data['charging_port'] = chargingPort;
-    _data['charging_times'] = chargingTimes;
-    _data['booked'] = booked;
-    _data['longitude'] = longitude;
-    _data['latitude'] = latitude;
-    return _data;
+    final data = <String, dynamic>{};
+    data['point_id'] = pointId;
+    data['id_user'] = userId;
+    data['id_auth'] = pointAuthID;
+    data['arrivel_hour'] = arrivelHours;
+    data['rating'] = rating;
+    data['point_name'] = pointName;
+    data['port_count'] = portCount;
+    data['charging_port'] = chargingPort;
+    data['charging_times'] = chargingTimes;
+    data['booked'] = booked;
+    data['longitude'] = longitude;
+    data['latitude'] = latitude;
+    return data;
   }
 }

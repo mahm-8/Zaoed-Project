@@ -17,10 +17,7 @@ class Page2 extends StatelessWidget {
           Text(
             "اشحن وادفع بأمان",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: AppColors().mainWhite,
-              fontSize: 31,
-            ),
+            style: const TextStyle().style36,
           ),
           const SizedBox(
             height: 16,

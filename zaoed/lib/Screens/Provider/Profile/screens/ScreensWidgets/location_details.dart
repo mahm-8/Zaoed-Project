@@ -1,7 +1,6 @@
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_charging_point.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/edit_charging_point_screen.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class LocationDetails extends StatelessWidget {
@@ -37,13 +36,13 @@ class LocationDetails extends StatelessWidget {
                 children: [
                   Text(
                     pointsData.pointName ?? "",
-                    style: TextStyle(color: AppColors().white, fontSize: 18),
+                    style: const TextStyle().style3,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const Spacer(),
                   Text(
                     "${pointsData.longitude}\n ${pointsData.latitude}",
-                    style: TextStyle(fontSize: 9, color: AppColors().white),
+                    style: const TextStyle().style39,
                     overflow: TextOverflow.ellipsis,
                   )
                 ],

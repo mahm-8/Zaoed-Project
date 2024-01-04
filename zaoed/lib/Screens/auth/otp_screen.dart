@@ -20,10 +20,7 @@ class OTPScreen extends StatelessWidget {
               ),
               Text(
                 "التحقق من البريد الإلكتروني",
-                style: TextStyle(
-                  fontSize: 25,
-                  color: AppColors().white,
-                ),
+                style: const TextStyle().style12,
               ),
               const SizedBox(
                 height: 8,
@@ -31,10 +28,7 @@ class OTPScreen extends StatelessWidget {
               Text(
                 "ادخل رمز التحقق المرسل للبريد الإلكتروني:",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 17,
-                  color: AppColors().white,
-                ),
+                style: const TextStyle().style13,
               ),
               const SizedBox(
                 height: 8,
@@ -42,10 +36,7 @@ class OTPScreen extends StatelessWidget {
               Text(
                 email,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 17,
-                  color: AppColors().white,
-                ),
+                style: const TextStyle().style13,
               ),
               const SizedBox(
                 height: 16,
@@ -57,7 +48,7 @@ class OTPScreen extends StatelessWidget {
                 pinContentAlignment: Alignment.center,
                 defaultPinTheme: PinTheme(
                   textStyle:
-                      TextStyle(fontSize: 24, color: AppColors().mainWhite),
+                      const TextStyle().dialogStyle1,
                   width: 48,
                   height: 50,
                   decoration: BoxDecoration(

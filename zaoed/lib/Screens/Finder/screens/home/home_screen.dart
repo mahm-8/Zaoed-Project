@@ -1,4 +1,4 @@
-import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               context.chargingCarSheet();
             },
           ),
-          Spacer(),
+          const Spacer(),
           BlocBuilder<ActionsBloc, ActionsState>(buildWhen: (_, newState) {
             if (newState is GetChargingPointsState) {
               return true;
@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 return Center(
                   child: Text(
                     "لا توجد أي نقاط شحن حاليّا",
-                    style: TextStyle(color: AppColors().gray4, fontSize: 19),
+                    style: const TextStyle().style20,
                   ),
                 );
               }

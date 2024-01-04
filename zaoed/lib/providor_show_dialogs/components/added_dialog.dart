@@ -11,7 +11,7 @@ class AddedDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: const OutlineInputBorder(borderSide: BorderSide.none),
+      shape: OutlineStyle.noneBorder,
       alignment: Alignment.bottomCenter,
       backgroundColor: AppColors().gray6,
       insetAnimationDuration: const Duration(milliseconds: 100),
@@ -27,7 +27,7 @@ class AddedDialog extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: TextStyle(fontSize: 17, color: AppColors().mainWhite),
+            style: const TextStyle().style2,
           ),
         ),
       ),

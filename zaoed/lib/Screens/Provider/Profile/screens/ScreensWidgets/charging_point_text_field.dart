@@ -1,4 +1,3 @@
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class AddChargingPointTextField extends StatelessWidget {
@@ -19,7 +18,7 @@ class AddChargingPointTextField extends StatelessWidget {
       children: [
         Text(
           'اسم نقطة الشحن',
-          style: TextStyle(color: AppColors().white, fontSize: 20),
+          style: const TextStyle().style4,
         ),
         const SizedBox(
           height: 8,
@@ -36,15 +35,12 @@ class AddChargingPointTextField extends StatelessWidget {
             child: TextField(
               controller: textController,
               decoration: InputDecoration(
-                fillColor: AppColors().gray6,
-                filled: true,
-                // if editing return old data else show hint
-                hintText: isEdit ? bloc.pointName : 'المنزل,العمل...',
-                hintStyle: const TextStyle(color: Colors.grey),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
+                  fillColor: AppColors().gray6,
+                  filled: true,
+                  // if editing return old data else show hint
+                  hintText: isEdit ? bloc.pointName : 'المنزل,العمل...',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  border: OutlineStyle.defaultBorder),
             ),
           ),
         ),

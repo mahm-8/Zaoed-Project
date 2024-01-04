@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:zaoed/constants/imports.dart';
 import 'package:intl/intl.dart';
-import '../charging_bloc/charging_bloc.dart';
 part 'finder_event.dart';
 part 'finder_state.dart';
 
@@ -52,7 +51,6 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     });
     myStream = myController.stream;
     myStream?.listen((event) async {
-      print("+++++++%%%%%%%%%%%%%%%%%%%$completedPercentage%%%%%%%%%%%%%%%%%%%%%++++++");
       emit(TimerDataState(
           formattedTime, timeFormat(remainingTimeHour), completedPercentage));
       if (completedPercentage == 100) {
@@ -98,10 +96,11 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
         "address": event.address,
         "type": event.type,
         "id_auth": id,
-        "token": token,"id_point":event.idPoint
+        "token": token,
+        "id_point": event.idPoint
       });
     } catch (error) {
-      print(error);
+      ErrorState(message: error.toString());
     }
   }
 
@@ -124,7 +123,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
 
       emit(InvoiceDataState(invoice: datalist));
     } catch (e) {
-      print(e);
+      ErrorState(message: e.toString());
     }
   }
 
@@ -180,6 +179,8 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
       await Future.delayed(const Duration(seconds: 2));
       ChargingBloc().add(EmptyCarsEvent());
       add(LoadDataTimerEvent());
-    } catch (e) {}
+    } catch (e) {
+      ErrorState(message: e.toString());
+    }
   }
 }

@@ -1,4 +1,4 @@
-import 'package:zaoed/Screens/Finder/screens/home/google_map.dart';
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class MapHomeScreen extends StatelessWidget {
@@ -17,34 +17,16 @@ class MapHomeScreen extends StatelessWidget {
 
       // extendBody: true,
       body: BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
-        // buildWhen: (previous, current) {
-        //   if (current is SuccessStatusState) {
-        //     return true;
-        //   } else if (current is DestinationState) {
-        //     return true;
-        //   }
-        //   return false;
-        // },
         builder: (context, state) {
-          print("=========State is =======$state");
-
           if (state is SuccessStatusState) {
-            print("${state.status}========1========");
             final bottomSheetStatusBloc = context.read<BottomSheetStatusBloc>();
-            print("${state.status}========2========");
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              print("${state.status}========3=======");
               bottomSheetStatusBloc.switchShowBottomSheet(
                 context,
                 state.status,
               );
-              print("${state.status}========4========");
             });
-          }
-          //   print(state);
-
-          else if (state is DestinationState) {
-            print("===========================5555================");
+          } else if (state is DestinationState) {
             if (bloc.point != null) {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 context.arrivedToCharging(chargingPoint: bloc.point);

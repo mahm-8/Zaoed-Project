@@ -30,8 +30,7 @@ extension LoadingExtension on BuildContext {
               shadowColor: AppColors().green,
               backgroundColor: AppColors().gray6,
               elevation: 2,
-              contentTextStyle:
-                  TextStyle(fontSize: 18, color: AppColors().white),
+              contentTextStyle: const TextStyle().style9,
               content: Text(msg!),
             ));
   }

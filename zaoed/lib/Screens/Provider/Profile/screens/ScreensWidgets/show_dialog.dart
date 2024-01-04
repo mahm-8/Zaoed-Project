@@ -11,7 +11,7 @@ class ShowDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: const OutlineInputBorder(borderSide: BorderSide.none),
+      shape: OutlineStyle.noneBorder,
       alignment: Alignment.center,
       backgroundColor: AppColors().gray6,
       insetAnimationDuration: const Duration(milliseconds: 100),

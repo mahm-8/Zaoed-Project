@@ -1,4 +1,3 @@
-import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class DailyHoursRateChartContainer extends StatelessWidget {
@@ -22,11 +21,11 @@ class DailyHoursRateChartContainer extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(color: Colors.grey, fontSize: 16),
+              style: const TextStyle().style38,
             ),
             Text(
               subTitle,
-              style: TextStyle(color: AppColors().white, fontSize: 16),
+              style: const TextStyle().style6,
             ),
             const Divider(
               color: Colors.grey,

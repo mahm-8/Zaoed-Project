@@ -42,10 +42,7 @@ class DialogWidget extends StatelessWidget {
                     ),
                   Text(
                     title,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors().mainWhite),
+                    style: const TextStyle().style1,
                   ),
                 ],
               ),
@@ -54,9 +51,9 @@ class DialogWidget extends StatelessWidget {
               ),
               Text(
                 bodyText,
-                style: TextStyle(fontSize: 17, color: AppColors().mainWhite),
+                style: const TextStyle().style2,
               ),
-              Spacer(),
+              const Spacer(),
               ButtonRowWidget(
                 buttontext1: button1,
                 onPress1: pressOne,

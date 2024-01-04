@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+// ignore_for_file: unused_catch_clause
+
 import 'package:zaoed/constants/imports.dart';
 
 part 'raiting_event.dart';
@@ -22,10 +22,9 @@ class RaitingBloc extends Bloc<RaitingEvent, RaitingState> {
           {"id_auth": id, "hourly_rate": event.rate, "comment": event.comment});
       emit(UpdateRateState(rate: 0.0));
     } on PostgrestException catch (e) {
-      print(e.message);
       return;
     } catch (e) {
-      print(e);
+     
       return;
     }
   }

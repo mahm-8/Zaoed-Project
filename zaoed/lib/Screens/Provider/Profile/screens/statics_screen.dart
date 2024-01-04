@@ -1,7 +1,4 @@
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_hours_rate_chart_container.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/daily_profit_rate_chart_container.dart';
 
-import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class StaticsScreen extends StatelessWidget {

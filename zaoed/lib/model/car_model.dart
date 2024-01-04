@@ -16,12 +16,12 @@ class CarModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['brand'] = this.brand;
-    data['model'] = this.model;
-    data['type'] = this.type;
-    data['id_user'] = this.idUser;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['brand'] = brand;
+    data['model'] = model;
+    data['type'] = type;
+    data['id_user'] = idUser;
     return data;
   }
 }

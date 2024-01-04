@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 
 class TimerWidget extends StatefulWidget {
   const TimerWidget({
@@ -54,11 +53,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                           GaugeAnnotation(
                             widget: Text(
                               state.remainingTime,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors().white,
-                              ),
+                              style: const TextStyle().style30,
                             ),
                             angle: 90,
                             positionFactor: 0.1,
@@ -99,11 +94,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                           GaugeAnnotation(
                             widget: Text(
                               '${state.completedPercentage.toStringAsFixed(0)}%',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors().white,
-                              ),
+                              style: const TextStyle().style30,
                             ),
                             angle: 90,
                             positionFactor: 0.1,

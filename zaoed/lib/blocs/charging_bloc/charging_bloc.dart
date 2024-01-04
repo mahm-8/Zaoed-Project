@@ -1,6 +1,3 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 part 'charging_event.dart';

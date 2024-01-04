@@ -1,6 +1,4 @@
-import 'package:zaoed/blocs/actions_bloc/action_methods.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/blocs/providor_bloc/static_bloc/static_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 part 'provider_event.dart';
 part 'provider_state.dart';
@@ -112,7 +110,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
             break;
         }
       }
-      ;
+      
       emit(ChargingTypeCountUpdated(currentCount));
     });
 
@@ -125,8 +123,6 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         emit(GetProviderChargingPointsState(
             providerChargingPoints: providerPointsData));
       } catch (e) {
-        print("Errror: GetProviderChargingPointsEvent BLOC");
-        print(e.toString());
         return;
       }
     });
@@ -145,7 +141,6 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
             })
             .select()
             .single();
-        print(countersList);
         List<Map<String, dynamic>> theList = [];
         for (var element in countersList) {
           Map<String, dynamic> updateElements = {...element};
@@ -153,12 +148,8 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
           updateElements
               .addAll({"id_charging_point": chargingPoint["point_id"]});
           theList.add(updateElements);
-          print("updateElements");
-
-          print(updateElements);
         }
 
-        print("--------------theList");
         await supabase.from('port_counter').insert(theList);
         ActionsBloc().add(GetChargingPointsEvent());
         emit(AddChargingPointState());
@@ -171,7 +162,6 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         count7 = 0;
         countersList = [];
       } catch (e) {
-        print(e.toString());
         return;
       }
     });
@@ -199,17 +189,10 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
           // event.chargingCount how to get
         }
         await supabase.from('port_counter').insert(theList);
-        print("chargingPoint--------------------------------ppp");
-
-        // print(chargingPoint);
-        print("theList--------------------------------ppp");
-
-        // print(theList);
 
         emit(EditChargingPointState());
         add(GetProviderChargingPointsEvent());
       } catch (e) {
-        print(e.toString());
         return;
       }
     });
@@ -220,7 +203,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         emit(DeleteChargingPointState());
         add(GetProviderChargingPointsEvent());
       } catch (e) {
-        print(e.toString());
+        ErrorState(message: "خطأ");
       }
     });
   }

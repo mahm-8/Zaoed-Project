@@ -19,22 +19,15 @@ class OnboardingRow extends StatelessWidget {
               onPressed: () {
                 context.pushAndRemoveUntil(view: const TabBarLogin());
               },
-              child: const Text("تخطي",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.5,
-                  ))),
+              child: Text("تخطي", style: const TextStyle().style22)),
           TextButton(
               onPressed: () {
                 pageController.nextPage(
                     duration: const Duration(seconds: 1), curve: Curves.ease);
               },
-              child: const Text(
+              child: Text(
                 "التالي",
-                style: TextStyle(
-                  color: Color(0xff3FEDB2),
-                  fontSize: 14.5,
-                ),
+                style: const TextStyle().style35,
               )),
         ],
       ),

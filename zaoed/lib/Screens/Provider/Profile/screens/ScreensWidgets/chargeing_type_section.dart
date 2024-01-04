@@ -1,4 +1,3 @@
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargingTypeSection extends StatelessWidget {

@@ -6,6 +6,7 @@ import 'package:zaoed/components/button_widget.dart';
 import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/extensions/loading_extension.dart';
 import 'package:zaoed/extensions/navigator.dart';
+import 'package:zaoed/extensions/text_style.dart';
 import 'package:zaoed/extensions/validtor.dart';
 import 'package:zaoed/Screens/auth/components/textfield_widget.dart';
 import 'package:zaoed/Screens/auth/tabbar_signup_screen.dart';
@@ -104,10 +105,7 @@ class LoginScreen extends StatelessWidget {
               },
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: AppColors().mainWhite,
-                ),
+                style: const TextStyle().appBarAction,
               ),
             ),
             BlocConsumer<AuthBloc, AuthStates>(listener: (context, state) {

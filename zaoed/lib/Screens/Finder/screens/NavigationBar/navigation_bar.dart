@@ -1,9 +1,4 @@
-import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-
-import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 
 import '../charging_statuse/ChargingScreen.dart';
 

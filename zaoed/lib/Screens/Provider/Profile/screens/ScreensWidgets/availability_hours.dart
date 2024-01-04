@@ -1,4 +1,5 @@
-import 'package:zaoed/blocs/providor_bloc/provider_bloc.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:zaoed/constants/imports.dart';
 
 int index1 = 0;
@@ -34,7 +35,7 @@ class AvailabilityHours extends StatelessWidget {
             children: [
               Text(
                 'ساعات توفر الخدمة',
-                style: TextStyle(color: AppColors().white, fontSize: 20),
+                style: const TextStyle().style4,
               ),
               Divider(
                 thickness: 1,
@@ -54,8 +55,6 @@ class AvailabilityHours extends StatelessWidget {
                         return GestureDetector(
                           onTap: () {
                             bloc.add(HoursSelectIndexEvent(index));
-
-                            print(index);
                           },
                           child: Container(
                             height: 90,
@@ -63,7 +62,6 @@ class AvailabilityHours extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(9),
                               border: Border.all(
-                                // change color based on index in supabase
                                 color: selectedIndex == index
                                     ? AppColors().green
                                     : selectedIndex != index
@@ -134,7 +132,7 @@ class AvailabilityHours extends StatelessWidget {
         bloc.selectedHour = bloc.textClock[index];
         return 4;
       default:
-        bloc.selectedHour = bloc.textClock[0]; // Default to the first item
+        bloc.selectedHour = bloc.textClock[0];
         return 0;
     }
   }

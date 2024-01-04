@@ -12,19 +12,19 @@ class BillTimeDetails extends StatelessWidget {
       children: [
         Text(
           'Wed ,',
-          style: TextStyle(fontSize: 12, color: AppColors().black),
+          style: const TextStyle().style26,
         ),
         Text(
           'Dec 01 ,',
-          style: TextStyle(fontSize: 12, color: AppColors().black),
+          style: const TextStyle().style26,
         ),
         Text(
           '2023 .',
-          style: TextStyle(fontSize: 12, color: AppColors().black),
+          style: const TextStyle().style26,
         ),
         Text(
           '01:00:00',
-          style: TextStyle(fontSize: 12, color: AppColors().black),
+          style: const TextStyle().style26,
         ),
       ],
     );

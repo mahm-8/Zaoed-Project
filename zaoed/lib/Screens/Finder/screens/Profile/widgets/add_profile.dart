@@ -1,8 +1,5 @@
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit_profile_screen.dart';
+
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
 
 class AddInformation extends StatelessWidget {
   AddInformation(
@@ -18,8 +15,6 @@ class AddInformation extends StatelessWidget {
   final TextEditingController dateController;
   final TextEditingController nameController;
   final TextEditingController phoneController;
-  // final datController = TextEditingController();
-  // final dateController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,9 +80,9 @@ class AddInformation extends StatelessWidget {
               },
             ),
           ),
-          const Text(
+          Text(
             "الجنس",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: const TextStyle().style4,
           ),
           BlocBuilder<UserBloc, UserState>(
             buildWhen: (previous, current) {
@@ -114,9 +109,6 @@ class AddInformation extends StatelessWidget {
             hint: "ادخل رقم الجوال",
             controller: phoneController,
           ),
-          // const FieldTextWidget(
-          //     title: 'البريد الإلكتروني', hint: "ادخل البريد الإلكتروني"),
-          // const FieldTextWidget(title: 'كلمة المرور', hint: "ادخل كلمة المرور"),
         ]),
       ),
     );

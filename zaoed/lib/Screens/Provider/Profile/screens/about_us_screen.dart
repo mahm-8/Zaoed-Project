@@ -31,10 +31,7 @@ class AboutUsScreen extends StatelessWidget {
                       ),
                       Text(
                         'تطبيق زوِّد',
-                        style: TextStyle(
-                            color: AppColors().white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700),
+                        style: const TextStyle().style30,
                       ),
                     ],
                   ),
