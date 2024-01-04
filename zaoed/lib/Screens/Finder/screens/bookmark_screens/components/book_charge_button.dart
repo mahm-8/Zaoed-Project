@@ -1,4 +1,3 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class BookChargeButton extends StatelessWidget {
@@ -20,12 +19,7 @@ class BookChargeButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 side: BorderSide(color: AppColors().green))),
         onPressed: onPress,
-        child: Text("حجز",
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 14,
-              color: AppColors().gray8,
-            )),
+        child: Text("حجز", style: const TextStyle().style32),
       ),
     );
   }

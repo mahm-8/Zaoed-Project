@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/widgets/information_lable.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class AboutUsInformation extends StatelessWidget {

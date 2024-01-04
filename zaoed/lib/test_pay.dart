@@ -1,5 +1,4 @@
 import 'package:moyasar/moyasar.dart';
-import 'package:zaoed/blocs/finder_bloc/finder_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PaymentMethods extends StatelessWidget {
@@ -41,18 +40,13 @@ class PaymentMethods extends StatelessWidget {
           context.read<FinderBloc>().add(PaymentStatusEvent("paid"));
           break;
         case PaymentStatus.failed:
-          print("faild");
           context.read<FinderBloc>().add(PaymentStatusEvent("faild"));
           break;
         case PaymentStatus.initiated:
-          // TODO: Handle this case.
-          print("initated");
           break;
         case PaymentStatus.authorized:
           context.read<FinderBloc>().add(PaymentStatusEvent("authorized"));
-        // TODO: Handle this case.
         case PaymentStatus.captured:
-        // TODO: Handle this case.
       }
     }
   }

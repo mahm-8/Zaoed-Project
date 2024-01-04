@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/legal_affairs_lable.dart';
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/change_pass.dart.dart';
 import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_account.dart';
 import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/personal_information_label.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/model/user_model.dart';
 
 class PersonalContainer extends StatelessWidget {
   PersonalContainer({

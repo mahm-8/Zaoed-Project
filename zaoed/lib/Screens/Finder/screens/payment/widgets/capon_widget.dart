@@ -28,10 +28,8 @@ class CaponWidget extends StatelessWidget {
                 decoration: InputDecoration(
                     fillColor: AppColors().gray6,
                     filled: true,
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.transparent)),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8))),
+                    focusedBorder: OutlineStyle.transparentBorder,
+                    border: OutlineStyle.raduisOutlineBorder),
               ),
             ),
             const SizedBox(

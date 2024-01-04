@@ -1,6 +1,5 @@
 
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
 
 class TabbarSignup extends StatefulWidget {
   const TabbarSignup({super.key});

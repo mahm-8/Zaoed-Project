@@ -1,11 +1,8 @@
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scan_barcode.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/fisrt_scan_dialog.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/scan_screen/components/scaning_dialogs/invalid_barcode_dialog.dart';
+
 import 'package:zaoed/constants/imports.dart';
 
 class ScanBarcodeScreen extends StatefulWidget {
-  ScanBarcodeScreen(
+  const ScanBarcodeScreen(
       {super.key, required this.chargingPoint, required this.carBooking});
   final ChargingPoint? chargingPoint;
   final CarBookingModel? carBooking;
@@ -65,9 +62,6 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
         qrController.pauseCamera();
       }
 
-
-
-      
 
     });
   }

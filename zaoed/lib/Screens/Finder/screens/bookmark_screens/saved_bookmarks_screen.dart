@@ -56,7 +56,7 @@ class SavedBookmarksScreen extends StatelessWidget {
                 return Center(
                   child: Text(
                     "لا توجد أي نقاط شحن محفوظة حاليّا",
-                    style: TextStyle(color: AppColors().gray4, fontSize: 19),
+                    style: const TextStyle().style20,
                   ),
                 );
               }

@@ -1,7 +1,4 @@
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/Screens/Provider/Profile/AppBar/information_app_bar.dart';
-import 'package:zaoed/Screens/Provider/Profile/widgets/PersonalInformation/about_us_information.dart';
 
 class ProfileFinder extends StatelessWidget {
   const ProfileFinder({super.key});

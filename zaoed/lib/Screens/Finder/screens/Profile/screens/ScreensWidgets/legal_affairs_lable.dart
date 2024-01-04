@@ -20,7 +20,7 @@ class LegalAffairsLable extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(color: AppColors().white, fontSize: 16),
+              style: const TextStyle().style6,
             ),
             const Spacer(),
             Image.asset('lib/assets/icons/small-left-solid.png'),

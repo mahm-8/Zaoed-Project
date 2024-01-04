@@ -1,3 +1,4 @@
+import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargePointsCard extends StatelessWidget {
@@ -12,7 +13,6 @@ class ChargePointsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
     return Padding(
       padding: const EdgeInsets.only(bottom: 62.0, left: 8, right: 8),
       child: Container(
@@ -33,15 +33,9 @@ class ChargePointsCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(
-                    chargingPoint.pointName ?? "",
-                    overflow: TextOverflow.clip,
-                    style: TextStyle(
-                      color: AppColors().mainWhite,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                  Text(chargingPoint.pointName ?? "",
+                      overflow: TextOverflow.clip,
+                      style: const TextStyle().buttonstyle2),
                   const SizedBox(
                     width: 8,
                   ),
@@ -51,22 +45,14 @@ class ChargePointsCard extends StatelessWidget {
                   ),
                   Text(
                     "${chargingPoint.rating ?? ""}",
-                    style: TextStyle(
-                      color: AppColors().mainWhite,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: const TextStyle().style22,
                   ),
                   const SizedBox(
                     width: 4,
                   ),
                   Text(
                     "(${chargingPoint.chargingTimes})",
-                    style: TextStyle(
-                      color: AppColors().gray4,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: const TextStyle().style21,
                   ),
                   const Spacer(),
                   if (chargingPoint.booked == false)
@@ -76,7 +62,7 @@ class ChargePointsCard extends StatelessWidget {
                 ],
               ),
               FutureBuilder(
-                future: BookingLocationInformation().convertToCity(
+                future: const BookingLocationInformation().convertToCity(
                     chargingPoint.latitude, chargingPoint.longitude),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -91,11 +77,7 @@ class ChargePointsCard extends StatelessWidget {
                     return Text(
                       "${placemark.locality} ${placemark.subLocality}",
                       overflow: TextOverflow.clip,
-                      style: TextStyle(
-                        color: AppColors().gray4,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: const TextStyle().style21,
                     );
                   }
                 },
@@ -107,7 +89,7 @@ class ChargePointsCard extends StatelessWidget {
                 portCount: chargingPoint.portCount,
                 chargingPort: chargingPoint.chargingPort,
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

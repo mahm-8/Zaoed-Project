@@ -1,7 +1,6 @@
-import 'dart:async';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/model/car_model.dart';
-import 'package:zaoed/service/networking.dart';
+
+import 'package:zaoed/constants/imports.dart';
+
 part 'cars_event.dart';
 part 'cars_state.dart';
 
@@ -55,18 +54,17 @@ class CarsBloc extends Bloc<CarsEvent, CarsState> {
   }
 
   FutureOr<void> carData(CarsDataEvent event, Emitter<CarsState> emit) async {
-  final supabase = SupabaseNetworking().getSupabase;
-      final id = supabase.auth.currentUser!.id;
-      List<CarModel> cars = [];
-      try {
-        final car = await supabase.from('cars').select().eq('id_user', id);
-        for (var element in car) {
-          cars.add(CarModel.fromJson(element));
-        }
-        emit(CarDataState(cars));
-        print("Car Data $cars");
-      } catch (e) {
-        return;
+    final supabase = SupabaseNetworking().getSupabase;
+    final id = supabase.auth.currentUser!.id;
+    List<CarModel> cars = [];
+    try {
+      final car = await supabase.from('cars').select().eq('id_user', id);
+      for (var element in car) {
+        cars.add(CarModel.fromJson(element));
       }
+      emit(CarDataState(cars));
+    } catch (e) {
+      return;
+    }
   }
 }

@@ -12,7 +12,7 @@ class TitleInfoWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Text(
         title,
-        style: TextStyle(color: AppColors().white, fontSize: 20),
+        style: const TextStyle().style4,
       ),
     );
   }

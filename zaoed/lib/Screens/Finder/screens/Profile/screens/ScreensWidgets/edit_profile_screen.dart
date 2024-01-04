@@ -7,12 +7,10 @@ class EditProfileScreen extends StatelessWidget {
   final UserModel? user;
   @override
   Widget build(BuildContext context) {
-    print("1");
     return Scaffold(
         floatingActionButton: ElevatedButton(
             onPressed: () {
-              
-               logOutShowDailog(context);
+              logOutShowDailog(context);
             },
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -20,9 +18,9 @@ class EditProfileScreen extends StatelessWidget {
                 foregroundColor: AppColors().gray8,
                 minimumSize: Size(context.getWidth(divide: 1.1), 40),
                 backgroundColor: AppColors().green),
-            child: const Text(
+            child: Text(
               "تسجيل الخروج",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle().appBarTitlestyle,
             )),
         appBar: appBar(context, title: 'البيانات الشخصية'),
         backgroundColor: AppColors().gray9,

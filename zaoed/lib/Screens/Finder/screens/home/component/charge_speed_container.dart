@@ -29,10 +29,7 @@ class ChargeSpeedContainer extends StatelessWidget {
                     })),
                 Text(
                   "سرعة الشحن (>kw 3.7)",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors().mainWhite,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle().style22,
                 ),
               ],
             ),
@@ -48,10 +45,7 @@ class ChargeSpeedContainer extends StatelessWidget {
                     })),
                 Text(
                   "شبه سريعة (3.7 - 20 kw>)",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors().mainWhite,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle().style22,
                 ),
               ],
             ),
@@ -67,10 +61,7 @@ class ChargeSpeedContainer extends StatelessWidget {
                     })),
                 Text(
                   "سريعة (20 - 43 kw>)",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors().mainWhite,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle().style22,
                 ),
               ],
             ),
@@ -82,14 +73,12 @@ class ChargeSpeedContainer extends StatelessWidget {
                     side: BorderSide(color: AppColors().mainWhite),
                     value: false,
                     onChanged: ((value) {
+                      /// setstate
                       value = value;
                     })),
                 Text(
                   "فائقة السرعة (43 kw<)",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors().mainWhite,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle().style22,
                 ),
               ],
             ),

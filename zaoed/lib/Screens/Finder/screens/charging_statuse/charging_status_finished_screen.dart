@@ -16,7 +16,7 @@ class ChargingStatusFinishedScreen extends StatelessWidget {
               children: [
                 Text(
                   'انتهت عملية الشحن',
-                  style: TextStyle(color: AppColors().white, fontSize: 18),
+                  style: const TextStyle().style9,
                 ),
                 const SizedBox(
                   height: 8,

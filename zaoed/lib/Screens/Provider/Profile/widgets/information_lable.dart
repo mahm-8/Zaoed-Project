@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class InformationLabel extends StatelessWidget {
   const InformationLabel(
@@ -31,7 +30,7 @@ class InformationLabel extends StatelessWidget {
             ),
             Text(
               title,
-              style: TextStyle(color: AppColors().white, fontSize: 17),
+              style: const TextStyle().style13,
             ),
             const Spacer(),
             Image.asset('lib/assets/icons/small-left-solid.png'),

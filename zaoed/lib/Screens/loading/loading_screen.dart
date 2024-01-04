@@ -1,15 +1,6 @@
-import 'package:zaoed/Screens/Finder/screens/NavigationBar/navigation_bar.dart';
-import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
-import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
 import 'package:zaoed/constants/imports.dart';
 
 import '../../blocs/actions_bloc/actions_bloc.dart';
-import '../../blocs/charging_bloc/charging_bloc.dart';
-import '../../blocs/finder_bloc/finder_bloc.dart';
-import '../../blocs/google_map_bloc/google_map_bloc.dart';
-import '../../blocs/providor_bloc/provider_bloc.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});

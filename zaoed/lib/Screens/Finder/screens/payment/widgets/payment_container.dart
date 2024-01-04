@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:zaoed/blocs/card_bloc/card_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/test_pay.dart';
 
@@ -75,55 +74,6 @@ class PaymentContainer extends StatelessWidget {
                 } else {
                   return const SizedBox.shrink();
                 }
-
-                // SizedBox(
-                //   height: 150,
-                //   child: ListView.separated(
-                //     shrinkWrap: true,
-                //     itemBuilder: (BuildContext context, int index) {
-                // return Row(
-                //   children: [
-                //     Image.asset(
-                //         'lib/assets/icons/logos_mastercard.png'),
-                //     const SizedBox(
-                //       width: 8,
-                //     ),
-                //     const SizedBox(
-                //       width: 4,
-                //     ),
-                //     Text(bloc.cardList?[index]['number_card'] ?? '',
-                //         style: TextStyle(
-                //             fontSize: 12, color: AppColors().white)),
-                //     const Spacer(),
-                //     InkWell(
-                //         onTap: () {
-                //           isClicked = true;
-                //         },
-                //         child: CircleAvatar(
-                //           maxRadius: 10,
-                //           minRadius: 10,
-                //           backgroundColor: isClicked
-                //               ? AppColors().green
-                //               : Colors.transparent,
-                //           child: isClicked
-                //               ? const Icon(
-                //                   Icons.check,
-                //                   size: 20,
-                //                 )
-                //               : Container(),
-                //         ))
-                //   ],
-                // );
-                //     },
-                //     separatorBuilder: (BuildContext context, int index) {
-                //       return Divider(
-                //         thickness: 1,
-                //         color: AppColors().gray9,
-                //       );
-                //     },
-                //     itemCount: bloc.cardList?.length ?? 0,
-                //   ),
-                // );
               },
             ),
           ),

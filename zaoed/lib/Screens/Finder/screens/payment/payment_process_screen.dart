@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PaymentProcessScreen extends StatefulWidget {
@@ -64,6 +65,7 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                         address:
                             "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}",
                         idPoint: widget.chargingPoint.pointId ?? 1));
+                    context.read<FinderBloc>().add(InvoiceDataEvent());
                     context.read<GoogleMapBloc>().add(FetchPolylineEvent(
                         distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
                             widget.chargingPoint.longitude ?? 0.0)));
@@ -77,9 +79,8 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                 BillScreen(
                   onTap: () async {
                     context.showLoading();
-                    await Future.delayed(Duration(seconds: 5), () {
+                    await Future.delayed(const Duration(seconds: 5), () {
                       if (user.user?.type == 'provider') {
-                        context.read<FinderBloc>().add(InvoiceDataEvent());
                         context.read<BottomSheetStatusBloc>()
                           ..add(TestEvent(status: Status.completedPayment))
                           ..add(UpdateStatusEvent(

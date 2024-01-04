@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class LegalAffairsLable extends StatelessWidget {
   const LegalAffairsLable({
@@ -21,7 +20,7 @@ class LegalAffairsLable extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(color: AppColors().white, fontSize: 18),
+              style: const TextStyle().style3,
             ),
             const Spacer(),
             Image.asset('lib/assets/icons/small-left-solid.png'),

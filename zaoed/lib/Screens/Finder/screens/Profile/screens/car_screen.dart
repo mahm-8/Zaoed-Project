@@ -1,5 +1,4 @@
 import 'package:zaoed/Screens/Finder/screens/Profile/widgets/car_widget.dart';
-import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class CarScreen extends StatelessWidget {
@@ -19,9 +18,9 @@ class CarScreen extends StatelessWidget {
             foregroundColor: AppColors().gray8,
             minimumSize: Size(context.getWidth(divide: 1.1), 40),
             backgroundColor: AppColors().green),
-        child: const Text(
+        child: Text(
           "إضافة",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle().appBarTitlestyle,
         ),
       ),
       backgroundColor: AppColors().gray9,
@@ -38,7 +37,7 @@ class CarScreen extends StatelessWidget {
                   return CarWidget(car: state.cars?[index]);
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(height: 10);
+                  return const SizedBox(height: 10);
                 },
               );
             }

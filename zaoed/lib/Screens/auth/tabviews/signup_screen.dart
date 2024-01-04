@@ -86,7 +86,6 @@ class SignUpScreen extends StatelessWidget {
                     context.read<AuthBloc>().add(DisplayPasswordEvent(pass)),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    print(type);
                     return "ادخل كلمة السر";
                   }
                   if (!value.isValidPassword) {
@@ -106,10 +105,7 @@ class SignUpScreen extends StatelessWidget {
             },
             child: Text(
               "لديك حساب مسبقاً؟ تسجيل الدخول",
-              style: TextStyle(
-                fontSize: 14,
-                color: AppColors().mainWhite,
-              ),
+              style: const TextStyle().appBarAction,
             ),
           ),
           BlocListener<AuthBloc, AuthStates>(

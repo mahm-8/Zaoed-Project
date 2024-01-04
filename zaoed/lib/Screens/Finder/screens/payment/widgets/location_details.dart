@@ -19,7 +19,7 @@ class LocationDetails extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: Text(
               namePoint ?? "",
-              style: TextStyle(color: AppColors().white, fontSize: 16),
+              style: const TextStyle().style6,
             ),
           ),
         ),

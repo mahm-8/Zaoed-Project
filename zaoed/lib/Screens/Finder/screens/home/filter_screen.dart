@@ -58,7 +58,7 @@ class FilterScreen extends StatelessWidget {
               ),
               Text(
                 "تقييم نقطة الشحن",
-                style: TextStyle(fontSize: 19, color: AppColors().mainWhite),
+                style: const TextStyle().style31,
               ),
               const SizedBox(
                 height: 14,
@@ -69,7 +69,7 @@ class FilterScreen extends StatelessWidget {
               ),
               Text(
                 "سرعة الشحن",
-                style: TextStyle(fontSize: 19, color: AppColors().mainWhite),
+                style: const TextStyle().style31,
               ),
               const SizedBox(
                 height: 14,

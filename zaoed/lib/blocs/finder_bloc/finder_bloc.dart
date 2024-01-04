@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:zaoed/constants/imports.dart';
 import 'package:intl/intl.dart';
-import '../charging_bloc/charging_bloc.dart';
 part 'finder_event.dart';
 part 'finder_state.dart';
 
@@ -100,7 +99,9 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
         "token": token,
         "id_point": event.idPoint
       });
-    } catch (error) {}
+    } catch (error) {
+      ErrorState(message: error.toString());
+    }
   }
 
   String generateToken() {
@@ -121,7 +122,9 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
           await supabase.from("invoice").select().eq("id_auth", id);
 
       emit(InvoiceDataState(invoice: datalist));
-    } catch (e) {}
+    } catch (e) {
+      ErrorState(message: e.toString());
+    }
   }
 
   FutureOr<void> paymentState(
@@ -176,6 +179,8 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
       await Future.delayed(const Duration(seconds: 2));
       ChargingBloc().add(EmptyCarsEvent());
       add(LoadDataTimerEvent());
-    } catch (e) {}
+    } catch (e) {
+      ErrorState(message: e.toString());
+    }
   }
 }

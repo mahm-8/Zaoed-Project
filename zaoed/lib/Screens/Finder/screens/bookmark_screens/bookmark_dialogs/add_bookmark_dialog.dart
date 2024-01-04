@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
 class AddToBookmarkDialog extends StatelessWidget {
   const AddToBookmarkDialog({super.key, required this.idPoint});

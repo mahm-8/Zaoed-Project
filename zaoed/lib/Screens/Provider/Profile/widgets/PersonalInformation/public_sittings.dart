@@ -32,7 +32,7 @@ class PublicSittings extends StatelessWidget {
           imageIcon: 'lib/assets/icons/sign.png',
           title: 'المحفوظات',
           onTap: () {
-            context.push(view: SavedBookmarksScreen());
+            context.push(view: const SavedBookmarksScreen());
           },
         ),
       ]),

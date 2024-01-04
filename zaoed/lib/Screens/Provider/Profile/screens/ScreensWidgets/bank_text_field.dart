@@ -20,7 +20,7 @@ class BankTextField extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(color: AppColors().white, fontSize: 16),
+            style: const TextStyle().style6,
           ),
           const SizedBox(
             height: 8,
@@ -34,8 +34,7 @@ class BankTextField extends StatelessWidget {
                   filled: true,
                   hintText: hint,
                   hintStyle: const TextStyle(color: Colors.grey),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8))),
+                  border: OutlineStyle.defaultBorder),
             ),
           )
         ],

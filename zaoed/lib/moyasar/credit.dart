@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moyasar/moyasar.dart';
 import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
+import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/extensions/text_style.dart';
 import 'package:zaoed/moyasar/widget/card_utils.dart';
 import 'package:zaoed/moyasar/widget/input_format.dart';
-import 'package:zaoed/moyasar/widget/network_icon.dart';
 
+import 'decoration/build_input_decoration.dart';
+import 'methods/show_amount.dart';
+import 'widget/card_form_field.dart';
+import 'widget/save_card_notice.dart';
 
 /// The widget that shows the Credit Card form and manages the 3DS step.
 class CrediCard extends StatefulWidget {
@@ -173,16 +178,17 @@ class _CrediCardState extends State<CrediCard> {
                 style: ButtonStyle(
                   minimumSize:
                       const MaterialStatePropertyAll<Size>(Size.fromHeight(55)),
-                  backgroundColor: MaterialStatePropertyAll<Color>(blueColor),
+                  backgroundColor:
+                      MaterialStatePropertyAll<Color>(AppColors().green),
                 ),
                 onPressed: _isSubmitting ? () {} : _saveForm,
                 child: _isSubmitting
-                    ? const CircularProgressIndicator(
-                        color: Colors.white,
+                    ? CircularProgressIndicator(
+                        color: AppColors().green,
                         strokeWidth: 2,
                       )
                     : Text(showAmount(widget.config.amount, widget.locale),
-                        style: const TextStyle(color: Colors.white)),
+                        style: const TextStyle().style10),
               ),
             ),
           ),
@@ -193,108 +199,4 @@ class _CrediCardState extends State<CrediCard> {
   }
 }
 
-class SaveCardNotice extends StatelessWidget {
-  const SaveCardNotice(
-      {super.key, required this.tokenizeCard, required this.locale});
-
-  final bool tokenizeCard;
-  final Localization locale;
-
-  @override
-  Widget build(BuildContext context) {
-    return tokenizeCard
-        ? Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.info,
-                  color: blueColor,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 5),
-                ),
-                Text(
-                  locale.saveCardNotice,
-                  style: TextStyle(color: blueColor),
-                ),
-              ],
-            ))
-        : const SizedBox.shrink();
-  }
-}
-
-class CardFormField extends StatelessWidget {
-  final void Function(String?)? onSaved;
-  final String? Function(String?)? validator;
-  final TextInputType keyboardType;
-  final TextInputAction textInputAction;
-  final List<TextInputFormatter>? inputFormatters;
-  final InputDecoration? inputDecoration;
-
-  const CardFormField({
-    super.key,
-    required this.onSaved,
-    this.validator,
-    this.inputDecoration,
-    this.keyboardType = TextInputType.number,
-    this.textInputAction = TextInputAction.next,
-    this.inputFormatters,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextFormField(
-          keyboardType: keyboardType,
-          textInputAction: textInputAction,
-          decoration: inputDecoration,
-          validator: validator,
-          onSaved: onSaved,
-          inputFormatters: inputFormatters),
-    );
-  }
-}
-
-String showAmount(int amount, Localization locale) {
-  final formattedAmount = (amount / 100).toStringAsFixed(2);
-
-  if (locale.languageCode == 'en') {
-    return '${locale.pay} SAR $formattedAmount';
-  }
-
-  return '${locale.pay} $formattedAmount ر.س';
-}
-
-InputDecoration buildInputDecoration(
-    {required String hintText, bool addNetworkIcons = false}) {
-  return InputDecoration(
-      suffixIcon: addNetworkIcons ? const NetworkIcons() : null,
-      hintText: hintText,
-      focusedErrorBorder: defaultErrorBorder,
-      enabledBorder: defaultEnabledBorder,
-      focusedBorder: defaultFocusedBorder,
-      errorBorder: defaultErrorBorder,
-      contentPadding: const EdgeInsets.all(8.0));
-}
-
 void closeKeyboard() => FocusManager.instance.primaryFocus?.unfocus();
-
-BorderRadius defaultBorderRadius = const BorderRadius.all(Radius.circular(8));
-
-OutlineInputBorder defaultEnabledBorder = OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.grey[400]!),
-    borderRadius: defaultBorderRadius);
-
-OutlineInputBorder defaultFocusedBorder = OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.grey[600]!),
-    borderRadius: defaultBorderRadius);
-
-OutlineInputBorder defaultErrorBorder = OutlineInputBorder(
-    borderSide: const BorderSide(color: Colors.red),
-    borderRadius: defaultBorderRadius);
-
-Color blueColor = Colors.blue[700]!;

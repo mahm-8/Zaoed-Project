@@ -39,7 +39,7 @@ class BookingDataContainer extends StatelessWidget {
                 ),
                 Text(
                   type,
-                  style: TextStyle(color: AppColors().white, fontSize: 10),
+                  style: const TextStyle().style33,
                 ),
               ],
             ),
@@ -52,11 +52,11 @@ class BookingDataContainer extends StatelessWidget {
             children: [
               Text(
                 'منفذ تيسلا الإلكتروني',
-                style: TextStyle(color: AppColors().white, fontSize: 16),
+                style: const TextStyle().style6,
               ),
               Text(
                 'مدة الحجز: $hour ',
-                style: TextStyle(color: AppColors().white, fontSize: 16),
+                style: const TextStyle().style6,
               )
             ],
           )
