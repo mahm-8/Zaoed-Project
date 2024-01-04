@@ -19,7 +19,7 @@ class FinderNavigationBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<UserBloc>().add(GetUserDataEvent());
-    context.read<ActionsBloc>().add(GetChargingPointsEvent());
+    // context.read<ActionsBloc>().add(GetChargingPointsEvent());
 
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {

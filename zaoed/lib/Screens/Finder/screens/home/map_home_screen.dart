@@ -10,18 +10,21 @@ class MapHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<ActionsBloc>().add(GetChargingPointsEvent());
     final bloc = context.read<FinderBloc>();
-    // context.read<BottomSheetStatusBloc>().add(StatusEvent());
-    // context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
-
+    context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
+    context.read<BottomSheetStatusBloc>().add(StatusEvent());
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+
       // extendBody: true,
       body: BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
-        buildWhen: (previous, current) {
-          if (current is SuccessStatusState) {
-            return true;
-          }
-          return false;
-        },
+        // buildWhen: (previous, current) {
+        //   if (current is SuccessStatusState) {
+        //     return true;
+        //   } else if (current is DestinationState) {
+        //     return true;
+        //   }
+        //   return false;
+        // },
         builder: (context, state) {
           print("=========State is =======$state");
 

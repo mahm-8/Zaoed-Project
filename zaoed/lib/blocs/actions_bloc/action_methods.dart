@@ -1,11 +1,10 @@
 import 'package:zaoed/model/bookmark_model.dart';
+import 'package:zaoed/model/port_model.dart';
 import 'package:zaoed/service/networking.dart';
 
 class ActionSupabaseMethods {
   final supabase = SupabaseNetworking().getSupabase;
-
   List<BookmarkModel> bookmarkList = [];
-
   List<ChargingPoint> providerChargingList = [];
 
   getBookmarks() async {
@@ -26,11 +25,21 @@ class ActionSupabaseMethods {
   }
 
   addBookmark({required int? pointID}) async {
-    final id = supabase.auth.currentUser?.id;
-
-    await supabase
-        .from("bookmark")
-        .insert({"point_id": pointID, "id_auth": id!}).select();
+    try {
+      final id = supabase.auth.currentUser?.id;
+      final confirm = await supabase
+          .from("bookmark")
+          .select()
+          .match({"point_id": pointID, "id_auth": id!});
+      if (confirm.isEmpty) {
+        await supabase
+            .from("bookmark")
+            .insert({"point_id": pointID, "id_auth": id}).select();
+      }
+    } catch (e) {
+      print("bbbbbbbbbbbbbbbbb");
+      print(e);
+    }
   }
 
   deleteBookmark({required int? id}) async {
@@ -46,8 +55,25 @@ class ActionSupabaseMethods {
     for (var element in chargingPointData) {
       chargingPointList.add(ChargingPoint.fromJson(element));
     }
+    print("itsme");
+    print(chargingPointData.last);
     await Future.delayed(const Duration(seconds: 1));
     return chargingPointList;
+  }
+
+  port() async {
+    List<PortModel> chargingPointList = [];
+    final chargingPointData = await supabase
+        .from("port_counter")
+        .select("*,id_charging_point!inner(*)");
+
+    for (var element in chargingPointData) {
+      chargingPointList.add(PortModel.fromJson(element));
+    }
+    // print("itsme");
+    print(chargingPointData.last);
+    await Future.delayed(const Duration(seconds: 1));
+    return chargingPointData;
   }
 
   getProviderChargingPoints() async {

@@ -29,7 +29,7 @@ class BottomSheetStatusBloc
       point = event.point;
       hour = event.hour;
       chargingPoint = event.chargingPoint;
-      emit(SuccessStatusState(status: event.status!));
+      emit(SuccessStatusState(status: event.status));
       print(event.status);
       statusUsed = event.status;
       // add(StatusEvent());
@@ -66,18 +66,17 @@ class BottomSheetStatusBloc
 
     switch (status) {
       case Status.completedPayment:
+        print("----------++++****InProcessing++++*****-----------");
         context.receiveDialog();
         break;
-      case Status.reachedChargingPoint:
-        log("$chargingPoint".toString());
-        if (chargingPoint != null) {
-          context.arrivedToCharging(chargingPoint: chargingPoint);
-        }
-
-        break;
+      // case Status.reachedChargingPoint:
+      //   log("$chargingPoint".toString());
+      //   if (chargingPoint != null) {
+      //     context.arrivedToCharging(chargingPoint: chargingPoint);
+      //   }
+      //   break;
       case Status.InProcessing:
         print("InProcessing");
-
         context.chargingCarSheet();
 
         break;
@@ -87,9 +86,6 @@ class BottomSheetStatusBloc
 
         break;
       default:
-        print("stop");
-        Container();
-        break;
     }
   }
 
@@ -111,7 +107,7 @@ class BottomSheetStatusBloc
   FutureOr<void> statusSwitch(
       StatusEvent event, Emitter<BottomSheetStatusState> emit) {
     if (statusUsed != null) {
-      print("++++++++++++BAD REQUSERT+++++++++++++++");
+      print("++++++++++++ REQUSERT+++++++++++++++");
       emit(SuccessStatusState(status: statusUsed!));
     }
   }

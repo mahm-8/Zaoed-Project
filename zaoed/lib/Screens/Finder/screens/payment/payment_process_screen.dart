@@ -81,17 +81,17 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                     // await Future.delayed(Duration(seconds: 5), () {
 
                     // if (user.user?.type == 'provider') {
-
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NavigationBarScreen()));
                     context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
                         status: Status.completedPayment,
                         imageType: widget.image,
                         point: widget.chargingPoint.pointName,
                         hour: widget.hour,
                         chargingPoint: widget.chargingPoint));
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NavigationBarScreen()));
+
                     // } else if (user.user!.type == 'finder') {
                     //   Navigator.pushAndRemoveUntil(
                     //     context,
