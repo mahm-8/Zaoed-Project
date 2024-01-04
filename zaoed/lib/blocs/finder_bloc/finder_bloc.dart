@@ -34,7 +34,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
             .match({'id_auth': id!, "status": "progress"});
 
         final data = response.first;
-        staticRemainingTimeHour = int.parse(data['hours']) * 60;
+        staticRemainingTimeHour = int.parse(data['hours']) * 1;
         remainingTimeHour = staticRemainingTimeHour;
         add(TimerEvent());
         emit(LoadDataTimerState());
@@ -52,7 +52,6 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     });
     myStream = myController.stream;
     myStream?.listen((event) async {
-      print("+++++++%%%%%%%%%%%%%%%%%%%$completedPercentage%%%%%%%%%%%%%%%%%%%%%++++++");
       emit(TimerDataState(
           formattedTime, timeFormat(remainingTimeHour), completedPercentage));
       if (completedPercentage == 100) {
@@ -98,11 +97,10 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
         "address": event.address,
         "type": event.type,
         "id_auth": id,
-        "token": token,"id_point":event.idPoint
+        "token": token,
+        "id_point": event.idPoint
       });
-    } catch (error) {
-      print(error);
-    }
+    } catch (error) {}
   }
 
   String generateToken() {
@@ -123,9 +121,7 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
           await supabase.from("invoice").select().eq("id_auth", id);
 
       emit(InvoiceDataState(invoice: datalist));
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 
   FutureOr<void> paymentState(

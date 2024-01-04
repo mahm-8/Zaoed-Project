@@ -48,7 +48,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
           emit(MarkerLoadedState(markers));
         }
       } catch (e) {
-        print(e);
       }
     });
   }
@@ -93,7 +92,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
       PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
       PointLatLng(sourceLocation1.latitude, sourceLocation1.longitude),
     );
-    print(result);
     if (result.points.isNotEmpty) {
       result.points.forEach((PointLatLng point) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
@@ -111,11 +109,8 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
   FutureOr<void> polyline(
       FetchPolylineEvent event, Emitter<GoogleMapState> emit) async {
     try {
-      print("staaaaaaaaaaaaaaaaaaaaaaaaaaart11111");
       try {
         currentLocation = await location.getLocation();
-        print(
-            "=============================$currentLocation==========1=========");
         moveToPosition(LatLng(
           currentLocation?.latitude ?? 0,
           currentLocation?.longitude ?? 0,
@@ -124,16 +119,13 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
         log("currnt: ${e.toString()}");
       }
 
-      print("====================2======dist===================");
 
       final dist = calculateDistance(
           currentLocation?.latitude ?? 0,
           currentLocation?.longitude ?? 0,
           event.distention!.latitude,
           event.distention!.longitude);
-      print("=====================3=====$dist===================");
       if (dist <= 20) {
-        print("Im here==========================$dist===================");
         final id = supabase.auth.currentUser!.id;
        await supabase.from("invoice").update({"destination":"destination"}).eq('id_auth',id);
       } else {
@@ -170,7 +162,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
     location.getLocation().then((location) {
       currentLocation = location;
 
-      print(location.longitude);
     });
     location.onLocationChanged.listen((newLocation) {
       currentLocation = newLocation;

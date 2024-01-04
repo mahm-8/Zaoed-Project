@@ -40,13 +40,10 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
 
   FutureOr<void> completeCar(
       CompleteCarsEvent event, Emitter<ChargingState> emit) async {
-    print("1");
     emit(ChargingFinishedStatus());
     await Future.delayed(const Duration(minutes: 1), () {
       add(EmptyCarsEvent());
-      print("2state");
     });
-    print("3state");
   }
 
   FutureOr<void> getBookedUser(
@@ -60,19 +57,10 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
         const Duration(minutes: 1),
       );
 
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
 
-      print(userBooked);
 
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
       emit(GetBookingStatus());
     } catch (e) {
-      print(e.toString());
-      print(e.toString());
     }
   }
 }

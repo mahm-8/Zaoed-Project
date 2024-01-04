@@ -12,7 +12,6 @@ class PaymentContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<CardBloc>();
     return Container(
         width: context.getWidth(),
         decoration: BoxDecoration(
@@ -22,9 +21,6 @@ class PaymentContainer extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
             child: BlocBuilder<CardBloc, CardState>(
               builder: (context, state) {
-                print("=============payment container==============");
-                print(bloc.cardList);
-
                 if (state is GetCardDataState) {
                   return Column(
                     children: [
@@ -42,7 +38,7 @@ class PaymentContainer extends StatelessWidget {
                                   ),
                                   Text(
                                       e!.numberCard
-                                          .toString()
+                                          .toString() 
                                           .substring(12)
                                           .padRight(12, '*'),
                                       style: TextStyle(

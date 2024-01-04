@@ -12,9 +12,7 @@ class ChargePointsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ActionsBloc>();
-    final id = bloc.bookmarkData?[index].bookmarkId;
-
+  
     return Padding(
       padding: const EdgeInsets.only(bottom: 62.0, left: 8, right: 8),
       child: Container(
@@ -117,7 +115,7 @@ class ChargePointsCard extends StatelessWidget {
                     onPress: () {
                       context
                           .read<BottomSheetStatusBloc>()
-                          .add(UpdateStatusEvent(status: Status.rating));
+                          .add(TestEvent(status: Status.rating));
                     },
                   ),
                   const SizedBox(

@@ -64,7 +64,6 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                         address:
                             "${widget.chargingPoint.latitude},${widget.chargingPoint.longitude}",
                         idPoint: widget.chargingPoint.pointId ?? 1));
-                    context.read<FinderBloc>().add(InvoiceDataEvent());
                     context.read<GoogleMapBloc>().add(FetchPolylineEvent(
                         distention: LatLng(widget.chargingPoint.latitude ?? 0.0,
                             widget.chargingPoint.longitude ?? 0.0)));
@@ -77,30 +76,35 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
               if (activeStep == 2) ...[
                 BillScreen(
                   onTap: () async {
-                    // context.showLoading();
-                    // await Future.delayed(Duration(seconds: 5), () {
-
-                    // if (user.user?.type == 'provider') {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NavigationBarScreen()));
-                    context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
-                        status: Status.completedPayment,
-                        imageType: widget.image,
-                        point: widget.chargingPoint.pointName,
-                        hour: widget.hour,
-                        chargingPoint: widget.chargingPoint));
-
-                    // } else if (user.user!.type == 'finder') {
-                    //   Navigator.pushAndRemoveUntil(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => FinderNavigationBarScreen()),
-                    //     (route) => false,
-                    //   );
-                    // }
-                    //  });
+                    context.showLoading();
+                    await Future.delayed(Duration(seconds: 5), () {
+                      if (user.user?.type == 'provider') {
+                        context.read<FinderBloc>().add(InvoiceDataEvent());
+                        context.read<BottomSheetStatusBloc>()
+                          ..add(TestEvent(status: Status.completedPayment))
+                          ..add(UpdateStatusEvent(
+                              imageType: widget.image,
+                              hour: widget.hour,
+                              point: widget.chargingPoint.pointName,
+                              chargingPoint: widget.chargingPoint));
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NavigationBarScreen()),
+                            (route) => false);
+                      } else if (user.user!.type == 'finder') {
+                        context
+                            .read<BottomSheetStatusBloc>()
+                            .add(TestEvent(status: Status.completedPayment));
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  FinderNavigationBarScreen()),
+                          (route) => false,
+                        );
+                      }
+                    });
                   },
                 ),
               ],

@@ -39,12 +39,7 @@ extension ArrivedSheet on BuildContext {
                 const SizedBox(height: 15),
                 ButtonWidget(
                   onPress: () {
-                    context
-                        .read<BottomSheetStatusBloc>()
-                        .add(StatusBottomSheetEvent());
-                    context
-                        .read<BottomSheetStatusBloc>()
-                        .add(UpdateStatusEvent(status: Status.InProcessing));
+                 
                     context.push(
                         view: ScanBarcodeScreen(
                       chargingPoint: chargingPoint,
@@ -76,7 +71,7 @@ extension ArrivedSheet on BuildContext {
                             pressOne: () {
                               context
                                   .read<BottomSheetStatusBloc>()
-                                  .add(StatusBottomSheetEvent());
+                                  .add(TestEvent(status: Status.nono));
                               context.pop();
                               context.pop();
                               showDialog(

@@ -19,7 +19,6 @@ class PurchaseScreen extends StatelessWidget {
           ),
 
            PaymentContainer(),
-          // PaymentMethods(),
 
           const Spacer(),
           Padding(
