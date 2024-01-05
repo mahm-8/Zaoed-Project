@@ -39,7 +39,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
           emit(MarkerLoadedState(markers));
         }
       } catch (e) {
-        print(e);
       }
     });
   }
@@ -103,7 +102,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
     try {
       try {
         currentLocation = await location.getLocation();
-
         moveToPosition(LatLng(
           currentLocation?.latitude ?? 0,
           currentLocation?.longitude ?? 0,

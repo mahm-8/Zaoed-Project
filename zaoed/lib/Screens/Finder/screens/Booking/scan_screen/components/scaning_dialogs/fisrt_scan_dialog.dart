@@ -12,9 +12,8 @@ class ScanFirstDialog extends StatelessWidget {
       pressOne: () {
         context
             .read<BottomSheetStatusBloc>()
-            .add(UpdateStatusEvent(status: Status.InProcessing));
-        // push to charging screen
-        context.push(view: FinderNavigationBarScreen());
+            .add(TestEvent(status: Status.InProcessing));
+        context.push(view: NavigationBarScreen());
       },
     );
   }

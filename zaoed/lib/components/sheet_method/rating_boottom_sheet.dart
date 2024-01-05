@@ -97,7 +97,7 @@ ratingBottomSheet(BuildContext context,
                       rate: rate, comment: controller?.text ?? ""));
 
                   controller?.clear();
-                  context.read<BottomSheetStatusBloc>().add(UpdateStatusEvent(
+                  context.read<BottomSheetStatusBloc>().add(TestEvent(
                         status: Status.nono,
                       ));
                   context.pop();

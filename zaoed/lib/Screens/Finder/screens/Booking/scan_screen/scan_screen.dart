@@ -21,11 +21,10 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
     super.dispose();
   }
 
-  // @override
+
 
   @override
   Widget build(BuildContext context) {
-    // context.read<ChargingBloc>().add(GetUserBooking());
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Stack(children: [

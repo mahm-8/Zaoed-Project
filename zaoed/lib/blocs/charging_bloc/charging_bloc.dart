@@ -14,7 +14,7 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
       EmptyCarsEvent event, Emitter<ChargingState> emit) async {
     try {
       final id = supabase.auth.currentUser?.id;
-
+     await Future.delayed(const Duration(seconds: 2));
       final cars = await supabase.from("cars").select().eq("id_user", id!);
       if (cars.isNotEmpty) {
         final states = await supabase
@@ -23,8 +23,10 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
             .match({'id_auth': id, "status": "progress"});
         await Future.delayed(const Duration(seconds: 1));
         if (states.isNotEmpty) {
+          print("ChargingStatus");
           emit(ChargingStatus());
         } else if (states.isEmpty) {
+          print("EmptyBookingState");
           emit(EmptyBookingState());
         }
       } else {
@@ -37,13 +39,10 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
 
   FutureOr<void> completeCar(
       CompleteCarsEvent event, Emitter<ChargingState> emit) async {
-    print("1");
     emit(ChargingFinishedStatus());
     await Future.delayed(const Duration(minutes: 1), () {
       add(EmptyCarsEvent());
-      print("2state");
     });
-    print("3state");
   }
 
   FutureOr<void> getBookedUser(
@@ -51,25 +50,14 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
     try {
       final id = supabase.auth.currentUser?.id;
 
-      final userBooked =
-          await supabase.from("cars_booking").select().eq('id_auth', id!);
+      await supabase.from("cars_booking").select().eq('id_auth', id!);
       await Future.delayed(
         const Duration(minutes: 1),
       );
 
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
-
-      print(userBooked);
-
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
-      print("lllllllllllllllllllllll");
       emit(GetBookingStatus());
     } catch (e) {
-      print(e.toString());
-      print(e.toString());
+      return;
     }
   }
 }

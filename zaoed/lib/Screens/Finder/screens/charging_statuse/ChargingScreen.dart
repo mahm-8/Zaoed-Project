@@ -1,4 +1,3 @@
-
 // ignore_for_file: file_names
 
 import 'package:zaoed/constants/imports.dart';
@@ -14,6 +13,7 @@ class ChargingScreen extends StatelessWidget {
       appBar: chargingAppBar(context),
       body: BlocBuilder<ChargingBloc, ChargingState>(
         builder: (context, state) {
+          print("state========$state");
           if (state is ChargingStatus) {
             return const ChargingStatuesScreen();
           } else if (state is EmptyBookingState) {

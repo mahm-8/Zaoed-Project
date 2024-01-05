@@ -97,7 +97,7 @@ class ChargePointsCard extends StatelessWidget {
                     onPress: () {
                       context
                           .read<BottomSheetStatusBloc>()
-                          .add(UpdateStatusEvent(status: Status.rating));
+                          .add(TestEvent(status: Status.rating));
                     },
                   ),
                   const SizedBox(

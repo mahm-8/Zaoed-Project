@@ -20,9 +20,7 @@ class PublicSittings extends StatelessWidget {
           imageIcon: 'lib/assets/icons/Settings.png',
           title: 'الإعدادات',
           onTap: () {
-            context
-                .read<BottomSheetStatusBloc>()
-                .add(UpdateStatusEvent(status: Status.InProcessing));
+         
             context.push(view: SettingsScreen());
           },
         ),

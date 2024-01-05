@@ -37,7 +37,7 @@ class PaymentContainer extends StatelessWidget {
                                   ),
                                   Text(
                                       e!.numberCard
-                                          .toString()
+                                          .toString() 
                                           .substring(12)
                                           .padRight(12, '*'),
                                       style: TextStyle(
