@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-
 part 'charging_event.dart';
 part 'charging_state.dart';
 
@@ -14,7 +13,6 @@ class ChargingBloc extends Bloc<ChargingEvent, ChargingState> {
       EmptyCarsEvent event, Emitter<ChargingState> emit) async {
     try {
       final id = supabase.auth.currentUser?.id;
-     await Future.delayed(const Duration(seconds: 2));
       final cars = await supabase.from("cars").select().eq("id_user", id!);
       if (cars.isNotEmpty) {
         final states = await supabase

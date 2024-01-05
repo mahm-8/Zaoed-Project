@@ -25,7 +25,6 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
-    // final card = context.read<CardBloc>();
     final user = context.read<UserBloc>();
     return Scaffold(
       backgroundColor: AppColors().gray9,
