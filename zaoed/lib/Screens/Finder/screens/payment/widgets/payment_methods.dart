@@ -4,7 +4,6 @@ class PaymentMethods extends StatelessWidget {
   PaymentMethods({
     super.key,
   });
-
   final paymentConfig = PaymentConfig(
     publishableApiKey: 'sk_test_WV8xzDhDfPDVq8UzSivsBUUBF5CebbhknDsF6uPo',
     amount: 25758, // SAR 257.58

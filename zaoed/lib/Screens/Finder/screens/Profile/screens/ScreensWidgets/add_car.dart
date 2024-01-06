@@ -1,15 +1,22 @@
-// ignore: must_be_immutable
 import 'package:zaoed/constants/imports.dart';
 
-class AddCar extends StatelessWidget {
-  AddCar({super.key});
+// ignore: must_be_immutable
+class AddCar extends StatefulWidget {
+  const AddCar({super.key});
 
+  @override
+  State<AddCar> createState() => _AddCarState();
+}
+
+class _AddCarState extends State<AddCar> {
   final List<String> listBrand = <String>[
     'تيسلا',
     'شيفروليه بولت',
     'نيسان ليف',
     'بي ام دبليو أي3'
   ];
+
+  Set<Marker> markerSet = {};
 
   String brand = "brand";
 
@@ -115,7 +122,6 @@ class AddCar extends StatelessWidget {
               },
             ),
             const SizedBox(height: 10),
-
             const TitleInfoWidget(title: 'الموقع'),
             Container(
               width: context.getWidth(divide: 1.2),
@@ -123,6 +129,43 @@ class AddCar extends StatelessWidget {
               decoration: BoxDecoration(
                   color: AppColors().gray6,
                   borderRadius: BorderRadius.circular(15)),
+              child: FutureBuilder(
+                future: DefaultAssetBundle.of(context).loadString(
+                    'lib/assets/google_map_style/dark_map_style.json'),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return GoogleMap(
+                      initialCameraPosition: const CameraPosition(
+                        target: LatLng(
+                          24.600006977521694,
+                          46.77827529205053,
+                        ),
+                        zoom: 5,
+                      ),
+                      mapType: MapType.normal,
+                      markers: markerSet,
+                      zoomControlsEnabled: true,
+                      onTap: (position) {
+                        setState(() {
+                          markerSet = {
+                            Marker(
+                              markerId: const MarkerId('marker'),
+                              position: position,
+                            )
+                          };
+                        });
+                      },
+                      onMapCreated: (GoogleMapController controller) {
+                        setMapStyle(controller, snapshot.data.toString());
+                      },
+                    );
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
+              ),
             )
           ],
         ),

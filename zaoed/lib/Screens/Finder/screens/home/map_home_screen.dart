@@ -10,7 +10,7 @@ class MapHomeScreen extends StatelessWidget {
     context.read<BottomSheetStatusBloc>().add(StatusBottomEvent());
     final blocTest = context.read<BottomSheetStatusBloc>();
     if (blocTest.state is TestState) {
-      Future.delayed(Duration(seconds: 6), () {
+      Future.delayed(const Duration(seconds: 6), () {
         blocTest.switchShowBottomSheet(context, blocTest.statusUsed!);
         // ignore: invalid_use_of_visible_for_testing_member
         blocTest.emit(BottomSheetStatusInitial());

@@ -1,6 +1,6 @@
-// ignore: must_be_immutable
 import 'package:zaoed/constants/imports.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key, required this.type});
   final _emailKey = GlobalKey<FormState>();

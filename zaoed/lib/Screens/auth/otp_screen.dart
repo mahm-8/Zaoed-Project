@@ -68,7 +68,8 @@ class OTPScreen extends StatelessWidget {
               BlocListener<AuthBloc, AuthStates>(
                 listener: (context, state) {
                   if (state is SuccessVerificationState) {
-                    context.pushAndRemoveUntil(view: NavigationBarScreen());
+                    context.read<AuthBloc>().add(CheckLoginEvent());
+                    context.pushAndRemoveUntil(view: const LoadingScreen());
                   }
                   if (state is ErrorVerificationState) {
                     context.showErrorMessage(msg: state.message);

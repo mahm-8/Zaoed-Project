@@ -4,6 +4,7 @@ class ChargingStatuesScreen extends StatefulWidget {
   const ChargingStatuesScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ChargingStatuesScreenState createState() => _ChargingStatuesScreenState();
 }
 
