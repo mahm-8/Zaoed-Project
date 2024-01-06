@@ -1,6 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/change_pass.dart.dart';
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_account.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/personal_information_label.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PersonalContainer extends StatelessWidget {
@@ -35,7 +32,7 @@ class PersonalContainer extends StatelessWidget {
                             dateController: dateController,
                             nameController: nameController,
                             phoneController: phoneController,
-                            selectGender: user?.gender ?? "Select gender"));
+                            selectGender: user?.gender ?? "إختيار الجنس"));
                   },
                   subTitle: user?.name ?? "",
                 ),
@@ -51,7 +48,7 @@ class PersonalContainer extends StatelessWidget {
                             dateController: dateController,
                             nameController: nameController,
                             phoneController: phoneController,
-                            selectGender: user?.gender ?? "Select gender"));
+                            selectGender: user?.gender ?? "إختيار الجنس"));
                   },
                   subTitle: user?.birthday ?? "",
                 ),
@@ -67,7 +64,7 @@ class PersonalContainer extends StatelessWidget {
                             dateController: dateController,
                             nameController: nameController,
                             phoneController: phoneController,
-                            selectGender: user?.gender ?? "Select gender"));
+                            selectGender: user?.gender ?? "إختيار الجنس"));
                   },
                   subTitle: user?.gender ?? "",
                 ),
@@ -83,7 +80,7 @@ class PersonalContainer extends StatelessWidget {
                             dateController: dateController,
                             nameController: nameController,
                             phoneController: phoneController,
-                            selectGender: user?.gender ?? "Select gender"));
+                            selectGender: user?.gender ?? "إختيار الجنس"));
                   },
                   subTitle: user?.phone ?? "",
                 ),

@@ -5,9 +5,12 @@ class RatingLevelWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.imagUrl,
+    required this.isChecked,
+    required this.onChecked,
   });
   final String title, imagUrl;
-
+  final bool isChecked;
+  final ValueChanged<bool?> onChecked;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,6 +21,14 @@ class RatingLevelWidget extends StatelessWidget {
           Text(
             title,
             style: const TextStyle().style33,
+          ),
+          Checkbox(
+            activeColor: AppColors().green,
+            checkColor: AppColors().mainWhite,
+            shape: const CircleBorder(),
+            value: isChecked,
+            side: BorderSide(color: AppColors().mainWhite),
+            onChanged: onChecked,
           ),
         ],
       ),

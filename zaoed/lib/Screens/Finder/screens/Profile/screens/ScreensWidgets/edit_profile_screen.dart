@@ -1,5 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/info_user.dart';
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/log_out_show_dailog.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -8,20 +6,13 @@ class EditProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: ElevatedButton(
-            onPressed: () {
+        floatingActionButton: ButtonWidget(
+            textEntry: "تسجيل الخروج",
+            onPress: () {
               logOutShowDailog(context);
             },
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-                foregroundColor: AppColors().gray8,
-                minimumSize: Size(context.getWidth(divide: 1.1), 40),
-                backgroundColor: AppColors().green),
-            child: Text(
-              "تسجيل الخروج",
-              style: const TextStyle().appBarTitlestyle,
-            )),
+            backColor: AppColors().green,
+            textColor: AppColors().gray8),
         appBar: appBar(context, title: 'البيانات الشخصية'),
         backgroundColor: AppColors().gray9,
         body: SafeArea(

@@ -6,7 +6,6 @@ class HomeScreen extends StatelessWidget {
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    ActionSupabaseMethods().port();
     final bloc = context.read<FinderBloc>();
     return Padding(
       padding: const EdgeInsets.all(20.0),

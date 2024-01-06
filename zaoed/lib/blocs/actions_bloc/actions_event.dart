@@ -30,3 +30,23 @@ class CaponEvent extends ActionsEvent {
 }
 
 class StatusCarsEvent extends ActionsEvent {}
+
+class FilterChargerSelectionEvent extends ActionsEvent {
+  final int index;
+
+  FilterChargerSelectionEvent(this.index);
+}
+
+class ChargingSpeedFilterEvent extends ActionsEvent {
+  final int index;
+  final bool value;
+
+  ChargingSpeedFilterEvent(this.index, this.value);
+}
+
+class StarFilterEvent extends ActionsEvent {
+  final int index;
+  final bool value;
+
+  StarFilterEvent(this.index, this.value);
+}

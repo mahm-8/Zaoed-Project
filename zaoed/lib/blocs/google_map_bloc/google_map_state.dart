@@ -1,4 +1,5 @@
 part of 'google_map_bloc.dart';
+
 abstract class GoogleMapState {}
 
 final class GoogleMapInitial extends GoogleMapState {}
@@ -10,7 +11,6 @@ class GoogleMapUpdatedState extends GoogleMapState {
 }
 
 class FetchPolylineState extends GoogleMapState {
-  // final LatLng? distention;
   final Set<Polyline> polylines;
   final Set<Marker> markers;
 

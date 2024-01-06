@@ -11,7 +11,7 @@ class SavedBookmarksScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
-      appBar: customAppBar(context, title: "المحفوظات", showIcon: true),
+      appBar: customAppBar(context, title: "المحفوظات", showIcon: false),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -36,6 +36,7 @@ class SavedBookmarksScreen extends StatelessWidget {
                   height: context.getHeight(divide: 1.3),
                   child: ListView.builder(
                       shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
                       itemCount: state.bookmarks.length,
                       itemBuilder: (context, index) {
                         final bookmarks = state.bookmarks[index];

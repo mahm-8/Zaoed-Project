@@ -1,10 +1,9 @@
-
 import 'package:zaoed/constants/imports.dart';
 
 class AddInformation extends StatelessWidget {
   AddInformation(
       {super.key,
-      this.selectGender = "Select gender",
+      this.selectGender = "إختيار الجنس",
       required this.dateController,
       required this.nameController,
       required this.phoneController});
@@ -18,45 +17,41 @@ class AddInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: BlocListener<UserBloc, UserState>(
-        listenWhen: (previous, current) {
-          if (current is SuccessUpdateState) {
-            return true;
-          }
-          return false;
-        },
-        listener: (context, state) {
-          if (state is SuccessUpdateState) {
-            context.successAddInfo(msg: 'تم إضافة البيانات بنجاح');
-            final user = context.read<UserBloc>();
-
-            Future.delayed(const Duration(seconds: 2), () {
-              context.push(view: EditProfileScreen(user: user.user));
-            });
-          }
-        },
-        child: ElevatedButton(
-          onPressed: () {
-            final user = UserModel(
-                name: nameController.text,
-                phone: phoneController.text,
-                birthday: dateController.text,
-                gender: selectGender);
-            context.read<UserBloc>().add(UpdateUserEvent(user));
-            context.showLoading();
+          listenWhen: (previous, current) {
+            if (current is SuccessUpdateState) {
+              return true;
+            }
+            return false;
           },
-          style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              foregroundColor: AppColors().gray8,
-              minimumSize: Size(context.getWidth(divide: 1.1), 40),
-              backgroundColor: AppColors().green),
-          child: const Text(
-            "حفظ",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-        ),
-      ),
+          listener: (context, state) {
+            if (state is SuccessUpdateState) {
+              context.successAddInfo(msg: 'تم إضافة البيانات بنجاح');
+              final user = context.read<UserBloc>();
+
+              Future.delayed(const Duration(seconds: 2), () {
+                context.push(view: EditProfileScreen(user: user.user));
+              });
+            }
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ButtonWidget(
+              textEntry: "حفظ",
+              onPress: () {
+                final user = UserModel(
+                    name: nameController.text,
+                    phone: phoneController.text,
+                    birthday: dateController.text,
+                    gender: selectGender);
+                context.read<UserBloc>().add(UpdateUserEvent(user));
+                context.showLoading();
+              },
+              backColor: AppColors().green,
+              textColor: AppColors().gray8,
+            ),
+          )),
       backgroundColor: AppColors().gray9,
       appBar: appBar(context, title: 'البيانات الشخصية'),
       body: Padding(

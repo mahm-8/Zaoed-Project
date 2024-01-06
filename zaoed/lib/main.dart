@@ -72,7 +72,7 @@ class MainApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: const LoadingScreen(),
+        home: NavigationBarScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

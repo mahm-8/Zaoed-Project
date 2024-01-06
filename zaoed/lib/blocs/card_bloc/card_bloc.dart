@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/model/card_model.dart';
 
 part 'card_event.dart';
 part 'card_state.dart';

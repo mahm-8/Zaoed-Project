@@ -27,6 +27,7 @@ class _DropDownWidgetState extends State<DropDownWidget> {
       collapsedTextColor: AppColors().white,
       collapsedBackgroundColor: AppColors().gray6,
       backgroundColor: AppColors().gray6,
+      iconColor: AppColors().green,
       textColor: AppColors().white,
       collapsedShape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),

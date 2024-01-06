@@ -110,7 +110,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
             break;
         }
       }
-      
+
       emit(ChargingTypeCountUpdated(currentCount));
     });
 
@@ -123,6 +123,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
         emit(GetProviderChargingPointsState(
             providerChargingPoints: providerPointsData));
       } catch (e) {
+        print(e);
         return;
       }
     });

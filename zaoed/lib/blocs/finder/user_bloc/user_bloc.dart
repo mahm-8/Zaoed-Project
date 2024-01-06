@@ -67,24 +67,21 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       final time = DateTime.now().millisecondsSinceEpoch;
       final idAuth = supabase.auth.currentUser!.id;
 
-      // get image by id
       var list = await supabase.storage.from("profile_image").list();
       String? id;
-      // search for name image
+
       for (var x in list) {
         if (x.name.startsWith(idAuth)) {
           id = x.name;
-          //remove old image
+
           await supabase.storage.from("profile_image").remove([id]);
         }
       }
 
-      //upload new image
       await supabase.storage.from('profile_image').uploadBinary(
           '$idAuth-$time.png', event.image,
           fileOptions: const FileOptions(upsert: true));
       await Future.delayed(const Duration(seconds: 1));
-      // get url and saved on table user
       final upload = supabase.storage
           .from('profile_image')
           .getPublicUrl('$idAuth-$time.png');

@@ -12,7 +12,6 @@ class FilterScreen extends StatelessWidget {
           showIcon: true,
           title: "التصفية",
           backTitle: "تطبيق", onPress: () {
-        // show dialog done
         showDialog(
           barrierColor: Colors.transparent,
           context: context,
@@ -22,21 +21,9 @@ class FilterScreen extends StatelessWidget {
             );
           },
         );
-        // if not filtiring not found
-        // // show dialog or show empty list
-        // dialog
-        // showDialog(
-        //   barrierColor: Colors.transparent,
-        //   context: context,
-        //   builder: (context) {
-        //     return const ShowDialog(
-        //       title: "عذرا لا تتوفر نقاط شحن بهذه المواصفات",
-        //     );
-        //   },
-        // );
 
         Future.delayed(const Duration(seconds: 2), () {
-          Navigator.pop(context);
+          context.pop();
         });
       }),
       body: Padding(

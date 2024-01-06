@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/test_pay.dart';
 
 class PaymentContainer extends StatelessWidget {
   PaymentContainer({
@@ -37,7 +36,7 @@ class PaymentContainer extends StatelessWidget {
                                   ),
                                   Text(
                                       e!.numberCard
-                                          .toString() 
+                                          .toString()
                                           .substring(12)
                                           .padRight(12, '*'),
                                       style: TextStyle(

@@ -14,7 +14,7 @@ AppBar customAppBar(
     centerTitle: true,
     leading: IconButton(
         onPressed: () {
-          Navigator.pop(context);
+          context.pop();
         },
         icon: Visibility(
           visible: showIcon,

@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 ratingBottomSheet(BuildContext context,
     {TextEditingController? controller, double rate = 1.0}) {

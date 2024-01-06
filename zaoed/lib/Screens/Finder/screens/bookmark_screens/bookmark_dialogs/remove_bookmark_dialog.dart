@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaoed/constants/imports.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
-import 'package:zaoed/components/dialog_widgets/dialog_widget.dart';
-import 'package:zaoed/providor_show_dialogs/components/state_dialog.dart';
 
 class RemoveBookMarkDialog extends StatelessWidget {
   const RemoveBookMarkDialog({
@@ -27,7 +24,7 @@ class RemoveBookMarkDialog extends StatelessWidget {
                 context
                     .read<ActionsBloc>()
                     .add(DeleteBookmarkEvent(bookmarkID: bookmarkID));
-                Navigator.of(context).pop();
+                context.pop();
 
                 showDialog(
                   barrierColor: Colors.transparent,
@@ -38,13 +35,19 @@ class RemoveBookMarkDialog extends StatelessWidget {
                     );
                   },
                 );
-                // Future.delayed(const Duration(seconds: 3), () {
-                //   Navigator.of(context).pop(); // Dismiss the dialog
-                // });
               },
               button2: 'إلغاء',
               pressTwo: () {
-                Navigator.of(context).pop();
+                context.pop();
+                showDialog(
+                  barrierColor: Colors.transparent,
+                  context: context,
+                  builder: (context) {
+                    return const StateDialog(
+                      title: "تم الإلغاء",
+                    );
+                  },
+                );
               },
             );
           },

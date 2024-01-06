@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/capon_widget.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 

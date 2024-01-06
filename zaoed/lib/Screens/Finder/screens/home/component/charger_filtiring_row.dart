@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargerFiltiringRow extends StatelessWidget {
@@ -7,54 +8,57 @@ class ChargerFiltiringRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/GB.png',
-              name: 'GB/T AC',
-            ),
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/Type 2.png',
-              name: 'Type 2',
-            ),
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/Tesla.png',
-              name: 'Tesla',
-            ),
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/Type 1.png',
-              name: 'Type 1',
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 16,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/T DC.png',
-              name: 'GB/T DC',
-            ),
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/CCS 2.png',
-              name: 'CCS 2',
-            ),
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/Chademo.png',
-              name: 'chademo',
-            ),
-            ChargersWidget(
-              imageAsset: 'lib/assets/icons/CCS 1.png',
-              name: 'CCS 1',
-            ),
-          ],
-        ),
-      ],
+    final bloc = context.read<ActionsBloc>();
+    return SizedBox(
+      height: 80,
+      child: BlocBuilder<ActionsBloc, ActionsState>(
+        builder: (context, state) {
+          if (state is ChargerFilterState) {
+            return ListView.separated(
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    width: 8,
+                  );
+                },
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: bloc.chargerImageUrl.length,
+                itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      bloc.add(FilterChargerSelectionEvent(index));
+                    },
+                    child: ChargersWidget(
+                      imageAsset: bloc.chargerImageUrl[index],
+                      name: bloc.chargerTypes[index],
+                      isSelected: state.selected == index,
+                    ),
+                  );
+                }));
+          }
+          return ListView.separated(
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  width: 8,
+                );
+              },
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemCount: bloc.chargerImageUrl.length,
+              itemBuilder: ((context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    bloc.add(FilterChargerSelectionEvent(index));
+                  },
+                  child: ChargersWidget(
+                    imageAsset: bloc.chargerImageUrl[index],
+                    name: bloc.chargerTypes[index],
+                    isSelected: 0 == index,
+                  ),
+                );
+              }));
+        },
+      ),
     );
   }
 }

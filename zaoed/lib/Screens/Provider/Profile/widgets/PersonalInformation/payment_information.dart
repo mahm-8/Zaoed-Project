@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/screens/bank_information.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PaymentInformation extends StatelessWidget {

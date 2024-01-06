@@ -1,18 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:moyasar/moyasar.dart';
-import 'package:zaoed/Screens/Finder/screens/payment/widgets/view_web.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/text_style.dart';
-import 'package:zaoed/moyasar/widget/card_utils.dart';
-import 'package:zaoed/moyasar/widget/input_format.dart';
+import 'package:zaoed/constants/imports.dart';
 
-import 'decoration/build_input_decoration.dart';
-import 'methods/show_amount.dart';
-import 'widget/card_form_field.dart';
-import 'widget/save_card_notice.dart';
-
-/// The widget that shows the Credit Card form and manages the 3DS step.
 class CrediCard extends StatefulWidget {
   const CrediCard(
       {super.key,

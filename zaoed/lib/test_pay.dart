@@ -1,4 +1,3 @@
-import 'package:moyasar/moyasar.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PaymentMethods extends StatelessWidget {

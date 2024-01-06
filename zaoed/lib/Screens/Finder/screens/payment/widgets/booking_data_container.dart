@@ -57,7 +57,7 @@ class BookingDataContainer extends StatelessWidget {
               Text(
                 'مدة الحجز: $hour ',
                 style: const TextStyle().style6,
-              )
+              ),
             ],
           )
         ]),

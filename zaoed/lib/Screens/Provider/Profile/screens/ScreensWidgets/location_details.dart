@@ -1,5 +1,4 @@
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_charging_point.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/edit_charging_point_screen.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
@@ -19,8 +18,8 @@ class LocationDetails extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Container(
-        width: 350,
-        height: 99,
+        width: context.getWidth(),
+        height: 115,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: AppColors().gray6,
@@ -39,12 +38,30 @@ class LocationDetails extends StatelessWidget {
                     style: const TextStyle().style3,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const Spacer(),
-                  Text(
-                    "${pointsData.longitude}\n ${pointsData.latitude}",
-                    style: const TextStyle().style39,
-                    overflow: TextOverflow.ellipsis,
-                  )
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  FutureBuilder(
+                    future: const BookingLocationInformation().convertToCity(
+                        pointsData.latitude, pointsData.longitude),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<dynamic> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CircularProgressIndicator(
+                          color: AppColors().green,
+                        );
+                      } else if (snapshot.hasError || snapshot.data == null) {
+                        return const Text("");
+                      } else {
+                        Placemark placemark = snapshot.data!.last;
+                        return Text(
+                          "${placemark.locality} ${placemark.subLocality}",
+                          style: const TextStyle().style8,
+                          overflow: TextOverflow.ellipsis,
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
               const Spacer(),

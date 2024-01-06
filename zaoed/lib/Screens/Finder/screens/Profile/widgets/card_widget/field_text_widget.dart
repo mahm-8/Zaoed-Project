@@ -31,7 +31,7 @@ class FieldTextWidget extends StatelessWidget {
               title,
               style: const TextStyle().style4,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             InkWell(
@@ -42,17 +42,21 @@ class FieldTextWidget extends StatelessWidget {
                 minLines: maxLines,
                 maxLines: maxLines,
                 enabled: isFelid,
+                cursorColor: AppColors().green,
                 keyboardType: keyboardType,
+                
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                   fillColor: AppColors().gray6,
                   filled: true,
                   hintStyle: TextStyle(color: AppColors().white),
                   hintText: hint,
+                 
                   focusedErrorBorder: OutlineStyle.default15Outline,
                   enabledBorder: OutlineStyle.default15Outline,
                   focusedBorder: OutlineStyle.default15Outline,
                   errorBorder: OutlineStyle.default15Outline,
+                  border: OutlineStyle.default15Outline,
                 ),
               ),
             ),

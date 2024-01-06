@@ -1,17 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/loading/loading_screen.dart';
-import 'package:zaoed/blocs/auth_bloc/auth_bloc.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/loading_extension.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/text_style.dart';
-import 'package:zaoed/extensions/validtor.dart';
-import 'package:zaoed/Screens/auth/components/textfield_widget.dart';
-import 'package:zaoed/Screens/auth/tabbar_signup_screen.dart';
-
 // ignore: must_be_immutable
+import 'package:zaoed/constants/imports.dart';
+
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key, required this.type});
   final _emailKey = GlobalKey<FormState>();
@@ -20,7 +9,6 @@ class LoginScreen extends StatelessWidget {
       passwordController = TextEditingController();
   bool pass = false;
   final String type;
-  //tab controller
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,10 +86,7 @@ class LoginScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const TabbarSignup()));
+                context.push(view: const TabbarSignup());
               },
               child: Text(
                 "ليس لديك حساب؟ إنشاء حساب",

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/border_style.dart';
+import 'package:zaoed/constants/imports.dart';
 
 extension OutlineStyle on OutlineInputBorder {
   static OutlineInputBorder defaultEnabledBorder = OutlineInputBorder(

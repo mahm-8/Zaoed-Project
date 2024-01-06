@@ -32,6 +32,16 @@ final class DeleteBookmarkState extends ActionsState {
 
 final class CaponState extends ActionsState {}
 
+final class ChargerFilterState extends ActionsState {
+  final int selected;
+
+  ChargerFilterState({required this.selected});
+}
+
+class FilterChargingSpeedState extends ActionsState {}
+
+class FilterStarState extends ActionsState {}
+
 final class LoadingState extends ActionsState {}
 
 final class ErrorState extends ActionsState {}

@@ -1,5 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/custom_switch_list.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/settings_label.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore: must_be_immutable

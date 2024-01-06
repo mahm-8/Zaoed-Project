@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
+import 'package:geocoding/geocoding.dart';
 import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
-import 'package:geocoding/geocoding.dart';
 
 class BookingLocationInformation extends StatelessWidget {
   const BookingLocationInformation({

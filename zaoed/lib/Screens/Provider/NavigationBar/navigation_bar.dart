@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/charging_statuse/ChargingScreen.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class NavigationBarScreen extends StatelessWidget {

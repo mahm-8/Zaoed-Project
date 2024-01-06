@@ -9,9 +9,9 @@ showDatePickerWidget(
     builder: (_) {
       final size = context.getHeight(divide: 3);
       return Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          color: AppColors().gray8,
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(12),
             topRight: Radius.circular(12),
           ),
@@ -23,9 +23,12 @@ showDatePickerWidget(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      context.pop();
                     },
-                    child: const Text("Done"))),
+                    child: Text(
+                      "إختيار",
+                      style: const TextStyle().style2,
+                    ))),
             SizedBox(
               height: 200,
               child: CupertinoDatePicker(

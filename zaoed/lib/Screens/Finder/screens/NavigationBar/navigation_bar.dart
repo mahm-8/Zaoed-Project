@@ -1,7 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
 
-import '../charging_statuse/ChargingScreen.dart';
-
 class FinderNavigationBarScreen extends StatelessWidget {
   FinderNavigationBarScreen({super.key});
 
@@ -14,7 +12,6 @@ class FinderNavigationBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<UserBloc>().add(GetUserDataEvent());
-    // context.read<ActionsBloc>().add(GetChargingPointsEvent());
 
     return BlocBuilder<PagesBloc, PagesState>(
       builder: (context, state) {

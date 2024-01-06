@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:moyasar/moyasar.dart';
-import 'package:zaoed/constants/colors.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class SaveCardNotice extends StatelessWidget {
   const SaveCardNotice(

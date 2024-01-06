@@ -1,8 +1,6 @@
 // ignore_for_file: must_be_immutable
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Finder/screens/Booking/widgets/charging_type_container.dart';
-import 'package:zaoed/blocs/auth_bloc/page_bloc/pages_bloc.dart';
+
+import 'package:zaoed/constants/imports.dart';
 
 class ChargingTypeRow extends StatelessWidget {
   ChargingTypeRow({super.key, required this.types, required this.imageUrl});

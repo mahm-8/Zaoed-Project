@@ -30,6 +30,15 @@ Future<dynamic> DeleteChargingPoint(BuildContext context, int? pointID) {
         },
         pressTwo: () {
           context.pop();
+          showDialog(
+            barrierColor: Colors.transparent,
+            context: context,
+            builder: (context) {
+              return const StateDialog(
+                title: "تم الإلغاء",
+              );
+            },
+          );
         },
       );
     },

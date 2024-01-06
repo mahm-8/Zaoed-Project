@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class BillTimeDetails extends StatelessWidget {
@@ -7,23 +8,19 @@ class BillTimeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+
+    String formattedDate = DateFormat.yMMMd().format(now);
+    String formattedTime = DateFormat.Hms().format(now);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Wed ,',
+          '$formattedDate ,',
           style: const TextStyle().style26,
         ),
         Text(
-          'Dec 01 ,',
-          style: const TextStyle().style26,
-        ),
-        Text(
-          '2023 .',
-          style: const TextStyle().style26,
-        ),
-        Text(
-          '01:00:00',
+          formattedTime,
           style: const TextStyle().style26,
         ),
       ],

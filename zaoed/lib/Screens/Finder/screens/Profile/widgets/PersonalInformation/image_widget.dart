@@ -1,15 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_event.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_state.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/loading_extension.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/model/user_model.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ImageWidget extends StatelessWidget {
   ImageWidget({
@@ -26,7 +17,7 @@ class ImageWidget extends StatelessWidget {
       BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {
           if (state is ErrorUploadState) {
-            Navigator.of(context).pop();
+            context.pop();
             showDialog(
                 context: context,
                 builder: (context) {
@@ -36,7 +27,7 @@ class ImageWidget extends StatelessWidget {
                 });
           }
           if (state is UploadImageState) {
-            Navigator.of(context).pop();
+            context.pop();
           }
         },
         builder: (context, state) {

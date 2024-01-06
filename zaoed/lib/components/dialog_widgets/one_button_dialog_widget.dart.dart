@@ -19,7 +19,8 @@ class DialogWidgetOneButton extends StatelessWidget {
       key: key,
       alignment: Alignment.center,
       backgroundColor: AppColors().gray6,
-      insetAnimationDuration: const Duration(milliseconds: 100),
+      insetAnimationCurve: Curves.easeInOutExpo,
+      insetAnimationDuration: const Duration(seconds: 2),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         height: 230,
