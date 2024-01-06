@@ -62,6 +62,7 @@ class AddCard extends StatelessWidget {
                 SizedBox(
                   width: context.getWidth(divide: 2.4),
                   child: FieldTextWidget(
+                    keyboardType: TextInputType.datetime,
                     title: 'التاريخ',
                     hint: 'الشهر/السنة',
                     controller: expDateController,
