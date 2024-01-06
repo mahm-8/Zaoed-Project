@@ -13,7 +13,7 @@ class CarScreen extends StatelessWidget {
         child: ButtonWidget(
           textEntry: "إضافة",
           onPress: () {
-            context.push(view: AddCar());
+            context.push(view: const AddCar());
           },
           backColor: AppColors().green,
           textColor: AppColors().gray9,
