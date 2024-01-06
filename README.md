@@ -2,7 +2,7 @@
 
 Zaoed is a mobile application designed to cater to electric car owners, homeowners with electric car charging capabilities, and EV station companies. The app aims to provide electric car owners with a convenient way to find the nearest charging points, while also allowing homeowners to generate additional income by listing their homes as charging points.
 
-##ScreenShot
+## Demo
 
 
 https://github.com/Wadha21/Zaoed-Project/assets/143879896/be0de704-5513-4ae2-a98c-a84b9e456e1c
