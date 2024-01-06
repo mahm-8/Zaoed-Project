@@ -1,4 +1,3 @@
-import 'package:zaoed/components/sheet_method/upload_image_sheet.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PersonalImageContainer extends StatelessWidget {
@@ -17,7 +16,7 @@ class PersonalImageContainer extends StatelessWidget {
               child: BlocConsumer<UserBloc, UserState>(
             listener: (context, state) {
               if (state is ErrorPoviderUploadState) {
-                Navigator.of(context).pop();
+                context.pop();
                 showDialog(
                     context: context,
                     builder: (context) {
@@ -27,8 +26,8 @@ class PersonalImageContainer extends StatelessWidget {
                     });
               }
               if (state is PoviderImageState) {
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
+                context.pop();
+                context.pop();
               }
             },
             builder: (context, state) {

@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/car_widget.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class CarScreen extends StatelessWidget {
@@ -8,19 +7,16 @@ class CarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(context, title: 'بيانات المركبات'),
-      floatingActionButton: ElevatedButton(
-        onPressed: () {
-          context.push(view: AddCar());
-        },
-        style: ElevatedButton.styleFrom(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            foregroundColor: AppColors().gray8,
-            minimumSize: Size(context.getWidth(divide: 1.1), 40),
-            backgroundColor: AppColors().green),
-        child: Text(
-          "إضافة",
-          style: const TextStyle().appBarTitlestyle,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: ButtonWidget(
+          textEntry: "إضافة",
+          onPress: () {
+            context.push(view: AddCar());
+          },
+          backColor: AppColors().green,
+          textColor: AppColors().gray9,
         ),
       ),
       backgroundColor: AppColors().gray9,

@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class ChargeSpeedContainer extends StatelessWidget {
@@ -7,6 +8,7 @@ class ChargeSpeedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ActionsBloc>();
     return Container(
       height: 240,
       width: context.getWidth(),
@@ -15,76 +17,33 @@ class ChargeSpeedContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(8)),
       child: Padding(
         padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            Row(
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: bloc.chargingSpeed.length,
+          itemBuilder: (context, index) {
+            return Row(
               children: [
-                Checkbox(
-                    activeColor: AppColors().green,
-                    checkColor: AppColors().mainWhite,
-                    side: BorderSide(color: AppColors().mainWhite),
-                    value: false,
-                    onChanged: ((value) {
-                      value = value;
-                    })),
-                Text(
-                  "سرعة الشحن (>kw 3.7)",
-                  style: const TextStyle().style22,
+                BlocBuilder<ActionsBloc, ActionsState>(
+                  builder: (context, state) {
+                    return Checkbox(
+                        activeColor: AppColors().green,
+                        checkColor: AppColors().mainWhite,
+                        side: BorderSide(color: AppColors().mainWhite),
+                        value: bloc.chargingSpeedFilters[index],
+                        onChanged: (value) {
+                          context
+                              .read<ActionsBloc>()
+                              .add(ChargingSpeedFilterEvent(index, value!));
+                        });
+                  },
                 ),
-              ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                    activeColor: AppColors().green,
-                    checkColor: AppColors().mainWhite,
-                    side: BorderSide(color: AppColors().mainWhite),
-                    value: false,
-                    onChanged: ((value) {
-                      value = value;
-                    })),
                 Text(
-                  "شبه سريعة (3.7 - 20 kw>)",
+                  bloc.chargingSpeed[index],
                   style: const TextStyle().style22,
-                ),
+                )
               ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                    activeColor: AppColors().green,
-                    checkColor: AppColors().mainWhite,
-                    side: BorderSide(color: AppColors().mainWhite),
-                    value: false,
-                    onChanged: ((value) {
-                      value = value;
-                    })),
-                Text(
-                  "سريعة (20 - 43 kw>)",
-                  style: const TextStyle().style22,
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                    activeColor: AppColors().green,
-                    checkColor: AppColors().mainWhite,
-                    side: BorderSide(color: AppColors().mainWhite),
-                    value: false,
-                    onChanged: ((value) {
-                      /// setstate
-                      value = value;
-                    })),
-                Text(
-                  "فائقة السرعة (43 kw<)",
-                  style: const TextStyle().style22,
-                ),
-              ],
-            ),
-
-            //
-          ],
+            );
+          },
         ),
       ),
     );

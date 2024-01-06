@@ -1,6 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:zaoed/model/user_model.dart';
+import 'package:zaoed/constants/imports.dart';
 
 abstract class UserEvent {}
 
@@ -15,8 +13,10 @@ final class GenderEvent extends UserEvent {
 
   GenderEvent({required this.gender});
 }
+
 final class GetUserDataEvent extends UserEvent {}
-final class UploadImageEvent extends UserEvent{
+
+final class UploadImageEvent extends UserEvent {
   final Uint8List image;
 
   UploadImageEvent(this.image);

@@ -1,8 +1,8 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member
 import 'dart:math';
+import 'package:intl/intl.dart';
 
 import 'package:zaoed/constants/imports.dart';
-import 'package:intl/intl.dart';
 part 'finder_event.dart';
 part 'finder_state.dart';
 
@@ -67,7 +67,6 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
       timeFormat(remainingTimeHour.toInt());
       if (remainingTimeHour > 0 && completedPercentage < 100) {
         remainingTimeHour -= 1;
-        // completedPercentage += 0.1;
         completedPercentage = ((staticRemainingTimeHour - remainingTimeHour) /
                 staticRemainingTimeHour) *
             100;
@@ -86,8 +85,6 @@ class FinderBloc extends Bloc<FinderEvent, FinderState> {
     try {
       final supabase = SupabaseNetworking().getSupabase;
       final id = supabase.auth.currentUser!.id;
-      // final date = '${DateTime.now()}';
-      // final dateFormat = DateFormat().ad().format(date);
       final token = generateToken();
       await supabase.from("invoice").insert({
         "provider_name": event.providerName,

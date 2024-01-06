@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:moyasar/moyasar.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:zaoed/constants/imports.dart';
 
-/// The widget that shows the 3DS step.
 class ThreeDSWebView extends StatefulWidget {
   final String transactionUrl;
   final Function on3dsDone;

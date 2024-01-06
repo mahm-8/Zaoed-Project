@@ -1,4 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/screens/settings_screen.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PublicSittings extends StatelessWidget {
@@ -20,7 +19,6 @@ class PublicSittings extends StatelessWidget {
           imageIcon: 'lib/assets/icons/Settings.png',
           title: 'الإعدادات',
           onTap: () {
-         
             context.push(view: SettingsScreen());
           },
         ),

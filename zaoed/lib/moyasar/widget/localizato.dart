@@ -1,4 +1,3 @@
-/// The Credit Card form supports the English (default) and the Arabic language.
 class Localization {
   final String languageCode;
 

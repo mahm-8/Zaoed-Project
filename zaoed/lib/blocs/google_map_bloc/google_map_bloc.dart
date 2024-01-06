@@ -5,7 +5,6 @@ import 'dart:math' show cos, sqrt, asin;
 import 'package:image/image.dart' as IMG;
 import 'package:zaoed/constants/imports.dart';
 
-
 part 'google_map_event.dart';
 part 'google_map_state.dart';
 
@@ -19,7 +18,6 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
     on<FetchPolylineEvent>(polyline);
 
     on<FetchMarkersEvent>((event, emit) async {
-      // emit(MarkerLoadingState());
       try {
         final response = await supabase
             .from('charging_point')
@@ -39,6 +37,7 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
           emit(MarkerLoadedState(markers));
         }
       } catch (e) {
+        return;
       }
     });
   }

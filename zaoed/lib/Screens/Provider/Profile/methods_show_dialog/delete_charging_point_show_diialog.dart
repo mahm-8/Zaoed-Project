@@ -22,6 +22,15 @@ Future<dynamic> deleteChargingPointShowDialog(BuildContext context) {
         },
         pressTwo: () {
           context.pop();
+          showDialog(
+            barrierColor: Colors.transparent,
+            context: context,
+            builder: (context) {
+              return const StateDialog(
+                title: "تم التراجع",
+              );
+            },
+          );
         },
       );
     },

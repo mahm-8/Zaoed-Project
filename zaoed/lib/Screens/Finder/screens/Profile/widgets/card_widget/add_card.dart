@@ -1,7 +1,5 @@
 import 'package:zaoed/constants/imports.dart';
 
-import 'card_widget.dart';
-
 // ignore: must_be_immutable
 class AddCard extends StatelessWidget {
   AddCard({super.key});

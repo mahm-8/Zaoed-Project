@@ -1,9 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/add_charging_point_show_dialog.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/add_charging_app_bar.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/availability_hours.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/chargeing_type_section.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_location.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_text_field.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore: must_be_immutable
@@ -49,7 +43,7 @@ class AddChargingPoint extends StatelessWidget {
                   backColor: AppColors().green,
                   onPress: () {
                     context.read<ProviderBloc>().add(AddChargingPointEvent(
-                        // edit and add the  charging type from the bloc
+                        
                         controller.text,
                         bloc.selectedHour,
                         bloc.pinLongitude,

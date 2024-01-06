@@ -20,26 +20,15 @@ class LoadingScreen extends StatelessWidget {
           context.read<UserBloc>().add(GetUserDataEvent());
           if (newState.type == 'provider') {
             Future.delayed(const Duration(seconds: 4), () {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => NavigationBarScreen()),
-                  (route) => false);
+              context.pushAndRemoveUntil(view: NavigationBarScreen());
             });
           } else {
             Future.delayed(const Duration(seconds: 3), () {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => FinderNavigationBarScreen()),
-                  (route) => false);
+              context.pushAndRemoveUntil(view: FinderNavigationBarScreen());
             });
           }
         } else if (newState is ErrorCheckState) {
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => const TabBarLogin()),
-              (route) => false);
+          context.pushAndRemoveUntil(view: const TabBarLogin());
         }
       },
       builder: (context, state) {

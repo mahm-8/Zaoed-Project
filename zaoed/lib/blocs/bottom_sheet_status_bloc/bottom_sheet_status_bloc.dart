@@ -80,7 +80,9 @@ class BottomSheetStatusBloc
       await supabase
           .from("invoice")
           .update({"destination": "scan"}).eq('id_auth', id);
-    } catch (e) {}
+    } catch (e) {
+      return;
+    }
   }
 
   FutureOr<void> statusSwitch(

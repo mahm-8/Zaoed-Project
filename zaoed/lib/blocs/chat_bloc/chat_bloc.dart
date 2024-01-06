@@ -1,6 +1,7 @@
 import 'package:zaoed/constants/imports.dart';
 part 'chat_event.dart';
 part 'chat_state.dart';
+
 class ChatBloc extends Bloc<ChatEvent, ChatState> {
   ChatBloc() : super(ChatInitial()) {
     on<GetUserChatEvent>(getUsers);
@@ -12,7 +13,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
 
   String get getCurrentUserId => supabase.auth.currentUser!.id;
 
-// GetUsersEvent :
   getUsers(GetUserChatEvent event, Emitter<ChatState> emit) async {
     try {
       final List allUsers =
@@ -50,8 +50,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   }
 
   Stream getMessages(String toUserId) {
-    // -- listen to stream from (messages) table ,
-    //    and get messages just between (current user) and (selected user)
     final allMesages = supabase
         .from("chats")
         .stream(primaryKey: ['id'])
@@ -62,7 +60,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
             element["id_from"] == toUserId &&
                 element["id_to"] == getCurrentUserId));
 
-// -- convert List<Map> to List<Message>
     final messages = allMesages.map((items) => items
         .map((item) => MessageModel.fromJson(item, getCurrentUserId))
         .toList());

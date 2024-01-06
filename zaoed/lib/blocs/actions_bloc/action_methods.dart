@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:zaoed/model/bookmark_model.dart';
-import 'package:zaoed/model/port_model.dart';
-import 'package:zaoed/service/networking.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class ActionSupabaseMethods {
   final supabase = SupabaseNetworking().getSupabase;
@@ -60,19 +57,6 @@ class ActionSupabaseMethods {
 
     await Future.delayed(const Duration(seconds: 1));
     return chargingPointList;
-  }
-
-  port() async {
-    List<PortModel> chargingPointList = [];
-    final chargingPointData = await supabase
-        .from("port_counter")
-        .select("*,id_charging_point!inner(*)");
-
-    for (var element in chargingPointData) {
-      chargingPointList.add(PortModel.fromJson(element));
-    }
-    await Future.delayed(const Duration(seconds: 1));
-    return chargingPointData;
   }
 
   getProviderChargingPoints() async {

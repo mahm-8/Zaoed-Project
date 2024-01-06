@@ -87,22 +87,13 @@ class _PaymentProcessScreenState extends State<PaymentProcessScreen> {
                               hour: widget.hour,
                               point: widget.chargingPoint.pointName,
                               chargingPoint: widget.chargingPoint));
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NavigationBarScreen()),
-                            (route) => false);
+                        context.pushAndRemoveUntil(view: NavigationBarScreen());
                       } else if (user.user!.type == 'finder') {
                         context
                             .read<BottomSheetStatusBloc>()
                             .add(TestEvent(status: Status.completedPayment));
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  FinderNavigationBarScreen()),
-                          (route) => false,
-                        );
+                        context.pushAndRemoveUntil(
+                            view: FinderNavigationBarScreen());
                       }
                     });
                   },

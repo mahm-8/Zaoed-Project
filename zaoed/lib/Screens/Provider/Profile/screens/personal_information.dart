@@ -1,6 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/log_out_show_dailog.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/personal_container.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/personal_image_container.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class PersonalInformationScreen extends StatelessWidget {

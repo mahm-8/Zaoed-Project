@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/extensions/text_style.dart';
+import 'package:zaoed/constants/imports.dart';
 
 extension ChargingCarSheet on BuildContext {
   chargingCarSheet() {

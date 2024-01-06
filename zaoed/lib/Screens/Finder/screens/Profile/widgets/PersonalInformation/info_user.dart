@@ -1,17 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/ScreensWidgets/edit_profile.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/image_widget.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/add_profile.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/change_pass.dart.dart';
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/delete_account.dart';
-import 'package:zaoed/blocs/finder/user_bloc/user_bloc.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-import 'package:zaoed/model/user_model.dart';
+import 'package:zaoed/constants/imports.dart';
 
 class InfoUser extends StatelessWidget {
   InfoUser({
@@ -48,7 +37,7 @@ class InfoUser extends StatelessWidget {
                           dateController: dateController,
                           nameController: nameController,
                           phoneController: phoneController,
-                          selectGender: user?.gender ?? "Select gender"))),
+                          selectGender: user?.gender ?? "إختيار الجنس"))),
               Divider(color: AppColors().black),
               EditProfile(
                 title: 'تاريخ الميلاد',
@@ -58,7 +47,7 @@ class InfoUser extends StatelessWidget {
                         dateController: dateController,
                         nameController: nameController,
                         phoneController: phoneController,
-                        selectGender: user?.gender ?? "Select gender")),
+                        selectGender: user?.gender ?? "إختيار الجنس")),
               ),
               Divider(color: AppColors().black),
               EditProfile(
@@ -69,7 +58,7 @@ class InfoUser extends StatelessWidget {
                           dateController: dateController,
                           nameController: nameController,
                           phoneController: phoneController,
-                          selectGender: user?.gender ?? "Select gender"))),
+                          selectGender: user?.gender ?? "إختيار الجنس"))),
               Divider(color: AppColors().black),
               EditProfile(
                   title: 'رقم الجوال',
@@ -79,17 +68,24 @@ class InfoUser extends StatelessWidget {
                           dateController: dateController,
                           nameController: nameController,
                           phoneController: phoneController,
-                          selectGender: user?.gender ?? "Select gender"))),
+                          selectGender: user?.gender ?? "إختيار الجنس"))),
               Divider(color: AppColors().black),
               EditProfile(
                   title: 'البريد',
                   value: user?.email ?? "",
                   onPressed: () => context.push(view: ChangePassword())),
               Divider(color: AppColors().black),
-               EditProfile(title: 'كلمة المرور',onPressed: () => context.push(view: ChangePassword()), value: '********'),
+              EditProfile(
+                  title: 'كلمة المرور',
+                  onPressed: () => context.push(view: ChangePassword()),
+                  value: '********'),
               Divider(color: AppColors().black),
-               EditProfile(onPressed: (){deleteAccount(context);},
-                  title: 'حذف الحساب', icon: Icons.keyboard_arrow_left),
+              EditProfile(
+                  onPressed: () {
+                    deleteAccount(context);
+                  },
+                  title: 'حذف الحساب',
+                  icon: Icons.keyboard_arrow_left),
               const SizedBox(
                 height: 10,
               )

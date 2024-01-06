@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/extensions/outline_style.dart';
-import 'package:zaoed/moyasar/widget/network_icon.dart';
+import 'package:zaoed/constants/imports.dart';
 
 InputDecoration buildInputDecoration(
     {required String hintText, bool addNetworkIcons = false}) {

@@ -1,6 +1,5 @@
-// border_style_extension.dart
 
-import 'package:flutter/material.dart';
+import 'package:zaoed/constants/imports.dart';
 
 extension BorderStyleExtension on BorderRadius {
   static BorderRadius defaultBorderRadius = BorderRadius.circular(8);

@@ -1,3 +1,4 @@
+import 'package:zaoed/blocs/actions_bloc/actions_bloc.dart';
 import 'package:zaoed/constants/imports.dart';
 
 class RatingRow extends StatelessWidget {
@@ -7,33 +8,42 @@ class RatingRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ActionsBloc>();
     return Container(
       width: context.getWidth(),
-      height: 86,
+      height: 115,
       decoration: BoxDecoration(
           color: AppColors().gray1Trans,
           borderRadius: BorderRadius.circular(8)),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            RatingLevelWidget(
-                title: "كل الخيارات",
-                imagUrl: "lib/assets/icons/all_rating.png"),
-            RatingLevelWidget(
-                title: "نجمة فأقل ", imagUrl: "lib/assets/icons/one_star.png"),
-            RatingLevelWidget(
-                title: "نجمتين فأقل", imagUrl: "lib/assets/icons/two_star.png"),
-            RatingLevelWidget(
-                title: "ثلاثة فأقل",
-                imagUrl: "lib/assets/icons/three_star.png"),
-            RatingLevelWidget(
-                title: "أربعة فأقل", imagUrl: "lib/assets/icons/four_star.png"),
-            RatingLevelWidget(
-                title: "خمسة نجوم", imagUrl: "lib/assets/icons/five_star.png"),
-          ],
-        ),
+      child: Center(
+        child: ListView.separated(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: BlocBuilder<ActionsBloc, ActionsState>(
+                  builder: (context, state) {
+                    return RatingLevelWidget(
+                      title: bloc.choices[index],
+                      imagUrl: bloc.starimageUrl[index],
+                      isChecked: bloc.starFilters[index],
+                      onChecked: (value) {
+                        context
+                            .read<ActionsBloc>()
+                            .add(StarFilterEvent(index, value!));
+                      },
+                    );
+                  },
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(
+                width: 15,
+              );
+            },
+            itemCount: bloc.starimageUrl.length),
       ),
     );
   }

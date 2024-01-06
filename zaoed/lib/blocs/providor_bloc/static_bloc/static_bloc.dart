@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/static_method/static_hour.dart';
 
 part 'static_event.dart';
 part 'static_state.dart';

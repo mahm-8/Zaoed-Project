@@ -1,9 +1,3 @@
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/add_charging_app_bar.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/availability_hours.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/chargeing_type_section.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_location.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/charging_point_text_field.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/edit_charging_dialog.dart';
 import 'package:zaoed/constants/imports.dart';
 
 // ignore: must_be_immutable

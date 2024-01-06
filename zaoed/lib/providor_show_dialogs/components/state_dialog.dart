@@ -15,7 +15,7 @@ class StateDialog extends StatelessWidget {
       elevation: isScreen ? 0 : 10,
       backgroundColor: isScreen ? Colors.transparent : AppColors().gray6,
       insetAnimationCurve: Curves.easeInOutExpo,
-      insetAnimationDuration: const Duration(microseconds: 800),
+      insetAnimationDuration: const Duration(seconds: 2),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         height: 145,

@@ -15,21 +15,25 @@ class PageOnboardingState extends PagesState {
 
   PageOnboardingState(this.selected);
 }
+
 class PageTapBarState extends PagesState {
   final int selected;
 
   PageTapBarState(this.selected);
 }
+
 class ChargingTimeState extends PagesState {
   final int selected;
 
   ChargingTimeState(this.selected);
 }
+
 class ChargingTypeState extends PagesState {
   final int selected;
 
   ChargingTypeState(this.selected);
 }
+
 class SelectTapSignState extends PagesState {
   final int selected;
 

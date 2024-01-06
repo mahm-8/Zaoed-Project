@@ -1,6 +1,5 @@
-import 'package:moyasar/moyasar.dart';
+import 'package:zaoed/constants/imports.dart';
 
-/// Used by Moyasar API along with any of the supported sources.
 class PaymentConfi {
   static String callbackUrl = "https://example.com/thanks";
 

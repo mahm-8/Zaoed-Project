@@ -1,4 +1,5 @@
-import 'package:image_picker/image_picker.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:zaoed/constants/imports.dart';
 
 uploadImageSheet(BuildContext context) {
@@ -42,11 +43,9 @@ uploadImageSheet(BuildContext context) {
                               source: ImageSource.camera);
                           final imageFile = await image!.readAsBytes();
                           if (imageFile.isNotEmpty) {
-                            // ignore: use_build_context_synchronously
                             context
                                 .read<UserBloc>()
                                 .add(UploadImageEvent(imageFile));
-                            // ignore: use_build_context_synchronously
                             context.showLoading();
                           }
                         },
@@ -76,11 +75,9 @@ uploadImageSheet(BuildContext context) {
                               source: ImageSource.gallery);
                           final imageFile = await image!.readAsBytes();
                           if (imageFile.isNotEmpty) {
-                            // ignore: use_build_context_synchronously
                             context
                                 .read<UserBloc>()
                                 .add(UploadImageEvent(imageFile));
-                            // ignore: use_build_context_synchronously
                             context.showLoading();
                           }
                         },

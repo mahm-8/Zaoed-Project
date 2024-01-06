@@ -16,6 +16,8 @@ class ChargingPointDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<ActionsBloc>();
+    context.read<ProviderBloc>().add(GetProviderChargingPointsEvent());
+    
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors().gray9,
@@ -85,8 +87,3 @@ class ChargingPointDataScreen extends StatelessWidget {
     );
   }
 }
-
-/**
- *
-
- */

@@ -1,15 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/cars_widget/drop_menu.dart';
-import 'package:zaoed/Screens/Finder/screens/Profile/widgets/information_title.dart';
-import 'package:zaoed/blocs/finder/car_bloc/cars_bloc.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-import 'package:zaoed/extensions/navigator.dart';
-import 'package:zaoed/extensions/screen_dimensions.dart';
-
 // ignore: must_be_immutable
+import 'package:zaoed/constants/imports.dart';
+
 class AddCar extends StatelessWidget {
   AddCar({super.key});
 
@@ -39,16 +30,20 @@ class AddCar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: ButtonWidget(
-        textEntry: "حفظ",
-        backColor: AppColors().green,
-        textColor: AppColors().gray8,
-        onPress: () {
-          context
-              .read<CarsBloc>()
-              .add(AddcarEvent(brand: brand, model: model, type: type));
-          context.pop();
-        },
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: ButtonWidget(
+          textEntry: "حفظ",
+          backColor: AppColors().green,
+          textColor: AppColors().gray8,
+          onPress: () {
+            context
+                .read<CarsBloc>()
+                .add(AddcarEvent(brand: brand, model: model, type: type));
+            context.pop();
+          },
+        ),
       ),
       backgroundColor: AppColors().gray9,
       appBar: appBar(context, title: 'إضافة مركبة'),

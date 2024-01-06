@@ -1,5 +1,4 @@
 import 'package:zaoed/constants/imports.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/count_widget.dart';
 
 class ChargingType extends StatelessWidget {
   const ChargingType({

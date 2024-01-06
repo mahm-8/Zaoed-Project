@@ -1,11 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:zaoed/Screens/Provider/Profile/methods_show_dialog/add_bank_show_dialog.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/AppBar/profail_screens_app_bar.dart';
-import 'package:zaoed/Screens/Provider/Profile/screens/ScreensWidgets/bank_text_field.dart';
-import 'package:zaoed/components/button_widget.dart';
-import 'package:zaoed/constants/colors.dart';
-
 // ignore: must_be_immutable
+
+import 'package:zaoed/constants/imports.dart';
+
 class BankInformationScreen extends StatelessWidget {
   BankInformationScreen({super.key});
   final cardNameController = TextEditingController(),
@@ -57,7 +53,7 @@ class BankInformationScreen extends StatelessWidget {
               onPress: () {
                 addBankShowDialog(context);
                 Future.delayed(const Duration(seconds: 2), () {
-                  Navigator.of(context).pop();
+                  context.pop();
                 });
               },
             )

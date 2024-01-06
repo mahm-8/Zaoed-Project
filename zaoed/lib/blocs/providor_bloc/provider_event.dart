@@ -43,8 +43,7 @@ class EditChargingPointEvent extends ProviderEvent {
   final int? pointID;
   final int chargingCount;
 
-  // ??
-  // final String chargingType;
+
 
   EditChargingPointEvent(
       {required this.pointID,
