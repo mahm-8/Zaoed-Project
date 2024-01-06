@@ -200,7 +200,7 @@ export 'package:zaoed/moyasar/widget/network_icon.dart';
 export 'package:zaoed/Screens/Finder/screens/charging_statuse/ChargingScreen.dart';
 export 'package:zaoed/Screens/Finder/screens/Booking/widgets/charging_type_container.dart';
 export 'package:zaoed/Screens/Finder/screens/payment/widgets/capon_widget.dart';
-export 'package:zaoed/test_pay.dart';
+export 'package:zaoed/Screens/Finder/screens/payment/widgets/payment_methods.dart';
 export 'package:webview_flutter/webview_flutter.dart';
 export 'package:zaoed/Screens/Finder/screens/Profile/widgets/car_widget.dart';
 export 'package:zaoed/Screens/Finder/screens/Profile/widgets/PersonalInformation/info_user.dart';
