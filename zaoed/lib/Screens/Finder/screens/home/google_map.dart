@@ -18,7 +18,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   @override
   void initState() {
     super.initState();
-    // context.read<GoogleMapBloc>().add(FetchMarkersEvent());
     init();
   }
 
@@ -31,7 +30,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     getCurrentLocation();
   }
 
-//24.82434094026811, 46.715431292126944
   getCurrentLocation() {
     location?.getLocation().then((location) {
       currentLocation = location;

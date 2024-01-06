@@ -12,7 +12,7 @@ class SignUpScreen extends StatelessWidget {
   final nameController = TextEditingController(),
       emailController = TextEditingController(),
       passwordController = TextEditingController();
-  //tab controller
+
 
   @override
   Widget build(BuildContext context) {

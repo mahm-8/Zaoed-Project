@@ -27,7 +27,7 @@ class ChargingTypeSection extends StatelessWidget {
                 children: [
                   ChargingType(
                     imageUrl: 'lib/assets/icons/GB.png',
-                    // edit? edit on count: bloc.count;
+                   
                     count: isEdit ? 0 : bloc.count1,
                     type: 'GB/T AC',
                     decrement: () {

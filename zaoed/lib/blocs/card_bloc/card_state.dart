@@ -12,11 +12,3 @@ class GetCardDataState extends CardState {
 
   GetCardDataState(this.cards);
 }
-// class AddCardState extends CardState {
-//   final String name;
-//   final String cardNumber;
-//   final String endDate;
-//   final String cvv;
-
-//   AddCardState({required this.name, required this.cardNumber, required this.endDate, required this.cvv});
-// }

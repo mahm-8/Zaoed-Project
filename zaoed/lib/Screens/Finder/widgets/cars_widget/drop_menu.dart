@@ -36,9 +36,7 @@ class DropMenu extends StatelessWidget {
         textStyle: TextStyle(color: AppColors().white),
         initialSelection: list.first,
         onSelected: (String? value) {
-          // setState(() {
-          //   dropdownValue = value!;
-          // });
+       
         },
         dropdownMenuEntries:
             list.map<DropdownMenuEntry<String>>((String value) {

@@ -45,7 +45,6 @@ class ChatField extends StatelessWidget {
               child: IconButton(
                 alignment: Alignment.center,
                 onPressed: () {
-                  // send messsage
                   context.read<ChatBloc>().add(MessageEvent(
                       message: controller.text.trim(), idUserTo: toUserId));
                   controller.clear();

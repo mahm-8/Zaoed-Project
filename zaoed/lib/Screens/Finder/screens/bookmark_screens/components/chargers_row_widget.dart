@@ -9,7 +9,6 @@ class ChargersRowWidget extends StatelessWidget {
   final int? portCount;
   final String? chargingPort;
 
-// edit on this to add port lists
   @override
   Widget build(BuildContext context) {
     return Row(

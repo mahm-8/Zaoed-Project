@@ -116,7 +116,6 @@ class AddCar extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
-            /// empty container
             const TitleInfoWidget(title: 'الموقع'),
             Container(
               width: context.getWidth(divide: 1.2),

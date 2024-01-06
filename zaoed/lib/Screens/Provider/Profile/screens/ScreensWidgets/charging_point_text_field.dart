@@ -37,7 +37,7 @@ class AddChargingPointTextField extends StatelessWidget {
               decoration: InputDecoration(
                   fillColor: AppColors().gray6,
                   filled: true,
-                  // if editing return old data else show hint
+               
                   hintText: isEdit ? bloc.pointName : 'المنزل,العمل...',
                   hintStyle: const TextStyle(color: Colors.grey),
                   border: OutlineStyle.defaultBorder),

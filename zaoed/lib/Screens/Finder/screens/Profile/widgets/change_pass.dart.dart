@@ -13,17 +13,7 @@ class ChangePassword extends StatelessWidget {
     return Scaffold(
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          // final user = UserModel(
-          //     name: nameController.text,
-          //     phone: phoneController.text,
-          //     birthday: dateController.text,
-          //     gender: selectGender);
-          // print(user);
-          // context
-          //     .read<AuthBloc>()
-          //     .add(UpdatePassword(passController.text, emailController.text));
-          // context.push(view: TabBarLogin());
-          // context.showLoading();
+        
         },
         style: ElevatedButton.styleFrom(
             shape:

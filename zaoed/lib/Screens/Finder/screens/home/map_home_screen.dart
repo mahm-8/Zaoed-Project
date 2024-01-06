@@ -19,30 +19,11 @@ class MapHomeScreen extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body:
-            // BlocBuilder<BottomSheetStatusBloc, BottomSheetStatusState>(
-            //   builder: (context, state) {
-            //     if (state is SuccessStatusState) {
-            //       final bottomSheetStatusBloc = context.read<BottomSheetStatusBloc>();
-            //       WidgetsBinding.instance.addPostFrameCallback((_) {
-            //         bottomSheetStatusBloc.switchShowBottomSheet(
-            //           context,
-            //           state.status,
-            //         );
-            //       });
-            //     } else if (state is DestinationState) {
-            //       if (bloc.point != null) {
-            //         WidgetsBinding.instance.addPostFrameCallback((_) {
-            //           context.arrivedToCharging(chargingPoint: bloc.point);
-            //         });
-            //       }
-            //     }
-            // return
             Stack(children: [
           const Positioned.fill(child: GoogleMapScreen()),
           HomeScreen(),
         ])
-        // },
-        // ),
+      
         );
   }
 }

@@ -47,7 +47,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
     });
     on<ChargingTypeIncrementCountEvent>((event, emit) {
       int index = int.parse(
-          event.name.substring(5)); // Extract the index from the event name
+          event.name.substring(5)); 
 
       switch (index) {
         case 1:
@@ -169,7 +169,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
 
     on<EditChargingPointEvent>((event, emit) async {
       try {
-        //
+  
         final id = supabase.auth.currentUser?.id;
         final chargingPoint = await supabase
             .from("charging_point")
@@ -187,7 +187,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
           updateElements
               .addAll({"id_charging_point": chargingPoint["point_id"]});
           theList.add(updateElements);
-          // event.chargingCount how to get
+        
         }
         await supabase.from('port_counter').insert(theList);
 

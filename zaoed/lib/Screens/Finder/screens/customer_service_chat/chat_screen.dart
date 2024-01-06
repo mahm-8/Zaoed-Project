@@ -4,7 +4,7 @@ class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
 
   final chatController = TextEditingController();
-  // final UserModel user;
+
 
   @override
   Widget build(BuildContext context) {

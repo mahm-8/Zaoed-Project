@@ -30,9 +30,6 @@ class AddChargingPointEvent extends ProviderEvent {
   final String arrivelHours;
   final double? longitude;
   final double? latitude;
-  // getchargertype????
-  // final int portCount;
-  // final String chargingPortName;
   AddChargingPointEvent(
       this.chargingPointName, this.arrivelHours, this.longitude, this.latitude);
 }

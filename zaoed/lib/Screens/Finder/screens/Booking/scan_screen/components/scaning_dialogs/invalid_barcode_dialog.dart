@@ -11,8 +11,6 @@ class InvalidBarcodeDialog extends StatelessWidget {
       button1: "إعادة المحاولة",
       pressOne: () {
         context.pop();
-
-        // call camera event again
       },
       button2: "الدعم",
       pressTwo: () {

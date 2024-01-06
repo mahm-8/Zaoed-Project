@@ -27,7 +27,7 @@ class AppColors {
   Gradient greenRadiant2 = const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [Color(0xff3FEDB2), Color(0xff5C5F6C)]); //
+      colors: [Color(0xff3FEDB2), Color(0xff5C5F6C)]); 
   Gradient pageRadiant = const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,

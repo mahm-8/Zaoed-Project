@@ -38,7 +38,6 @@ class CardBloc extends Bloc<CardEvent, CardState> {
           card.add(CardModel.fromJson(element));
         }
         emit(GetCardDataState(card));
-        // print(cardList?[0].numberCard);
       } catch (e) {
         if (kDebugMode) {
           print(e);

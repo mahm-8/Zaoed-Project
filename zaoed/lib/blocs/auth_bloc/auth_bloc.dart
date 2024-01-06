@@ -12,7 +12,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     on<LogInAuthEvent>(login);
     on<CheckLoginEvent>(_check);
     on<LogoutEvent>(logoutMethod);
-    // on<UpdatePassword>(updatePassword);
   }
   signUp(SignUpEvent event, emit) async {
     List<bool> isValidation = [];
@@ -156,18 +155,4 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       emit(ErrorLogoutState(error.toString()));
     }
   }
-
-  // FutureOr<void> updatePassword(
-  //     UpdatePassword event, Emitter<AuthStates> emit) async {
-  //   final supabase = SupabaseNetworking().getSupabase;
-  //   try {
-  //     final id = supabase.auth.currentUser!.id;
-
-  //     await supabase.auth.resetPasswordForEmail(
-  //       "xbox-w@live.com",
-  //     );
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
 }

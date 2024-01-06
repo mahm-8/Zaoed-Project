@@ -32,9 +32,7 @@ class AddToBookmarkDialog extends StatelessWidget {
                     );
                   },
                 );
-                // Future.delayed(const Duration(seconds: 3), () {
-                //   context.pop();
-                // });
+             
               },
               button2: 'إلغاء',
               pressTwo: () {
