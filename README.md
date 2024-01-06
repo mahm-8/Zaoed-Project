@@ -25,7 +25,7 @@ Zaoed is a mobile application designed to cater to electric car owners, homeowne
 - **Payment Information:** Users can securely add their pavment information,
 
 - **Scan and Start Charging:** After making the payment, users can scan a barcode or QR code provided by the charging point to initiate the charging process for their electric car.
-- ** Map and Navigation: ** The app provides a map view with a polyline route displayed between the user's current location and the selected charging point. This guides the user to the charging point efficiently.
+- **Map and Navigation:** The app provides a map view with a polyline route displayed between the user's current location and the selected charging point. This guides the user to the charging point efficiently.
 
 - **Rate and Review Charging Points:** Users can provide ratings and reviews for the charging points they have used. This feedback helps other users make informed decisions about the quality and reliability of charging points.
 
