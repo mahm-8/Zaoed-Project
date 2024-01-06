@@ -35,10 +35,12 @@ class PaymentContainer extends StatelessWidget {
                                     width: 4,
                                   ),
                                   Text(
-                                      e!.numberCard
-                                          .toString()
-                                          .substring(12)
-                                          .padRight(12, '*'),
+                                      e?.numberCard
+                                              ?.substring(12)
+                                              .padRight(12, '*') ??
+                                          "0000000000000000"
+                                              .substring(12)
+                                              .padRight(12, '*'),
                                       style: TextStyle(
                                           fontSize: 12,
                                           color: AppColors().white)),

@@ -10,15 +10,20 @@ class CardBloc extends Bloc<CardEvent, CardState> {
       final supabase = SupabaseNetworking().getSupabase;
       final id = supabase.auth.currentUser?.id;
       try {
-        await supabase.from('card').insert({
-          'name': event.name,
-          'number_card': event.cardNumber,
-          'exp_card': event.endDate,
-          'csv': event.cvv,
-          "id_user": id
-        });
+        if (event.cardNumber.isNotEmpty &&
+            event.cvv.isNotEmpty &&
+            event.endDate.isNotEmpty &&
+            event.name.isNotEmpty) {
+          await supabase.from('card').insert({
+            'name': event.name,
+            'number_card': event.cardNumber,
+            'exp_card': event.endDate,
+            'csv': event.cvv,
+            "id_user": id
+          });
 
-        emit(AddCardState());
+          emit(AddCardState());
+        }
       } catch (e) {
         return;
       }
