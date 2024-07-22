@@ -5,7 +5,6 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   app_links
   file_selector_windows
-  smart_auth
   url_launcher_windows
 )
 
