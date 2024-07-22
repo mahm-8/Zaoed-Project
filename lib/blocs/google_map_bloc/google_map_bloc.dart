@@ -78,9 +78,8 @@ class GoogleMapBloc extends Bloc<GoogleMapEvent, GoogleMapState> {
     final List<LatLng> polylineCoordinates = [];
     final PolylinePoints polylinePoints = PolylinePoints();
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-      'AIzaSyB_pskxOAYeFwmfRTn-nQRRVocOj1Dyj6I',
-      PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
-      PointLatLng(sourceLocation1.latitude, sourceLocation1.longitude),
+      googleApiKey: 'AIzaSyB_pskxOAYeFwmfRTn-nQRRVocOj1Dyj6I',
+       request: PolylineRequest(origin: PointLatLng(sourceLocation.latitude, sourceLocation.longitude), destination: PointLatLng(sourceLocation1.latitude, sourceLocation1.longitude), mode: TravelMode.driving),
     );
     if (result.points.isNotEmpty) {
       result.points.forEach((PointLatLng point) {

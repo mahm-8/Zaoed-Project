@@ -28,7 +28,7 @@ class ActionSupabaseMethods {
       final confirm = await supabase
           .from("bookmark")
           .select()
-          .match({"point_id": pointID, "id_auth": id!});
+          .match({"point_id": pointID!, "id_auth": id!});
       if (confirm.isEmpty) {
         await supabase
             .from("bookmark")

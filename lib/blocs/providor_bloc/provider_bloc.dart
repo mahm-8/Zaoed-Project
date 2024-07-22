@@ -177,7 +177,7 @@ class ProviderBloc extends Bloc<ProviderEvent, ProviderState> {
               "point_name": event.chargingPointName,
               "arrivel_hour": event.arrivelHours,
             })
-            .match({'id_auth': id!, "point_id": event.pointID})
+            .match({'id_auth': id!, "point_id": event.pointID!})
             .select()
             .single();
 
